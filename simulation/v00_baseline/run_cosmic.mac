@@ -1,0 +1,36 @@
+# Macro for Realistic Cosmic Muon Simulation using GPS
+
+# Initialize
+/run/initialize
+
+# --- GPS CONFIGURATION ---
+/gps/particle mu-
+
+# 1. Source Position (Plane above detector)
+/gps/pos/type Plane
+/gps/pos/shape Square
+/gps/pos/centre 0 25 0 cm
+/gps/pos/halfx 10 cm
+/gps/pos/halfy 10 cm
+# (Note: "halfy" here refers to the local Y of the plane. 
+# Since we usually rotate, let's just make it big enough to cover the detectors)
+
+# 2. Angular Distribution (Cosmic Ray angular dependence)
+# Standard approximation: I ~ cos^2(theta)
+/gps/ang/type cos
+/gps/ang/maxtheta 80 deg
+# Note: GPS 'cos' is cosine law (Lambertian). 
+# For stricter cos^2, user-defined histograms are needed, but this is sufficient for "realistic" approx.
+/gps/direction 0 -1 0
+
+# 3. Energy Distribution (Power Law)
+# Cosmic muons at sea level: Mean ~ 4 GeV, Tail ~ E^-2.7
+/gps/ene/type Pow
+/gps/ene/min 1 GeV
+/gps/ene/max 100 GeV
+/gps/ene/alpha -2.7
+
+# --- RUN ---
+# Run 10000 events
+/run/printProgress 1000
+/run/beamOn 10000

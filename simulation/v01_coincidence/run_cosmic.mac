@@ -1,0 +1,56 @@
+# Macro for Realistic Cosmic Muon Simulation using GPS
+# Improvements:
+# 1. Includes both mu- and mu+ (Charge ratio ~1.27 at sea level).
+# 2. Covers the full detector geometry (Stack height ~31 cm).
+
+# Initialize
+/run/initialize
+
+# --- SOURCE 1: Negative Muons (Intensity 1.0) ---
+/gps/source/intensity 1.0
+/gps/particle mu-
+
+# Position: Plane above detector
+# Stack extends to Y = +15.5 cm. Source at Y = 25 cm is safe.
+/gps/pos/type Plane
+/gps/pos/shape Square
+/gps/pos/centre 0 25 0 cm
+/gps/pos/halfx 15 cm
+/gps/pos/halfy 15 cm
+
+# Angular: Cosine distribution (approx for sea level)
+/gps/ang/type cos
+/gps/ang/maxtheta 80 deg
+/gps/direction 0 -1 0
+
+# Energy: Power Law (E^-2.7)
+/gps/ene/type Pow
+/gps/ene/min 1 GeV
+/gps/ene/max 100 GeV
+/gps/ene/alpha -2.7
+
+# --- SOURCE 2: Positive Muons (Intensity 1.27) ---
+/gps/source/add 1.27
+/gps/particle mu+
+
+# Position (Same as Source 1)
+/gps/pos/type Plane
+/gps/pos/shape Square
+/gps/pos/centre 0 25 0 cm
+/gps/pos/halfx 15 cm
+/gps/pos/halfy 15 cm
+
+# Angular (Same as Source 1)
+/gps/ang/type cos
+/gps/ang/maxtheta 80 deg
+/gps/direction 0 -1 0
+
+# Energy (Same as Source 1)
+/gps/ene/type Pow
+/gps/ene/min 1 GeV
+/gps/ene/max 100 GeV
+/gps/ene/alpha -2.7
+
+# --- RUN ---
+/run/printProgress 1000
+/run/beamOn 10000
