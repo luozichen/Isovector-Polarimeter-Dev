@@ -24,7 +24,6 @@
 - Observed "Corner Clipping" effect in the bottom detector.
 
 **2026-01-03:**
-- Fixed issues with the Geant4 physics list.
 - Printing outercasing for Scintillator (v2)
 
 **2026-01-02:**
