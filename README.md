@@ -24,6 +24,13 @@
 
 ### January 2026
 * **2026-01-06:**
+    * **Milestone: First "Full Detector" Prototype (Preview Version) assembled and functional.**
+    * **Assembly Details:**
+      * Integrated Scintillator casing (v3), PMT casing (v1), and Base casing (v1).
+      * Used silicone gel at the scintillator-PMT interface for optical coupling.
+      * Applied a light-tightness layer: Teflon tape on the scintillator's exposed face, followed by black electrical tape.
+      * Wrapped the PMT in tin foil (for electromagnetic shielding/reflection) and secured with electrical tape.
+      * *Note:* Casings have minor dimensional misalignments; used electrical tape for structural joining in this iteration.
    * Printed outer casing for Scintillator (v3) for the second time, with glue.
    * **Logistics:** Teflon tape arrived.
    * **Troubleshooting (PMT Signal):** Partially resolved the "weird signal" issue from Jan 01.
