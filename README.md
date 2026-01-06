@@ -16,7 +16,7 @@
 - [ ] 3D Entry/Exit tracking implementation
 
 ### Hardware Assembly
-- [ ] Physical Assembly (Soldering in progress)
+- [ ] Physical Assembly (In progress)
 
 ---
 
