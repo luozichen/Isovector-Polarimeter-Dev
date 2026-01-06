@@ -23,6 +23,14 @@
 ## 📅 Development Log
 
 ### January 2026
+* **2026-01-06:**
+* Printed outer casing for Scintillator (v3) for the second time, with glue.
+* **Logistics:** Teflon tape arrived.
+* **Troubleshooting (PMT Signal):** Partially resolved the "weird signal" issue from Jan 01.
+* *Investigation:* Ruled out oscilloscope and PMT hardware defects (swapped channels, tested with a 3rd fresh PMT).
+* *Solution:* Adjusted parameters per Zhou Yan's advice. Reduced LED drive from 5.5V to 2.8V and switched oscilloscope trigger from **LED Source** to **PMT Signal (Self-Trigger)**.
+* *Result:* Valid PMT pulses observed on the commercial base. Swapped back to custom bases (v2) and original PMTs; valid signals confirmed on all units.
+* *Conclusion:* Previous "square" signals and Over Current (OvC) were due to excessive LED driving voltage. PMTs are **not** burnt; PCBs are functional. True single-photoelectron signals are stochastic and require self-triggering to resolve at low voltages.
 * **2026-01-05:**
     * Printed outer casing for Scintillator (v3) with glue.
     * Printed outer casing for Base (v1) with glue.
@@ -37,7 +45,7 @@
     * Printing outer casing for Scintillator (v1).
 * **2026-01-01:**
     * Testing of the 4 bases.
-    * *Issue:* Anomalous signal detected across all four bases (even previously verified ones). Suspecting PMT defects, though switching PMTs did not resolve the issue.
+    * *Issue:* Anomalous signal detected across all four bases (even previously verified ones). Suspecting PMT defects, though switching PMTs did not resolve the issue. Neither did switching bases.
 
 ### December 2025
 * **2025-12-30:**
