@@ -23,7 +23,7 @@
 ## 📅 Development Log
 
 ### January 2026
-* **2026-01-06:**
+* **2026-01-07:**
     * Printed outer casing for Scintillator (v3) for the third time, with glue.
 * **2026-01-06:**
     * **Milestone: First "Full Detector" Prototype (Preview Version) assembled and functional.**
