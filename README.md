@@ -23,6 +23,9 @@
 ## 📅 Development Log
 
 ### January 2026
+* **2026-01-08:**
+    * Printed outer casing for Scintillator (v4) for the fourth (and final) time, with glue.
+    * Literature review submitted for undergraduate thesis proposal
 * **2026-01-07:**
     * Printed outer casing for Scintillator (v3) for the third time, with glue.
 * **2026-01-06:**
