@@ -23,6 +23,9 @@
 ## 📅 Development Log
 
 ### January 2026
+* **2026-01-10:**
+    * Printed outer casing for PMT (v2) for the first time, with glue.
+    * Completed thesis proposal presentation and assessment.
 * **2026-01-08:**
     * Printed outer casing for Scintillator (v4) for the fourth (and final) time, with glue.
     * Literature review submitted for undergraduate thesis proposal
