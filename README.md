@@ -7,17 +7,19 @@
 | **Supervisor** | Prof. Xiao Zhigang |
 | **Focus** | Hardware Dev & Geant4 Simulation |
 
-## 📍 Project Status
+## 📍 Project Goal
 
-### Simulation & Analysis
-- [x] Geant4 Geometry defined (15cm plastic scintillator)
-- [x] Initial Cosmic Ray Simulation (Logic verification)
-- [x] Landau Energy Deposition Analysis (Python)
-- [ ] 3D Entry/Exit tracking implementation
+### Detector Hardware Development
+- [x] Electronics Design: Iteratively design and solder the PMT Voltage Divider PCB.
+- [x] Mechanical Structure: Design and 3D print the base and light-tight casing.
+- [ ] System Integration: Complete the optical coupling of scintillators to PMTs and the final assembly of 4 detector units.
+- [ ] Cosmic Ray Testing: Construct a cosmic ray telescope system to verify the detector's logic coincidence and long-term operational stability.
+- [ ] Energy Calibration: Utilize the laboratory's Thorium source (Th-232) to perform precise energy calibration.
 
-### Hardware Assembly
-- [ ] Physical Assembly (In progress)
-
+### Theoretical Derivation & Physics Simulation
+- [ ] Polarization Derivation: Starting from quantum scattering theory, derive the analytical relationship between the deuteron-proton (d-p) elastic scattering cross-section and the beam's tensor polarization.
+- [ ] Detection Simulation: Write code to simulate the scattering of the polarized deuteron beam on a methlyne target, and obtain the detector response, verifying the derivation and the rationality of the detector layout.
+- [ ] Physics Verification: Using the ImQMD transport model to simulate the entire IVR experiment process, verifying the sensitivity of the experimental results to the beam polarization.
 ---
 
 ## 📅 Development Log
