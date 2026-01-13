@@ -36,6 +36,7 @@
 * **2026-01-10:**
     * Printed outer casing for PMT (v2) for the first time, applied bed adhesive for improved first-layer adhesion.
     * Completed thesis proposal presentation and assessment.
+* **2026-01-09:**
     * Ordered a batch of 100 M3 bolts (60mm)
 * **2026-01-08:**
     * Printed outer casing for Scintillator (v4) for the fourth (and final) time, applied bed adhesive for improved first-layer adhesion.
