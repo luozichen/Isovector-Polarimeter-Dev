@@ -25,8 +25,9 @@
 ## 📅 Development Log
 
 ### January 2026
+* **2026-01-13:**
 * **2026-01-12:**
-    * Printed outer casing for PMT (v2) for the fourth time, applied bed adhesive for improved first-layer adhesion.
+    * Printed outer casing for PMT (v2) for the fourth and final time, applied bed adhesive for improved first-layer adhesion.
     * Printed outer casing for Base (v2) for the first time, applied bed adhesive for improved first-layer adhesion.
     * Received the batch of 100 M3 bolts (60mm).
 * **2026-01-11:**
@@ -49,6 +50,7 @@
       * Applied a light-tightness layer: Teflon tape on the scintillator's exposed face, followed by black electrical tape.
       * Wrapped the PMT in tin foil (for electromagnetic shielding/reflection) and secured with electrical tape.
       * *Note:* Casings have minor dimensional misalignments; used electrical tape for structural joining in this iteration.
+      * *Note:* This iteration serves as a proof-of-concept; future versions will feature refined casing tolerances to eliminate the need for adhesive tape for structural integrity.
    * Printed outer casing for Scintillator (v3) for the second time, applied bed adhesive for improved first-layer adhesion.
    * **Logistics:** Teflon tape arrived.
    * **Troubleshooting (PMT Signal):** Partially resolved the "weird signal" issue from Jan 01.
