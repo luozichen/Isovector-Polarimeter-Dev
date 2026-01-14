@@ -25,7 +25,15 @@
 ## 📅 Development Log
 
 ### January 2026
+* **2026-01-14:**
+   * Printed outer casing for Base (v3) for the first and final time, applied bed adhesive for improved first-layer adhesion. (This casing is needed for Base 01, as it doesn't fit as tightly to the PMT as the other bases)
+   * Assembled third detector with finalised design: (Outer scintillator casing v4 + Outer PMT casing v2 + Outer base casing v2 + Base 03)
 * **2026-01-13:**
+   * Printed outer casing for Base (v2) for the second time, applied bed adhesive for improved first-layer adhesion.
+   * Printed outer casing for Base (v2) for the third time, applied bed adhesive for improved first-layer adhesion.
+   * Reassembled first detector with finalised design: (Outer scintillator casing v4 + Outer PMT casing v2 + Outer base casing v2 + Base 02)
+   * Assembled second detector with finalised design: (Outer scintillator casing v4 + Outer PMT casing v2 + Outer base casing v2 + Base 04)
+   * Detected cosmic ray signal passing through both detectors.
 * **2026-01-12:**
     * Printed outer casing for PMT (v2) for the fourth and final time, applied bed adhesive for improved first-layer adhesion.
     * Printed outer casing for Base (v2) for the first time, applied bed adhesive for improved first-layer adhesion.
