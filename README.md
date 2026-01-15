@@ -12,8 +12,8 @@
 ### Detector Hardware Development
 - [x] Electronics Design: Iteratively design and solder the PMT Voltage Divider PCB.
 - [x] Mechanical Structure: Design and 3D print the base and light-tight casing.
-- [ ] System Integration: Complete the optical coupling of scintillators to PMTs and the final assembly of 4 detector units.
-- [ ] Cosmic Ray Testing: Construct a cosmic ray telescope system to verify the detector's logic coincidence and long-term operational stability.
+- [x] System Integration: Complete the optical coupling of scintillators to PMTs and the final assembly of 4 detector units.
+- [x] Cosmic Ray Testing: Construct a cosmic ray telescope system to verify the detector's logic coincidence and long-term operational stability.
 - [ ] Energy Calibration: Utilize the laboratory's Thorium source (Th-232) to perform precise energy calibration.
 
 ### Theoretical Derivation & Physics Simulation
@@ -25,9 +25,14 @@
 ## 📅 Development Log
 
 ### January 2026
+* **2026-01-15:**
+   * Assembled fourth and final detector with finalised design: (Outer scintillator casing v4 + Outer PMT casing v2 + Outer base casing v3 + Base 01)
+   * Cosmic rays detected in all four detectors.
 * **2026-01-14:**
    * Printed outer casing for Base (v3) for the first and final time, applied bed adhesive for improved first-layer adhesion. (This casing is needed for Base 01, as it doesn't fit as tightly to the PMT as the other bases)
    * Assembled third detector with finalised design: (Outer scintillator casing v4 + Outer PMT casing v2 + Outer base casing v2 + Base 03)
+     * Before assembly, the PMT and base was tested with LED signal. Signal was picked up in the oscilloscope, but not caused by LED. LED was definitely working (visible blue light when cranked up to 5V.) But PMT couldn't measure the signal when LED was at 2.8V, which had worked before. Unsure of what caused the issue.
+     * Gambled on the assumption that PMT and base were working fine, and assembled the detector anyways. Cosmic rays were detected.
 * **2026-01-13:**
    * Printed outer casing for Base (v2) for the second time, applied bed adhesive for improved first-layer adhesion.
    * Printed outer casing for Base (v2) for the third time, applied bed adhesive for improved first-layer adhesion.
