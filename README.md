@@ -28,6 +28,8 @@
 * **2026-01-15:**
    * Assembled fourth and final detector with finalised design: (Outer scintillator casing v4 + Outer PMT casing v2 + Outer base casing v3 + Base 01)
    * Cosmic rays detected in all four detectors.
+   * Switched the polarity of NDT1471's CH1 and CH2 to negative. (So that all four channels have negative polarity)
+   * All four detectors placed in a vertical stack. Some cosmic ray signals detected simultaneously by all detectors.
 * **2026-01-14:**
    * Printed outer casing for Base (v3) for the first and final time, applied bed adhesive for improved first-layer adhesion. (This casing is needed for Base 01, as it doesn't fit as tightly to the PMT as the other bases)
    * Assembled third detector with finalised design: (Outer scintillator casing v4 + Outer PMT casing v2 + Outer base casing v2 + Base 03)
