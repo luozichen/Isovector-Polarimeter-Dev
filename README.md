@@ -28,6 +28,7 @@
 ### January 2026
 * **2026-01-17:**
    * Identified another critical bug in the Geant4 simulation `v01_coincidence`. Due to the non-standard geometry orientation used, the cosmic rays should be entering from the y direction, instead of the z direction. Although that was included in the original code, it broke the cos^2 implementation, making all the particles enter parallel to the detector stack. (But then how would this explain the corner clipping effect seen previously with data from this run?)
+   * Identified a bug in `v01_coincidence` simulation, the two detector labels were switched.
    * Fixed the geometry of the 2-detector stack (v01.1). In this version, the whole detector system is reoriented so that z is the direction of cosmic-rays (which matches the G4 standard)
    * Coded the geometry of the 4-detector stack (v02). The ROOT file now also records the precise Entry and Exit coordinates for every detector layer. This is imporant for a) Geometric Acceptance Verification, and b) "Golden Event" Filtering.
 * **2026-01-16:**
