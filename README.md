@@ -27,7 +27,7 @@
 ### January 2026
 * **2026-01-17:**
 * **2026-01-16:**
-   * Found a critical bug in the cosmic ray source for simulation v01_coincidence (cosmic ray energy deposit simulation for a stack of two detectors). The source plane is oriented incorrectly, and partially overlaps with the top detector.
+   * Identified a critical bug in the Geant4 simulation `v01_coincidence` regarding the cosmic ray source definition. The source plane was incorrectly oriented and partially intersecting the geometry of the top detector. Correcting the source coordinates and rotation to ensure a proper flux through the detector stack.
 * **2026-01-15:**
    * Assembled fourth and final detector with finalised design: (Outer scintillator casing v4 + Outer PMT casing v2 + Outer base casing v3 + Base 01)
    * Cosmic rays detected in all four detectors.
