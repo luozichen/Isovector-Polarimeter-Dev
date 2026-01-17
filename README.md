@@ -29,36 +29,39 @@
 * **2026-01-16:**
    * Identified a critical bug in the Geant4 simulation `v01_coincidence` regarding the cosmic ray source definition. The source plane was incorrectly oriented and partially intersecting the geometry of the top detector. Correcting the source coordinates and rotation to ensure a proper flux through the detector stack.
 * **2026-01-15:**
-   * Assembled fourth and final detector with finalised design: (Outer scintillator casing v4 + Outer PMT casing v2 + Outer base casing v3 + Base 01)
+   * Assembled fourth and final detector with finalised design: (Outer scintillator casing v3 + Outer PMT casing v2 + Outer base casing v3 + Base 01)
    * Cosmic rays detected in all four detectors.
    * Switched the polarity of NDT1471's CH1 and CH2 to negative. (So that all four channels have negative polarity)
    * All four detectors placed in a vertical stack. Some cosmic ray signals detected simultaneously by all detectors.
 * **2026-01-14:**
-   * Printed outer casing for Base (v3) for the first and final time, applied bed adhesive for improved first-layer adhesion. (This casing is needed for Base 01, as it doesn't fit as tightly to the PMT as the other bases)
-   * Assembled third detector with finalised design: (Outer scintillator casing v4 + Outer PMT casing v2 + Outer base casing v2 + Base 03)
+   * Printed outer casing for Base (v3) for the first and final time, applied bed adhesive for improved first-layer adhesion. (The cavity of the casing is slightly deeper ~2mm than v2, needed for Base 01, as it doesn't fit as tightly to the PMT as the other bases)
+   * Assembled third detector with finalised design: (Outer scintillator casing v3 + Outer PMT casing v2 + Outer base casing v2 + Base 03)
      * Before assembly, the PMT and base was tested with LED signal. Signal was picked up in the oscilloscope, but not caused by LED. LED was definitely working (visible blue light when cranked up to 5V.) But PMT couldn't measure the signal when LED was at 2.8V, which had worked before. Unsure of what caused the issue.
      * Gambled on the assumption that PMT and base were working fine, and assembled the detector anyways. Cosmic rays were detected.
 * **2026-01-13:**
    * Printed outer casing for Base (v2) for the second time, applied bed adhesive for improved first-layer adhesion.
    * Printed outer casing for Base (v2) for the third time, applied bed adhesive for improved first-layer adhesion.
-   * Reassembled first detector with finalised design: (Outer scintillator casing v4 + Outer PMT casing v2 + Outer base casing v2 + Base 02)
-   * Assembled second detector with finalised design: (Outer scintillator casing v4 + Outer PMT casing v2 + Outer base casing v2 + Base 04)
+   * Reassembled first detector with finalised design: (Outer scintillator casing v3 + Outer PMT casing v2 + Outer base casing v2 + Base 02)
+   * Assembled second detector with finalised design: (Outer scintillator casing v3 + Outer PMT casing v2 + Outer base casing v2 + Base 04)
    * Detected cosmic ray signal passing through both detectors.
+   * Submitted the Literature report, Thesis Proposal Assessment, and Thesis Progress report to the department.
 * **2026-01-12:**
     * Printed outer casing for PMT (v2) for the fourth and final time, applied bed adhesive for improved first-layer adhesion.
+    * Designed outer casing for Base (v2). Improvements: changed the design of the pilot holes to be compatible with 60mm M3 bolts.
     * Printed outer casing for Base (v2) for the first time, applied bed adhesive for improved first-layer adhesion.
     * Received the batch of 100 M3 bolts (60mm).
 * **2026-01-11:**
     * Printed outer casing for PMT (v2) for the second time, applied bed adhesive for improved first-layer adhesion.
     * Printed outer casing for PMT (v2) for the third time, applied bed adhesive for improved first-layer adhesion.
 * **2026-01-10:**
+    * Designed outer casing for PMT (v2). Improvements: Increase in diameter for the PMT to go through (to account for the increase in diamter when PMT is wrapped in tin foil and electric tape.) Also, changed the pilot hole design to be compatible for 60mm M3 bolts.
     * Printed outer casing for PMT (v2) for the first time, applied bed adhesive for improved first-layer adhesion.
     * Completed thesis proposal presentation and assessment.
 * **2026-01-09:**
-    * Ordered a batch of 100 M3 bolts (60mm)
+    * Ordered a batch of 100 M3 bolts (60mm).
 * **2026-01-08:**
-    * Printed outer casing for Scintillator (v4) for the fourth (and final) time, applied bed adhesive for improved first-layer adhesion.
-    * Literature review submitted for undergraduate thesis proposal
+    * Printed outer casing for Scintillator (v3) for the fourth (and final) time, applied bed adhesive for improved first-layer adhesion.
+    * Literature review for undergraduate thesis proposal submitted to Prof Xiao.
 * **2026-01-07:**
     * Printed outer casing for Scintillator (v3) for the third time, applied bed adhesive for improved first-layer adhesion.
 * **2026-01-06:**
@@ -81,36 +84,53 @@
     * Printed outer casing for Scintillator (v3), applied bed adhesive for improved first-layer adhesion.
     * Printed outer casing for Base (v1) applied bed adhesive for improved first-layer adhesion.
 * **2026-01-04:**
-    * **Simulation:** Successfully ran 10,000 event simulation. Updated to accurate geometry (150x150x120mm), excluding Teflon/tape wrapping.
+    * **Simulation:** Successfully ran 10,000 event simulation (v01). Updated to accurate geometry (150x150x120mm), excluding Teflon/tape wrapping.
     * **Analysis:** Verified coincidence logic between stacked detectors. Observed "Corner Clipping" effect in the bottom detector.
     * **Hardware:** Printed outer casing for PMT (v1), applied bed adhesive for improved first-layer adhesion.
-* **2026-01-03:** Printing outer casing for Scintillator (v2).
+* **2026-01-03:** Printing outer casing for Scintillator (v2). But there were some curvature. Didn't apply 3D printing adhesive to the printing bed.
 * **2026-01-02:**
-    * **Milestone:** Produced the first clean Landau distribution plots.
+    * **Milestone:** Produced the first clean Landau distribution plots via G4 simulation (v00).
     * Successfully ran first batch of 10,000 events (CSV data, 152.5x152.5x122.5mm scintillator size).
-    * Printing outer casing for Scintillator (v1).
+    * Printing outer casing for Scintillator (v1). But the casing dimensions were slightly off. Did not account for thickness of the teflon and electric tape.
 * **2026-01-01:**
     * Testing of the 4 bases.
     * *Issue:* Anomalous signal detected across all four bases (even previously verified ones). Suspecting PMT defects, though switching PMTs did not resolve the issue. Neither did switching bases.
 
 ### December 2025
+* **2025-12-31:**
+    * *Happy New Year!*
 * **2025-12-30:**
     * **Inventory:** 100x Pin Receptacles arrived.
-    * **Assembly:** Fully assembled the 2 remaining bases (4 total). Config: Custom PCB + Custom Socket Housing + Custom Bulkhead + M2 50mm screws.
+    * Printed Socket housing v4 two times.
+    * Soldered the remaining two PCB boards (Aligned the PCBv2 with Socket housing v4. Then crimped, and inserted, and soldered in place the 15 receptacles.)
+    * Noticed that the bulkhead plate v2 was "slippery". The connectors slide when trying to connect/unconnect them.
+    * Designed and printed bulkhead plate v3, with double D cut. (but faulty dimensions for bnc)
+    * Designed and printed four bulkhead plates v4, with correct double D cut dimensions.
+    * **Assembly:**
+      * Ressembled first 2 bases. PCBv2 + Socket Housing v3 + Bulkhead Plate v4 + Inner casing v1 + 4x M2 50mm bolts and nuts.
+      * Assembled last 2 bases. PCBv2 + Socket Housing v4 + Bulkhead Plate v4 + Inner casing v1 + 4x M2 50mm bolts and nuts.
+    * Note: Base 1 doesn't plug into the PMT as well as the others, (due to how it was soldered). It doesn't plug in "as fully". Resulting in a slightly longer total length from end of base to the other end (PMT). Need to consider this when making outer casing.
 * **2025-12-29:**
-    * **Inventory:** 6x PETG Filament rolls and 50x M2 50mm screws arrived.
-    * Printed Socket housing
-    * Printed Bulkhead Plate
-    * Printed Inner Casing.
-    * **Assembly:** Fully assembled 2 bases.
+    * **Inventory:** 6x PETG Filament rolls and 50x M2 50mm bolts arrived.
+    * Printed Socket housing v3 for the second time.
+    * Printed Bulkhead Plate v1. (But realised that in reality the BNC connector was slightly smaller than SHV connector)
+    * Designed and printed Bulkhead Plate v2. (Which has better hole sizes of each connector)
+    * Printed Inner Casing v1. (A cylindrical shell. The "Shell" is about 5mm thick, with 4 pilot holes extruded all the way through to allow M2 bolts to go through.)
+    * **Assembly:** Assembled base 1 and base 2 (Socket housing v3 + PCBv2 board + Inner casing v1 + bulkhead plate v2).
+    * Tested both bases using Dark Box + Blue LED. Signal was observed across both Bases.
+* **2025-12-27:**
+    * Designed bulkhead plate v1
 * **2025-12-26:**
     * PLA filament ran out. Plan to switch printing material from PLA to PETG. Ordered 6 rolls.
     * Ordered restock of receptacles (x100)
     * Ordered a batch of 50 M2 bolts (50mm).
+    * Resigned Socket housing (v4), slightly increase diameter for the "donut hole" of the socket housing ring. Purpose was to avoid it from contacting with the solder bump, which will offset the alignment. (Not a major offset, did not affect base 1 and 2 a lot)
 * **2025-12-25:** 🎄 *Merry Christmas!* Dark Box and LED test on (PCBv2Board2 + ZRJ's bulkhead plate). **Signal Detected.**
 * **2025-12-24:**
     * Printed Socket housing (v1).
-    * Crimped receptacles that were connected to Socket housing (v1) were soldered to PCBv2Board2.
+    * Printed Socket housing (v2), with a shorter housing height to match the length of the receptacle. Also increase socket size slightly, (to account for change of diameter when recaptacles are crimped)
+    * Printed Socket housing (v3), with another increase of socket diameter over v2.
+    * Crimped receptacles that were connected to Socket housing (v3) were soldered to PCBv2Board2.
 * **2025-12-23:** Began independent design of Socket housing (v1).
 * **2025-12-22:**
     * **Test:** Connected HV to first prototype. Conducted Dark box + LED test.
