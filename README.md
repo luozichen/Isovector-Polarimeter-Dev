@@ -14,10 +14,11 @@
 - [x] Mechanical Structure: Design and 3D print the base and light-tight casing.
 - [x] System Integration: Complete the optical coupling of scintillators to PMTs and the final assembly of 4 detector units.
 - [x] Cosmic Ray Testing: Construct a cosmic ray telescope system to verify the detector's logic coincidence and long-term operational stability.
-- [ ] Energy Calibration: Utilize the laboratory's Thorium source (Th-232) to perform precise energy calibration.
+- [~] Energy Calibration: Utilize the laboratory's Thorium source (Th-232) to perform precise energy calibration.
+- [/] Energy Calibration: Perform energy calibration by matching experimental Cosmic Ray Muon Landau distributions with Geant4 simulated energy deposits (replacing Th-232 method).
 
 ### Theoretical Derivation & Physics Simulation
-- [ ] Polarization Derivation: Starting from quantum scattering theory, derive the analytical relationship between the deuteron-proton (d-p) elastic scattering cross-section and the beam's tensor polarization.
+- [/] Polarization Derivation: Starting from quantum scattering theory, derive the analytical relationship between the deuteron-proton (d-p) elastic scattering cross-section and the beam's tensor polarization.
 - [ ] Detection Simulation: Write code to simulate the scattering of the polarized deuteron beam on a methlyne target, and obtain the detector response, verifying the derivation and the rationality of the detector layout.
 - [ ] Physics Verification: Using the ImQMD transport model to simulate the entire IVR experiment process, verifying the sensitivity of the experimental results to the beam polarization.
 ---
@@ -26,6 +27,7 @@
 
 ### January 2026
 * **2026-01-17:**
+   * Identified another critical bug in the Geant4 simulation `v01_coincidence`. Due to the non-standard geometry orientation used, the cosmic rays should be entering from the y direction, instead of the z direction. Although that was included in the original code, it broke the cos^2 implementation, making all the particles enter parallel to the detector stack. (But then how would this explain the corner clipping effect seen previously with data from this run?)
 * **2026-01-16:**
    * Identified a critical bug in the Geant4 simulation `v01_coincidence` regarding the cosmic ray source definition. The source plane was incorrectly oriented and partially intersecting the geometry of the top detector. Correcting the source coordinates and rotation to ensure a proper flux through the detector stack.
 * **2026-01-15:**
