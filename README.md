@@ -14,11 +14,11 @@
 - [x] Mechanical Structure: Design and 3D print the base and light-tight casing.
 - [x] System Integration: Complete the optical coupling of scintillators to PMTs and the final assembly of 4 detector units.
 - [x] Cosmic Ray Testing: Construct a cosmic ray telescope system to verify the detector's logic coincidence and long-term operational stability.
-- [~] Energy Calibration: Utilize the laboratory's Thorium source (Th-232) to perform precise energy calibration.
-- [/] Energy Calibration: Perform energy calibration by matching experimental Cosmic Ray Muon Landau distributions with Geant4 simulated energy deposits (replacing Th-232 method).
+- [ ] ~~Energy Calibration: Utilize the laboratory's Thorium source (Th-232) to perform precise energy calibration.~~
+- [ ] Energy Calibration: Perform energy calibration by matching experimental Cosmic Ray Muon Landau distributions with Geant4 simulated energy deposits (replacing Th-232 method).
 
 ### Theoretical Derivation & Physics Simulation
-- [/] Polarization Derivation: Starting from quantum scattering theory, derive the analytical relationship between the deuteron-proton (d-p) elastic scattering cross-section and the beam's tensor polarization.
+- [ ] Polarization Derivation: Starting from quantum scattering theory, derive the analytical relationship between the deuteron-proton (d-p) elastic scattering cross-section and the beam's tensor polarization.
 - [ ] Detection Simulation: Write code to simulate the scattering of the polarized deuteron beam on a methlyne target, and obtain the detector response, verifying the derivation and the rationality of the detector layout.
 - [ ] Physics Verification: Using the ImQMD transport model to simulate the entire IVR experiment process, verifying the sensitivity of the experimental results to the beam polarization.
 ---
