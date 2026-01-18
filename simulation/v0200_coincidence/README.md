@@ -1,4 +1,4 @@
-# Cosmic Ray Muon Simulation (v02 Coincidence)
+# Cosmic Ray Muon Simulation (v02 Coincidence: 4-detector-stack)
 
 This project simulates a **Cosmic Ray Muon Telescope** using Geant4. It models a vertical stack of **four** plastic scintillators to detect cosmic muons via coincidence logic.
 
@@ -69,7 +69,7 @@ Use this to inspect the geometry and see particle tracks.
     ```bash
     /vis/scene/add/gps
     ```
-    *(A yellow square should appear above the detector)*.
+    *(A red square should appear above the detector)*.
 
 5.  **Fire Events:**
     ```bash

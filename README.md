@@ -27,7 +27,7 @@
 
 ### January 2026
 * **2026-01-18:**
-   * Set up Git.
+   * Set up Git. Cleaned up messy runs.
    * Implemented logic for cosmic ray triggering.
      * N625: Signal duplication. There are four sections. Each sections have four inputs and four outputs. Outputs in each section is identical, the value is the sum of the inputs of the section.
      * N843: Discriminator. Converts signals to 0 or 1 depending on whether they meet the threshold voltage or not. (Takes negative voltage inputs)
