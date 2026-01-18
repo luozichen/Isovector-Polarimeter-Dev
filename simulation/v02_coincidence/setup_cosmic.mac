@@ -1,0 +1,51 @@
+# Standard Z-Axis Cosmic Ray Source
+# Optimized for detector stack aligned along Z-axis.
+
+# --- SOURCE 1: Negative Muons (Intensity 1.0) ---
+/gps/source/intensity 1.0
+/gps/particle mu-
+
+# Position: Plane at Z = +25 cm (Above detector)
+/gps/pos/type Plane
+/gps/pos/shape Square
+/gps/pos/centre 0 0 50 cm
+# Define Plane axes to yield Normal = -Z (Downwards)
+# Normal = rot1 x rot2
+# (1,0,0) x (0,-1,0) = (0,0,-1)
+/gps/pos/rot1 1 0 0
+/gps/pos/rot2 0 -1 0
+/gps/pos/halfx 15 cm
+/gps/pos/halfy 15 cm
+
+# Angular: Cosine distribution (around surface normal -Z)
+/gps/ang/type cos
+/gps/ang/maxtheta 80 deg
+
+# Energy: Power Law (E^-2.7)
+/gps/ene/type Pow
+/gps/ene/min 1 GeV
+/gps/ene/max 100 GeV
+/gps/ene/alpha -2.7
+
+# --- SOURCE 2: Positive Muons (Intensity 1.27) ---
+/gps/source/add 1.27
+/gps/particle mu+
+
+# Position (Same as Source 1)
+/gps/pos/type Plane
+/gps/pos/shape Square
+/gps/pos/centre 0 0 50 cm
+/gps/pos/rot1 1 0 0
+/gps/pos/rot2 0 -1 0
+/gps/pos/halfx 15 cm
+/gps/pos/halfy 15 cm
+
+# Angular (Same as Source 1)
+/gps/ang/type cos
+/gps/ang/maxtheta 80 deg
+
+# Energy (Same as Source 1)
+/gps/ene/type Pow
+/gps/ene/min 1 GeV
+/gps/ene/max 100 GeV
+/gps/ene/alpha -2.7

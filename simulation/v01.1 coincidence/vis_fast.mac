@@ -1,0 +1,43 @@
+# Visualization setting for Fast Physics (No Optical Photon drawing)
+
+# Open View
+/vis/open OGL 600x600-0+0
+
+# Disable auto refresh
+/vis/viewer/set/autoRefresh false
+/vis/verbose errors
+
+# Draw geometry
+/vis/drawVolume
+
+# Draw GPS Source (if supported by your Geant4 version)
+/vis/scene/add/gps
+
+# Viewpoint
+/vis/viewer/set/viewpointVector -1 0 0
+/vis/viewer/set/lightsVector -1 0 0
+/vis/viewer/set/style wireframe
+/vis/viewer/set/auxiliaryEdge true
+
+# Draw Trajectories
+/vis/scene/add/trajectories smooth
+/vis/modeling/trajectories/create/drawByCharge
+/vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
+/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 2
+
+# Draw Hits
+/vis/scene/add/hits
+
+# --- CRITICAL: FILTER OUT OPTICAL PHOTONS ---
+# This prevents the "explosion" of green lines
+/vis/filtering/trajectories/create/particleFilter
+/vis/filtering/trajectories/particleFilter-0/add opticalphoton
+/vis/filtering/trajectories/particleFilter-0/invert true
+# ---------------------------------------------
+
+# End of Event Action
+/vis/scene/endOfEventAction accumulate
+
+# Re-enable refresh
+/vis/viewer/set/autoRefresh true
+/vis/verbose warnings
