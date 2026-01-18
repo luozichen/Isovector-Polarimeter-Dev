@@ -1,0 +1,17 @@
+# Ignore Build folders
+build/
+cmake-build-debug/
+
+# Ignore Output Data (Too big for git)
+*.root
+*.csv
+*.txt
+
+# Ignore IDE settings (VS Code / Mac)
+.vscode/
+.DS_Store
+
+# Ignore Compiled Objects
+*.o
+*.a
+*.so
