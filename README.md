@@ -26,11 +26,32 @@
 ## 📅 Development Log
 
 ### January 2026
+* **2026-01-18:**
+   * Set up Git.
+   * Implemented logic for cosmic ray triggering.
+     * N625: Signal duplication. There are four sections. Each sections have four inputs and four outputs. Outputs in each section is identical, the value is the sum of the inputs of the section.
+     * N843: Discriminator. Converts signals to 0 or 1 depending on whether they meet the threshold voltage or not. (Takes negative voltage inputs)
+     * N405: AND/OR. 
+     * NDT1471: the power supply (used already for many weeks).
+   * Setup
+     * Each detector output is connected to N625, where the signal is duplicated. 
+     * A copy of each signal is sent to the oscilliscope.
+     * Another copy is sent to N843. Discriminator for each signal is set to -100mV.
+     * The four outputs are then sent to N405. The AND gate takes in these four inputs, and creates one output.
+     * AND gate output sent to oscilliscope auxilliary channel. Trigger is set to the AUX channel, with voltage -400mV.
+   * Snags
+     * CH0 of the power supply keeps failing to output the voltage (900V) and instead drops to 3V and displaying UnV warning.
+     * Turned off and on the power supply. Works initially, but failed within a few minutes.
+     * Switched power supply between DET01 and DET02, (CH0 and CH1). CH0 still failed. Ruled out detector problems.
+     * Suspecting overheating of power supply. Decreased output of all four channels from 900V to 800V. 
+     * Signal is still seen from the logic trigger despite PMT voltage reduction. Lowered discriminator to 50mV anyways.
+     * CH0 still fails after a while.
 * **2026-01-17:**
    * Identified another critical bug in the Geant4 simulation `v01_coincidence`. Due to the non-standard geometry orientation used, the cosmic rays should be entering from the y direction, instead of the z direction. Although that was included in the original code, it broke the cos^2 implementation, making all the particles enter parallel to the detector stack. (But then how would this explain the corner clipping effect seen previously with data from this run?)
    * Identified a bug in `v01_coincidence` simulation, the two detector labels were switched.
    * Fixed the geometry of the 2-detector stack (v01.1). In this version, the whole detector system is reoriented so that z is the direction of cosmic-rays (which matches the G4 standard)
    * Coded the geometry of the 4-detector stack (v02). The ROOT file now also records the precise Entry and Exit coordinates for every detector layer. This is imporant for a) Geometric Acceptance Verification, and b) "Golden Event" Filtering.
+   * Simulated 100,000 events. Analysed the resulting ROOT files.
 * **2026-01-16:**
    * Identified a critical bug in the Geant4 simulation `v01_coincidence` regarding the cosmic ray source definition. The source plane was incorrectly oriented and partially intersecting the geometry of the top detector. Correcting the source coordinates and rotation to ensure a proper flux through the detector stack.
 * **2026-01-15:**
