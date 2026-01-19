@@ -27,6 +27,11 @@
 
 ### January 2026
 * **2026-01-19:**
+   * **Run 003 Analysis (Switched Detectors):**
+     * **Status:** Analyzed 1000 events from the "switched" configuration (Inner/Outer detectors swapped).
+     * **Noise/Stability:** Observed significantly higher noise floor compared to Run 002. Mean baseline noise rose to ~50-60mV.
+       * Rejection Rate: **27.1% (271/1000)** rejected with the standard 30mV threshold (vs 1.9% in Run 002).
+     * **Results:** Successfully generated Landau fits for the 729 clean events.
    * **Run 002 Analysis (1000 events):**
      * **Noise Filtering:** Implemented a threshold-based filter (rejecting events with Max Voltage > 30mV) to remove large positive noise excursions.
        * Result: **19/1000 events (1.9%) rejected** as noise. Confirmed rejected events were indeed artifacts.
