@@ -36,6 +36,16 @@
        * Identified a secondary burst of 58 events (Indices 505-562).
        * This explains the rapid count increase observed during acquisition.
      * **Results:** Successfully generated Landau fits for the 729 clean events. Plots updated with Run ID labels for clarity.
+   * **Energy Calibration Update:**
+     * **Methodology Change:** Re-evaluated the "True Energy" reference from Geant4 simulation.
+       * *Golden Events (Face-to-Face):* Selecting strictly vertical muons passing through the top face of the top detector and bottom face of the bottom detector. Result: **29.50 MeV**.
+       * *Realistic (4-Fold Coincidence):* Selecting all events that trigger the 4-fold coincidence (matching experiment). Averaged the energy deposition of the **middle two detectors** (Scin1, Scin2) as they are less prone to geometric corner-clipping effects than the outer detectors in this broader acceptance mode. Result: **29.85 MeV**.
+       * *Decision:* Adopted the **Realistic (29.85 MeV)** value as it better represents the experimental trigger condition (which accepts angled tracks with slightly longer path lengths).
+     * **Calculated Calibration Constants:**
+       * **Ch1 (Top):** 272.5 mV → **0.1095 MeV/mV**
+       * **Ch2 (Mid1):** 258.6 mV → **0.1154 MeV/mV**
+       * **Ch3 (Mid2):** 264.1 mV → **0.1130 MeV/mV**
+       * **Ch4 (Bot):** 293.8 mV → **0.1016 MeV/mV**
    * **Run 002 Analysis (1000 events):**
      * **Noise Filtering:** Implemented a threshold-based filter (rejecting events with Max Voltage > 30mV) to remove large positive noise excursions.
        * Result: **19/1000 events (1.9%) rejected** as noise. Confirmed rejected events were indeed artifacts.

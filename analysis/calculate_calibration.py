@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
 Calculate Calibration Constants
-1. Re-analyze Simulation (v0200) with Geometric Filtering (Golden Events).
+1. Re-analyze Simulation (v0200).
+   - Method A: "Golden Events" (Strict Face-to-Face). Straight path, minimum dE.
+   - Method B: "Realistic" (4-Fold Coincidence). Matches experimental trigger.
 2. Calculate True Energy Deposition (MPV).
 3. Combine with Experimental MPVs to get Calibration Constants (MeV/mV).
 """
@@ -13,6 +15,7 @@ from scipy.stats import moyal
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 import sys
+import os
 
 # Configuration
 ROOT_FILE = "simulation/v0200_coincidence/build/DET01_Cosmic_Result.root"
@@ -71,76 +74,89 @@ def main():
 
     print(f"Total Simulated Events: {len(df)}")
     
-    # 2. Geometric Filtering (Golden Events)
-    # Identify Top and Bottom Faces
-    # Top Detector: Scin0. We want Entry via Top Face.
-    # Bottom Detector: Scin3. We want Exit via Bottom Face.
+    # ---------------------------------------------------------
+    # Method A: Golden Events (Face-to-Face)
+    # ---------------------------------------------------------
+    print("\n[Method A] Golden Events (Strict Face-to-Face)")
     
     # Analyze Z coordinates to find faces
     scin0_in_z = df['Scin0_InZ']
     scin3_out_z = df['Scin3_OutZ']
-    
     top_face_z = scin0_in_z.max()
     bottom_face_z = scin3_out_z.min()
-    
-    print(f"Geometry Detected: Top Z ~ {top_face_z:.2f}, Bottom Z ~ {bottom_face_z:.2f}")
-    
-    # Define epsilon for "on the face"
     epsilon = 0.1 # mm
     
     # Filter
-    # 1. 4-fold Coincidence
     mask_coinc = (
         (df['Edep_Scin0'] > THRESHOLD) & 
         (df['Edep_Scin1'] > THRESHOLD) & 
         (df['Edep_Scin2'] > THRESHOLD) & 
         (df['Edep_Scin3'] > THRESHOLD)
     )
-    
-    # 2. Geometric (Through Top and Bottom Faces)
     mask_geo = (
         (np.abs(df['Scin0_InZ'] - top_face_z) < epsilon) &
         (np.abs(df['Scin3_OutZ'] - bottom_face_z) < epsilon)
     )
     
     df_golden = df[mask_coinc & mask_geo]
-    print(f"Golden Events (Face-to-Face & Coincidence): {len(df_golden)}")
+    print(f"  Count: {len(df_golden)}")
     
-    # 3. Fit Landau for Golden Events
-    fig, axes = plt.subplots(2, 2, figsize=(10, 8))
-    axes = axes.flatten()
-    fig.suptitle("Golden Events Energy Deposition (Simulated)")
-    
-    mpvs = {}
+    mpvs_golden = []
     for i in range(4):
-        col = f'Edep_Scin{i}'
-        mpv, width = fit_landau(df_golden[col], f"Scin{i}", axes[i])
-        if mpv:
-            mpvs[i] = mpv
-            print(f"Scin{i} MPV: {mpv:.2f} MeV")
-        else:
-            print(f"Scin{i} Fit Failed")
-            
-    plt.tight_layout()
-    plt.savefig("results/golden_events_fits.png")
+        mpv, _ = fit_landau(df_golden[f'Edep_Scin{i}'], f"Scin{i}")
+        if mpv: mpvs_golden.append(mpv)
     
-    # 4. Calculate True Energy
-    # User Suggestion: "should we choose the average instead as the true value?"
-    # With Golden Events (Straight through), all detectors should see similar path lengths (~thickness).
-    # So averaging is valid.
-    
-    valid_mpvs = [v for v in mpvs.values()]
-    if valid_mpvs:
-        true_energy = np.mean(valid_mpvs)
-        print(f"\nAverage True Energy (from Golden Events): {true_energy:.2f} MeV")
-    else:
-        print("Could not determine True Energy.")
-        return
+    val_golden = np.mean(mpvs_golden) if mpvs_golden else 0
+    print(f"  Average MPV (Golden): {val_golden:.2f} MeV")
 
-    # 5. Calculate Calibration Constants
+    # ---------------------------------------------------------
+    # Method B: Realistic (4-Fold Coincidence, Middle Detectors)
+    # ---------------------------------------------------------
+    print("\n[Method B] Realistic (4-Fold Coincidence)")
+    
+    df_real = df[mask_coinc]
+    print(f"  Count: {len(df_real)}")
+    
+    fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+    fig.suptitle("Realistic Events (4-Fold Coinc) - Middle Detectors")
+    
+    mpvs_real = []
+    # Only fit Middle Detectors (Scin1, Scin2) as they are the most stable
+    # Scin0/Scin3 might have corner clipping effects in the simulation for angled tracks
+    
+    # Scin1
+    mpv1, _ = fit_landau(df_real['Edep_Scin1'], "Scin1 (Mid1)", axes[0])
+    axes[0].set_title(f"Scin1 MPV: {mpv1:.2f} MeV")
+    if mpv1: mpvs_real.append(mpv1)
+    
+    # Scin2
+    mpv2, _ = fit_landau(df_real['Edep_Scin2'], "Scin2 (Mid2)", axes[1])
+    axes[1].set_title(f"Scin2 MPV: {mpv2:.2f} MeV")
+    if mpv2: mpvs_real.append(mpv2)
+    
+    os.makedirs("results", exist_ok=True)
+    plt.savefig("results/calibration_fits_realistic.png")
+    
+    val_real = np.mean(mpvs_real) if mpvs_real else 0
+    print(f"  Average MPV (Middle Detectors): {val_real:.2f} MeV")
+    
+    # ---------------------------------------------------------
+    # Comparison & Decision
+    # ---------------------------------------------------------
+    print("\n--- Comparison ---")
+    print(f"Golden (Vertical): {val_golden:.2f} MeV")
+    print(f"Realistic (All):   {val_real:.2f} MeV")
+    diff = (val_real - val_golden) / val_golden * 100
+    print(f"Difference:        +{diff:.1f}% (Expected due to angled tracks)")
+    
+    true_energy = val_real
+    print(f"\n>>> Selected True Energy: {true_energy:.2f} MeV (Realistic)")
+
+    # ---------------------------------------------------------
+    # Calibration Constants
+    # ---------------------------------------------------------
     print("\n--- Calibration Constants ---")
     
-    # Mapping: Scin0->Ch1, Scin1->Ch2, Scin2->Ch3, Scin3->Ch4 (Standard Stack)
     # Ch1 (Top): Run 003 Value
     calib_ch1 = true_energy / EXP_MPV_CH1
     print(f"Channel 1 (Top):    {EXP_MPV_CH1:.1f} mV -> {calib_ch1:.4f} MeV/mV")
@@ -153,7 +169,7 @@ def main():
     calib_ch3 = true_energy / EXP_MPV_CH3
     print(f"Channel 3 (Mid2):   {EXP_MPV_CH3:.1f} mV -> {calib_ch3:.4f} MeV/mV")
     
-    # Ch4 (Bot): Run 003 Value
+    # Ch4 (Bottom): Run 003 Value
     calib_ch4 = true_energy / EXP_MPV_CH4
     print(f"Channel 4 (Bottom): {EXP_MPV_CH4:.1f} mV -> {calib_ch4:.4f} MeV/mV")
 
