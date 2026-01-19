@@ -15,7 +15,7 @@
 - [x] System Integration: Complete the optical coupling of scintillators to PMTs and the final assembly of 4 detector units.
 - [x] Cosmic Ray Testing: Construct a cosmic ray telescope system to verify the detector's logic coincidence and long-term operational stability.
 - [ ] ~~Energy Calibration: Utilize the laboratory's Thorium source (Th-232) to perform precise energy calibration.~~
-- [ ] Energy Calibration: Perform energy calibration by matching experimental Cosmic Ray Muon Landau distributions with Geant4 simulated energy deposits (replacing Th-232 method).
+- [ ] Energy Calibration: Perform energy calibration and measuring detector jitter by matching experimental Cosmic Ray Muon Landau distributions with Geant4 simulated energy deposits (replacing Th-232 method).
 
 ### Theoretical Derivation & Physics Simulation
 - [ ] Polarization Derivation: Starting from quantum scattering theory, derive the analytical relationship between the deuteron-proton (d-p) elastic scattering cross-section and the beam's tensor polarization.
@@ -27,6 +27,7 @@
 
 ### January 2026
 * **2026-01-19:**
+   * *Official start of the Winter Holidays.*
    * **Run 003 Analysis (Switched Detectors):**
      * **Status:** Analyzed 1000 events from the "switched" configuration (Inner/Outer detectors swapped).
      * **Noise/Stability:** Observed significantly higher noise floor compared to Run 002. Mean baseline noise rose to ~50-60mV.
