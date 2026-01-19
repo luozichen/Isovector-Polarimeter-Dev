@@ -13,10 +13,13 @@ from scipy.optimize import curve_fit
 import os
 import glob
 import sys
+import argparse
+from itertools import groupby
+from operator import itemgetter
 
 # Configuration
-RUN_DIR = "data/run002_1000_data"
-OUTPUT_DIR = "results"
+DEFAULT_RUN_DIR = "data/run002_1000_data"
+DEFAULT_OUTPUT_DIR = "results"
 NOISE_THRESHOLD_V = 0.03 # 30 mV threshold based on observed baseline stats
 LANDAU_RANGE = (0.01, 0.4) # Range for fit (10mV to 400mV)
 BINS = 50
@@ -55,11 +58,37 @@ def read_tek_csv(filepath):
 def landau_fit_func(x, mpv, width, amp):
     return amp * moyal.pdf(x, loc=mpv, scale=width)
 
-def analyze():
-    print(f"Analyzing run directory: {RUN_DIR}")
+def analyze_noise_streaks(noise_events):
+    """
+    Identifies and prints consecutive streaks of noisy events.
+    """
+    if not noise_events:
+        return
+
+    print("\n--- Noise Streak Analysis ---")
+    ranges = []
+    for k, g in groupby(enumerate(noise_events), lambda x: x[0] - x[1]):
+        group = list(map(itemgetter(1), g))
+        if len(group) > 1:
+            ranges.append((group[0], group[-1], len(group)))
+    
+    if ranges:
+        print(f"Found {len(ranges)} streaks of consecutive noise > 1 event.")
+        # Sort by length, descending
+        ranges.sort(key=lambda x: x[2], reverse=True)
+        print("Top 5 Longest Streaks:")
+        for start, end, length in ranges[:5]:
+            print(f"  Events {start}-{end} (Length: {length})")
+    else:
+        print("No consecutive noise streaks found.")
+    print("-----------------------------")
+
+def analyze(run_dir, output_dir):
+    print(f"Analyzing run directory: {run_dir}")
+    run_name = os.path.basename(os.path.normpath(run_dir))
     
     # Locate CSVs
-    csv_files = glob.glob(os.path.join(RUN_DIR, "*_Ch*.csv"))
+    csv_files = glob.glob(os.path.join(run_dir, "*_Ch*.csv"))
     if not csv_files:
         print("No CSV files found.")
         return
@@ -74,7 +103,7 @@ def analyze():
     num_events = 0
     
     for ch in range(1, 5):
-        pattern = os.path.join(RUN_DIR, f"{prefix}_Ch{ch}.csv")
+        pattern = os.path.join(run_dir, f"{prefix}_Ch{ch}.csv")
         files = glob.glob(pattern)
         if not files:
             print(f"Missing file for Ch{ch}")
@@ -126,17 +155,22 @@ def analyze():
     print(f"  Noisy: {len(noise_events)} ({len(noise_events)/num_events:.1%})")
     print(f"  Clean: {len(good_events)}")
     
+    analyze_noise_streaks(noise_events)
+    
     # Plot Noise Examples
     if noise_events:
-        plot_noise_examples(time, data, noise_events[:5], prefix)
+        plot_noise_examples(time, data, noise_events[:5], prefix, output_dir, run_name)
         
     # Plot Landau Fits
-    plot_landau_fits(peaks, prefix)
+    if good_events:
+        plot_landau_fits(peaks, prefix, output_dir, run_name)
 
-def plot_noise_examples(time, data, event_indices, prefix):
+def plot_noise_examples(time, data, event_indices, prefix, output_dir, run_name):
     n = len(event_indices)
     fig, axes = plt.subplots(n, 1, figsize=(10, 3*n), sharex=True)
     if n == 1: axes = [axes]
+    
+    fig.suptitle(f"{run_name} - Noise Check (Threshold > {NOISE_THRESHOLD_V*1000:.0f}mV)", fontsize=16)
     
     for i, idx in enumerate(event_indices):
         ax = axes[i]
@@ -150,15 +184,17 @@ def plot_noise_examples(time, data, event_indices, prefix):
         if i == 0: ax.legend(loc='upper right')
         
     axes[-1].set_xlabel("Time (ns)")
-    plt.tight_layout()
-    out_path = os.path.join(OUTPUT_DIR, f"{prefix}_noise_check.png")
+    plt.tight_layout(rect=[0, 0.03, 1, 0.95]) # Adjust for suptitle
+    out_path = os.path.join(output_dir, f"{prefix}_noise_check.png")
     plt.savefig(out_path)
     print(f"Saved noise check: {out_path}")
     plt.close(fig)
 
-def plot_landau_fits(peaks, prefix):
+def plot_landau_fits(peaks, prefix, output_dir, run_name):
     fig, axes = plt.subplots(2, 2, figsize=(14, 10))
     axes = axes.flatten()
+    
+    fig.suptitle(f"{run_name} - Energy Deposition (Landau Fits)", fontsize=16)
     
     results = []
     
@@ -166,6 +202,10 @@ def plot_landau_fits(peaks, prefix):
         ax = axes[i]
         vals = np.array(peaks[ch])
         
+        if len(vals) == 0:
+            ax.text(0.5, 0.5, "No Data", ha='center', va='center')
+            continue
+            
         # Filter range for plotting/fitting
         vals_fit = vals[(vals >= LANDAU_RANGE[0]) & (vals <= LANDAU_RANGE[1])]
         
@@ -198,12 +238,17 @@ def plot_landau_fits(peaks, prefix):
         ax.legend()
         ax.grid(True, alpha=0.3)
         
-    plt.tight_layout()
-    out_path = os.path.join(OUTPUT_DIR, f"{prefix}_landau_fits.png")
+    plt.tight_layout(rect=[0, 0.03, 1, 0.95]) # Adjust for suptitle
+    out_path = os.path.join(output_dir, f"{prefix}_landau_fits.png")
     plt.savefig(out_path)
     print(f"Saved landau fits: {out_path}")
     plt.close(fig)
 
 if __name__ == "__main__":
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-    analyze()
+    parser = argparse.ArgumentParser(description="Analyze Run 1000 Data")
+    parser.add_argument("run_dir", nargs='?', default=DEFAULT_RUN_DIR, help="Directory containing CSV files")
+    parser.add_argument("--output", "-o", default=DEFAULT_OUTPUT_DIR, help="Output directory")
+    args = parser.parse_args()
+    
+    os.makedirs(args.output, exist_ok=True)
+    analyze(args.run_dir, args.output)

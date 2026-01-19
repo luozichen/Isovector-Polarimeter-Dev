@@ -31,7 +31,11 @@
      * **Status:** Analyzed 1000 events from the "switched" configuration (Inner/Outer detectors swapped).
      * **Noise/Stability:** Observed significantly higher noise floor compared to Run 002. Mean baseline noise rose to ~50-60mV.
        * Rejection Rate: **27.1% (271/1000)** rejected with the standard 30mV threshold (vs 1.9% in Run 002).
-     * **Results:** Successfully generated Landau fits for the 729 clean events.
+     * **Burst Noise Investigation:**
+       * Identified a major noise burst lasting **155 consecutive events** (Indices 136-290).
+       * Identified a secondary burst of 58 events (Indices 505-562).
+       * This explains the rapid count increase observed during acquisition.
+     * **Results:** Successfully generated Landau fits for the 729 clean events. Plots updated with Run ID labels for clarity.
    * **Run 002 Analysis (1000 events):**
      * **Noise Filtering:** Implemented a threshold-based filter (rejecting events with Max Voltage > 30mV) to remove large positive noise excursions.
        * Result: **19/1000 events (1.9%) rejected** as noise. Confirmed rejected events were indeed artifacts.
