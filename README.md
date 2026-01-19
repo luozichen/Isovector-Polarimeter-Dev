@@ -27,6 +27,13 @@
 
 ### January 2026
 * **2026-01-19:**
+   * **Run 002 Analysis (1000 events):**
+     * **Noise Filtering:** Implemented a threshold-based filter (rejecting events with Max Voltage > 30mV) to remove large positive noise excursions.
+       * Result: **19/1000 events (1.9%) rejected** as noise. Confirmed rejected events were indeed artifacts.
+     * **Landau Distributions:**
+       * **Middle Detectors (Ch2, Ch3):** Observed clean, well-defined Landau peaks.
+       * **Top/Bottom Detectors (Ch1, Ch4):** Observed broader distributions with "clipping" effects, consistent with geometric acceptance limitations in a 4-fold coincidence setup.
+     * **New Acquisition:** Started the **second 1000-event run** with **inner and outer detectors switched** to investigate systematic effects.
    * **Experimental Status:**
      * Validated analysis on a 10-event test run (`run001`).
      * **Started acquisition of a large run (1000 events)** to improve statistical significance.
