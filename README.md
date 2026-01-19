@@ -26,6 +26,16 @@
 ## 📅 Development Log
 
 ### January 2026
+* **2026-01-19:**
+   * **Simulation & Analysis Upgrade:**
+     * Cleaned up erroneous data from previous test runs (v00/v01).
+     * Developed robust analysis tools for the 4-detector coincidence setup (`v0200`):
+       * `analyse_v0200.py`: Performs Landau fits on energy deposition data to verify detector calibration.
+       * `analyse_advanced.py`: Conducts detailed physics validation, including beam spot heatmaps, zenith angle reconstruction, and path length vs. energy correlation (dE/dx).
+     * Successfully processed 100,000 simulated events.
+     * Generated key validation plots:
+       * **Calibration:** Verified distinct Landau peaks for all 4 detectors (~860 coincident events).
+       * **Physics Check:** Confirmed "Corner Clipping" effect and validated the expected dE/dx behavior.
 * **2026-01-18:**
    * Set up Git. Cleaned up messy runs.
    * Implemented logic for cosmic ray triggering.
