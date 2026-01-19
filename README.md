@@ -31,8 +31,10 @@
      * **Noise Filtering:** Implemented a threshold-based filter (rejecting events with Max Voltage > 30mV) to remove large positive noise excursions.
        * Result: **19/1000 events (1.9%) rejected** as noise. Confirmed rejected events were indeed artifacts.
      * **Landau Distributions:**
-       * **Middle Detectors (Ch2, Ch3):** Observed clean, well-defined Landau peaks.
+       * **Middle Detectors (Ch2, Ch3):** Observed clean, well-defined Landau peaks; successfully identified voltage MPVs.
        * **Top/Bottom Detectors (Ch1, Ch4):** Observed broader distributions with "clipping" effects, consistent with geometric acceptance limitations in a 4-fold coincidence setup.
+     * **Data Acquisition (ADC-free):** Utilized the oscilloscope's **FastFrame** feature to capture 1000 events directly, successfully bypassing the need for an external ADC module.
+     * **Power Supply Stability:** Channel 0 of the NDT1471 failed again in the morning but showed stability in the afternoon. Decided to proceed with all four detectors; Ch0 has remained stable throughout the afternoon acquisition.
      * **New Acquisition:** Started the **second 1000-event run** with **inner and outer detectors switched** to investigate systematic effects.
    * **Experimental Status:**
      * Validated analysis on a 10-event test run (`run001`).
