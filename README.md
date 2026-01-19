@@ -27,6 +27,13 @@
 
 ### January 2026
 * **2026-01-19:**
+   * **Experimental Status:**
+     * Validated analysis on a 10-event test run (`run001`).
+     * **Started acquisition of a large run (1000 events)** to improve statistical significance.
+   * **Waveform Analysis:**
+     * Created `analysis/analyse_waveform.py` to process oscilloscope data (Tektronix CSV format).
+     * Can parse multiple "FastFrame" events from a single CSV.
+     * Generates waveform plots and peak amplitude statistics.
    * **Simulation & Analysis Upgrade:**
      * Cleaned up erroneous data from previous test runs (v00/v01).
      * Developed robust analysis tools for the 4-detector coincidence setup (`v0200`):
