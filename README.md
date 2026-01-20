@@ -29,7 +29,7 @@
 
 ### January 2026
 * **2026-01-20:**
-   * Started a 1M long run to get better data.
+   * Started a 1M long **Geant4 (G4) simulation** run to get better data (not physical detector data).
    * **Theoretical Derivation Started:**
      * Began deep dive into deuteron polarization scattering theory.
      * Currently analyzing:
