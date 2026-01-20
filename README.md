@@ -38,6 +38,18 @@
        * Beam polarization formalism.
        * Spherical tensor operators.
        * Madison convention standards.
+   * **Jitter Analysis (Software Collimation):**
+     * **Objective:** Determine intrinsic timing jitter ($\sigma$) for individual detectors using cosmic ray data.
+     * **Methodology:**
+       * **Software Collimation:** Implemented "Landau Cuts" to filter out low-amplitude "corner-clipping" events which degrade timing resolution. (Kept 631/1000 events from Run 003).
+       * **Timing Extraction:** Used Digital Constant Fraction Discriminator (dCFD) at 30% fraction with linear interpolation.
+       * **Solver:** Solved the overdetermined system of pair variances ($\sigma_i^2 + \sigma_j^2 = \sigma_{ij}^2$) to extract individual detector jitter.
+     * **Tool:** Created `analysis/analyse_jitter.py`.
+     * **Results (Run 003):**
+       * **Det 1:** 1.643 ns
+       * **Det 2:** 1.490 ns
+       * **Det 3:** 1.043 ns (Best Performance)
+       * **Det 4:** 2.873 ns (Needs investigation)
 * **2026-01-19:**
    * ❄️❄️ *Official start of the Winter Holidays.*
    * **Run 003 Analysis (Switched Detectors):**
