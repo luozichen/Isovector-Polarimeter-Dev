@@ -30,6 +30,14 @@
 ### January 2026
 * **2026-01-20:**
    * Started a 1M long run to get better data.
+   * **Theoretical Derivation Started:**
+     * Began deep dive into deuteron polarization scattering theory.
+     * Currently analyzing:
+       * M matrix properties and constraints by symmetry.
+       * Analyzing power definitions.
+       * Beam polarization formalism.
+       * Spherical tensor operators.
+       * Madison convention standards.
 * **2026-01-19:**
    * ❄️❄️ *Official start of the Winter Holidays.*
    * **Run 003 Analysis (Switched Detectors):**
