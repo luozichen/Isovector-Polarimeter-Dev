@@ -50,6 +50,7 @@
        * **Det 2:** 1.490 ns
        * **Det 3:** 1.043 ns (Best Performance)
        * **Det 4:** 2.873 ns (Needs investigation)
+     * **Future Plan:** Perform higher-quality measurements by physically placing different detector pairs in the center of the stack (position 2 and 3). This will ensure "golden" vertical events for all detectors without requiring software collimation/filtering. Scheduled for the next available lab session.
 * **2026-01-19:**
    * ❄️❄️ *Official start of the Winter Holidays.*
    * **Run 003 Analysis (Switched Detectors):**
