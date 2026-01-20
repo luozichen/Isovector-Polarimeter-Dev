@@ -10,5 +10,6 @@
 /control/execute ../setup_cosmic.mac
 
 # --- RUN ---
-/run/printProgress 10000
+# Progress is now printed by DET01EventAction.cc (every 10k events)
+# /run/printProgress 10000
 /run/beamOn 1000000

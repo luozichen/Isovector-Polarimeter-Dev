@@ -1,9 +1,12 @@
 #include "DET01EventAction.hh"
 #include "DET01Hit.hh"
 #include "G4Event.hh"
+#include "G4RunManager.hh"
+#include "G4Run.hh"
 #include "G4SDManager.hh"
 #include "G4AnalysisManager.hh"
 #include "G4SystemOfUnits.hh"
+#include <iomanip>
 
 DET01EventAction::DET01EventAction()
 : G4UserEventAction(),
@@ -126,4 +129,16 @@ void DET01EventAction::EndOfEventAction(const G4Event* event)
   analysisManager->FillNtupleDColumn(37, truthZ);
   
   analysisManager->AddNtupleRow();
+
+  // Progress Reporting (Custom "X / Y" format)
+  G4int eventID = event->GetEventID();
+  if ((eventID + 1) % 10000 == 0) {
+      const G4Run* currentRun = G4RunManager::GetRunManager()->GetCurrentRun();
+      if (currentRun) {
+          G4int nTotal = currentRun->GetNumberOfEventToBeProcessed();
+          G4cout << "Progress: " << (eventID + 1) << " / " << nTotal 
+                 << " (" << std::fixed << std::setprecision(1) 
+                 << (100.0 * (eventID + 1) / nTotal) << "%)" << G4endl;
+      }
+  }
 }
