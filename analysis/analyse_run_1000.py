@@ -18,7 +18,7 @@ from itertools import groupby
 from operator import itemgetter
 
 # Configuration
-DEFAULT_RUN_DIR = "data/run003_1000_data"
+DEFAULT_RUN_DIR = "data/run003_1000_config_2143"
 DEFAULT_OUTPUT_DIR = "results"
 NOISE_THRESHOLD_V = 0.03 # 30 mV threshold based on observed baseline stats
 LANDAU_RANGE = (0.01, 0.4) # Range for fit (10mV to 400mV)
