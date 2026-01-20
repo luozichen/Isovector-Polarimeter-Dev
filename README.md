@@ -29,7 +29,7 @@
 
 ### January 2026
 * **2026-01-19:**
-   * *Official start of the Winter Holidays.*
+   * ❄️ *Official start of the Winter Holidays.*
    * **Run 003 Analysis (Switched Detectors):**
      * **Status:** Analyzed 1000 events from the "switched" configuration (Inner/Outer detectors swapped).
      * **Noise/Stability:** Observed significantly higher noise floor compared to Run 002. Mean baseline noise rose to ~50-60mV.
