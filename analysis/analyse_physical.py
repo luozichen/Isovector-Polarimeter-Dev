@@ -275,7 +275,11 @@ def analyze_run(run_dir):
     print(f"  Electronic Noise: {len(noise_indices)}")
     
     # --- Plots ---
-    plot_landau_fits(amplitudes, cuts, run_id, mapping)
+    # Filter out noise events for Landau Fits
+    valid_indices = sorted(clean_indices + clipped_indices)
+    amplitudes_valid = {ch: amplitudes[ch][valid_indices] for ch in range(1, 5)}
+    
+    plot_landau_fits(amplitudes_valid, cuts, run_id, mapping)
     
     if clean_indices:
         plot_waveforms(time, data, clean_indices, run_id, "Good Waveforms", "good_waveforms")
