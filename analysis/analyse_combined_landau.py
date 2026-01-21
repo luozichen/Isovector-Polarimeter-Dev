@@ -18,8 +18,7 @@ RESULTS_DIR = "results/physical"
 RUN_PATTERN = "run00[2-7]*" 
 POSITIVE_NOISE_THRESHOLD = 0.03 # 30 mV
 LANDAU_RANGE = (0.01, 0.4)
-# 5 mV bins over 400 mV range => 80 bins
-BINS = 80 
+BINS = 50 
 
 def landau_fit_func(x, mpv, width, amp):
     return amp * moyal.pdf(x, loc=mpv, scale=width)
@@ -70,6 +69,7 @@ def load_run_data(run_dir, target_dets):
     clean_amplitudes = {det: [] for det in target_dets}
     
     for i in range(num_events):
+        # Noise Check (same as analyse_physical.py)
         is_noise = False
         for ch in range(1, 5):
             if np.max(raw_data[ch][i]) > POSITIVE_NOISE_THRESHOLD:
@@ -91,30 +91,34 @@ def fit_and_plot(ax, data, label, color):
                       density=False, histtype='stepfilled', alpha=0.4, label='Data', color=color)
     
     bin_centers = (x[:-1] + x[1:]) / 2
-    peak_idx = np.argmax(y)
-    mpv_guess = bin_centers[peak_idx]
     
-    # Improved initial guesses for fit stability
-    width_guess = 0.015 # Typical width ~15mV
-    amp_guess = np.max(y) * width_guess * 2.5 # approx area scaling
-    
-    try:
-        popt, _ = curve_fit(landau_fit_func, bin_centers, y, 
-                            p0=[mpv_guess, width_guess, amp_guess], 
-                            bounds=([0, 0, 0], [1, 1, np.inf]))
+    if len(data) > 0 and np.max(y) > 0:
+        peak_idx = np.argmax(y)
+        mpv_guess = bin_centers[peak_idx]
         
-        x_fine = np.linspace(LANDAU_RANGE[0], LANDAU_RANGE[1], 200)
-        ax.plot(x_fine, landau_fit_func(x_fine, *popt), 'k--', lw=1.5)
+        # Initial guesses from analyse_physical.py
+        p0 = [mpv_guess, 0.01, np.max(y)*0.01] 
         
-        mpv_val = popt[0] * 1000
-        ax.text(0.95, 0.95, f"MPV: {mpv_val:.1f} mV\nN: {len(data)}", 
-                transform=ax.transAxes, ha='right', va='top', fontsize=9,
-                bbox=dict(boxstyle='round', facecolor='white', alpha=0.7))
-        return mpv_val
-    except:
-        ax.text(0.95, 0.95, f"Fit Failed\nN: {len(data)}", 
-                transform=ax.transAxes, ha='right', va='top', fontsize=9, color='red')
-        return None
+        try:
+            popt, _ = curve_fit(landau_fit_func, bin_centers, y, 
+                                p0=p0, 
+                                bounds=([0, 0, 0], [1, 1, np.inf]))
+            
+            x_fine = np.linspace(LANDAU_RANGE[0], LANDAU_RANGE[1], 200)
+            ax.plot(x_fine, landau_fit_func(x_fine, *popt), 'k--', lw=1.5)
+            
+            mpv_val = popt[0] * 1000
+            print(f"  - Fit Success: {label} | MPV: {mpv_val:.2f} mV")
+            ax.text(0.95, 0.95, f"MPV: {mpv_val:.1f} mV\nN: {len(data)}", 
+                    transform=ax.transAxes, ha='right', va='top', fontsize=9,
+                    bbox=dict(boxstyle='round', facecolor='white', alpha=0.7))
+            return mpv_val
+        except:
+            print(f"  - Fit Failed: {label}")
+            ax.text(0.95, 0.95, f"Fit Failed\nN: {len(data)}", 
+                    transform=ax.transAxes, ha='right', va='top', fontsize=9, color='red')
+            return None
+    return None
 
 def main():
     os.makedirs(RESULTS_DIR, exist_ok=True)
