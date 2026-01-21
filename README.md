@@ -58,9 +58,11 @@
      * **Goal:** Place Det 2 and Det 4 in the geometric center of the stack.
      * **Status:** Acquisition and Analysis Complete.
      * **Run 006 Results:**
+       * **Stricter Software Collimation:** Implemented more aggressive Landau cuts (90% of MPV instead of 60%) to isolate strictly "golden" vertical events. This led to a higher rejection rate (50.7% clipped) but ensured higher data purity.
        * **Statistics:** 1000 events collected. 48.2% clean (1.1% noise, 50.7% clipped).
        * **Plots:** Generated `run006_landau_fits.png`, `run006_timing_pairs.png`, etc.
        * **Jitter Analysis:** Middle detectors showed superior performance: Det 2 (0.46 ns) and Det 4 (0.40 ns).
+       * **Methodology Note:** While calculating jitter from individual runs is generally suboptimal compared to global multi-run fits, this investigation aims to quantify the reliability of single-run measurements. It serves as a test to see if using "strict Landau cuts" is an effective strategy for extracting high-quality timing data from limited datasets.
    * **New Data Acquisition (Stack 1342):**
      * **Configuration:** Det 1 (Top) -> Det 3 (Mid1) -> Det 4 (Mid2) -> Det 2 (Bot).
      * **Goal:** Place Det 3 and Det 4 in the geometric center of the stack.
