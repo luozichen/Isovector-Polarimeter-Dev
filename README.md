@@ -40,7 +40,13 @@
    * **New Data Acquisition (Stack 2134):**
      * **Configuration:** Det 2 (Top) -> Det 1 (Mid1) -> Det 3 (Mid2) -> Det 4 (Bot).
      * **Goal:** Place Det 1 and Det 3 in the geometric center of the stack to acquire "golden" vertical events naturally, validating the software collimation results.
-     * **Status:** Acquisition started.
+     * **Status:** Acquisition and Analysis Complete.
+     * **Run 004 Results:**
+       * **Statistics:** 1000 events collected. 76.6% clean (6.6% noise, 16.8% clipped).
+       * **Plots:** Generated `run004_landau_fits.png`, `run004_timing_pairs.png`, etc.
+   * **New Data Acquisition (Stack 3124):**
+     * **Configuration:** Det 3 (Top) -> Det 1 (Mid1) -> Det 2 (Mid2) -> Det 4 (Bot).
+     * **Goal:** Place Det 1 and Det 2 in the geometric center of the stack to acquire "golden" vertical events naturally, validating the software collimation results.
 
 * **2026-01-20:**
    * Started a 1M long **Geant4 (G4) simulation** run to get better data (not physical detector data).

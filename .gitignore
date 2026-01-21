@@ -17,3 +17,6 @@ data/
 *.o
 *.a
 *.so
+
+# Thesis work
+thesis/
