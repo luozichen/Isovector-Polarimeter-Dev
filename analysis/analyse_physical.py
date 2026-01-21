@@ -30,7 +30,7 @@ def landau_fit_func(x, mpv, width, amp):
 
 def parse_run_info(run_dir):
     """
-    Extracts run ID and detector mapping.
+    Extracts run ID and detector stack configuration string.
     """
     dirname = os.path.basename(os.path.normpath(run_dir))
     
@@ -38,19 +38,28 @@ def parse_run_info(run_dir):
     run_match = re.search(r'(run\d+)', dirname)
     run_id = run_match.group(1) if run_match else "unknown_run"
     
-    # Detector Mapping
+    # Stack Configuration (e.g. 1234, 2143)
+    # Default to 1234 if not found
     match = re.search(r'config_(\d{4})', dirname)
-    mapping = {}
-    if match:
-        s = match.group(1)
-        mapping[1] = int(s[0])
-        mapping[2] = int(s[1])
-        mapping[3] = int(s[2])
-        mapping[4] = int(s[3])
-    else:
-        mapping = {1:1, 2:2, 3:3, 4:4}
+    config_str = match.group(1) if match else "1234"
         
-    return run_id, mapping
+    return run_id, config_str
+
+def get_position_label(det_id, config_str):
+    """
+    Returns the physical position label (Top, Mid1, Mid2, Bot) 
+    for a given Detector ID (1-4) based on the config string.
+    config_str example: "2143" -> Det 2 is Top, Det 1 is Mid1, etc.
+    """
+    det_char = str(det_id)
+    if det_char not in config_str:
+        return "Unknown"
+    
+    idx = config_str.index(det_char)
+    positions = ["Top", "Mid1", "Mid2", "Bot"]
+    if idx < len(positions):
+        return positions[idx]
+    return "Unknown"
 
 def load_wfm_data(run_dir):
     """
@@ -167,13 +176,13 @@ def plot_waveforms(time, data, indices, run_id, label, suffix):
     plt.close(fig)
     print(f"  Saved {suffix}: {out_path}")
 
-def plot_landau_fits(amplitudes, cuts, run_id, mapping):
+def plot_landau_fits(amplitudes, cuts, run_id, config_str):
     """
     Plots Pulse Height Distributions with Landau Fits.
     """
     fig, axes = plt.subplots(2, 2, figsize=(12, 10))
     axes = axes.flatten()
-    fig.suptitle(f"{run_id} - Energy Deposition (Landau Fits & Cuts)")
+    fig.suptitle(f"{run_id} (Config {config_str}) - Energy Deposition")
     
     for i, ch in enumerate(range(1, 5)):
         ax = axes[i]
@@ -203,7 +212,9 @@ def plot_landau_fits(amplitudes, cuts, run_id, mapping):
         cut_val = cuts[ch]
         ax.axvline(cut_val, color='k', linestyle='--', label=f'Cut: {cut_val*1000:.1f} mV')
         
-        ax.set_title(f"Ch{ch} (Det {mapping[ch]})")
+        det_id = ch
+        pos_label = get_position_label(det_id, config_str)
+        ax.set_title(f"Ch{ch} - Det {det_id} [{pos_label}]")
         ax.set_xlabel("Amplitude (V)")
         ax.legend()
         ax.grid(True, alpha=0.3)
@@ -216,8 +227,8 @@ def plot_landau_fits(amplitudes, cuts, run_id, mapping):
 
 def analyze_run(run_dir):
     print(f"Analyzing: {run_dir}")
-    run_id, mapping = parse_run_info(run_dir)
-    print(f"  Run ID: {run_id}, Mapping: {mapping}")
+    run_id, config_str = parse_run_info(run_dir)
+    print(f"  Run ID: {run_id}, Config: {config_str}")
     
     time, data = load_wfm_data(run_dir)
     if data is None:
@@ -279,7 +290,7 @@ def analyze_run(run_dir):
     valid_indices = sorted(clean_indices + clipped_indices)
     amplitudes_valid = {ch: amplitudes[ch][valid_indices] for ch in range(1, 5)}
     
-    plot_landau_fits(amplitudes_valid, cuts, run_id, mapping)
+    plot_landau_fits(amplitudes_valid, cuts, run_id, config_str)
     
     if clean_indices:
         plot_waveforms(time, data, clean_indices, run_id, "Good Waveforms", "good_waveforms")
@@ -337,7 +348,7 @@ def analyze_run(run_dir):
             pass
             
         pair_vars.append(sigma**2)
-        ax.set_title(f"Ch{chA}-Ch{chB} (Det {mapping[chA]}-{mapping[chB]})\nSigma = {sigma:.3f} ns")
+        ax.set_title(f"Ch{chA}-Ch{chB} (Det {chA}-{chB})\nSigma = {sigma:.3f} ns")
         ax.set_xlabel("Delta T (ns)")
 
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
@@ -355,20 +366,23 @@ def analyze_run(run_dir):
     
     print("  Calculated Jitter (ns):")
     for i, s in enumerate(sigmas):
-        det_id = mapping[i+1]
-        print(f"    Ch{i+1} (Det {det_id}): {s:.3f} ns")
+        det_id = i + 1
+        pos_label = get_position_label(det_id, config_str)
+        print(f"    Ch{i+1} (Det {det_id} - {pos_label}): {s:.3f} ns")
 
     # --- Save Results to Text ---
     with open(os.path.join(RESULTS_DIR, f"{run_id}_jitter_results.txt"), "w") as f:
         f.write(f"Run: {run_id}\n")
+        f.write(f"Config: {config_str}\n")
         f.write(f"Events: {num_events}\n")
         f.write(f"  Clean: {len(clean_indices)}\n")
         f.write(f"  Clipped: {len(clipped_indices)}\n")
         f.write(f"  Noise: {len(noise_indices)}\n")
         f.write("Jitter Results (sigma):\n")
         for i, s in enumerate(sigmas):
-            det_id = mapping[i+1]
-            f.write(f"  Det {det_id} (Ch{i+1}): {s:.4f} ns\n")
+            det_id = i + 1
+            pos_label = get_position_label(det_id, config_str)
+            f.write(f"  Det {det_id} (Ch{i+1}) [{pos_label}]: {s:.4f} ns\n")
 
 def main():
     os.makedirs(RESULTS_DIR, exist_ok=True)
