@@ -43,9 +43,18 @@
    * **Run 007 Analysis:**
      * Completed analysis for Stack 1342.
      * Continued observation of geometric effects on jitter:
-       * **Middle (Det 3, 4):** ~0.34 - 0.48 ns
+       * **Middle (Det 3, 4):** ~0.34 - 0.48 ns (Individual run fits)
        * **Outer (Det 1, 2):** ~0.74 - 0.76 ns
-     * This consistent pattern across runs 004, 005, 006, and 007 confirms that the "intrinsic" jitter of our detectors is likely around **0.3-0.4 ns**, and the higher values seen in Top/Bottom positions are dominated by path length variations (geometric acceptance).
+     * This consistent pattern confirmed the need for a global fit using only middle-layer data.
+   * **Combined Jitter Analysis (Golden):**
+     * Solved the overdetermined system of timing variances using **only** the 6 "Golden Pairs" (middle detectors from Runs 002-007).
+     * **Methodology:** $\sigma_{pair}^2 = \sigma_A^2 + \sigma_B^2$. System of 6 equations, 4 unknowns. No amplitude cuts applied (only noise rejection) to preserve true timing statistics.
+     * **Results (Intrinsic $\sigma$):**
+       * **Det 1:** 0.505 ns
+       * **Det 2:** 0.507 ns
+       * **Det 3:** 0.541 ns
+       * **Det 4:** 0.531 ns
+     * **Conclusion:** The detectors exhibit remarkable uniformity. The intrinsic timing resolution of the system is consistently **~0.5 ns**. Previous variations were dominated by geometric path length differences in outer positions.
    * **Combined Landau Analysis:**
      * Aggregated data from Runs 002-007, strictly selecting only events where detectors were in **Middle** positions.
      * **Methodology Refinement:** Removed amplitude-based cuts (e.g., >90% MPV) for these detectors. Relied on **physical collimation** from the outer detectors to ensure event purity, applying only electronic noise rejection. This preserves the natural lower-energy tail of the Landau distribution.
