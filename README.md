@@ -29,39 +29,13 @@
 
 ### January 2026
 * **2026-01-21:**
-   * Started a 1M long **Geant4 (G4) simulation** run to get better data (not physical detector data).
-   * **Theoretical Derivation Started:**
-     * Began deep dive into deuteron polarization scattering theory.
-     * Currently analyzing:
-       * M matrix properties and constraints by symmetry.
-       * Analyzing power definitions.
-       * Beam polarization formalism.
-       * Spherical tensor operators.
-       * Madison convention standards.
-   * **Jitter Analysis (Software Collimation):**
-     * **Objective:** Determine intrinsic timing jitter ($\sigma$) for individual detectors using cosmic ray data.
-     * **Methodology:**
-       * **Software Collimation:** Implemented "Landau Cuts" to filter out low-amplitude "corner-clipping" events which degrade timing resolution. (Kept 631/1000 events from Run 003).
-       * **Timing Extraction:** Used Digital Constant Fraction Discriminator (dCFD) at 30% fraction with linear interpolation.
-       * **Solver:** Solved the overdetermined system of pair variances ($\sigma_i^2 + \sigma_j^2 = \sigma_{ij}^2$) to extract individual detector jitter.
-     * **Tool:** Created `analysis/analyse_physical.py` (replaces CSV-based tools).
-     * **Results (Run 003):**
-       * **Det 1:** 1.313 ns
-       * **Det 2:** 0.000 ns (Solver artifact, indicates excellent performance or limits of statistics)
-       * **Det 3:** 0.000 ns
-       * **Det 4:** 1.423 ns
    * **Infrastructure Update:**
      * **Directory Reorganization:** Separated results into `results/physical/` (experimental data) and `results/simulation/` (Geant4 outputs) for better organization.
-     * **Analysis Pipeline Upgrade:** Transitioned from parsing `.csv` files to reading binary `.wfm` files directly. This handles **FastFrame** acquisitions natively and significantly speeds up processing.
+     * **Analysis Pipeline Upgrade:** Transitioned from parsing `.csv` files to reading binary `.wfm` files directly. This handles 
    * **New Data Acquisition (Stack 2134):**
      * **Configuration:** Det 2 (Top) -> Det 1 (Mid1) -> Det 3 (Mid2) -> Det 4 (Bot).
      * **Goal:** Place Det 1 and Det 3 in the geometric center of the stack to acquire "golden" vertical events naturally, validating the software collimation results.
      * **Status:** Acquisition started.
-   * **Experimental Status:**
-     * **Run 001:** 10 test events. 1 clipped, 1 noise.
-     * **Run 002 (1234):** 1000 events. 78% clean. Jitter: ~1.1ns (Det1), ~0.5ns (Det2), ~1.2ns (Det4).
-     * **Run 003 (2143):** 1000 events. 59% clean. High noise (271 events). Jitter: ~1.3ns (Det1), ~1.4ns (Det4).
-     * **Run 004 (2134):** Acquisition started.
 
 * **2026-01-20:**
    * Started a 1M long **Geant4 (G4) simulation** run to get better data (not physical detector data).
