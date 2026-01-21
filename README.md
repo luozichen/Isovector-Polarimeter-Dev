@@ -47,6 +47,11 @@
    * **New Data Acquisition (Stack 3124):**
      * **Configuration:** Det 3 (Top) -> Det 1 (Mid1) -> Det 2 (Mid2) -> Det 4 (Bot).
      * **Goal:** Place Det 1 and Det 2 in the geometric center of the stack to acquire "golden" vertical events naturally, validating the software collimation results.
+     * **Status:** Acquisition and Analysis Complete.
+     * **Run 005 Results:**
+       * **Statistics:** 1000 events collected. 75.3% clean (0.8% noise, 23.9% clipped).
+       * **Plots:** Generated `run005_landau_fits.png`, `run005_timing_pairs.png`, etc.
+       * **Jitter Analysis:** Det 3 and Det 1 showed very low intrinsic jitter (reaching solver floor), while Det 2 and Det 4 were ~1.2 ns.
 
 * **2026-01-20:**
    * Started a 1M long **Geant4 (G4) simulation** run to get better data (not physical detector data).
