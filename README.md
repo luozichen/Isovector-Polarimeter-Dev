@@ -44,6 +44,7 @@
      * **Run 004 Results:**
        * **Statistics:** 1000 events collected. 76.6% clean (6.6% noise, 16.8% clipped).
        * **Plots:** Generated `run004_landau_fits.png`, `run004_timing_pairs.png`, etc.
+       * **Jitter Analysis:** Middle detectors showed superior performance: Det 1 (0.31 ns) and Det 3 (0.52 ns).
    * **New Data Acquisition (Stack 3124):**
      * **Configuration:** Det 3 (Top) -> Det 1 (Mid1) -> Det 2 (Mid2) -> Det 4 (Bot).
      * **Goal:** Place Det 1 and Det 2 in the geometric center of the stack to acquire "golden" vertical events naturally, validating the software collimation results.
@@ -51,6 +52,7 @@
      * **Run 005 Results:**
        * **Statistics:** 1000 events collected. 75.3% clean (0.8% noise, 23.9% clipped).
        * **Plots:** Generated `run005_landau_fits.png`, `run005_timing_pairs.png`, etc.
+       * **Jitter Analysis:** Middle detectors showed superior performance: Det 1 (0.29 ns) and Det 2 (0.40 ns).
    * **New Data Acquisition (Stack 1243):**
      * **Configuration:** Det 1 (Top) -> Det 2 (Mid1) -> Det 4 (Mid2) -> Det 3 (Bot).
      * **Goal:** Place Det 2 and Det 4 in the geometric center of the stack.
