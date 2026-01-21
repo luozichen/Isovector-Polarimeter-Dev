@@ -10,14 +10,18 @@
 ## 📍 Project Goal
 
 ### Detector Hardware Development
-- [x] Electronics Design: Iteratively design and solder the PMT Voltage Divider PCB.
-- [x] Mechanical Structure: Design and 3D print the base and light-tight casing.
-- [x] System Integration: Complete the optical coupling of scintillators to PMTs and the final assembly of 4 detector units.
-- [x] Cosmic Ray Testing: Construct a cosmic ray telescope system to verify the detector's logic coincidence and long-term operational stability.
+- [x] Electronics Design: Iteratively design and solder the PMT Voltage Divider PCB. [2025-12-20]
+- [x] Mechanical Structure: Design and 3D print the base and light-tight casing. [2026-01-14]
+- [x] System Integration: Complete the optical coupling of scintillators to PMTs and the final assembly of 4 detector units. [2026-01-15]
+- [x] Cosmic Ray Testing: Construct a cosmic ray telescope system to verify the detector's logic coincidence and long-term operational stability. [2026-01-18]
 - [ ] ~~Energy Calibration: Utilize the laboratory's Thorium source (Th-232) to perform precise energy calibration.~~
-- [x] Digital Twin Simulation: Create a Geant4 "digital twin" of the detector stack and run simulations to obtain expected energy deposition distributions.
-- [x] Energy Calibration: Perform energy calibration by matching experimental Cosmic Ray Muon Landau distributions with Geant4 simulated energy deposits (replacing Th-232 method).
-- [ ] Time Resolution: Measure detector jitter and time resolution.
+- [x] Digital Twin Simulation: Create a Geant4 "digital twin" of the detector stack and run simulations to obtain expected energy deposition distributions. [2026-01-17]
+- [x] Energy Calibration: Perform energy calibration by matching experimental Cosmic Ray Muon Landau distributions with Geant4 simulated energy deposits (replacing Th-232 method). [2026-01-19]
+- [x] Time Resolution: Measure detector jitter and time resolution. Results obtained using software collimation (Landau cuts) on Run 003 data to isolate vertical events and solved the system of pair variances. [2026-01-20]
+- [ ] Data Acquisition: Acquire more data with detector pairs in the middle (Stack 2134) to get "good detector pair data".
+- [ ] Improved Calibration: Calculate improved energy deposit calibration using more data.
+- [ ] Improved Jitter: Calculate improved jitter calculation using the good detector pair data (which we previously lacked in first calculation, and we had to use cutting of the top and bottom detectors to get required data).
+- [ ] Thorium Investigation: Investigating thorium on detectors anyways.
 
 ### Theoretical Derivation & Physics Simulation
 - [ ] Polarization Derivation: Starting from quantum scattering theory, derive the analytical relationship between the deuteron-proton (d-p) elastic scattering cross-section and the beam's tensor polarization.
