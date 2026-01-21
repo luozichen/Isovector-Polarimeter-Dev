@@ -51,7 +51,10 @@
      * **Run 005 Results:**
        * **Statistics:** 1000 events collected. 75.3% clean (0.8% noise, 23.9% clipped).
        * **Plots:** Generated `run005_landau_fits.png`, `run005_timing_pairs.png`, etc.
-       * **Jitter Analysis:** Det 3 and Det 1 showed very low intrinsic jitter (reaching solver floor), while Det 2 and Det 4 were ~1.2 ns.
+   * **New Data Acquisition (Stack 1243):**
+     * **Configuration:** Det 1 (Top) -> Det 2 (Mid1) -> Det 4 (Mid2) -> Det 3 (Bot).
+     * **Goal:** Place Det 2 and Det 4 in the geometric center of the stack.
+     * **Status:** Acquisition Started.
 
 * **2026-01-20:**
    * Started a 1M long **Geant4 (G4) simulation** run to get better data (not physical detector data).
