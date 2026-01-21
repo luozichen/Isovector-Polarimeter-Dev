@@ -238,7 +238,7 @@ def analyze_run(run_dir):
         bin_centers = (bins[:-1] + bins[1:]) / 2
         peak_idx = np.argmax(counts)
         peak_val = bin_centers[peak_idx]
-        cut_val = max(DEFAULT_CUT_THRESHOLD_MV / 1000.0, peak_val * 0.6)
+        cut_val = max(DEFAULT_CUT_THRESHOLD_MV / 1000.0, peak_val * 0.8)
         cuts[ch] = cut_val
         
     # --- Categorize Events ---
