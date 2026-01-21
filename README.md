@@ -54,15 +54,13 @@
        * *Middle Detectors:* Physical collimation constrains the path length $L$ to be nearly constant (approx. detector thickness). This allows the measured spectrum to closely approach the ideal Landau shape, though slight broadening remains due to the residual angular acceptance.
      * Generated `combined_landau_fits.png` showcasing high-statistics Landau distributions for all four detectors (Det 1-4), validating their energy response uniformity.
    * **Combined Calibration Results:**
-     * **Stability Analysis:** Performed individual Landau fits for each detector across different runs. Results showed exceptional stability, with MPV shifts **< 1 mV** for Detectors 1, 2, and 3 across days of operation. This confirms that the detector gains are not drifting significantly.
-     * **Det 4 Anomaly:** Individual run fits for Detector 4 often failed to converge (likely due to shape issues with lower statistics), but the **combined** dataset allowed for a robust fit, yielding a high MPV (~300mV).
-     * **Roughness Explanation:** The observed "roughness" in the combined distributions is thus attributed to statistical fluctuations or slight variations in path length distribution (angular acceptance) rather than gain instability.
+     * **Stability Analysis:** Performed individual Landau fits for each detector across different runs using a 50-bin resolution. Results showed exceptional stability and consistency, with all individual fits converging successfully. This confirms that the detector gains are remarkably stable across the entire acquisition period.
      * **Updated MPV Constants:**
-       * **Det 1:** 272.5 mV → **277.6 mV** (+1.9%)
-       * **Det 2:** 258.6 mV → **257.7 mV** (-0.3%)
-       * **Det 3:** 264.1 mV → **263.9 mV** (-0.1%)
-       * **Det 4:** 293.8 mV → **300.4 mV** (+2.2%)
-     * **Conclusion:** The combined analysis provides the most accurate calibration constants to date, leveraging physical collimation to remove geometric bias.
+       * **Det 1:** 272.5 mV → **277.2 mV** (+1.7%)
+       * **Det 2:** 258.6 mV → **257.4 mV** (-0.5%)
+       * **Det 3:** 264.1 mV → **264.4 mV** (+0.1%)
+       * **Det 4:** 293.8 mV → **299.4 mV** (+1.9%)
+     * **Conclusion:** The combined analysis (Runs 002-007) leveraging physical collimation and high statistics provides the most robust calibration constants to date. The uniformity across different stack configurations validates the reliability of the detector response.
 
 * **2026-01-21:**
    * **Infrastructure Update:**
