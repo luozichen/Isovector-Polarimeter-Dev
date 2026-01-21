@@ -10,15 +10,16 @@
 ## 📍 Project Goal
 
 ### Detector Hardware Development
-- [x] Electronics Design: Iteratively design and solder the PMT Voltage Divider PCB. [2025-12-20]
-- [x] Mechanical Structure: Design and 3D print the base and light-tight casing. [2026-01-14]
+- [x] Voltage-Divider Design: Iteratively design and manufacture the PMT Voltage Divider PCB. [2025-12-03]
+- [x] PMT base: Iteratively design and 3D print the base mechanical components. [2025-12-30]
+- [x] Mechanical Structure: Design and 3D print the detector outer casing. [2026-01-14]
 - [x] System Integration: Complete the optical coupling of scintillators to PMTs and the final assembly of 4 detector units. [2026-01-15]
 - [x] Cosmic Ray Testing: Construct a cosmic ray telescope system to verify the detector's logic coincidence and long-term operational stability. [2026-01-18]
 - [ ] ~~Energy Calibration: Utilize the laboratory's Thorium source (Th-232) to perform precise energy calibration.~~
 - [x] Digital Twin Simulation: Create a Geant4 "digital twin" of the detector stack and run simulations to obtain expected energy deposition distributions. [2026-01-17]
 - [x] Energy Calibration: Perform energy calibration by matching experimental Cosmic Ray Muon Landau distributions with Geant4 simulated energy deposits (replacing Th-232 method). [2026-01-19]
-- [x] Time Resolution: Measure detector jitter and time resolution. Results obtained using software collimation (Landau cuts) on Run 003 data to isolate vertical events and solved the system of pair variances. [2026-01-20]
-- [ ] Data Acquisition: Acquire more data with detector pairs in the middle (Stack 2134) to get "good detector pair data".
+- [x] Time Resolution: Measure detector jitter and time resolution. Note: due to the lack of "good detector pair data", we use results obtained using software collimation (Landau cuts) on Run 003 data to isolate vertical events and solved the system of pair variances. [2026-01-20]
+- [ ] Further Data Acquisition: Acquire more data with detector pairs in the middle to get "good detector pair data".
 - [ ] Improved Calibration: Calculate improved energy deposit calibration using more data.
 - [ ] Improved Jitter: Calculate improved jitter calculation using the good detector pair data (which we previously lacked in first calculation, and we had to use cutting of the top and bottom detectors to get required data).
 - [ ] Thorium Investigation: Investigating thorium on detectors anyways.
@@ -65,7 +66,7 @@
        * **Det 4:** 2.873 ns (Needs investigation)
      * **Future Plan:** Perform higher-quality measurements by physically placing different detector pairs in the center of the stack (position 2 and 3). This will ensure "golden" vertical events for all detectors without requiring software collimation/filtering. Scheduled for the next available lab session.
 * **2026-01-19:**
-   * ❄️❄️ *Official start of the Winter Holidays.*
+   * ❄️ *Official start of the Winter Holidays.* ❄️
    * **Run 003 Analysis (Switched Detectors):**
      * **Status:** Analyzed 1000 events from the "switched" configuration (Inner/Outer detectors swapped).
      * **Noise/Stability:** Observed significantly higher noise floor compared to Run 002. Mean baseline noise rose to ~50-60mV.
