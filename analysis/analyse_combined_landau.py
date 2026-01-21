@@ -121,8 +121,25 @@ def main():
         
         for det_id, amps in run_data.items():
             combined_data[det_id].extend(amps)
-            print(f"  - Det {det_id}: +{len(amps)} events")
             
+            # Precise check for peak shift using Fit
+            if len(amps) > 50:
+                try:
+                    y, x = np.histogram(amps, bins=40, range=LANDAU_RANGE)
+                    bin_centers = (x[:-1] + x[1:]) / 2
+                    peak_idx = np.argmax(y)
+                    mpv_guess = bin_centers[peak_idx]
+                    
+                    popt, _ = curve_fit(landau_fit_func, bin_centers, y, 
+                                        p0=[mpv_guess, 0.01, np.max(y)*0.01], 
+                                        bounds=([0, 0, 0], [1, 1, np.inf]))
+                    print(f"  - Det {det_id}: +{len(amps)} events | MPV: {popt[0]*1000:.2f} mV")
+                except:
+                    print(f"  - Det {det_id}: +{len(amps)} events | Fit Failed")
+            else:
+                print(f"  - Det {det_id}: +{len(amps)} events (Too few to fit)")
+
+    print("\n--- Final Fits ---")
     # --- Plotting ---
     fig, axes = plt.subplots(2, 2, figsize=(12, 10))
     axes = axes.flatten()
@@ -150,9 +167,11 @@ def main():
                                 p0=[mpv_guess, 0.01, np.max(y)*0.01], 
                                 bounds=([0, 0, 0], [1, 1, np.inf]))
             
+            mpv_val = popt[0]
             x_fine = np.linspace(LANDAU_RANGE[0], LANDAU_RANGE[1], 200)
             ax.plot(x_fine, landau_fit_func(x_fine, *popt), 'k--', lw=2, 
-                    label=f'Fit\nMPV={popt[0]*1000:.1f} mV')
+                    label=f'Fit\nMPV={mpv_val*1000:.1f} mV')
+            print(f"Det {det_id} Combined MPV: {mpv_val*1000:.2f} mV")
         except Exception as e:
             print(f"Fit failed for Det {det_id}: {e}")
             
