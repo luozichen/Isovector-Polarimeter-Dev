@@ -46,6 +46,10 @@
        * **Middle (Det 3, 4):** ~0.34 - 0.48 ns
        * **Outer (Det 1, 2):** ~0.74 - 0.76 ns
      * This consistent pattern across runs 004, 005, 006, and 007 confirms that the "intrinsic" jitter of our detectors is likely around **0.3-0.4 ns**, and the higher values seen in Top/Bottom positions are dominated by path length variations (geometric acceptance).
+   * **Combined Landau Analysis:**
+     * Aggregated data from Runs 002-007, strictly selecting only events where detectors were in **Middle** positions.
+     * **Methodology Refinement:** Removed amplitude-based cuts (e.g., >90% MPV) for these detectors. Relied on **physical collimation** from the outer detectors to ensure event purity, applying only electronic noise rejection. This preserves the natural lower-energy tail of the Landau distribution.
+     * Generated `combined_landau_fits.png` showcasing high-statistics Landau distributions for all four detectors (Det 1-4), validating their energy response uniformity.
 
 * **2026-01-21:**
    * **Infrastructure Update:**
