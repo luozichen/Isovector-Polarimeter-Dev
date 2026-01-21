@@ -49,6 +49,9 @@
    * **Combined Landau Analysis:**
      * Aggregated data from Runs 002-007, strictly selecting only events where detectors were in **Middle** positions.
      * **Methodology Refinement:** Removed amplitude-based cuts (e.g., >90% MPV) for these detectors. Relied on **physical collimation** from the outer detectors to ensure event purity, applying only electronic noise rejection. This preserves the natural lower-energy tail of the Landau distribution.
+     * **Physics Interpretation:** The theoretical Landau distribution assumes a fixed path length. In reality, the measured spectrum is a **convolution** of the intrinsic Landau fluctuations (straggling) and the **Path Length Distribution** determined by the detector geometry.
+       * *Outer Detectors:* Accept a wide range of angles and corner clips, creating a messy path length distribution that distorts the spectrum.
+       * *Middle Detectors:* Physical collimation constrains the path length $L$ to be nearly constant (approx. detector thickness). This allows the measured spectrum to closely approach the ideal Landau shape, though slight broadening remains due to the residual angular acceptance.
      * Generated `combined_landau_fits.png` showcasing high-statistics Landau distributions for all four detectors (Det 1-4), validating their energy response uniformity.
    * **Combined Calibration Results:**
      * **Stability Analysis:** Performed individual Landau fits for each detector across different runs. Results showed exceptional stability, with MPV shifts **< 1 mV** for Detectors 1, 2, and 3 across days of operation. This confirms that the detector gains are not drifting significantly.
