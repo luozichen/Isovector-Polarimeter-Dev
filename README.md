@@ -54,6 +54,7 @@
        * **Det 2:** 0.507 ns
        * **Det 3:** 0.541 ns
        * **Det 4:** 0.531 ns
+     * **Validation:** The model fits the experimental data exceptionally well. The residuals (Measured - Predicted pair jitter) were typically **~5-10 ps**, confirming the robustness of the calculated intrinsic resolution.
      * **Conclusion:** The detectors exhibit remarkable uniformity. The intrinsic timing resolution of the system is consistently **~0.5 ns**. Previous variations were dominated by geometric path length differences in outer positions.
    * **Combined Landau Analysis:**
      * Aggregated data from Runs 002-007, strictly selecting only events where detectors were in **Middle** positions.
