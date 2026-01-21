@@ -66,7 +66,19 @@
    * **New Data Acquisition (Stack 1342):**
      * **Configuration:** Det 1 (Top) -> Det 3 (Mid1) -> Det 4 (Mid2) -> Det 2 (Bot).
      * **Goal:** Place Det 3 and Det 4 in the geometric center of the stack.
-     * **Status:** Acquisition Started.
+     * **Status:** Acquisition and Analysis Complete.
+     * **Run 007 Results:**
+       * **Statistics:** 1000 events collected. 48.9% clean (0.4% noise, 50.7% clipped).
+       * **Plots:** Generated `run007_landau_fits.png`, `run007_timing_pairs.png`, etc.
+       * **Jitter Analysis:** Middle detectors showed superior performance: Det 3 (0.48 ns) and Det 4 (0.34 ns).
+
+* **2026-01-22:**
+   * **Run 007 Analysis:**
+     * Completed analysis for Stack 1342.
+     * Continued observation of geometric effects on jitter:
+       * **Middle (Det 3, 4):** ~0.34 - 0.48 ns
+       * **Outer (Det 1, 2):** ~0.74 - 0.76 ns
+     * This consistent pattern across runs 004, 005, 006, and 007 confirms that the "intrinsic" jitter of our detectors is likely around **0.3-0.4 ns**, and the higher values seen in Top/Bottom positions are dominated by path length variations (geometric acceptance).
 
 * **2026-01-20:**
    * Started a 1M long **Geant4 (G4) simulation** run to get better data (not physical detector data).
