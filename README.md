@@ -19,9 +19,9 @@
 - [x] Digital Twin Simulation: Create a Geant4 "digital twin" of the detector stack and run simulations to obtain expected energy deposition distributions. [2026-01-17]
 - [x] Energy Calibration: Perform energy calibration by matching experimental Cosmic Ray Muon Landau distributions with Geant4 simulated energy deposits (replacing Th-232 method). [2026-01-19]
 - [x] Time Resolution: Measure detector jitter and time resolution. Note: due to the lack of "good detector pair data", we use results obtained using software collimation (Landau cuts) on Run 003 data to isolate vertical events and solved the system of pair variances. [2026-01-20]
-- [ ] Further Data Acquisition: Acquire more data with detector pairs in the middle to get "good detector pair data". Get 4*1000 waveforms for all 6 possible middle configurations (4C2).
+- [x] Further Data Acquisition: Acquire more data with detector pairs in the middle to get "good detector pair data". Get 4*1000 waveforms for all 6 possible middle configurations (4C2). [2026-01-22]
 - [ ] Improved Calibration: Calculate improved energy deposit calibration using more data (Each detector has two sets of middle data. Analyse Combined Data). 
-- [ ] Improved Jitter: Calculate improved jitter calculation using the good detector pair data (which we previously lacked in first calculation, and we had to use cutting of the top and bottom detectors to get required data).
+- [x] Improved Jitter: Calculate improved jitter calculation using the good detector pair data (which we previously lacked in first calculation, and we had to use cutting of the top and bottom detectors to get required data). [2026-01-22]
 - [ ] Thorium Investigation: Investigating thorium on detectors anyways.
 
 ### Theoretical Derivation & Physics Simulation
@@ -54,7 +54,7 @@
        * **Det 2:** 0.507 ns
        * **Det 3:** 0.541 ns
        * **Det 4:** 0.531 ns
-     * **Validation:** The model fits the experimental data exceptionally well. The residuals (Measured - Predicted pair jitter) were typically **~5-10 ps**, confirming the robustness of the calculated intrinsic resolution.
+     * **Validation:** The model fits the experimental data exceptionally well. **A least-squares analysis of pairwise variances yielded a model consistency with typical residuals of $\sim 5$ ps**, confirming the robustness of the calculated intrinsic resolution.
      * **Conclusion:** The detectors exhibit remarkable uniformity. The intrinsic timing resolution of the system is consistently **~0.5 ns**. Previous variations were dominated by geometric path length differences in outer positions.
    * **Combined Landau Analysis:**
      * Aggregated data from Runs 002-007, strictly selecting only events where detectors were in **Middle** positions.
