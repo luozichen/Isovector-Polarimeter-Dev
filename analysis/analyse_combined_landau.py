@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Combined Landau Analysis (Runs 002-007)
-Aggregates data from Middle detectors only to perform high-quality Landau fits.
+Grid visualization: 4 Detectors x (3 Individual Runs + 1 Combined)
 """
 
 import numpy as np
@@ -15,11 +15,11 @@ from wfm_reader import WfmReader
 
 # --- Configuration ---
 RESULTS_DIR = "results/physical"
-RUN_PATTERN = "run00[2-7]*" # Matches run002 to run007
-DEFAULT_CUT_THRESHOLD_MV = 50.0 
+RUN_PATTERN = "run00[2-7]*" 
 POSITIVE_NOISE_THRESHOLD = 0.03 # 30 mV
 LANDAU_RANGE = (0.01, 0.4)
-BINS = 60
+# 5 mV bins over 400 mV range => 80 bins
+BINS = 80 
 
 def landau_fit_func(x, mpv, width, amp):
     return amp * moyal.pdf(x, loc=mpv, scale=width)
@@ -28,26 +28,17 @@ def parse_run_info(run_dir):
     dirname = os.path.basename(os.path.normpath(run_dir))
     match = re.search(r'config_(\d{4})', dirname)
     config_str = match.group(1) if match else "1234"
-    return config_str
+    run_id = dirname.split("_")[0]
+    return run_id, config_str
 
 def get_middle_detectors(config_str):
-    """
-    Returns a list of detector IDs (integers) that are in the middle positions.
-    config_str = "1234" -> Top=1, Mid1=2, Mid2=3, Bot=4. Returns [2, 3].
-    """
-    if len(config_str) != 4:
-        return []
+    if len(config_str) != 4: return []
     return [int(config_str[1]), int(config_str[2])]
 
 def load_run_data(run_dir, target_dets):
-    """
-    Loads data for specific detectors in a run.
-    Returns a dictionary: {det_id: [amplitudes]}
-    """
     wfm_files = glob.glob(os.path.join(run_dir, "*_Ch*.wfm"))
     if not wfm_files: return {}
 
-    # Group by prefix
     sets = {}
     for f in wfm_files:
         basename = os.path.basename(f)
@@ -62,10 +53,8 @@ def load_run_data(run_dir, target_dets):
     prefix = list(sets.keys())[0]
     file_map = sets[prefix]
     
-    # Load all channels first to perform event filtering
     raw_data = {}
     num_events = 0
-    
     for ch in range(1, 5):
         if ch not in file_map: return {}
         wfm = WfmReader(file_map[ch])
@@ -73,19 +62,14 @@ def load_run_data(run_dir, target_dets):
         raw_data[ch] = v
         if num_events == 0: num_events = wfm.num_frames
         else: num_events = min(num_events, wfm.num_frames)
-        
-    # Truncate
+    
     for ch in raw_data:
         raw_data[ch] = raw_data[ch][:num_events]
         
-    # Calculate Amplitudes
     amplitudes = {ch: np.abs(np.min(raw_data[ch], axis=1)) for ch in range(1, 5)}
-    
-    # Filter Events
     clean_amplitudes = {det: [] for det in target_dets}
     
     for i in range(num_events):
-        # 1. Noise Check (Global)
         is_noise = False
         for ch in range(1, 5):
             if np.max(raw_data[ch][i]) > POSITIVE_NOISE_THRESHOLD:
@@ -93,97 +77,106 @@ def load_run_data(run_dir, target_dets):
                 break
         if is_noise: continue
         
-        # 2. No Amplitude Cut needed for Middle Detectors
-        # They are physically collimated, so we keep the full distribution
-        # to avoid truncating the real Landau tail.
-        
-        # 3. Store Data for Target Detectors (Ch N = Det N)
         for det_id in target_dets:
             clean_amplitudes[det_id].append(amplitudes[det_id][i])
             
     return clean_amplitudes
+
+def fit_and_plot(ax, data, label, color):
+    if len(data) == 0:
+        ax.text(0.5, 0.5, "No Data", ha='center', va='center')
+        return None
+
+    y, x, _ = ax.hist(data, bins=BINS, range=LANDAU_RANGE, 
+                      density=False, histtype='stepfilled', alpha=0.4, label='Data', color=color)
+    
+    bin_centers = (x[:-1] + x[1:]) / 2
+    peak_idx = np.argmax(y)
+    mpv_guess = bin_centers[peak_idx]
+    
+    # Improved initial guesses for fit stability
+    width_guess = 0.015 # Typical width ~15mV
+    amp_guess = np.max(y) * width_guess * 2.5 # approx area scaling
+    
+    try:
+        popt, _ = curve_fit(landau_fit_func, bin_centers, y, 
+                            p0=[mpv_guess, width_guess, amp_guess], 
+                            bounds=([0, 0, 0], [1, 1, np.inf]))
+        
+        x_fine = np.linspace(LANDAU_RANGE[0], LANDAU_RANGE[1], 200)
+        ax.plot(x_fine, landau_fit_func(x_fine, *popt), 'k--', lw=1.5)
+        
+        mpv_val = popt[0] * 1000
+        ax.text(0.95, 0.95, f"MPV: {mpv_val:.1f} mV\nN: {len(data)}", 
+                transform=ax.transAxes, ha='right', va='top', fontsize=9,
+                bbox=dict(boxstyle='round', facecolor='white', alpha=0.7))
+        return mpv_val
+    except:
+        ax.text(0.95, 0.95, f"Fit Failed\nN: {len(data)}", 
+                transform=ax.transAxes, ha='right', va='top', fontsize=9, color='red')
+        return None
 
 def main():
     os.makedirs(RESULTS_DIR, exist_ok=True)
     data_root = "data"
     run_dirs = sorted(glob.glob(os.path.join(data_root, RUN_PATTERN)))
     
-    combined_data = {1: [], 2: [], 3: [], 4: []}
+    # Store data: detector_data[det_id] = [(run_id, [amps]), ...]
+    detector_data = {1: [], 2: [], 3: [], 4: []}
     
     print(f"Found {len(run_dirs)} runs matching {RUN_PATTERN}")
     
     for run_dir in run_dirs:
-        config_str = parse_run_info(run_dir)
+        run_id, config_str = parse_run_info(run_dir)
         mid_dets = get_middle_detectors(config_str)
-        print(f"Processing {os.path.basename(run_dir)} (Config: {config_str}) -> Middle Dets: {mid_dets}")
+        print(f"Processing {run_id} (Config: {config_str}) -> Middle Dets: {mid_dets}")
         
         run_data = load_run_data(run_dir, mid_dets)
         
         for det_id, amps in run_data.items():
-            combined_data[det_id].extend(amps)
-            
-            # Precise check for peak shift using Fit
-            if len(amps) > 50:
-                try:
-                    y, x = np.histogram(amps, bins=40, range=LANDAU_RANGE)
-                    bin_centers = (x[:-1] + x[1:]) / 2
-                    peak_idx = np.argmax(y)
-                    mpv_guess = bin_centers[peak_idx]
-                    
-                    popt, _ = curve_fit(landau_fit_func, bin_centers, y, 
-                                        p0=[mpv_guess, 0.01, np.max(y)*0.01], 
-                                        bounds=([0, 0, 0], [1, 1, np.inf]))
-                    print(f"  - Det {det_id}: +{len(amps)} events | MPV: {popt[0]*1000:.2f} mV")
-                except:
-                    print(f"  - Det {det_id}: +{len(amps)} events | Fit Failed")
-            else:
-                print(f"  - Det {det_id}: +{len(amps)} events (Too few to fit)")
+            detector_data[det_id].append((run_id, amps))
 
-    print("\n--- Final Fits ---")
-    # --- Plotting ---
-    fig, axes = plt.subplots(2, 2, figsize=(12, 10))
-    axes = axes.flatten()
-    fig.suptitle("Combined Landau Fits (Middle Detectors Only - Runs 002-007)\nPhysical Collimation (No Software Cuts, Noise Rejected)", fontsize=14)
+    # --- Plotting Grid (4 Detectors x 4 Columns) ---
+    fig, axes = plt.subplots(4, 4, figsize=(20, 16), sharex=True, sharey='row')
+    plt.subplots_adjust(hspace=0.3, wspace=0.1)
     
-    for i, det_id in enumerate(range(1, 5)):
-        ax = axes[i]
-        vals = np.array(combined_data[det_id])
+    fig.suptitle("Landau Fits: Individual Middle Runs vs Combined (Physical Collimation)", fontsize=16)
+    
+    colors = ['royalblue', 'orange', 'green', 'crimson']
+    
+    for det_idx in range(4):
+        det_id = det_idx + 1
+        runs = detector_data[det_id]
         
-        if len(vals) == 0:
-            ax.text(0.5, 0.5, "No Data", ha='center', va='center')
-            continue
+        # Combined Data
+        combined_amps = []
+        for _, amps in runs:
+            combined_amps.extend(amps)
             
-        # Histogram
-        y, x, _ = ax.hist(vals, bins=BINS, range=LANDAU_RANGE, 
-                          density=False, histtype='stepfilled', alpha=0.4, label='Data', color=f'C{i}')
-        
-        bin_centers = (x[:-1] + x[1:]) / 2
-        
-        # Fit
-        peak_idx = np.argmax(y)
-        mpv_guess = bin_centers[peak_idx]
-        try:
-            popt, _ = curve_fit(landau_fit_func, bin_centers, y, 
-                                p0=[mpv_guess, 0.01, np.max(y)*0.01], 
-                                bounds=([0, 0, 0], [1, 1, np.inf]))
-            
-            mpv_val = popt[0]
-            x_fine = np.linspace(LANDAU_RANGE[0], LANDAU_RANGE[1], 200)
-            ax.plot(x_fine, landau_fit_func(x_fine, *popt), 'k--', lw=2, 
-                    label=f'Fit\nMPV={mpv_val*1000:.1f} mV')
-            print(f"Det {det_id} Combined MPV: {mpv_val*1000:.2f} mV")
-        except Exception as e:
-            print(f"Fit failed for Det {det_id}: {e}")
-            
-        ax.set_title(f"Detector {det_id} (N={len(vals)})")
-        ax.set_xlabel("Amplitude (V)")
-        ax.legend()
-        ax.grid(True, alpha=0.3)
-        
-    plt.tight_layout(rect=[0, 0.03, 1, 0.95])
-    out_path = os.path.join(RESULTS_DIR, "combined_landau_fits.png")
-    plt.savefig(out_path)
-    print(f"Saved combined plot to {out_path}")
+        # Plot Individual Runs (Columns 0-2)
+        for col in range(3):
+            ax = axes[det_idx, col]
+            if col < len(runs):
+                run_id, amps = runs[col]
+                ax.set_title(f"Det {det_id} @ {run_id}", fontsize=10)
+                fit_and_plot(ax, amps, run_id, colors[det_idx])
+            else:
+                ax.axis('off') # Hide empty plot if < 3 runs
+                
+            if det_idx == 3: ax.set_xlabel("Amplitude (V)")
+            if col == 0: ax.set_ylabel("Counts")
+            ax.grid(True, alpha=0.3)
+
+        # Plot Combined (Column 3)
+        ax_comb = axes[det_idx, 3]
+        ax_comb.set_title(f"Det {det_id} Combined", fontsize=10, fontweight='bold')
+        fit_and_plot(ax_comb, combined_amps, "Combined", 'purple')
+        ax_comb.grid(True, alpha=0.3)
+        if det_idx == 3: ax_comb.set_xlabel("Amplitude (V)")
+
+    out_path = os.path.join(RESULTS_DIR, "combined_landau_grid.png")
+    plt.savefig(out_path, dpi=150)
+    print(f"Saved grid plot to {out_path}")
 
 if __name__ == "__main__":
     main()
