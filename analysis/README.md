@@ -41,7 +41,7 @@ We employed three distinct methods to measure the jitter, ranging from naive to 
 *   **Concept:** Use data from a single run (e.g., Run 003). Solve the system of pairwise variances ($\sigma_{i}^2 + \sigma_{j}^2 = \sigma_{ij}^2$).
 *   **The Problem:** In a vertical stack, the top and bottom detectors suffer from "corner-clipping" — muons hitting the edges produce weak, slow signals with poor timing.
 *   **The Fix:** Apply **"Landau Cuts"**. Strictly filter events to keep only those with high amplitudes in ALL 4 detectors. This virtually "collimates" the beam to the center, removing edge effects.
-*   **Script:** `analyse_jitter.py`
+*   **Script:** `analyse_physical.py`
 *   **Pros:** Can be done with a single dataset.
 *   **Cons:** Requires throwing away ~50% of data. The "cuts" can introduce bias. Even with cuts, outer detectors are never as clean as middle ones.
 
