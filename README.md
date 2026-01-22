@@ -71,6 +71,10 @@
        * **Det 3:** 264.1 mV → **264.4 mV** (+0.1%)
        * **Det 4:** 293.8 mV → **299.4 mV** (+1.9%)
      * **Conclusion:** The combined analysis (Runs 002-007) leveraging physical collimation and high statistics provides the most robust calibration constants to date. The uniformity across different stack configurations validates the reliability of the detector response.
+   * **Infrastructure & Simulation Update:**
+     * **Simulation Milestone:** Successfully completed the **1M event Geant4 "Long Run"** (`v0200_coincidence`), providing a high-statistics dataset for precise energy loss and angular distribution modeling.
+     * **Code Standardization:** Renamed and standardized analysis scripts (e.g., `analyse_v0200.py` for standard calibration, `analyse_v0200_advanced.py` for physics validation) to align with the new simulation versioning.
+     * **Git Policy Update:** Removed `.wfm` files and the `data/` directory from `.gitignore`. Raw waveform data (binary WFM) is now tracked to ensure full reproducibility of the analysis pipeline. Large intermediate `.csv` files remain ignored to manage repository size.
 
 * **2026-01-21:**
    * **Infrastructure Update:**
