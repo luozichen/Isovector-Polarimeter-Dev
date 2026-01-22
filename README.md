@@ -28,6 +28,33 @@
 - [ ] Polarization Derivation: Starting from quantum scattering theory, derive the analytical relationship between the deuteron-proton (d-p) elastic scattering cross-section and the beam's tensor polarization.
 - [ ] Detection Simulation: Write code to simulate the scattering of the polarized deuteron beam on a methlyne target, and obtain the detector response, verifying the derivation and the rationality of the detector layout.
 - [ ] Physics Verification: Using the ImQMD transport model to simulate the entire IVR experiment process, verifying the sensitivity of the experimental results to the beam polarization.
+
+---
+
+## 📊 Final Results Summary
+
+### 1. Energy Calibration
+**Methodology:** Matched experimental MPVs (Combined Analysis, 6000 events) with Geant4 simulation reference energy (1M event Long Run).
+**Reference Energy (Simulation):** 30.01 MeV (Average of middle detectors Scin1/Scin2).
+
+| Detector | Experimental MPV (mV) | Calibration Constant (MeV/mV) | 1 MeV Signal (mV) |
+| :--- | :--- | :--- | :--- |
+| **Det 1** | 277.16 | **0.1083** | 9.24 |
+| **Det 2** | 257.40 | **0.1166** | 8.58 |
+| **Det 3** | 264.44 | **0.1135** | 8.81 |
+| **Det 4** | 299.42 | **0.1002** | 9.98 |
+
+### 2. Time Resolution
+**Methodology:** Least-squares solution of pairwise variances using 6 "Golden" middle-layer stack configurations.
+
+| Detector | Intrinsic Jitter ($\sigma$) | Resolution (FWHM) |
+| :--- | :--- | :--- |
+| **Det 1** | 0.505 ns | 1.189 ns |
+| **Det 2** | 0.507 ns | 1.194 ns |
+| **Det 3** | 0.541 ns | 1.274 ns |
+| **Det 4** | 0.531 ns | 1.250 ns |
+| **Average** | **0.521 ns** | **1.227 ns** |
+
 ---
 
 ## 📅 Development Log
