@@ -71,6 +71,11 @@
        * **Det 3:** 264.1 mV → **264.4 mV** (+0.1%)
        * **Det 4:** 293.8 mV → **299.4 mV** (+1.9%)
      * **Conclusion:** The combined analysis (Runs 002-007) leveraging physical collimation and high statistics provides the most robust calibration constants to date. The uniformity across different stack configurations validates the reliability of the detector response.
+   * **Trigger Jitter Analysis (Method 3):**
+     * **Objective:** Assess the timing precision of the hardware trigger logic relative to the detector signals.
+     * **Methodology:** Calculated the standard deviation of the signal arrival time (dCFD) with respect to the trigger time for middle detectors.
+     * **Results:** Observed jitter values ranging from **0.8 ns to 3.0 ns**, significantly higher than the intrinsic system jitter (~0.5 ns) determined by the pair-difference method.
+     * **Conclusion:** The hardware trigger logic introduces substantial timing uncertainty ("wobble"). High-precision timing measurements must rely on offline dCFD-dCFD analysis between detectors rather than referencing the trigger signal.
    * **Infrastructure & Simulation Update:**
      * **Simulation Milestone:** Successfully completed the **1M event Geant4 "Long Run"** (`v0200_coincidence`), providing a high-statistics dataset for precise energy loss and angular distribution modeling.
      * **Code Standardization:** Renamed and standardized analysis scripts (e.g., `analyse_v0200.py` for standard calibration, `analyse_v0200_advanced.py` for physics validation) to align with the new simulation versioning.
