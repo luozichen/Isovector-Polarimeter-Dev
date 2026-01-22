@@ -6,8 +6,6 @@ cmake-build-debug/
 *.root
 *.csv
 *.txt
-*.wfm
-data/
 
 # Ignore IDE settings (VS Code / Mac)
 .vscode/
