@@ -97,7 +97,13 @@
        * **Det 2:** 258.6 mV → **257.4 mV** (-0.5%)
        * **Det 3:** 264.1 mV → **264.4 mV** (+0.1%)
        * **Det 4:** 293.8 mV → **299.4 mV** (+1.9%)
-     * **Conclusion:** The combined analysis (Runs 002-007) leveraging physical collimation and high statistics provides the most robust calibration constants to date. The uniformity across different stack configurations validates the reliability of the detector response.
+     * **Conclusion:** The combined analysis (Runs 002-007) leveraging physical collimation and high statistics provides the most accurate experimental MPVs to date.
+   * **Final Energy Calibration:**
+     * **Objective:** Establish definitive MeV/mV conversion constants for the detector system.
+     * **Methodology:** Leveraged the **1M event Geant4 "Long Run"** (`v0200_coincidence`) to determine the reference energy deposition. Selected 4-fold coincidence events matching experimental conditions. Used the average MPV of middle detectors (Scin1, Scin2) to minimize geometric bias.
+     * **Reference Energy (Simulation):** 30.01 MeV.
+     * **Results:** Derived final calibration constants for all 4 detectors by matching simulated energy to experimental MPVs. The conversion constants range from **0.100 to 0.117 MeV/mV**.
+     * **Conclusion:** The system is now fully calibrated with high statistics, enabling precise energy spectroscopy for future experiments.
    * **Trigger Jitter Analysis (Method 3):**
      * **Objective:** Assess the timing precision of the hardware trigger logic relative to the detector signals.
      * **Methodology:** Calculated the standard deviation of the signal arrival time (dCFD) with respect to the trigger time for middle detectors.
