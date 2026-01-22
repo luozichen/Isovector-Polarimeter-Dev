@@ -62,7 +62,7 @@ We employed three distinct methods to measure the jitter, ranging from naive to 
 
 For Methods 2 and 3, we solve for individual detector variances from pair measurements.
 Since the jitter of two independent detectors adds in quadrature:
-$$ \sigma_{ij}^2 = \sigma_i^2 + \sigma_j^2 $$
+$ \sigma_{ij}^2 = \sigma_i^2 + \sigma_j^2 $
 
 We construct a linear system $Ax = B$:
 *   $x = [\sigma_1^2, \sigma_2^2, \sigma_3^2, \sigma_4^2]^T$
