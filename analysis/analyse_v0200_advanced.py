@@ -18,7 +18,7 @@ import os
 
 # Configuration
 DEFAULT_INPUT_FILE = "simulation/v0200_coincidence/build/DET01_Cosmic_Result.root"
-OUTPUT_FILE = "results/v02_advanced_physics.png"
+OUTPUT_FILE = "results/v0200_advanced_physics.png"
 TREE_NAME = "CosmicData"
 THRESHOLD = 0.5 # MeV
 

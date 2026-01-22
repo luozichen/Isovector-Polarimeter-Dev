@@ -26,8 +26,8 @@ import sys
 # ==========================================
 # ANALYSIS CONFIGURATION
 # ==========================================
-DEFAULT_INPUT_FILE = "simulation/v0200_coincidence/build/DET01_Cosmic_Result.root"
-OUTPUT_FILE = "results/simulation/v02_coincidence_calibration.png"
+DEFAULT_INPUT_FILE = "simulation/v0200_coincidence/build/DET01_Cosmic_Result_long.root"
+OUTPUT_FILE = "results/simulation/v02_coincidence_calibration_long.png"
 TREE_NAME = "CosmicData"
 N_BINS = 100
 LANDAU_RANGE = (10, 100) # Region for fitting (MeV)
