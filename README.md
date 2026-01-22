@@ -109,6 +109,7 @@
      * **Methodology:** Calculated the standard deviation of the signal arrival time (dCFD) with respect to the trigger time for middle detectors.
      * **Results:** Observed jitter values ranging from **0.8 ns to 3.0 ns**, significantly higher than the intrinsic system jitter (~0.5 ns) determined by the pair-difference method.
      * **Conclusion:** The hardware trigger logic introduces substantial timing uncertainty ("wobble"). High-precision timing measurements must rely on offline dCFD-dCFD analysis between detectors rather than referencing the trigger signal.
+   * **Thorium Calibration Analysis:** Placed a thorium source directly above top detector. Acquired the nessesary data (run008, 1000 waveforms per detector, discriminator module set to 50 mV, same as all previous runs) with the same detector configuration as run007 (1324). Compared the energy deposition across the two runs. No noticable difference. Plan to acquire more data with lower threshold.
    * **Infrastructure & Simulation Update:**
      * **Simulation Milestone:** Successfully completed the **1M event Geant4 "Long Run"** (`v0200_coincidence`), providing a high-statistics dataset for precise energy loss and angular distribution modeling.
      * **Code Standardization:** Renamed and standardized analysis scripts (e.g., `analyse_v0200.py` for standard calibration, `analyse_v0200_advanced.py` for physics validation) to align with the new simulation versioning.
