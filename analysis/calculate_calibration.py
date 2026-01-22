@@ -1,177 +1,113 @@
 #!/usr/bin/env python3
 """
-Calculate Calibration Constants
-1. Re-analyze Simulation (v0200).
-   - Method A: "Golden Events" (Strict Face-to-Face). Straight path, minimum dE.
-   - Method B: "Realistic" (4-Fold Coincidence). Matches experimental trigger.
-2. Calculate True Energy Deposition (MPV).
-3. Combine with Experimental MPVs to get Calibration Constants (MeV/mV).
+Calculate Energy Calibration Constants
+1. Loads 1M event Geant4 simulation data (v0200).
+2. Selects 4-fold coincidence events.
+3. Fits Landau to Middle Detectors (Scin1, Scin2) to get Reference Energy (MeV).
+   (Middle detectors are used to minimize geometric clipping effects, matching experimental "Golden" logic).
+4. Uses experimental MPVs (from Combined Landau Analysis) to calculate calibration constants (MeV/mV).
 """
 
 import uproot
 import numpy as np
-import pandas as pd
-from scipy.stats import moyal
-from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
-import sys
+from scipy.optimize import curve_fit
+from scipy.stats import moyal
 import os
 
-# Configuration
-ROOT_FILE = "simulation/v0200_coincidence/build/DET01_Cosmic_Result.root"
+# --- Configuration ---
+ROOT_FILE = "simulation/v0200_coincidence/build/DET01_Cosmic_Result_long.root"
 TREE_NAME = "CosmicData"
-LANDAU_RANGE = (10, 50) # MeV
-THRESHOLD = 0.5 # MeV
+THRESHOLD_MEV = 0.5
+FIT_RANGE_MEV = (10, 60)
+BINS = 100
 
-# Experimental MPVs (mV)
-# Run 003 (Switched): Ch1, Ch4 are valid
-EXP_MPV_CH1 = 272.5
-EXP_MPV_CH4 = 293.8
-# Run 002 (Unswitched): Ch2, Ch3 are valid
-EXP_MPV_CH2 = 258.6
-EXP_MPV_CH3 = 264.1
+# Experimental MPVs (from combined_landau_grid.png analysis) - in mV
+EXP_MPV_MV = {
+    1: 277.16,
+    2: 257.40,
+    3: 264.44,
+    4: 299.42
+}
 
 def landau_fit_func(x, mpv, width, amp):
     return amp * moyal.pdf(x, loc=mpv, scale=width)
 
-def fit_landau(data, label, ax=None):
-    data_in_range = data[(data >= LANDAU_RANGE[0]) & (data <= LANDAU_RANGE[1])]
+def get_simulation_mpv(df, scint_name):
+    """
+    Fits Landau to the energy deposition of a specific scintillator in the dataframe.
+    """
+    data = df[scint_name]
     
-    if len(data_in_range) < 50:
-        return None, None
+    # Histogram
+    counts, bin_edges = np.histogram(data, bins=BINS, range=FIT_RANGE_MEV)
+    bin_centers = (bin_edges[:-1] + bin_edges[1:]) / 2
     
-    y, bin_edges = np.histogram(data_in_range, bins=50, range=LANDAU_RANGE)
-    x = (bin_edges[:-1] + bin_edges[1:]) / 2
-    
-    guess_mpv = x[np.argmax(y)]
-    guess_width = 2.0
-    guess_amp = np.max(y) * 2.0
+    # Guess parameters
+    peak_idx = np.argmax(counts)
+    mpv_guess = bin_centers[peak_idx]
     
     try:
-        popt, _ = curve_fit(landau_fit_func, x, y, p0=[guess_mpv, guess_width, guess_amp])
-        mpv, width, amp = popt
-        
-        if ax:
-            ax.hist(data_in_range, bins=50, range=LANDAU_RANGE, histtype='stepfilled', alpha=0.4, label=f"{label} Data")
-            x_curve = np.linspace(LANDAU_RANGE[0], LANDAU_RANGE[1], 200)
-            ax.plot(x_curve, landau_fit_func(x_curve, *popt), 'r-', label=f'Fit MPV={mpv:.2f}')
-            ax.legend()
-            
-        return mpv, width
-    except:
-        return None, None
+        popt, _ = curve_fit(landau_fit_func, bin_centers, counts, 
+                            p0=[mpv_guess, 2.0, np.max(counts)*5],
+                            bounds=([0, 0, 0], [100, 20, np.inf]))
+        return popt[0] # MPV
+    except Exception as e:
+        print(f"Fit failed for {scint_name}: {e}")
+        return None
 
 def main():
-    print("--- Calibration Calculation ---")
-    
-    # 1. Load Simulation Data
-    try:
-        with uproot.open(ROOT_FILE) as file:
-            df = file[TREE_NAME].arrays(library="pd")
-    except Exception as e:
-        print(f"Error loading ROOT file: {e}")
+    print(f"Loading simulation: {ROOT_FILE}")
+    if not os.path.exists(ROOT_FILE):
+        print("Error: ROOT file not found.")
         return
 
+    with uproot.open(ROOT_FILE) as file:
+        df = file[TREE_NAME].arrays(library="pd")
+
     print(f"Total Simulated Events: {len(df)}")
-    
-    # ---------------------------------------------------------
-    # Method A: Golden Events (Face-to-Face)
-    # ---------------------------------------------------------
-    print("\n[Method A] Golden Events (Strict Face-to-Face)")
-    
-    # Analyze Z coordinates to find faces
-    scin0_in_z = df['Scin0_InZ']
-    scin3_out_z = df['Scin3_OutZ']
-    top_face_z = scin0_in_z.max()
-    bottom_face_z = scin3_out_z.min()
-    epsilon = 0.1 # mm
-    
-    # Filter
-    mask_coinc = (
-        (df['Edep_Scin0'] > THRESHOLD) & 
-        (df['Edep_Scin1'] > THRESHOLD) & 
-        (df['Edep_Scin2'] > THRESHOLD) & 
-        (df['Edep_Scin3'] > THRESHOLD)
-    )
-    mask_geo = (
-        (np.abs(df['Scin0_InZ'] - top_face_z) < epsilon) &
-        (np.abs(df['Scin3_OutZ'] - bottom_face_z) < epsilon)
-    )
-    
-    df_golden = df[mask_coinc & mask_geo]
-    print(f"  Count: {len(df_golden)}")
-    
-    mpvs_golden = []
-    for i in range(4):
-        mpv, _ = fit_landau(df_golden[f'Edep_Scin{i}'], f"Scin{i}")
-        if mpv: mpvs_golden.append(mpv)
-    
-    val_golden = np.mean(mpvs_golden) if mpvs_golden else 0
-    print(f"  Average MPV (Golden): {val_golden:.2f} MeV")
 
-    # ---------------------------------------------------------
-    # Method B: Realistic (4-Fold Coincidence, Middle Detectors)
-    # ---------------------------------------------------------
-    print("\n[Method B] Realistic (4-Fold Coincidence)")
-    
-    df_real = df[mask_coinc]
-    print(f"  Count: {len(df_real)}")
-    
-    fig, axes = plt.subplots(1, 2, figsize=(12, 5))
-    fig.suptitle("Realistic Events (4-Fold Coinc) - Middle Detectors")
-    
-    mpvs_real = []
-    # Only fit Middle Detectors (Scin1, Scin2) as they are the most stable
-    # Scin0/Scin3 might have corner clipping effects in the simulation for angled tracks
-    
-    # Scin1
-    mpv1, _ = fit_landau(df_real['Edep_Scin1'], "Scin1 (Mid1)", axes[0])
-    axes[0].set_title(f"Scin1 MPV: {mpv1:.2f} MeV")
-    if mpv1: mpvs_real.append(mpv1)
-    
-    # Scin2
-    mpv2, _ = fit_landau(df_real['Edep_Scin2'], "Scin2 (Mid2)", axes[1])
-    axes[1].set_title(f"Scin2 MPV: {mpv2:.2f} MeV")
-    if mpv2: mpvs_real.append(mpv2)
-    
-    os.makedirs("results", exist_ok=True)
-    plt.savefig("results/calibration_fits_realistic.png")
-    
-    val_real = np.mean(mpvs_real) if mpvs_real else 0
-    print(f"  Average MPV (Middle Detectors): {val_real:.2f} MeV")
-    
-    # ---------------------------------------------------------
-    # Comparison & Decision
-    # ---------------------------------------------------------
-    print("\n--- Comparison ---")
-    print(f"Golden (Vertical): {val_golden:.2f} MeV")
-    print(f"Realistic (All):   {val_real:.2f} MeV")
-    diff = (val_real - val_golden) / val_golden * 100
-    print(f"Difference:        +{diff:.1f}% (Expected due to angled tracks)")
-    
-    true_energy = val_real
-    print(f"\n>>> Selected True Energy: {true_energy:.2f} MeV (Realistic)")
+    # 4-Fold Coincidence Filter
+    mask = (
+        (df['Edep_Scin0'] > THRESHOLD_MEV) & 
+        (df['Edep_Scin1'] > THRESHOLD_MEV) & 
+        (df['Edep_Scin2'] > THRESHOLD_MEV) & 
+        (df['Edep_Scin3'] > THRESHOLD_MEV)
+    )
+    df_coinc = df[mask]
+    print(f"4-Fold Coincidence Events: {len(df_coinc)}")
 
-    # ---------------------------------------------------------
-    # Calibration Constants
-    # ---------------------------------------------------------
-    print("\n--- Calibration Constants ---")
+    # Get Simulation MPVs for Middle Detectors
+    mpv_scin1 = get_simulation_mpv(df_coinc, 'Edep_Scin1')
+    mpv_scin2 = get_simulation_mpv(df_coinc, 'Edep_Scin2')
     
-    # Ch1 (Top): Run 003 Value
-    calib_ch1 = true_energy / EXP_MPV_CH1
-    print(f"Channel 1 (Top):    {EXP_MPV_CH1:.1f} mV -> {calib_ch1:.4f} MeV/mV")
+    if mpv_scin1 is None or mpv_scin2 is None:
+        print("Error: Could not fit simulation data.")
+        return
+
+    print("-" * 40)
+    print(f"Simulation MPV (Scin1 - Mid1): {mpv_scin1:.4f} MeV")
+    print(f"Simulation MPV (Scin2 - Mid2): {mpv_scin2:.4f} MeV")
     
-    # Ch2 (Mid1): Run 002 Value
-    calib_ch2 = true_energy / EXP_MPV_CH2
-    print(f"Channel 2 (Mid1):   {EXP_MPV_CH2:.1f} mV -> {calib_ch2:.4f} MeV/mV")
+    # Reference Energy is the average of the middle detectors
+    # This represents the "True" expected energy deposition for a detector 
+    # in the middle of the stack with 4-fold coincidence logic.
+    ref_energy_mev = (mpv_scin1 + mpv_scin2) / 2
+    print(f"Reference Energy (Avg Mid):   {ref_energy_mev:.4f} MeV")
+    print("-" * 40)
+
+    print("Calibration Constants (MeV/mV):")
+    print(f"{'Det':<4} | {'Exp MPV (mV)':<12} | {'Calib (MeV/mV)':<15} | {'1 MeV in mV':<12}")
+    print("-" * 50)
     
-    # Ch3 (Mid2): Run 002 Value
-    calib_ch3 = true_energy / EXP_MPV_CH3
-    print(f"Channel 3 (Mid2):   {EXP_MPV_CH3:.1f} mV -> {calib_ch3:.4f} MeV/mV")
-    
-    # Ch4 (Bottom): Run 003 Value
-    calib_ch4 = true_energy / EXP_MPV_CH4
-    print(f"Channel 4 (Bottom): {EXP_MPV_CH4:.1f} mV -> {calib_ch4:.4f} MeV/mV")
+    results = []
+    for det_id in range(1, 5):
+        exp_mv = EXP_MPV_MV[det_id]
+        calib_const = ref_energy_mev / exp_mv
+        mv_per_mev = 1.0 / calib_const
+        
+        print(f"{det_id:<4} | {exp_mv:<12.2f} | {calib_const:<15.6f} | {mv_per_mev:<12.2f}")
+        results.append((det_id, calib_const))
 
 if __name__ == "__main__":
     main()
