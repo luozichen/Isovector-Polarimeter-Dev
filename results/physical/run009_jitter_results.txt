@@ -1,0 +1,11 @@
+Run: run009
+Config: 1342
+Events: 1000
+  Clean: 369
+  Clipped: 577
+  Noise: 54
+Jitter Results (sigma):
+  Det 1 (Ch1) [Top]: 0.7464 ns
+  Det 2 (Ch2) [Bot]: 0.6876 ns
+  Det 3 (Ch3) [Mid1]: 0.4800 ns
+  Det 4 (Ch4) [Mid2]: 0.3871 ns

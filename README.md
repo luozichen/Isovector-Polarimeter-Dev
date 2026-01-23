@@ -22,7 +22,7 @@
 - [x] Further Data Acquisition: Acquire more data with detector pairs in the middle to get "good detector pair data". Get all 6*1000 waveforms for all 6 possible middle configurations (4C2). [2026-01-22]
 - [x] Improved Calibration: Calculate improved energy deposit calibration using more data (Each detector has two sets of middle data. Analyse Combined Data). [2026-01-22]
 - [x] Improved Jitter: Calculate improved jitter calculation using the good detector pair data (which we previously lacked in first calculation, and we had to use cutting of the top and bottom detectors to get required data). [2026-01-22]
-- [ ] Thorium Investigation: Investigating thorium on detectors anyways.
+- [x] Thorium Investigation: Investigating thorium on detectors anyways.
 
 ### Theoretical Derivation & Physics Simulation
 - [ ] Polarization Derivation: Starting from quantum scattering theory, derive the analytical relationship between the deuteron-proton (d-p) elastic scattering cross-section and the beam's tensor polarization.
@@ -60,6 +60,15 @@
 ## 📅 Development Log
 
 ### January 2026
+* **2026-01-23:**
+   * **Thorium Calibration (Low Threshold):**
+     * **Run 009:** Acquired 1000 waveforms with Thorium source and a lower discriminator threshold of 15 mV (previously 50 mV).
+     * **Objective:** Investigate spectrum at lower energies.
+     * **Results:**
+       * **Statistics:** 1000 events collected. 36.9% clean (5.4% noise, 57.7% clipped).
+       * **Plots:** Generated `run009_landau_fits.png`, `run009_timing_pairs.png`, etc.
+       * **Jitter Analysis:** Consistent with previous findings, middle detectors (Det 3, Det 4) show intrinsic resolution ~0.4-0.5 ns.
+
 * **2026-01-22:**
    * **Data Acquisition (Stack 1342):**
      * **Status:** Acquisition and Analysis Complete.
