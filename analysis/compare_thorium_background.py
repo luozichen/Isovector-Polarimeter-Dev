@@ -13,8 +13,8 @@ import glob
 
 # --- Configuration ---
 RESULTS_DIR = "results/physical"
-RUN7_DIR = "data/run007_1000_config_1342"
-RUN8_DIR = "data/run008_1000_config_1342_thorium"
+RUN_BG_DIR = "data/run010_1000_config_1342_discriminator_15mV"
+RUN_TH_DIR = "data/run009_1000_config_1342_thorium_discriminator_15mV"
 
 # Calibration Constants (MeV/mV) from Final Analysis
 CALIBRATION = {
@@ -72,11 +72,11 @@ def load_amplitudes(run_dir):
 def main():
     os.makedirs(RESULTS_DIR, exist_ok=True)
     
-    print(f"Loading Run 007 (Background)...")
-    data_bg = load_amplitudes(RUN7_DIR)
+    print(f"Loading Run 010 (Background)...")
+    data_bg = load_amplitudes(RUN_BG_DIR)
     
-    print(f"Loading Run 008 (Thorium)...")
-    data_th = load_amplitudes(RUN8_DIR)
+    print(f"Loading Run 009 (Thorium)...")
+    data_th = load_amplitudes(RUN_TH_DIR)
     
     if not data_bg or not data_th:
         print("Error: Could not load data for comparison.")
@@ -85,7 +85,7 @@ def main():
     # --- Plotting ---
     fig, axes = plt.subplots(2, 2, figsize=(14, 10))
     axes = axes.flatten()
-    fig.suptitle("Thorium Source vs Cosmic Background\n(Run 008 vs Run 007 - Stack 1342)", fontsize=16)
+    fig.suptitle("Thorium Source vs Cosmic Background (15mV Threshold)\n(Run 009 [Thorium] vs Run 010 [Background] - Stack 1342)", fontsize=16)
     
     for i, ch in enumerate(range(1, 5)):
         ax = axes[i]
@@ -100,11 +100,11 @@ def main():
         
         # Plot Background
         ax.hist(bg_mev, bins=bins, histtype='step', linewidth=2, 
-                color='royalblue', label=f'Background (N={len(bg_mev)})', density=True)
+                color='royalblue', label=f'Background (Run 10) (N={len(bg_mev)})', density=True)
         
         # Plot Thorium
         ax.hist(th_mev, bins=bins, histtype='stepfilled', alpha=0.3, 
-                color='crimson', label=f'Thorium (N={len(th_mev)})', density=True)
+                color='crimson', label=f'Thorium (Run 9) (N={len(th_mev)})', density=True)
         ax.hist(th_mev, bins=bins, histtype='step', linewidth=2, 
                 color='crimson', density=True)
         
@@ -118,7 +118,7 @@ def main():
         # For now, let's stick to the main view to see if there's a gross shift.
 
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
-    out_path = os.path.join(RESULTS_DIR, "thorium_comparison.png")
+    out_path = os.path.join(RESULTS_DIR, "thorium_comparison_15mV.png")
     plt.savefig(out_path, dpi=150)
     print(f"Saved comparison plot to {out_path}")
 

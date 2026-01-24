@@ -68,6 +68,12 @@
        * **Statistics:** 1000 events collected. 36.9% clean (5.4% noise, 57.7% clipped).
        * **Plots:** Generated `run009_landau_fits.png`, `run009_timing_pairs.png`, etc.
        * **Jitter Analysis:** Consistent with previous findings, middle detectors (Det 3, Det 4) show intrinsic resolution ~0.4-0.5 ns.
+   * **Background Run (Low Threshold):**
+     * **Run 010:** Acquired 1000 waveforms without Thorium source (Background) and a lower discriminator threshold of 15 mV.
+     * **Objective:** Compare with Run 009 to isolate the Thorium spectrum.
+     * **Results:**
+       * **Statistics:** 1000 events collected. 39.1% clean (5.0% noise, 55.9% clipped).
+       * **Comparison:** Generated `thorium_comparison_15mV.png` comparing the normalized energy deposition spectra of Run 009 and Run 010.
 
 * **2026-01-22:**
    * **Data Acquisition (Stack 1342):**
