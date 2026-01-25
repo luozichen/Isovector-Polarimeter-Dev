@@ -60,6 +60,8 @@
 ## 📅 Development Log
 
 ### January 2026
+* **2026-01-24:**
+   * **Started Run 011 (Even Lower Threshold):**
 * **2026-01-23:**
    * **Thorium Calibration (Low Threshold):**
      * **Run 009:** Acquired 1000 waveforms with Thorium source and a lower discriminator threshold of 15 mV (previously 50 mV).
