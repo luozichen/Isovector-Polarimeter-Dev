@@ -60,6 +60,16 @@
 ## 📅 Development Log
 
 ### January 2026
+* **2026-01-25:**
+   * **Thorium Calibration (Lowest Threshold):**
+     * **Run 011:** Acquired 1000 waveforms with Thorium source and a minimal discriminator threshold of **5 mV** (previously 15 mV).
+     * **Objective:** Further investigate the low-energy spectrum and search for Thorium decay signatures.
+     * **Observation:** The energy deposition graph reveals a **new, unexplained peak**. It is currently unclear if this is a genuine physical signal or electronic/background noise.
+     * **Results:**
+       * **Statistics:** 1000 events collected. 48.4% clean.
+       * **Jitter:** Middle detectors continue to show excellent timing resolution (Det 3: 0.24 ns, Det 4: 0.15 ns), though the extremely low threshold may be introducing some timing artifacts in the outer detectors.
+     * **Next Steps:** Proceeding to acquire a control dataset with the same 5 mV threshold but **without** the Thorium source to isolate the origin of the new peak.
+
 * **2026-01-24:**
    * **Started Run 011 (Even Lower Threshold):**
 * **2026-01-23:**
