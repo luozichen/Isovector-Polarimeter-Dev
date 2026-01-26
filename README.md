@@ -68,6 +68,13 @@
      * **Plot:** Generated `thorium_comparison_5mV.png`.
    * **Operational Stability:**
      * **Status:** The detector system (all 4 units) has been running continuously for several days at a stable operating voltage of **800V**. No significant noise drift or gain fluctuations observed, confirming the long-term reliability of the custom Voltage-Divider PCBs and the global assembly.
+   * **🕵️ Special Investigation: The "Thorium Mystery"**
+     * **The Anomaly:** Observed a sharp peak at **2-3 mV** in Run 011, despite the hardware discriminator being set to **5 mV**. Furthermore, it is physically unlikely for a single 2.6 MeV gamma to trigger a 4-fold coincidence across 15cm detectors.
+     * **Key Findings:**
+        1. **Path Attenuation:** The consistent observation of signals at ~50% of the hardware threshold suggests a factor of 2 attenuation in the signal path to the oscilloscope relative to the logic unit path.
+        2. **Accidental Coincidences:** At the 5 mV threshold, the system becomes sensitive to **Single Photoelectrons (SPE)**. The high rate of the Thorium source likely causes a high frequency of random 4-fold overlaps (accidental coincidences) of single photons.
+        3. **SPE Peak:** The "peak" at 2-3 mV is likely the intrinsic SPE response of the PMTs, rather than a Muon-like energy loss distribution. This explains why Landau fits fail for this specific dataset.
+     * **Conclusion:** The 4-fold coincidence method is suboptimal for radioactive source studies due to the high accidental rate at low thresholds. Future source calibration will shift to **single-detector triggering** to obtain clean Compton spectra.
 
 * **2026-01-25:**
    * **Thorium Calibration (Lowest Threshold):**
