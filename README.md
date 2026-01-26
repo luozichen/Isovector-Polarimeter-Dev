@@ -61,6 +61,12 @@
 
 ### January 2026
 * **2026-01-26:**
+   * **Single Detector Calibration (Transition to Single Fold):**
+     * **Strategy Shift:** Moved away from 4-fold coincidence for source studies to avoid accidental coincidence artifacts. Switched to **Single Detector (1-fold) triggering** on Det 1.
+     * **Run 013 (Background):** 10,000 events collected with 10 mV threshold.
+     * **Run 014 (Thorium):** 10,000 events collected with Thorium source.
+     * **Observation:** The single-detector spectra show a clear low-energy excess for the Thorium run compared to the background control. Data analysis is ongoing.
+     * **Plot:** Generated `thorium_comparison_single_fold.png`.
    * **Thorium Calibration Verification:**
      * **Run 012 (Background):** Acquired 1000 waveforms without Thorium source at the minimal **5 mV** discriminator threshold.
      * **Comparison Analysis:** Performed a head-to-head comparison between Run 011 (Thorium) and Run 012 (Background).

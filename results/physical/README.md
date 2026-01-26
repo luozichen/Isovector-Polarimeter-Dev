@@ -68,3 +68,17 @@ This document tracks the parameters and configurations for each experimental run
 - **Discriminator:** 5 mV
 - **Source:** None (Background)
 - **Note:** Control run for 5mV Thorium study. Verified Thorium signal excess at low energy.
+
+### Run 013
+- **Config:** Det 1 only (Single Fold)
+- **Discriminator:** 10 mV
+- **Events:** 10,000
+- **Source:** None (Background)
+- **Note:** Transition to single-detector triggering for source calibration study.
+
+### Run 014
+- **Config:** Det 1 only (Single Fold)
+- **Discriminator:** 10 mV
+- **Events:** 10,000
+- **Source:** Thorium-232 (Directly above Det 1)
+- **Note:** High-statistics Thorium run for comparison with Run 013.
