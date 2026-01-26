@@ -60,6 +60,15 @@
 ## 📅 Development Log
 
 ### January 2026
+* **2026-01-26:**
+   * **Thorium Calibration Verification:**
+     * **Run 012 (Background):** Acquired 1000 waveforms without Thorium source at the minimal **5 mV** discriminator threshold.
+     * **Comparison Analysis:** Performed a head-to-head comparison between Run 011 (Thorium) and Run 012 (Background).
+     * **Verification:** The comparison clearly identifies a **distinct low-energy Thorium signal** excess above the background. This confirms that the 5 mV threshold is sufficient to resolve external radioactive sources while the logic trigger (4-fold coincidence) effectively filters out random noise.
+     * **Plot:** Generated `thorium_comparison_5mV.png`.
+   * **Operational Stability:**
+     * **Status:** The detector system (all 4 units) has been running continuously for several days at a stable operating voltage of **800V**. No significant noise drift or gain fluctuations observed, confirming the long-term reliability of the custom Voltage-Divider PCBs and the global assembly.
+
 * **2026-01-25:**
    * **Thorium Calibration (Lowest Threshold):**
      * **Run 011:** Acquired 1000 waveforms with Thorium source and a minimal discriminator threshold of **5 mV** (previously 15 mV).
