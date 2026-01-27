@@ -34,8 +34,10 @@ def main():
 
     plt.figure(figsize=(12, 7))
     
-    # Range: 0 to 100 mV with 1 mV bin width to smooth quantization effects
-    bins = np.linspace(0, 100, 101)
+    # Range: 0 to 100 mV
+    # Using 4 mV bin width to match the digitization resolution (100mV/div on 8-bit ADC)
+    # This prevents 'empty bin' artifacts.
+    bins = np.arange(0, 104, 4)
     
     plt.hist(amps_13, bins=bins, histtype='step', linewidth=2, 
              color='royalblue', label=f'Background (Run 13, N={len(amps_13)})')
