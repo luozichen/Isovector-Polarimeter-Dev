@@ -34,8 +34,8 @@ def main():
 
     plt.figure(figsize=(12, 7))
     
-    # Range: 0 to 500 mV to see the whole spectrum
-    bins = np.linspace(0, 500, 251)
+    # Range: 0 to 100 mV to focus on the primary data region
+    bins = np.linspace(0, 100, 201)
     
     plt.hist(amps_13, bins=bins, histtype='step', linewidth=2, 
              color='royalblue', label=f'Background (Run 13, N={len(amps_13)})')
