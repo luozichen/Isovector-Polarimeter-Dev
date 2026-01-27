@@ -34,8 +34,8 @@ def main():
 
     plt.figure(figsize=(12, 7))
     
-    # Range: 0 to 100 mV to focus on the primary data region
-    bins = np.linspace(0, 100, 201)
+    # Range: 0 to 100 mV with 1 mV bin width to smooth quantization effects
+    bins = np.linspace(0, 100, 101)
     
     plt.hist(amps_13, bins=bins, histtype='step', linewidth=2, 
              color='royalblue', label=f'Background (Run 13, N={len(amps_13)})')
@@ -43,17 +43,11 @@ def main():
     plt.hist(amps_14, bins=bins, histtype='step', linewidth=2, 
              color='crimson', label=f'Thorium (Run 14, N={len(amps_14)})')
     
-    # Overlay filled for Thorium to make it stand out
-    plt.hist(amps_14, bins=bins, histtype='stepfilled', alpha=0.2, color='crimson')
-
     plt.title("Energy Deposition Comparison (Single Fold Det 1)\nThorium Source vs Background (10mV Threshold)", fontsize=14)
     plt.xlabel("Peak Amplitude (mV)")
     plt.ylabel("Counts")
     plt.legend()
     plt.grid(True, alpha=0.3)
-    
-    # Zoom in on low energy region in an inset? 
-    # Or just set a log scale option? Let's keep it linear first as requested.
     
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     plt.savefig(OUTPUT_PATH, dpi=150)
