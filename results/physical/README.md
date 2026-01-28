@@ -82,3 +82,19 @@ This document tracks the parameters and configurations for each experimental run
 - **Events:** 10,000
 - **Source:** Thorium-232 (Directly above Det 1)
 - **Note:** High-statistics Thorium run for comparison with Run 013.
+
+### Run 015
+- **Config:** Det 3 only (Single Fold)
+- **Discriminator:** 10 mV
+- **Oscilloscope:** 50 mV/div (Higher Resolution)
+- **Events:** 20,000
+- **Source:** None (Background)
+- **Note:** Higher resolution background run.
+
+### Run 016
+- **Config:** Det 3 only (Single Fold)
+- **Discriminator:** 10 mV
+- **Oscilloscope:** 50 mV/div (Higher Resolution)
+- **Events:** 20,000
+- **Source:** Thorium-232 (Directly above Det 3)
+- **Note:** Higher resolution Thorium run for comparison with Run 015.

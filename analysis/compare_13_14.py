@@ -57,15 +57,15 @@ def main():
     # 1. Plot 0 to 100 mV
     bins_100 = np.arange(0, 104, 4) # 4mV bin width
     plot_and_save(amps_13, amps_14, bins_100, 
-                  "Energy Deposition Comparison (Single Fold Det 1) - 0 to 100 mV", 
-                  "thorium_comparison_single_fold_0_100mV.png")
+                  "Run 13 vs Run 14 Comparison (Single Fold Det 1) - 0 to 100 mV", 
+                  "thorium_comparison_run13_14_0_100mV.png")
 
     # 2. Plot Full Range
     max_amp = max(np.max(amps_13), np.max(amps_14))
     bins_full = np.arange(0, max_amp + 4, 4) # 4mV bin width
     plot_and_save(amps_13, amps_14, bins_full, 
-                  f"Energy Deposition Comparison (Single Fold Det 1) - Full Range (0 to {max_amp:.0f} mV)", 
-                  "thorium_comparison_single_fold_full_range.png")
+                  f"Run 13 vs Run 14 Comparison (Single Fold Det 1) - Full Range (0 to {max_amp:.0f} mV)", 
+                  "thorium_comparison_run13_14_full_range.png")
 
 if __name__ == "__main__":
     main()

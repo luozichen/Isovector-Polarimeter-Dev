@@ -60,20 +60,25 @@
 ## 📅 Development Log
 
 ### January 2026
+* **2026-01-27:**
+   * **High-Resolution Single Detector Calibration:**
+     * **Run 015 (Background) & Run 016 (Thorium):** Acquired 20,000 events each on Det 3 with a 10 mV threshold.
+     * **Improvement:** Increased vertical resolution to **50 mV/div** (previously 100 mV/div) to better resolve the low-energy region.
+     * **Plots:** Generated `thorium_comparison_run15_16_0_100mV.png`, `thorium_comparison_run15_16_full_range.png`, and `thorium_comparison_run15_16_full_range_log.png`.
+   * **Operational Stability:**
+     * **Status:** The detector system has been running continuously for several days at **800V**. Stability remains excellent with no observed gain shifts.
+
 * **2026-01-26:**
    * **Single Detector Calibration (Transition to Single Fold):**
-     * **Strategy Shift:** Moved away from 4-fold coincidence for source studies to avoid accidental coincidence artifacts. Switched to **Single Detector (1-fold) triggering** on Det 1.
-     * **Run 013 (Background):** 10,000 events collected with 10 mV threshold.
-     * **Run 014 (Thorium):** 10,000 events collected with Thorium source.
+     * **Strategy Shift:** Moved away from 4-fold coincidence for source studies to avoid accidental coincidence artifacts. Switched to **Single Detector (1-fold) triggering**.
+     * **Run 013 (Background) & Run 014 (Thorium):** 10,000 events collected on Det 1 with 10 mV threshold.
      * **Observation:** The single-detector spectra show a clear low-energy excess for the Thorium run compared to the background control. Data analysis is ongoing.
-     * **Plot:** Generated `thorium_comparison_single_fold.png`.
+     * **Plots:** Generated `thorium_comparison_run13_14_0_100mV.png` and `thorium_comparison_run13_14_full_range.png`.
    * **Thorium Calibration Verification:**
      * **Run 012 (Background):** Acquired 1000 waveforms without Thorium source at the minimal **5 mV** discriminator threshold.
      * **Comparison Analysis:** Performed a head-to-head comparison between Run 011 (Thorium) and Run 012 (Background).
      * **Verification:** The comparison clearly identifies a **distinct low-energy Thorium signal** excess above the background. This confirms that the 5 mV threshold is sufficient to resolve external radioactive sources while the logic trigger (4-fold coincidence) effectively filters out random noise.
      * **Plot:** Generated `thorium_comparison_5mV.png`.
-   * **Operational Stability:**
-     * **Status:** The detector system (all 4 units) has been running continuously for several days at a stable operating voltage of **800V**. No significant noise drift or gain fluctuations observed, confirming the long-term reliability of the custom Voltage-Divider PCBs and the global assembly.
    * **🕵️ Special Investigation: The "Thorium Mystery"**
      * **The Anomaly:** Observed a sharp peak at **2-3 mV** in Run 011, despite the hardware discriminator being set to **5 mV**. Furthermore, it is physically unlikely for a single 2.6 MeV gamma to trigger a 4-fold coincidence across 15cm detectors.
      * **Key Findings:**
