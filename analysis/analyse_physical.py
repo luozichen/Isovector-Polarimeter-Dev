@@ -232,7 +232,7 @@ def analyze_run(run_dir):
     
     time, data = load_wfm_data(run_dir)
     if data is None:
-        print("  Failed to load data.")
+        print("  Skipping run (incomplete channels or load error).")
         return
 
     num_events = data[1].shape[0]
