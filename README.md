@@ -60,6 +60,9 @@
 ## 📅 Development Log
 
 ### January 2026
+* **2026-01-28:**
+   * **Robustify analyse_physical.py:** Different treatment for different runs. Backwards compatible.
+   * **Analysis of run017 (10000 events), 900V working voltage, config 1342**
 * **2026-01-27:**
    * **High-Resolution Single Detector Calibration:**
      * **Run 015 (Background) & Run 016 (Thorium):** Acquired 20,000 events each on Det 3 with a 10 mV threshold.
