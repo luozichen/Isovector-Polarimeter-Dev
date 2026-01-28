@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Physical Data Analysis (Jitter & Software Collimation)
-Uses WFM files.
+Uses WFM files. 
+Updated to handle runXYZ_ABC_DEFG_JKL naming and dynamic Landau ranges/bounds.
 """
 
 import numpy as np
@@ -14,13 +15,38 @@ import re
 import sys
 from wfm_reader import WfmReader
 
-# --- Configuration ---
+# --- Global Configuration (Easily Editable) ---
 RESULTS_DIR = "results/physical"
 DEFAULT_CUT_THRESHOLD_MV = 50.0 
 CFD_FRACTION = 0.3
-LANDAU_RANGE = (0.01, 0.4)
-BINS = 50
 POSITIVE_NOISE_THRESHOLD = 0.03 # 30 mV (Reject events with positive spikes)
+
+# Landau Plotting & Fitting Defaults
+DEFAULT_LANDAU_BINS = 50  # Reverted to 50 for consistency with older runs
+DEFAULT_LOWER_BOUND = 0.01 # Standard lower bound for previous consistency
+
+def get_run_config(run_num):
+    """
+    Returns (lower_bound, max_range, bins) based on the run number.
+    Edit this function to customize specific run sets.
+    """
+    # Default settings for most runs
+    lower = DEFAULT_LOWER_BOUND
+    upper = 0.4
+    bins = DEFAULT_LANDAU_BINS # Default 50
+    
+    if 2 <= run_num <= 7:
+        upper = 0.4
+        bins = 50
+    elif run_num >= 17:
+        # Customizing for run 17 onwards
+        lower = 0.2
+        upper = 0.6
+        bins = 100 # Increased bins only for high-range runs
+        
+    return lower, upper, bins
+
+# --- Math Functions ---
 
 def gaussian(x, a, x0, sigma):
     return a * np.exp(-(x - x0)**2 / (2 * sigma**2))
@@ -28,28 +54,35 @@ def gaussian(x, a, x0, sigma):
 def landau_fit_func(x, mpv, width, amp):
     return amp * moyal.pdf(x, loc=mpv, scale=width)
 
+# --- Logic & Processing ---
+
 def parse_run_info(run_dir):
     """
-    Extracts run ID and detector stack configuration string.
+    Extracts run ID, run number, type (config/det), and detector stack configuration.
+    Naming: runXYZ_ABC_DEFG_JKL_...
     """
     dirname = os.path.basename(os.path.normpath(run_dir))
+    parts = dirname.split('_')
     
-    # Run ID (e.g. run001, run002)
-    run_match = re.search(r'(run\d+)', dirname)
-    run_id = run_match.group(1) if run_match else "unknown_run"
+    # Run ID (e.g. run001)
+    run_id = parts[0] if len(parts) > 0 else "unknown"
     
-    # Stack Configuration (e.g. 1234, 2143)
-    # Default to 1234 if not found
-    match = re.search(r'config_(\d{4})', dirname)
-    config_str = match.group(1) if match else "1234"
+    # Extract Run Number for range logic
+    run_match = re.search(r'run(\d+)', run_id)
+    run_num = int(run_match.group(1)) if run_match else 0
+    
+    # DEFG segment: config or det
+    run_type = parts[2].lower() if len(parts) > 2 else ""
+    
+    # JKL segment: Stack Configuration (e.g. 1234)
+    config_str = parts[3] if len(parts) > 3 else "1234"
         
-    return run_id, config_str
+    return run_id, run_num, run_type, config_str
 
 def get_position_label(det_id, config_str):
     """
     Returns the physical position label (Top, Mid1, Mid2, Bot) 
     for a given Detector ID (1-4) based on the config string.
-    config_str example: "2143" -> Det 2 is Top, Det 1 is Mid1, etc.
     """
     det_char = str(det_id)
     if det_char not in config_str:
@@ -176,9 +209,9 @@ def plot_waveforms(time, data, indices, run_id, label, suffix):
     plt.close(fig)
     print(f"  Saved {suffix}: {out_path}")
 
-def plot_landau_fits(amplitudes, cuts, run_id, config_str):
+def plot_landau_fits(amplitudes, cuts, run_id, config_str, landau_range, bins_count):
     """
-    Plots Pulse Height Distributions with Landau Fits.
+    Plots Pulse Height Distributions with Landau Fits using specific max range.
     """
     fig, axes = plt.subplots(2, 2, figsize=(12, 10))
     axes = axes.flatten()
@@ -189,7 +222,7 @@ def plot_landau_fits(amplitudes, cuts, run_id, config_str):
         vals = np.array(amplitudes[ch])
         
         # Histogram
-        y, x, _ = ax.hist(vals, bins=BINS, range=LANDAU_RANGE, 
+        y, x, _ = ax.hist(vals, bins=bins_count, range=landau_range, 
                           density=False, histtype='stepfilled', alpha=0.4, label='Data')
         
         bin_centers = (x[:-1] + x[1:]) / 2
@@ -199,15 +232,18 @@ def plot_landau_fits(amplitudes, cuts, run_id, config_str):
             peak_idx = np.argmax(y)
             mpv_guess = bin_centers[peak_idx]
             try:
+                # Ensure we don't restrict standard runs more than original (bound was 1.0)
+                # while allowing high-voltage runs to have a higher MPV limit.
+                mpv_limit = max(1.0, landau_range[1] * 1.2)
                 popt, _ = curve_fit(landau_fit_func, bin_centers, y, 
                                     p0=[mpv_guess, 0.01, np.max(y)*0.01], 
-                                    bounds=([0, 0, 0], [1, 1, np.inf]))
+                                    bounds=([0, 0, 0], [mpv_limit, 1, np.inf]))
                 
-                x_fine = np.linspace(LANDAU_RANGE[0], LANDAU_RANGE[1], 200)
+                x_fine = np.linspace(landau_range[0], landau_range[1], 200)
                 ax.plot(x_fine, landau_fit_func(x_fine, *popt), 'r-', lw=2, 
                         label=f'Fit\nMPV={popt[0]*1000:.1f} mV')
-            except:
-                pass
+            except Exception as e:
+                print(f"  [Warning] Ch{ch} fit failed: {e}")
             
         cut_val = cuts[ch]
         ax.axvline(cut_val, color='k', linestyle='--', label=f'Cut: {cut_val*1000:.1f} mV')
@@ -226,9 +262,17 @@ def plot_landau_fits(amplitudes, cuts, run_id, config_str):
     print(f"  Saved landau fits: {out_path}")
 
 def analyze_run(run_dir):
-    print(f"Analyzing: {run_dir}")
-    run_id, config_str = parse_run_info(run_dir)
-    print(f"  Run ID: {run_id}, Config: {config_str}")
+    run_id, run_num, run_type, config_str = parse_run_info(run_dir)
+    
+    # Only analyze if segment DEFG is 'config'
+    if run_type != "config":
+        return
+
+    # Get dynamic range, lower bound, and bins from config at top of file
+    low_bound, max_range, bins_count = get_run_config(run_num)
+    landau_range = (low_bound, max_range)
+    
+    print(f"Analyzing: {run_id} (Range: {low_bound}-{max_range}V, Bins: {bins_count})")
     
     time, data = load_wfm_data(run_dir)
     if data is None:
@@ -245,6 +289,7 @@ def analyze_run(run_dir):
     cuts = {}
     for ch in range(1, 5):
         amps = amplitudes[ch]
+        # Keep original logic: histogram at range (0, 0.5) to find peak for cuts
         counts, bins = np.histogram(amps, bins=100, range=(0, 0.5))
         bin_centers = (bins[:-1] + bins[1:]) / 2
         peak_idx = np.argmax(counts)
@@ -286,11 +331,10 @@ def analyze_run(run_dir):
     print(f"  Electronic Noise: {len(noise_indices)}")
     
     # --- Plots ---
-    # Filter out noise events for Landau Fits
     valid_indices = sorted(clean_indices + clipped_indices)
     amplitudes_valid = {ch: amplitudes[ch][valid_indices] for ch in range(1, 5)}
     
-    plot_landau_fits(amplitudes_valid, cuts, run_id, config_str)
+    plot_landau_fits(amplitudes_valid, cuts, run_id, config_str, landau_range, bins_count)
     
     if clean_indices:
         plot_waveforms(time, data, clean_indices, run_id, "Good Waveforms", "good_waveforms")
@@ -364,13 +408,7 @@ def analyze_run(run_dir):
     res = lsq_linear(A, y, bounds=(0, np.inf))
     sigmas = np.sqrt(res.x)
     
-    print("  Calculated Jitter (ns):")
-    for i, s in enumerate(sigmas):
-        det_id = i + 1
-        pos_label = get_position_label(det_id, config_str)
-        print(f"    Ch{i+1} (Det {det_id} - {pos_label}): {s:.3f} ns")
-
-    # --- Save Results to Text ---
+    # --- Save Results to Text (Original Format) ---
     with open(os.path.join(RESULTS_DIR, f"{run_id}_jitter_results.txt"), "w") as f:
         f.write(f"Run: {run_id}\n")
         f.write(f"Config: {config_str}\n")
