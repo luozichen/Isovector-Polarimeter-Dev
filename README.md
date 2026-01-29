@@ -33,7 +33,7 @@
 
 ## 📊 Final Results Summary
 
-### 1. Energy Calibration
+### 1. Energy Calibration (800V working voltage)
 **Methodology:** Matched experimental MPVs (Combined Analysis, 6000 events) with Geant4 simulation reference energy (1M event Long Run).
 **Reference Energy (Simulation):** 30.01 MeV (Average of middle detectors Scin1/Scin2).
 
@@ -44,7 +44,7 @@
 | **Det 3** | 264.44 | **0.1135** | 8.81 |
 | **Det 4** | 299.42 | **0.1002** | 9.98 |
 
-### 2. Time Resolution
+### 2. Time Resolution (800V working voltage)
 **Methodology:** Least-squares solution of pairwise variances using 6 "Golden" middle-layer stack configurations.
 
 | Detector | Intrinsic Jitter ($\sigma$) | Resolution (FWHM) |
