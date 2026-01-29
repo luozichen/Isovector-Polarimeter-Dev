@@ -2,8 +2,7 @@
 Standardized Plotting Utilities for Isovector Polarimeter Analysis
 
 This module provides consistent, reusable plotting functions for all analysis scripts.
-These functions are designed to produce output IDENTICAL to the original analyse_physical.py
-to ensure backward compatibility during the refactoring process.
+Enhanced with polished aesthetics: custom detector colors, y-axis labels, and cleaner styling.
 """
 import numpy as np
 import matplotlib.pyplot as plt
@@ -14,18 +13,22 @@ import os
 from analysis import config
 from analysis.utils.physics import gaussian, landau_fit_func
 
+# Detector-specific colors for consistent visualization
+DETECTOR_COLORS = {
+    1: '#E57373',  # Red (soft)
+    2: '#64B5F6',  # Blue (soft)
+    3: '#81C784',  # Green (soft)
+    4: '#FFB74D',  # Orange (soft)
+}
+
+# Timing pair colors
+PAIR_COLORS = ['#5C6BC0', '#26A69A', '#AB47BC', '#EF5350', '#42A5F5', '#66BB6A']
+
 
 def get_position_label(det_id: int, config_str: str) -> str:
     """
     Returns the physical position label (Top, Mid1, Mid2, Bot) 
     for a given Detector ID (1-4) based on the config string.
-    
-    Args:
-        det_id: Detector ID (1-4)
-        config_str: Stack configuration string, e.g., "1234"
-        
-    Returns:
-        Position label string
     """
     det_char = str(det_id)
     if det_char not in config_str:
@@ -49,19 +52,6 @@ def plot_landau_fits(
 ) -> str:
     """
     Plots Pulse Height Distributions with Landau Fits for all channels.
-    Matches the exact output of the original analyse_physical.py.
-    
-    Args:
-        amplitudes: Dict mapping channel number to amplitude arrays (in Volts)
-        cuts: Dict mapping channel number to cut values (in Volts)
-        run_id: Run identifier string
-        config_str: Stack configuration string
-        landau_range: Tuple of (lower, upper) bounds for histogram
-        bins_count: Number of bins for histogram
-        output_dir: Output directory (defaults to config.RESULTS_DIR)
-        
-    Returns:
-        Path to saved figure
     """
     if output_dir is None:
         output_dir = config.RESULTS_DIR
@@ -69,15 +59,17 @@ def plot_landau_fits(
     
     fig, axes = plt.subplots(2, 2, figsize=(12, 10))
     axes = axes.flatten()
-    fig.suptitle(f"{run_id} (Config {config_str}) - Energy Deposition")
+    fig.suptitle(f"{run_id} (Config {config_str}) - Energy Deposition", fontsize=14, fontweight='bold')
     
     for i, ch in enumerate(range(1, 5)):
         ax = axes[i]
         vals = np.array(amplitudes[ch])
+        color = DETECTOR_COLORS[ch]
         
-        # Histogram - matches original exactly
+        # Histogram with detector color
         y, x, _ = ax.hist(vals, bins=bins_count, range=landau_range, 
-                          density=False, histtype='stepfilled', alpha=0.4, label='Data')
+                          density=False, histtype='stepfilled', alpha=0.5, 
+                          color=color, edgecolor=color, linewidth=1.5, label='Data')
         
         bin_centers = (x[:-1] + x[1:]) / 2
         
@@ -94,24 +86,26 @@ def plot_landau_fits(
                 )
                 
                 x_fine = np.linspace(landau_range[0], landau_range[1], 200)
-                ax.plot(x_fine, landau_fit_func(x_fine, *popt), 'r-', lw=2, 
-                        label=f'Fit\nMPV={popt[0]*1000:.1f} mV')
+                ax.plot(x_fine, landau_fit_func(x_fine, *popt), 'k-', lw=2, 
+                        label=f'Landau Fit\nMPV = {popt[0]*1000:.1f} mV')
             except Exception as e:
                 print(f"  [Warning] Ch{ch} fit failed: {e}")
             
         cut_val = cuts[ch]
-        ax.axvline(cut_val, color='k', linestyle='--', label=f'Cut: {cut_val*1000:.1f} mV')
+        ax.axvline(cut_val, color='#424242', linestyle='--', lw=1.5, 
+                   label=f'Cut: {cut_val*1000:.1f} mV')
         
         det_id = ch
         pos_label = get_position_label(det_id, config_str)
-        ax.set_title(f"Ch{ch} - Det {det_id} [{pos_label}]")
+        ax.set_title(f"Ch{ch} - Det {det_id} [{pos_label}]", fontweight='bold')
         ax.set_xlabel("Amplitude (V)")
-        ax.legend()
+        ax.set_ylabel("Counts")
+        ax.legend(loc='upper right', fontsize=9)
         ax.grid(True, alpha=0.3)
         
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
     out_path = os.path.join(output_dir, f"{run_id}_landau_fits.png")
-    plt.savefig(out_path)
+    plt.savefig(out_path, dpi=config.DEFAULT_DPI)
     plt.close(fig)
     print(f"  Saved landau fits: {out_path}")
     
@@ -126,16 +120,6 @@ def plot_timing_pairs(
 ) -> Tuple[str, List[float]]:
     """
     Plots time difference distributions for all detector pairs.
-    Matches the exact output of the original analyse_physical.py.
-    
-    Args:
-        times: Dict mapping channel number to timing arrays (in seconds)
-        run_id: Run identifier string
-        config_str: Stack configuration string (unused in original, kept for API)
-        output_dir: Output directory (defaults to config.RESULTS_DIR)
-        
-    Returns:
-        Tuple of (path to saved figure, list of pair variances)
     """
     if output_dir is None:
         output_dir = config.RESULTS_DIR
@@ -145,7 +129,8 @@ def plot_timing_pairs(
     
     fig_pairs, axes_pairs = plt.subplots(2, 3, figsize=(15, 10))
     axes_pairs = axes_pairs.flatten()
-    fig_pairs.suptitle(f"{run_id} - Time Differences (Clean Events)")
+    fig_pairs.suptitle(f"{run_id} - Time Differences (Clean Events)", 
+                       fontsize=14, fontweight='bold')
     
     pair_vars = []
     
@@ -159,8 +144,11 @@ def plot_timing_pairs(
         mean = np.mean(delta_t)
         std = np.std(delta_t)
         
-        # Gaussian Fit - matches original exactly
-        counts, bins, _ = ax.hist(delta_t, bins=30, alpha=0.6, density=True)
+        color = PAIR_COLORS[i]
+        
+        # Gaussian Fit
+        counts, bins, _ = ax.hist(delta_t, bins=30, alpha=0.6, density=True,
+                                   color=color, edgecolor=color, linewidth=1.5)
         bin_centers = (bins[:-1] + bins[1:]) / 2
         
         sigma = std
@@ -168,18 +156,19 @@ def plot_timing_pairs(
             popt, _ = curve_fit(gaussian, bin_centers, counts, p0=[1.0, mean, std])
             sigma = abs(popt[2])
             x_fine = np.linspace(bins[0], bins[-1], 100)
-            ax.plot(x_fine, gaussian(x_fine, *popt), 'r-', lw=2)
+            ax.plot(x_fine, gaussian(x_fine, *popt), 'k-', lw=2, label='Gaussian Fit')
         except:
             pass
             
         pair_vars.append(sigma**2)
-        # Match original title format exactly
-        ax.set_title(f"Ch{chA}-Ch{chB} (Det {chA}-{chB})\nSigma = {sigma:.3f} ns")
-        ax.set_xlabel("Delta T (ns)")
+        ax.set_title(f"Det {chA} - Det {chB}\nσ = {sigma:.3f} ns", fontweight='bold')
+        ax.set_xlabel("Δt (ns)")
+        ax.set_ylabel("Probability Density")
+        ax.grid(True, alpha=0.3)
 
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
     out_path = os.path.join(output_dir, f"{run_id}_timing_pairs.png")
-    plt.savefig(out_path)
+    plt.savefig(out_path, dpi=config.DEFAULT_DPI)
     plt.close()
     print(f"  Saved timing pairs: {out_path}")
     
@@ -197,21 +186,7 @@ def plot_waveforms(
     output_dir: Optional[str] = None
 ) -> Optional[str]:
     """
-    Plots sample waveforms for visual inspection.
-    Matches the exact output of the original analyse_physical.py.
-    
-    Args:
-        time: Time array (in seconds)
-        data: Dict mapping channel number to waveform matrices
-        indices: Event indices to plot
-        run_id: Run identifier string
-        label: Plot title label
-        suffix: Filename suffix
-        max_plots: Maximum number of waveforms to plot
-        output_dir: Output directory
-        
-    Returns:
-        Path to saved figure or None if no indices
+    Plots sample waveforms for visual inspection with detector colors.
     """
     if not indices:
         return None
@@ -227,24 +202,24 @@ def plot_waveforms(
     if n == 1:
         axes = [axes]
     
-    fig.suptitle(f"{run_id} - {label}", fontsize=16)
+    fig.suptitle(f"{run_id} - {label}", fontsize=16, fontweight='bold')
     
     for i, idx in enumerate(indices_to_plot):
         ax = axes[i]
-        # Match original: iterate range(1, 5) with default colors
         for ch in range(1, 5):
-            ax.plot(time*1e9, data[ch][idx]*1000, label=f"Ch{ch}")
+            ax.plot(time*1e9, data[ch][idx]*1000, 
+                    color=DETECTOR_COLORS[ch], linewidth=1.5, label=f"Det {ch}")
         
-        ax.set_title(f"Event #{idx}")
-        ax.set_ylabel("mV")
+        ax.set_title(f"Event #{idx}", fontsize=11)
+        ax.set_ylabel("Voltage (mV)")
         ax.grid(True, alpha=0.3)
         if i == 0:
-            ax.legend(loc='upper right')
+            ax.legend(loc='upper right', ncol=4, fontsize=9)
         
     axes[-1].set_xlabel("Time (ns)")
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
     out_path = os.path.join(output_dir, f"{run_id}_{suffix}.png")
-    plt.savefig(out_path)
+    plt.savefig(out_path, dpi=config.DEFAULT_DPI)
     plt.close(fig)
     print(f"  Saved {suffix}: {out_path}")
     
@@ -264,20 +239,6 @@ def plot_comparison(
 ) -> str:
     """
     Plots comparison histogram of two datasets (e.g., background vs source).
-    
-    Args:
-        amps_bg: Background amplitudes (in mV)
-        amps_source: Source amplitudes (in mV)
-        bins: Histogram bins
-        title: Plot title
-        filename: Output filename
-        label_bg: Label for background dataset
-        label_source: Label for source dataset
-        log_y: Whether to use log scale for y-axis
-        output_dir: Output directory
-        
-    Returns:
-        Path to saved figure
     """
     if output_dir is None:
         output_dir = config.RESULTS_DIR
@@ -293,7 +254,7 @@ def plot_comparison(
              color=config.COMPARISON_COLORS["source"], 
              label=f'{label_source}')
     
-    plt.title(title, fontsize=14)
+    plt.title(title, fontsize=14, fontweight='bold')
     plt.xlabel("Peak Amplitude (mV)")
     plt.ylabel("Counts")
     

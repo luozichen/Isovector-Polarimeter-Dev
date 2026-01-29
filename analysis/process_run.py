@@ -37,25 +37,52 @@ def calculate_amplitudes(data: dict) -> dict:
     return {ch: np.abs(np.min(data[ch], axis=1)) for ch in data}
 
 
-def calculate_cuts(amplitudes: dict) -> dict:
+def calculate_cuts(amplitudes: dict, config_str: str) -> dict:
     """
-    Calculate amplitude cuts for each channel based on Landau peak.
+    Calculate amplitude cuts for each channel based on detector position.
+    
+    Software Collimation Algorithm:
+    - Top/Bottom detectors: 90% of Landau peak (to remove corner-clipped events)
+    - Middle detectors: Only 50 mV floor (energy deposition skewed upward for angled tracks)
     
     Args:
         amplitudes: Dict mapping channel number to amplitude arrays
+        config_str: Stack configuration string (e.g., "1234")
         
     Returns:
         Dict mapping channel number to cut values (in Volts)
     """
     cuts = {}
+    
+    # Identify detector positions in the stack
+    # Position 0 = Top, Position 3 = Bottom, Positions 1&2 = Middle
     for ch, amps in amplitudes.items():
+        # Find this detector's position in the stack
+        det_char = str(ch)
+        if det_char in config_str:
+            position = config_str.index(det_char)
+        else:
+            position = -1  # Unknown
+        
+        # Calculate Landau peak
         counts, bins = np.histogram(amps, bins=100, range=(0, 0.5))
         bin_centers = (bins[:-1] + bins[1:]) / 2
         peak_idx = np.argmax(counts)
         peak_val = bin_centers[peak_idx]
-        cut_val = max(config.DEFAULT_CUT_THRESHOLD_MV / 1000.0, peak_val * 0.9)
+        
+        # Apply position-dependent cut logic
+        if position == 0 or position == 3:
+            # Top or Bottom detector: Apply 90% of Landau peak cut
+            cut_val = max(config.DEFAULT_CUT_THRESHOLD_MV / 1000.0, peak_val * 0.9)
+        else:
+            # Middle detectors (pos 1 or 2) or unknown: Only use floor cut
+            # Middle detectors see longer path lengths for angled tracks
+            cut_val = config.DEFAULT_CUT_THRESHOLD_MV / 1000.0
+        
         cuts[ch] = cut_val
+    
     return cuts
+
 
 
 def categorize_events(data: dict, amplitudes: dict, cuts: dict, num_events: int) -> tuple:
@@ -251,7 +278,7 @@ def analyze_run(run_num: int):
         print(f"  Warning: Only {num_channels} channels found, expected 4 for full analysis")
     
     # Calculate cuts
-    cuts = calculate_cuts(amplitudes)
+    cuts = calculate_cuts(amplitudes, config_str)
     
     # Categorize events
     clean_indices, clipped_indices, noise_indices = categorize_events(
