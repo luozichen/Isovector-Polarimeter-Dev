@@ -60,6 +60,17 @@
 ## 📅 Development Log
 
 ### January 2026
+* **2026-01-29:**
+   * **Codebase Refactor:**
+     * **Modularization:** Transformed `analysis/` into a Python package with a `utils/` module for standardized I/O, physics calculations, and plotting.
+     * **Robustness:** Replaced ad-hoc scripts with unified tools (`process_run.py`, `compare_runs.py`) that handle configuration dynamically.
+     * **Dependencies:** Added `requirements.txt` for reproducibility.
+   * **Experimental Status:**
+     * **Run 17 (Failed):** The attempted high-statistics (10,000 events) run at **900V** failed.
+     * **Issue:** Channel 2 of the HV power supply exhibited instability, dropping to 0V (Undervoltage). No data was saved.
+     * **Root Cause:** Suspected overheating of the power supply unit when driving all 4 channels at 900V. The system was previously stable for days at 800V.
+     * **Plan:** Retrying the 4x 900V run today, monitoring thermal conditions closely.
+
 * **2026-01-28:**
    * **Robustify analyse_physical.py:** Different treatment for different runs. Backwards compatible.
    * **Analysis of run017 (10000 events), 900V working voltage, config 1342**
