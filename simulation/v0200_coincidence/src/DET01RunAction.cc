@@ -73,7 +73,12 @@ void DET01RunAction::BeginOfRunAction(const G4Run*)
   auto analysisManager = G4AnalysisManager::Instance();
 
   // Open an output file
-  G4String fileName = "DET01_Cosmic_Result";
+  // Filename can be set via /analysis/setFileName in macro files
+  // Default filename if not set by macro
+  G4String fileName = analysisManager->GetFileName();
+  if (fileName.empty()) {
+    fileName = "DET01_Cosmic_Result";
+  }
   analysisManager->OpenFile(fileName);
 }
 

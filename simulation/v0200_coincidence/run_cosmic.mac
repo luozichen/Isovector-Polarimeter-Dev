@@ -6,6 +6,9 @@
 # Initialize
 /run/initialize
 
+# Set output filename for this run
+/analysis/setFileName DET01_Cosmic_Result
+
 # Load Source Configuration
 /control/execute ../setup_cosmic.mac
 
