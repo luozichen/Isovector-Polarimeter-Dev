@@ -98,3 +98,14 @@ This document tracks the parameters and configurations for each experimental run
 - **Events:** 20,000
 - **Source:** Thorium-232 (Directly above Det 3)
 - **Note:** Higher resolution Thorium run for comparison with Run 015.
+
+---
+
+## High Statistics Calibration Group
+
+### Run 017
+- **Config:** 1342
+- **Discriminator:** 50 mV (Standard)
+- **Events:** 10,000
+- **Source:** Cosmic Rays (Background)
+- **Note:** High-statistics run (10x standard) for precise Landau fitting and jitter analysis.
