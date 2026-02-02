@@ -1,0 +1,5 @@
+Trigger Jitter Analysis (Method 1)
+Run      | Det  | Position | Sigma (ns)
+---------------------------------------------
+run017   | 3    | Mid1   | 0.7736
+run017   | 4    | Mid2   | 1.2419

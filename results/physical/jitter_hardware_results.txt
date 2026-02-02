@@ -1,0 +1,5 @@
+Hardware Collimation Jitter (Method 3)
+Det 1: 0.5048 ns
+Det 2: 0.5066 ns
+Det 3: 0.5412 ns
+Det 4: 0.5312 ns

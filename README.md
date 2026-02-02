@@ -22,7 +22,9 @@
 - [x] Further Data Acquisition: Acquire more data with detector pairs in the middle to get "good detector pair data". Get all 6*1000 waveforms for all 6 possible middle configurations (4C2). [2026-01-22]
 - [x] Improved Calibration: Calculate improved energy deposit calibration using more data (Each detector has two sets of middle data. Analyse Combined Data). [2026-01-22]
 - [x] Improved Jitter: Calculate improved jitter calculation using the good detector pair data (which we previously lacked in first calculation, and we had to use cutting of the top and bottom detectors to get required data). [2026-01-22]
-- [x] Thorium Investigation: Investigating thorium on detectors anyways.
+- [ ] Thorium Investigation: Investigating thorium on detectors anyways.
+- [ ] (Added on 2026-02-01) Comprehensive jitter study methods
+- [ ] (Added on 2026-02-01) Jitter-WorkingVoltage study, and Calibration-WorkingVoltage curve study.
 
 ### Theoretical Derivation & Physics Simulation
 - [ ] Polarization Derivation: Starting from quantum scattering theory, derive the analytical relationship between the deuteron-proton (d-p) elastic scattering cross-section and the beam's tensor polarization.
@@ -59,8 +61,28 @@
 
 ## 📅 Development Log
 
+### February 2026
+* **2026-02-02:**
+    * **Procurement:** Ordered a replacement batch of 10 Voltage Divider PCBs.
+* **2026-02-01:**
+    * **Hardware Repair Attempt (PMT Base):**
+        * **Disassembly:** Attempted to disassemble the faulty base unit. The current assembly relies on friction fit between the pin receptacles and the 3D-printed socket housing pilot holes (aligned prior to soldering).
+        * **Rework:** Successfully separated the PCB from the housing despite significant mechanical resistance. Re-crimped each individual receptacle to ensure tighter mechanical tolerance before re-aligning and re-assembling with the socket housing.
+        * **Test Result:** **Failure.** The rework did not resolve the high-voltage instability.
+    * **Failure Analysis (V-I Characterisation):**
+        * **Observation:** Tested the reworked base at 800V. Observed anomalous V-I behaviour indicative of dielectric breakdown or arcing.
+        * **Specific Anomaly:** As voltage ramped to ~360V, leakage current rose to 53 µA. At ~400V, current read 57 µA before the voltage collapsed to ~200V. This voltage collapse was followed by a delayed current reading spike (displaying ~100 µA at ~200V), suggesting a massive transient short occurred at the 400V threshold that triggered the PSU's protection circuit faster than the display sampling rate.
+        * **Hypothesis:** The components or PCB substrate likely exhibit a voltage-dependent breakdown. While they test nominal under low-voltage/DC conditions (multimeter), they undergo catastrophic failure or arcing under high field strengths (>300V).
+    * **Salvage Attempt:** Attempted to recover the first PCBv2 board (which was previously sidelined due to not crimping at all). However, the legacy socket housing design created excessive friction, making non-destructive disassembly impossible. The unit was deemed unsalvageable.
+    * **Analysis Strategy:** Defined new goals for "Robust Jitter Extraction." Current methods rely on "Golden Pairs" (physically collimated middle detectors). The objective is to develop an algorithm capable of extracting intrinsic jitter from single detectors or imperfect stacks by using advanced data filtering (software collimation) to compensate for geometric variance.
 ### January 2026
+
+* **2026-01-30 & 2026-01-31:**
+    * **Project Pause:** Temporarily halted hardware debugging to mitigate burnout.
+    * **Infrastructure:** Deployed KataGo on a remote server (utilising RTX 5090 compute) for high-performance Go analysis.
+    * **Algorithm Development:** Continued conceptual work on the robust jitter extraction methodology during the hardware downtime.
 * **2026-01-29:**
+   * **Developing more jitter extraction methods**
    * **Codebase Refactor:**
      * **Modularization:** Transformed `analysis/` into a Python package with a `utils/` module for standardized I/O, physics calculations, and plotting.
      * **Robustness:** Replaced ad-hoc scripts with unified tools (`process_run.py`, `compare_runs.py`) that handle configuration dynamically.
@@ -70,6 +92,16 @@
      * **Issue:** Channel 2 of the HV power supply exhibited instability, dropping to 0V (Undervoltage). No data was saved.
      * **Root Cause:** Suspected overheating of the power supply unit when driving all 4 channels at 900V. The system was previously stable for days at 800V.
      * **Plan:** Retrying the 4x 900V run today, monitoring thermal conditions closely.
+    * **Failure Analysis (Run 017 - 900V Instability):**
+        * **Symptom:** The 4-channel 900V run failed repeatedly due to instability on Channel 2 (Detector 3).
+        * **Troubleshooting Steps:**
+            1.  **PSU Swap:** Switched power modules. (From NDT1471 to another module). **Result:** Failure persisted. (Ruled out PSU Module).
+            2.  **Channel Swap:** Swapped cables to drive Detector 3 via Channel 0. **Result:** Failure followed the detector. (Ruled out PSU Channel).
+            3.  **Base Swap:** Replaced the PMT base on Detector 3 with the official base unit for that PMT. **Result:** System stabilised.
+        * **Conclusion:** The root cause is a hardware defect within the specific PMT Base unit used for Detector 3.
+    * **Component Inspection:**
+        * Performed a bench inspection of the faulty base. Multimeter checks showed nominal resistance and capacitance values, ruling out obvious component failure.
+        * **Suspected Cause:** A "soft" connection failure where the crimped receptacles make intermittent contact with the PMT pins, or a high-voltage breakdown path that is only active under load (not detectable via low-voltage multimeter).
 
 * **2026-01-28:**
    * **Robustify analyse_physical.py:** Different treatment for different runs. Backwards compatible.

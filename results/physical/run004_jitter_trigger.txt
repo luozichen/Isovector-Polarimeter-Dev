@@ -1,0 +1,10 @@
+Trigger-Referenced Jitter Analysis
+Run: run004 (Config: 2134)
+Events: Total=1000, Noise=66
+----------------------------------------
+Detector     | Clean    | Clipped  | Sigma (ns)
+----------------------------------------
+Det 1         | 934      | 0        | 1.4007
+Det 2         | 932      | 2        | 2.2579
+Det 3         | 934      | 0        | 0.5538
+Det 4         | 933      | 1        | 1.3979

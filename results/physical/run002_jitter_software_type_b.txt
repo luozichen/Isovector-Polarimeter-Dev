@@ -1,0 +1,9 @@
+Software Collimation Jitter Analysis
+Run: run002 (Config: 1234)
+Algorithm: type_b
+Events: Total=1000, Clean=553, Clipped=428, Noise=19
+----------------------------------------
+Det 1: 0.8138 ns
+Det 2: 0.4393 ns
+Det 3: 0.3533 ns
+Det 4: 0.8496 ns
