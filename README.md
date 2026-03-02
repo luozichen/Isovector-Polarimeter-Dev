@@ -61,6 +61,16 @@
 
 ## 📅 Development Log
 
+### March 2026
+* **2026-03-02:**
+    * **Theoretical Energy Modeling (Convoluted Landau):**
+        * **Objective:** Mathematically correct the standard Landau (Moyal) fit to account for the detector array's geometric acceptance. Muons arriving at an angle $\theta$ travel a longer path $L = 2c / \cos\theta$, which broadens the energy deposition distribution.
+        * **Implementation:** Derived the geometrical angular weighting function $W(\theta) = \cos^3\theta \sin\theta \int A(\theta, \phi) \, d\phi$, mapping this to a path length probability $P(L)$. Numerically integrated the standard `moyal.pdf` over $P(L)$ to create a strict theoretical match for the 4-fold coincidence trigger array.
+        * **Findings (Geant4 & Physical Data):**
+            * The rigid geometric constraints ($32.6^\circ$ max angle) only stretch the maximum path length by ~18.7%. Thus, the resulting convoluted shape is remarkably similar to a standard Moyal distribution, validating the use of the simpler standard fit for general MPV extraction.
+            * **The Tail Anomaly:** Both Geant4 data (simulating 1-100 GeV muons with radiative losses) and physical cosmic ray data exhibit a much thicker high-energy tail than the theoretically perfect Convoluted model predicts.
+            * **Conclusion:** The Standard Moyal model achieves a visually "better" total fit by artificially inflating its `Width` parameter to absorb unmodeled high-energy physics (radiative showers/delta-rays). The Convoluted model is mathematically robust but exposes the fact that the geometric variance ($\sim 18.7\%$) alone is insufficient to explain the thick experimental tail. To extract the true ionization MPV, the fitting window must be purposely bounded to exclude this physical radiative tail.
+
 ### February 2026
 * **2026-02-02:**
     * **Procurement:** Ordered a replacement batch of 10 Voltage Divider PCBs.
