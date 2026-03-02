@@ -69,7 +69,7 @@
         * **Findings (Geant4 & Physical Data):**
             * The rigid geometric constraints ($32.6^\circ$ max angle) only stretch the maximum path length by ~18.7%. Thus, the resulting convoluted shape is remarkably similar to a standard Moyal distribution, validating the use of the simpler standard fit for general MPV extraction.
             * **The Tail Anomaly:** Both Geant4 data (simulating 1-100 GeV muons with radiative losses) and physical cosmic ray data exhibit a much thicker high-energy tail than the theoretically perfect Convoluted model predicts.
-            * **Conclusion:** The Standard Moyal model achieves a visually "better" total fit by artificially inflating its `Width` parameter to absorb unmodeled high-energy physics (radiative showers/delta-rays). The Convoluted model is mathematically robust but exposes the fact that the geometric variance ($\sim 18.7\%$) alone is insufficient to explain the thick experimental tail. To extract the true ionization MPV, the fitting window must be purposely bounded to exclude this physical radiative tail.
+            * **Conclusion:** The Standard Moyal model achieves a visually "better" total fit essentially by pure chance. The Standard Moyal inherently produces a larger, longer high-energy tail than the Convoluted model for a given peak width. It just so happens that this overestimated tail in the Standard model perfectly coincides with the extra high-energy physics (detector resolution smearing, radiative showers, and delta-rays) that *both* models lack. The Convoluted model has a smaller intrinsic tail; therefore, when it fits the main peak correctly, its tail drops off too quickly to coincidentally account for the missing physics.
 
 ### February 2026
 * **2026-02-02:**
