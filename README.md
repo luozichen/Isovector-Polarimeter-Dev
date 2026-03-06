@@ -62,6 +62,19 @@
 ## 📅 Development Log
 
 ### March 2026
+* **2026-03-06:**
+    * **Hardware Redesign:** Designing Voltage Divider PCB v2.2 with larger resistors, and specifically stipulating the required breakdown voltage to the manufacturer.
+* **2026-03-05:**
+    * **Data Loss:** Someone accidentally touched the oscilloscope, causing the DAQ to stop and resulting in the loss of all previous results for the current run.
+    * **Hardware Failure (Detector 3):** Discovered a critical problem with Detector 3: the power supply was still outputting 900V, but there was no current at all.
+    * **Failure Analysis:** Dismantled Detector 3 and used a multimeter to check the board. Found that the 3rd resistor in the voltage divider chain had infinite resistance (broken).
+    * **Root Cause Identification:** Contacted the manufacturer regarding the resistor's breakdown voltage and was informed it is 75V—lower than the operational voltage applied across it in the divider.
+    * **Rework Initiation:** Realized all four detector bases must be redone to prevent future failures. Printed 2 new Socket Housings (v4) to avoid reusing the old ones, as the strong friction fit makes separating the PCB from the housing quite a hassle.
+* **2026-03-04:**
+    * **Data Acquisition Status:** Checked on the 900V DAQ run. It was still running, with 1.6k out of 5k events completed.
+* **2026-03-03:**
+    * **Hardware Assembly:** Voltage Divider PCB v2.1 arrived. Soldered one board with 15 crimped receptacles and installed this new voltage divider on Detector 3.
+    * **Data Acquisition:** Restarted the 900V cosmic ray runs, initiating a 5,000-event DAQ.
 * **2026-03-02:**
     * **Theoretical Energy Modeling (Convoluted Landau):**
         * **Objective:** Mathematically correct the standard Landau (Moyal) fit to account for the detector array's geometric acceptance. Muons arriving at an angle $\theta$ travel a longer path $L = 2c / \cos\theta$, which broadens the energy deposition distribution.
