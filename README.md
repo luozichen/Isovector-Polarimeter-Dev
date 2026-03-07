@@ -27,7 +27,7 @@
 - [ ] (Added on 2026-02-01) Jitter-WorkingVoltage study, and Calibration-WorkingVoltage curve study.
 
 ### Theoretical Derivation & Physics Simulation
-- [ ] Polarization Derivation: Starting from quantum scattering theory, derive the analytical relationship between the deuteron-proton (d-p) elastic scattering cross-section and the beam's tensor polarization.
+- [x] Polarization Derivation: Starting from quantum scattering theory, derive the analytical relationship between the deuteron-proton (d-p) elastic scattering cross-section and the beam's tensor polarization. [2026-03-07]
 - [ ] Detection Simulation: Write code to simulate the scattering of the polarized deuteron beam on a methlyne target, and obtain the detector response, verifying the derivation and the rationality of the detector layout.
 - [ ] Physics Verification: Using the ImQMD transport model to simulate the entire IVR experiment process, verifying the sensitivity of the experimental results to the beam polarization.
 
@@ -62,6 +62,9 @@
 ## 📅 Development Log
 
 ### March 2026
+* **2026-03-07:**
+    * **Hardware Redesign:** Finalized the design for Voltage Divider PCB v2.2 and sent the manufacturing files to the manufacturer. Awaiting delivery.
+    * **Hardware Assembly:** Started printing out the remaining two Socket Housings.
 * **2026-03-06:**
     * **Hardware Redesign:** Designing Voltage Divider PCB v2.2 with larger resistors, and specifically stipulating the required breakdown voltage to the manufacturer.
 * **2026-03-05:**
