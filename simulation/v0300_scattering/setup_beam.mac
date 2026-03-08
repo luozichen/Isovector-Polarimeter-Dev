@@ -10,6 +10,6 @@
 # Direction: Along +Z towards target
 /gps/direction 0 0 1
 
-# Energy: Monoenergetic 400 MeV (example energy)
+# Energy: 190 MeV/u deuteron (380 MeV total kinetic energy)
 /gps/ene/type Mono
-/gps/ene/mono 400 MeV
+/gps/ene/mono 380 MeV
