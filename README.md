@@ -62,6 +62,15 @@
 ## 📅 Development Log
 
 ### March 2026
+* **2026-03-08:**
+    * **Physics Simulation (v0300_scattering):** Created a new Geant4 simulation (`simulation/v0300_scattering`) to model the scattering of a polarized deuteron beam off a CH2 target and to study the detector response.
+        * **Beam:** 190 MeV/u deuteron beam (380 MeV total kinetic energy), point source propagating along the +Z axis.
+        * **Target:** CH2 slab (5×5 cm, 1 cm thick) placed at the origin.
+        * **Detector Layout:** 4 scintillator detectors (120×150×150 mm, same units as physical detectors) arranged in an azimuthal polarimeter array around the beam axis. The 15×15 cm scintillating face points toward the target; the PMT opening faces radially outward. Key placement parameters:
+            * **Polar scattering angle (θ):** 22.5° from the beam line.
+            * **Distance from target:** 150 cm (chosen to limit angular acceptance to ~±3° per detector, improving angular resolution).
+            * **Azimuthal spacing:** 4 detectors evenly distributed every 90° in φ.
+        * **Physics goal:** Obtain detector hit distributions as a function of scattering angle to verify the analytical relationship between d-p elastic scattering cross-section and beam tensor polarization derived in the theoretical work.
 * **2026-03-07:**
     * **Hardware Redesign:** Finalized the design for Voltage Divider PCB v2.2 and sent the manufacturing files to the manufacturer. Awaiting delivery.
     * **Hardware Assembly:** Started printing out the remaining two Socket Housings.
