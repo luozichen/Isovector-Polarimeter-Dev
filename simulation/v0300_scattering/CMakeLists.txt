@@ -14,5 +14,4 @@ file(GLOB HEADERS ${PROJECT_SOURCE_DIR}/include/*.hh)
 add_executable(det01 det01.cc ${SOURCES} ${HEADERS})
 target_link_libraries(det01 ${Geant4_LIBRARIES})
 
-# Copy macros to the build directory
-file(COPY init_vis.mac vis.mac vis_fast.mac run_beam.mac DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY init_vis.mac vis.mac vis_fast.mac run_beam.mac setup_beam.mac DESTINATION ${CMAKE_BINARY_DIR})

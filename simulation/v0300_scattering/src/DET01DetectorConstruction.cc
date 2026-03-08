@@ -179,35 +179,35 @@ G4VPhysicalVolume* DET01DetectorConstruction::Construct()
   opTeflon->SetModel(unified);
   opTeflon->SetFinish(groundteflonair);
 
-  // Stacking Loop (Along Scattered Axis)
+  // Polarimeter Array (Azimuthal Distribution)
   G4int nDetectors = 4;
-  G4double gap = 8.5*mm;
   
   // Placement Parameters
-  G4double distanceToTarget = 50.0*cm; // Distance from target to the center of the first detector
+  G4double distanceToTarget = 50.0*cm; // Distance from target to the detector front face
   G4double scatteringAngle = 15.0*deg; // Polar scattering angle (theta)
   
-  // Initial unrotated Z-positions for the center of each scintillator block
-  // First block is at Z = distanceToTarget.
-  // Then space them out by scinZ + gap
-  G4double scinStartUnrotZ = distanceToTarget;
-  
-  G4RotationMatrix* rotScin = new G4RotationMatrix();
-  rotScin->rotateY(scatteringAngle); 
-  
-  G4RotationMatrix* rotPMT = new G4RotationMatrix();
-  rotPMT->rotateY(90.*deg + scatteringAngle);
+  // The center of the scintillator is at distance + half-thickness
+  G4double rCenter = distanceToTarget + scinZ/2;
 
   for(G4int i=0; i<nDetectors; i++) {
-      G4double unrotZ = scinStartUnrotZ + i * (scinZ + gap);
+      // 4 Detectors spaced by 90 degrees azimuthally
+      G4double phi = i * 90.0*deg;
       
-      // Calculate global positions using scattering angle
-      G4ThreeVector pos(0, 0, unrotZ);
+      G4RotationMatrix* rotScin = new G4RotationMatrix();
+      rotScin->rotateY(scatteringAngle); 
+      rotScin->rotateZ(phi);
+      
+      G4RotationMatrix* rotPMT = new G4RotationMatrix();
+      rotPMT->rotateY(90.*deg); // PMT alignment relative to scintillator +X face
+      rotPMT->rotateY(scatteringAngle); // apply theta
+      rotPMT->rotateZ(phi); // apply phi
+      
+      // Scintillator Position
+      G4ThreeVector pos(0, 0, rCenter);
       pos.rotateY(scatteringAngle);
+      pos.rotateZ(phi);
       
-      // ID Swapping: i=0 is Bottom (now Front), i=1 is Top.
-      // We want ID 0 = Top/Back, nDetectors-1 = Bottom/Front.
-      G4int copyNo = nDetectors - 1 - i;
+      G4int copyNo = i;
 
       // Scintillator
       G4VPhysicalVolume* physScin = new G4PVPlacement(rotScin, pos, logicScin, "Scintillator", logicWorld, false, copyNo, true);
@@ -216,26 +216,27 @@ G4VPhysicalVolume* DET01DetectorConstruction::Construct()
       new G4LogicalBorderSurface("ScinTeflonWrapper", physScin, physWorld, opTeflon);
 
       // Attach PMT Assembly (Relative to Scintillator center)
-      // PMT was on +X face of unrotated scintillator. Local X = +scinX/2. Local Y = 0. Local Z = 0. 
-      // Translate to global coordinates with rotation.
       G4double pmtAxisPos = scinX/2;
       
       // Grease
-      G4ThreeVector greasePosLocal(pmtAxisPos + greaseThick/2, 0, unrotZ);
+      G4ThreeVector greasePosLocal(pmtAxisPos + greaseThick/2, 0, rCenter);
       G4ThreeVector greasePos = greasePosLocal;
       greasePos.rotateY(scatteringAngle);
+      greasePos.rotateZ(phi);
       new G4PVPlacement(rotPMT, greasePos, logicGrease, "Grease", logicWorld, false, copyNo, true);
       
       // Window
-      G4ThreeVector winPosLocal(pmtAxisPos + greaseThick + winThick/2, 0, unrotZ);
+      G4ThreeVector winPosLocal(pmtAxisPos + greaseThick + winThick/2, 0, rCenter);
       G4ThreeVector winPos = winPosLocal;
       winPos.rotateY(scatteringAngle);
+      winPos.rotateZ(phi);
       new G4PVPlacement(rotPMT, winPos, logicWindow, "PMTWindow", logicWorld, false, copyNo, true);
       
       // Cathode
-      G4ThreeVector cathodePosLocal(pmtAxisPos + greaseThick + winThick + cathodeThick/2, 0, unrotZ);
+      G4ThreeVector cathodePosLocal(pmtAxisPos + greaseThick + winThick + cathodeThick/2, 0, rCenter);
       G4ThreeVector cathodePos = cathodePosLocal;
       cathodePos.rotateY(scatteringAngle);
+      cathodePos.rotateZ(phi);
       new G4PVPlacement(rotPMT, cathodePos, fPhotocathodeLogical, "Photocathode", logicWorld, false, copyNo, true);
   }
 
