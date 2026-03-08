@@ -202,7 +202,7 @@ G4VPhysicalVolume* DET01DetectorConstruction::Construct()
   G4int nDetectors = 4;
   
   // Placement Parameters
-  G4double distanceToTarget = 50.0*cm; // Distance from target to the detector front face
+  G4double distanceToTarget = 150.0*cm; // Distance from target to the detector front face
   G4double scatteringAngle = 22.5*deg; // Polar scattering angle (theta)
   
   // The scintillator center is at distanceToTarget + scinX/2 along the
