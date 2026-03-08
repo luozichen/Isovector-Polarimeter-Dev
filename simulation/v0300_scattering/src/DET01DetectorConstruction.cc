@@ -185,7 +185,13 @@ G4VPhysicalVolume* DET01DetectorConstruction::Construct()
   //
   // Orientation: The 15x15 cm face (Y-Z plane in local frame) faces the
   // target. The PMT opening (+X face) points radially away from the target.
-  // This means local +X must align with the radial direction r_hat.
+  //
+  // ROTATION CONVENTION (Geant4):
+  //   G4PVPlacement uses: global = R^T * local + translation
+  //   So we must pass R = P^T, where P is the desired PHYSICAL rotation.
+  //   Physical rotation P maps local +X to r_hat (radial direction).
+  //   P = R_Z(phi) * R_Y(-(90-theta))
+  //   => R = P^T = R_Y(90-theta) * R_Z(-phi)
   //
   // Geometry:
   //   Beam ---> [CH2 Target] -----> r_hat at angle theta
@@ -209,24 +215,23 @@ G4VPhysicalVolume* DET01DetectorConstruction::Construct()
       G4double phi = i * 90.0*deg;
       
       // --- Scintillator Rotation ---
-      // We need local +X to map to r_hat = (sin(theta), 0, cos(theta)) for phi=0.
-      // R_Y(alpha) * (1,0,0) = (cos(alpha), 0, -sin(alpha))
-      // Setting cos(alpha) = sin(theta), -sin(alpha) = cos(theta)
-      //   => alpha = -(90 - theta)
+      // Physical rotation: P = R_Z(phi) * R_Y(-(90-theta))
+      // Geant4 passive:    R = P^T = R_Y(90-theta) * R_Z(-phi)
+      // CLHEP left-multiply: rotateZ(-phi) then rotateY(90-theta)
       G4RotationMatrix* rotScin = new G4RotationMatrix();
-      rotScin->rotateY(-(90.*deg - scatteringAngle));
-      rotScin->rotateZ(phi);
+      rotScin->rotateZ(-phi);
+      rotScin->rotateY(90.*deg - scatteringAngle);
       
       // --- PMT Tube Rotation ---
-      // Tube axis is local Z. We need it to map to r_hat.
-      // R_Y(theta) * (0,0,1) = (sin(theta), 0, cos(theta)) = r_hat. 
+      // Physical: P_pmt maps local Z to r_hat. P_pmt = R_Z(phi) * R_Y(theta)
+      // Geant4:   R_pmt = P_pmt^T = R_Y(-theta) * R_Z(-phi)
       G4RotationMatrix* rotPMT = new G4RotationMatrix();
-      rotPMT->rotateY(scatteringAngle);
-      rotPMT->rotateZ(phi);
+      rotPMT->rotateZ(-phi);
+      rotPMT->rotateY(-scatteringAngle);
       
       // --- Positions ---
       // All components lie on the same radial ray from the origin at (theta, phi).
-      // Scintillator center:
+      // Position vectors use ACTIVE rotations (not affected by the Geant4 convention).
       G4ThreeVector pos(0, 0, rCenter);
       pos.rotateY(scatteringAngle);
       pos.rotateZ(phi);
