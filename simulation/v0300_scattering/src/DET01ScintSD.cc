@@ -45,7 +45,7 @@ G4bool DET01ScintSD::ProcessHits(G4Step* step, G4TouchableHistory*)
   
   DET01Hit* hit = nullptr;
   
-  // Simple linear search (since only 2 detectors, it's fast)
+  // Simple linear search over existing hits for this detector
   for(size_t i=0; i<fHitsCollection->entries(); i++) {
       DET01Hit* existingHit = (*fHitsCollection)[i];
       if(existingHit->GetDetID() == detID) {
@@ -63,7 +63,7 @@ G4bool DET01ScintSD::ProcessHits(G4Step* step, G4TouchableHistory*)
   // Add Energy
   hit->AddEdep(edep);
 
-  // Track Primary Muon Position (Entry/Exit)
+  // Track Primary Particle Position (Entry/Exit)
   if (step->GetTrack()->GetTrackID() == 1) {
       if (!hit->GetHasPrimary()) {
           // First time seeing primary in this detector

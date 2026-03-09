@@ -57,23 +57,22 @@ void DET01SensitiveDetector::EndOfEvent(G4HCofThisEvent*)
 {
   G4int nofHits = fHitsCollection->entries();
   if (nofHits > 0) {
-      G4int count0 = 0;
-      G4int count1 = 0;
-      G4int count2 = 0;
-      G4int count3 = 0;
+      // Count photons per detector (16 detectors total)
+      const G4int nDet = 16;
+      G4int counts[nDet] = {0};
       
       for(size_t i=0; i<fHitsCollection->GetSize(); i++) {
           DET01Hit* hit = static_cast<DET01Hit*>(fHitsCollection->GetHit(i));
           G4int id = hit->GetDetID();
-          if(id == 0) count0++;
-          else if(id == 1) count1++;
-          else if(id == 2) count2++;
-          else if(id == 3) count3++;
+          if(id >= 0 && id < nDet) counts[id]++;
       }
       
-      G4cout << "Use log: Event Summary -> DET_0: " << count0 
-             << " photons, DET_1: " << count1 
-             << " photons, DET_2: " << count2 
-             << " photons, DET_3: " << count3 << " photons." << G4endl;
+      G4cout << "Use log: Event Summary ->";
+      for (G4int d = 0; d < nDet; d++) {
+          if (counts[d] > 0) {
+              G4cout << " DET_" << d << ": " << counts[d] << " photons,";
+          }
+      }
+      G4cout << G4endl;
   }
 }
