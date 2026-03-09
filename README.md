@@ -63,15 +63,19 @@
 
 ### March 2026
 * **2026-03-09:**
-    * **Hardware Redesign:** Supplier could not provide 0805 resistors >250 V breakdown. Redesigned Voltage Divider PCB to v2.3, splitting high‑voltage resistors into series of lower‑voltage parts. Sent new blueprint to manufacturer for production.
+    * **Hardware Redesign:** Supplier could not provide 0805 resistors >250 V breakdown. Redesigned Voltage Divider PCB to v2.3, splitting high‑voltage resistors into series of lower‑voltage parts. Sent new blueprint to manufacturer for production.
+    * **Physics Simulation (v0300_scattering) — Updates:**
+        * **Dual-ring detector array:** Expanded from 4 detectors (90° spacing) to **16 detectors in two concentric rings**, each with 8 detectors spaced every 45° in azimuth:
+            * **Ring 1** (copyNo 0–7): θ = 22.5° from beam line.
+            * **Ring 2** (copyNo 8–15): θ = 30.0° from beam line.
+        * **Distance convention clarified:** The 150 cm distance is the **actual radial (straight-line) distance** from the target to the detector front face, not the projection onto the beam axis (Z-projections are ~138.6 cm and ~129.9 cm for θ = 22.5° and 30° respectively).
+        * **Data pipeline bug fix:** The data recording pipeline was hardcoded for 4 detectors; all hits from detectors 4–15 were silently discarded. Fixed `DET01RunAction.cc` and `DET01EventAction.cc` to use loop-based arrays of 16, recording all 16 detectors in the output ROOT ntuple.
+        * **Cosmetic fixes:** Renamed ntuple from `CosmicData` to `ScatteringData`; renamed default output file to `DET01_Scattering_Result`; updated stale "muon" references to "deuteron/primary particle" in comments.
 * **2026-03-08:**
     * **Physics Simulation (v0300_scattering):** Created a new Geant4 simulation (`simulation/v0300_scattering`) to model the scattering of a polarized deuteron beam off a CH2 target and to study the detector response.
         * **Beam:** 190 MeV/u deuteron beam (380 MeV total kinetic energy), point source propagating along the +Z axis.
         * **Target:** CH2 slab (5×5 cm, 1 cm thick) placed at the origin.
-        * **Detector Layout:** 4 scintillator detectors (120×150×150 mm, same units as physical detectors) arranged in an azimuthal polarimeter array around the beam axis. The 15×15 cm scintillating face points toward the target; the PMT opening faces radially outward. Key placement parameters:
-            * **Polar scattering angle (θ):** 22.5° from the beam line.
-            * **Distance from target:** 150 cm (chosen to limit angular acceptance to ~±3° per detector, improving angular resolution).
-            * **Azimuthal spacing:** 4 detectors evenly distributed every 90° in φ.
+        * **Detector Layout:** 4 scintillator detectors (120×150×150 mm) at 22.5° polar angle, 150 cm radial distance from target, 15×15 cm face toward target, PMT opening facing out. (Expanded to 16 detectors on 2026-03-09.)
         * **Physics goal:** Obtain detector hit distributions as a function of scattering angle to verify the analytical relationship between d-p elastic scattering cross-section and beam tensor polarization derived in the theoretical work.
 * **2026-03-07:**
     * **Hardware Redesign:** Finalized the design for Voltage Divider PCB v2.2 and sent the manufacturing files to the manufacturer. Awaiting delivery.
