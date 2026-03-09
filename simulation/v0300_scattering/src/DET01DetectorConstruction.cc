@@ -199,73 +199,78 @@ G4VPhysicalVolume* DET01DetectorConstruction::Construct()
   //                              [15x15 face] <- toward target
   //                              [ 12cm body ]
   //                              [PMT opening] <- away from target
-  G4int nDetectors = 4;
+  // Two rings of detectors at different polar scattering angles.
+  // Each ring has 8 detectors spaced 45 degrees in azimuth.
+  //   Ring 0: theta = 22.5 deg, copyNo = 0..7
+  //   Ring 1: theta = 30.0 deg, copyNo = 8..15
+  G4int nDetPerRing = 8;
+  G4double phiStep = 45.0*deg;
   
   // Placement Parameters
   G4double distanceToTarget = 150.0*cm; // Distance from target to the detector front face
-  G4double scatteringAngle = 22.5*deg; // Polar scattering angle (theta)
+  
+  // Scattering angles for each ring
+  const G4int nRings = 2;
+  G4double scatteringAngles[nRings] = { 22.5*deg, 30.0*deg };
   
   // The scintillator center is at distanceToTarget + scinX/2 along the
   // radial ray, since scinX (120mm) is the depth dimension (local X)
   // when the 15x15 face (Y-Z plane) faces the target.
   G4double rCenter = distanceToTarget + scinX/2;
 
-  for(G4int i=0; i<nDetectors; i++) {
-      // 4 Detectors spaced by 90 degrees azimuthally
-      G4double phi = i * 90.0*deg;
-      
-      // --- Scintillator Rotation ---
-      // Physical rotation: P = R_Z(phi) * R_Y(-(90-theta))
-      // Geant4 passive:    R = P^T = R_Y(90-theta) * R_Z(-phi)
-      // CLHEP left-multiply: rotateZ(-phi) then rotateY(90-theta)
-      G4RotationMatrix* rotScin = new G4RotationMatrix();
-      rotScin->rotateZ(-phi);
-      rotScin->rotateY(90.*deg - scatteringAngle);
-      
-      // --- PMT Tube Rotation ---
-      // Physical: P_pmt maps local Z to r_hat. P_pmt = R_Z(phi) * R_Y(theta)
-      // Geant4:   R_pmt = P_pmt^T = R_Y(-theta) * R_Z(-phi)
-      G4RotationMatrix* rotPMT = new G4RotationMatrix();
-      rotPMT->rotateZ(-phi);
-      rotPMT->rotateY(-scatteringAngle);
-      
-      // --- Positions ---
-      // All components lie on the same radial ray from the origin at (theta, phi).
-      // Position vectors use ACTIVE rotations (not affected by the Geant4 convention).
-      G4ThreeVector pos(0, 0, rCenter);
-      pos.rotateY(scatteringAngle);
-      pos.rotateZ(phi);
-      
-      G4int copyNo = i;
+  // PMT radial distances (same for all detectors)
+  G4double rGrease  = distanceToTarget + scinX + greaseThick/2;
+  G4double rWindow  = distanceToTarget + scinX + greaseThick + winThick/2;
+  G4double rCathode = distanceToTarget + scinX + greaseThick + winThick + cathodeThick/2;
 
-      // Scintillator
-      G4VPhysicalVolume* physScin = new G4PVPlacement(rotScin, pos, logicScin, "Scintillator", logicWorld, false, copyNo, true);
-      
-      // Apply Wrapping to this specific instance boundary
-      new G4LogicalBorderSurface("ScinTeflonWrapper", physScin, physWorld, opTeflon);
+  for(G4int ring=0; ring<nRings; ring++) {
+      G4double theta = scatteringAngles[ring];
 
-      // PMT Assembly: each component is further along the radial ray past the scintillator
-      G4double rGrease  = distanceToTarget + scinX + greaseThick/2;
-      G4double rWindow  = distanceToTarget + scinX + greaseThick + winThick/2;
-      G4double rCathode = distanceToTarget + scinX + greaseThick + winThick + cathodeThick/2;
-      
-      // Grease
-      G4ThreeVector greasePos(0, 0, rGrease);
-      greasePos.rotateY(scatteringAngle);
-      greasePos.rotateZ(phi);
-      new G4PVPlacement(rotPMT, greasePos, logicGrease, "Grease", logicWorld, false, copyNo, true);
-      
-      // Window
-      G4ThreeVector winPos(0, 0, rWindow);
-      winPos.rotateY(scatteringAngle);
-      winPos.rotateZ(phi);
-      new G4PVPlacement(rotPMT, winPos, logicWindow, "PMTWindow", logicWorld, false, copyNo, true);
-      
-      // Cathode
-      G4ThreeVector cathodePos(0, 0, rCathode);
-      cathodePos.rotateY(scatteringAngle);
-      cathodePos.rotateZ(phi);
-      new G4PVPlacement(rotPMT, cathodePos, fPhotocathodeLogical, "Photocathode", logicWorld, false, copyNo, true);
+      for(G4int i=0; i<nDetPerRing; i++) {
+          G4double phi = i * phiStep;
+          G4int copyNo = ring * nDetPerRing + i;
+          
+          // --- Scintillator Rotation ---
+          // Physical rotation: P = R_Z(phi) * R_Y(-(90-theta))
+          // Geant4 passive:    R = P^T = R_Y(90-theta) * R_Z(-phi)
+          G4RotationMatrix* rotScin = new G4RotationMatrix();
+          rotScin->rotateZ(-phi);
+          rotScin->rotateY(90.*deg - theta);
+          
+          // --- PMT Tube Rotation ---
+          // Physical: P_pmt = R_Z(phi) * R_Y(theta)
+          // Geant4:   R_pmt = P_pmt^T = R_Y(-theta) * R_Z(-phi)
+          G4RotationMatrix* rotPMT = new G4RotationMatrix();
+          rotPMT->rotateZ(-phi);
+          rotPMT->rotateY(-theta);
+          
+          // --- Positions ---
+          G4ThreeVector pos(0, 0, rCenter);
+          pos.rotateY(theta);
+          pos.rotateZ(phi);
+
+          // Scintillator
+          G4VPhysicalVolume* physScin = new G4PVPlacement(rotScin, pos, logicScin, "Scintillator", logicWorld, false, copyNo, true);
+          new G4LogicalBorderSurface("ScinTeflonWrapper", physScin, physWorld, opTeflon);
+
+          // Grease
+          G4ThreeVector greasePos(0, 0, rGrease);
+          greasePos.rotateY(theta);
+          greasePos.rotateZ(phi);
+          new G4PVPlacement(rotPMT, greasePos, logicGrease, "Grease", logicWorld, false, copyNo, true);
+          
+          // Window
+          G4ThreeVector winPos(0, 0, rWindow);
+          winPos.rotateY(theta);
+          winPos.rotateZ(phi);
+          new G4PVPlacement(rotPMT, winPos, logicWindow, "PMTWindow", logicWorld, false, copyNo, true);
+          
+          // Cathode
+          G4ThreeVector cathodePos(0, 0, rCathode);
+          cathodePos.rotateY(theta);
+          cathodePos.rotateZ(phi);
+          new G4PVPlacement(rotPMT, cathodePos, fPhotocathodeLogical, "Photocathode", logicWorld, false, copyNo, true);
+      }
   }
 
   return physWorld;

@@ -5,7 +5,9 @@ This directory contains the Geant4 simulation for the deuteron beam scattering o
 ## Setup
 - **Target**: CH2 (5x5 cm, 1 cm thick) placed at the origin.
 - **Beam**: 190 MeV/u Deuteron beam (380 MeV total) along the +Z axis, originating slightly upstream from the target.
-- **Detector Array**: 4 detectors (120x150x150 mm) arranged with their 15x15 cm faces pointing at the target (PMT opening facing away), 150 cm from the target, at a polar scattering angle of 22.5°, evenly distributed every 90° in azimuth.
+- **Detector Array**: 16 detectors (120x150x150 mm) in two concentric rings, all 150 cm from the target, 15x15 cm face toward target (PMT away):
+    - **Ring 1** (copyNo 0–7): θ = 22.5°, 8 detectors every 45° in φ
+    - **Ring 2** (copyNo 8–15): θ = 30.0°, 8 detectors every 45° in φ
 
 ## How to Build and Run
 

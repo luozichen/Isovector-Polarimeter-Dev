@@ -62,6 +62,8 @@
 ## 📅 Development Log
 
 ### March 2026
+* **2026-03-09:**
+    * **Hardware Redesign:** Supplier could not provide 0805 resistors >250 V breakdown. Redesigned Voltage Divider PCB to v2.3, splitting high‑voltage resistors into series of lower‑voltage parts. Sent new blueprint to manufacturer for production.
 * **2026-03-08:**
     * **Physics Simulation (v0300_scattering):** Created a new Geant4 simulation (`simulation/v0300_scattering`) to model the scattering of a polarized deuteron beam off a CH2 target and to study the detector response.
         * **Beam:** 190 MeV/u deuteron beam (380 MeV total kinetic energy), point source propagating along the +Z axis.
