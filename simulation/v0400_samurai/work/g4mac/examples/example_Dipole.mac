@@ -1,0 +1,33 @@
+# ============================================================
+# example_Dipole.mac
+# Full SAMURAI setup: Deuteron beam + Dipole magnet
+# ============================================================
+
+# Enable SAMURAI dipole
+/polarimeter/geometry/UseDipole true
+/polarimeter/geometry/UseNEBULA false
+
+# Dipole field configuration (from smg4lib)
+# Field factor = 1.0 for nominal 3T field
+/samurai/geometry/Dipole/FieldFactor 1.0
+
+# Initialize
+/run/initialize
+
+# Configure beam
+/action/gun/Type Pencil
+/action/gun/SetBeamParticleName deuteron
+/action/gun/A 2
+/action/gun/Z 1
+/action/gun/Energy 380 MeV
+/action/gun/Position 0 0 -100 mm
+/action/gun/Direction 0 0 1
+
+# Store beam and fragment data
+/action/data/Beam/StoreData true
+
+# Output filename
+/action/file/RunName polarimeter_dipole
+
+# Run
+/run/beamOn 1000

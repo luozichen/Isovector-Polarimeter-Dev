@@ -1,0 +1,36 @@
+# Visualization macro for sim_polarimeter
+# Use from the work/ directory
+
+# Open a viewer
+/vis/open OGL 800x600-0+0
+
+/vis/viewer/set/autoRefresh false
+/vis/verbose errors
+
+# Draw geometry
+/vis/drawVolume
+
+# View angle: Side view along X axis
+/vis/viewer/set/viewpointVector -1 0 0
+/vis/viewer/set/lightsVector -1 0 0
+
+# Style
+/vis/viewer/set/style wireframe
+/vis/viewer/set/auxiliaryEdge true
+/vis/viewer/set/lineSegmentsPerCircle 100
+
+# Trajectories by charge
+/vis/scene/add/trajectories smooth
+/vis/modeling/trajectories/create/drawByCharge
+/vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
+/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 2
+
+# Hits
+/vis/scene/add/hits
+
+# Accumulate events
+/vis/scene/endOfEventAction accumulate
+
+# Re-enable
+/vis/viewer/set/autoRefresh true
+/vis/verbose warnings

@@ -1,0 +1,29 @@
+# ============================================================
+# example_Pencil.mac
+# Pencil deuteron beam at 190 MeV/u (380 MeV total KE)
+# ============================================================
+
+# Disable SAMURAI dipole for simple polarimeter-only test
+/polarimeter/geometry/UseDipole false
+/polarimeter/geometry/UseNEBULA false
+
+# Initialize
+/run/initialize
+
+# Configure beam via smg4lib PrimaryGeneratorActionBasic
+/action/gun/Type Pencil
+/action/gun/SetBeamParticleName deuteron
+/action/gun/A 2
+/action/gun/Z 1
+/action/gun/Energy 380 MeV
+/action/gun/Position 0 0 -100 mm
+/action/gun/Direction 0 0 1
+
+# Store beam data in ROOT output
+/action/data/Beam/StoreData true
+
+# Output filename
+/action/file/RunName polarimeter_pencil
+
+# Run 10000 events
+/run/beamOn 10000

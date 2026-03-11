@@ -1,0 +1,35 @@
+# ============================================================
+# example_Gaus.mac
+# Gaussian-profile deuteron beam at 190 MeV/u
+# Simulates realistic beam emittance at SAMURAI/RIBF
+# ============================================================
+
+# Disable SAMURAI dipole for polarimeter-only test
+/polarimeter/geometry/UseDipole false
+/polarimeter/geometry/UseNEBULA false
+
+# Initialize
+/run/initialize
+
+# Configure beam via smg4lib PrimaryGeneratorActionBasic
+/action/gun/Type Gaus
+/action/gun/SetBeamParticleName deuteron
+/action/gun/A 2
+/action/gun/Z 1
+/action/gun/Energy 380 MeV
+/action/gun/Position 0 0 -100 mm
+/action/gun/Direction 0 0 1
+
+# Beam profile (sigma)
+/action/gun/SigmaPosition 5 5 mm
+/action/gun/SigmaAngle 10 10 mrad
+/action/gun/SigmaEnergy 2 MeV
+
+# Store beam data
+/action/data/Beam/StoreData true
+
+# Output filename
+/action/file/RunName polarimeter_gaus
+
+# Run
+/run/beamOn 10000
