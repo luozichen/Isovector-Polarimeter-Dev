@@ -1,6 +1,10 @@
 # ============================================================
 # GNUmakefile for sim_polarimeter
 # Follows smsimulator5.5 build conventions
+#
+# Environment variables (set by smsimulator5.5/setup.sh):
+#   SMSIMDIR, G4SMLIBDIR, G4SMACTIONDIR, G4SMCONSTRUCTIONDIR,
+#   G4SMDATADIR, G4SMPHYSICSDIR, G4INSTALL
 # ============================================================
 
 name := sim_polarimeter
@@ -8,23 +12,18 @@ name := sim_polarimeter
 G4TARGET := $(name)
 G4EXLIB := true
 
-CPPFLAGS += -I$(SMSIMULATOR)/smg4lib/action/include
-CPPFLAGS += -I$(SMSIMULATOR)/smg4lib/construction/include
-CPPFLAGS += -I$(SMSIMULATOR)/smg4lib/data/sources/include
-CPPFLAGS += -I$(SMSIMULATOR)/smg4lib/physics/include
+# smg4lib include paths
+CPPFLAGS += -I$(G4SMACTIONDIR)/include
+CPPFLAGS += -I$(G4SMCONSTRUCTIONDIR)/include
+CPPFLAGS += -I$(G4SMDATADIR)/sources/include
+CPPFLAGS += -I$(G4SMPHYSICSDIR)/include
 
-EXTRALIBS += -L$(SMSIMULATOR)/smg4lib/action/lib      -lsmg4action
-EXTRALIBS += -L$(SMSIMULATOR)/smg4lib/construction/lib -lsmg4construction
-EXTRALIBS += -L$(SMSIMULATOR)/smg4lib/physics/lib      -lsmg4physics
+# smg4lib libraries (all in G4SMLIBDIR/lib)
+EXTRALIBS += -L$(G4SMLIBDIR)/lib $(G4SMLDLIBS)
 
-EXTRALIBS += -L$(SMSIMULATOR)/smg4lib/data/sources -lsmg4data
-
+# ROOT
 CPPFLAGS += $(shell root-config --cflags)
 EXTRALIBS += $(shell root-config --libs)
-
-ifndef G4INSTALL
-  G4INSTALL = ../../..
-endif
 
 .PHONY: all
 all: lib bin
