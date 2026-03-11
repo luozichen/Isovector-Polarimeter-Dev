@@ -63,7 +63,7 @@ int main(int argc, char** argv)
   // === SimData Converters ===
   // FragSimDataConverter_Basic handles charged fragment output
   SimDataManager* simDataManager = SimDataManager::GetSimDataManager();
-  simDataManager->AddSimDataConverter(new FragSimDataConverter_Basic);
+  simDataManager->RegistConverter(new FragSimDataConverter_Basic);
 
 #ifdef G4VIS_USE
   // Visualization

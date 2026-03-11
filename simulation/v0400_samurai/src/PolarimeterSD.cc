@@ -28,7 +28,7 @@ PolarimeterSD::PolarimeterSD(const G4String& name)
 {
   // Register this detector's SimData array with SimDataManager
   SimDataManager* simDataManager = SimDataManager::GetSimDataManager();
-  simDataManager->FindSimDataArray("PolarimeterSimData", true);
+  simDataManager->FindSimDataArray("PolarimeterSimData");
   // The second argument "true" creates the array if it doesn't exist
 }
 
@@ -81,7 +81,7 @@ G4bool PolarimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
     TSimData* simData = new ((*simDataArray)[nhits]) TSimData();
 
     simData->fDetectorName = fDetectorName;
-    simData->fDetID        = detID;
+    simData->fID        = detID;
     simData->fTrackID      = trackID;
     simData->fParentID     = parentID;
     simData->fPDGCode      = pdgCode;
@@ -96,9 +96,10 @@ G4bool PolarimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)
                                    postStep->GetPosition().y() / mm,
                                    postStep->GetPosition().z() / mm);
 
-    simData->fPreMomentum.SetXYZ(mom.x() / MeV,
-                                  mom.y() / MeV,
-                                  mom.z() / MeV);
+    simData->fPreMomentum.SetPxPyPzE(mom.x() / MeV,
+                                     mom.y() / MeV,
+                                     mom.z() / MeV,
+                                     preStep->GetTotalEnergy() / MeV);
 
     simData->fEnergyDeposit = edep / MeV;
     simData->fPreTime       = time / ns;

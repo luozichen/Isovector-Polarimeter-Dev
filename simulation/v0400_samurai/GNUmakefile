@@ -25,6 +25,10 @@ EXTRALIBS += -L$(G4SMLIBDIR)/lib $(G4SMLDLIBS)
 CPPFLAGS += $(shell root-config --cflags)
 EXTRALIBS += $(shell root-config --libs)
 
+# Add ANAROOT Support with corrected library names
+CPPFLAGS  += -I$(TARTSYS)/include
+EXTRALIBS += -L$(TARTSYS)/lib -lanaroot -lananadeko -lanacore -lanacatana -lanadali -lanasamurai -lanaloop -lXMLParser -lXMLIO
+
 .PHONY: all
 all: lib bin
 
