@@ -62,6 +62,19 @@
 ## 📅 Development Log
 
 ### March 2026
+* **2026-03-10:**
+    * **Continue with smsimilator configuration:** 
+* **2026-03-09:**
+    * **Add board outline:** And resubmitted to manufacturer.
+    * **Configuring SM simulator:** The G4 I downloaded in the server was too new. smsamurai package was built for an older version of GEANT4. Spent hours manually changing some code in the smsimulator.
+    * **In more detail**
+      * **Generational Compiler Mismatches:** The old frameworks were written for C++11/C++14 standards, whilst my newer ROOT 6.30.04 and CMake 4.0.0 installations expected modern standards. The build scripts explicitly requested the -std=c++20 flag, but the specific compiler (GCC 9.4.0) only recognised the experimental -std=c++2a flag.
+      * **Strict Modern Namespace Rules:** Older C++ code often assumed using namespace std; was active globally, allowing developers to type ostream without the std:: prefix. Modern GCC compilers strictly enforce namespace rules, which triggered a massive cascade of "‘ostream’ does not name a type" errors during the smg4lib compilation.
+    * **And the fixes applied:**
+      * **Environment Rectification:** Successfully stripped out the hardcoded paths in setup.sh and correctly routed the environment variables (SMSIMULATOR, Geant4 11.1.2, CMake, and ROOT 6) to the local /data4/luozc25/files/ directories, making them persistent via ~/.bashrc.
+      * **Bulk Code Patching:** Bypassed the compiler standard errors by using sed to mass-replace -std=c++20 with -std=c++2a across the Makefile and CMakeLists.txt files. Engineered a wrapper script for root-config to intercept and rewrite the flag dynamically. Successfully mass-corrected the missing std::ostream declarations across the entire codebase.
+      * **Compiling the Missing Framework:** After fixing the C++ errors, the smg4lib compilation hit a fatal wall because it was missing TArtNEBULAPla.hh. Realising this was an anaroot dependency issue, I unpacked an anaroot_v4.6.2.tgz archive and initiated a fresh build from scratch. By the end of the log, anaroot is successfully compiling its core components.
+
 * **2026-03-09:**
     * **Hardware Redesign:** Supplier could not provide 0805 resistors >250 V breakdown. Redesigned Voltage Divider PCB to v2.3, splitting high‑voltage resistors into series of lower‑voltage parts. Sent new blueprint to manufacturer for production.
     * **Physics Simulation (v0300_scattering) — Updates:**
