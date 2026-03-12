@@ -63,7 +63,8 @@
 
 ### March 2026
 * **2026-03-10:**
-    * **Continue with smsimilator configuration:** 
+    * **Continue with smsimilator configuration:** When initially running the Geant4 executable (proton 250MeV), the programme threw a FragSimDataArray is not found warning and immediately suffered fatal segmentation violations. The crash trace showed failures deep inside EventActionBasic::EndOfEventAction and SimDataManager::ConvertSimData because the framework was trying to write hit data to memory arrays that had never been successfully initialized. The manual injection workaround resolved the missing array pointers. After recompiling smg4lib/data and the main executable with the fix, the simulation was able to successfully process all 5,000 events at ~276 events/sec and cleanly write the output to root/run0000.root without crashing.
+    * **Data Structure Verification:** Simply averting the crash didn't guarantee the data was actually being recorded correctly into the ROOT file. Ran an inline ROOT command (root -l -q root/run0000.root -e 'tree->Scan("fdc1x:fdc1y:fdc1a", "fdc1x != -9999");') to directly inspect the generated tree, proving that the manual TSimData arrays were properly populated with real hit coordinates rather than just failing silently or recording empty default values. (Not completely fixed yet)
 * **2026-03-09:**
     * **Add board outline:** And resubmitted to manufacturer.
     * **Configuring SM simulator:** The G4 I downloaded in the server was too new. smsamurai package was built for an older version of GEANT4. Spent hours manually changing some code in the smsimulator.
