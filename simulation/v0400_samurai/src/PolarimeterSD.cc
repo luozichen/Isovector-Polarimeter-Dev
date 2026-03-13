@@ -5,6 +5,8 @@
 // the SimDataManager singleton.
 // ============================================================
 
+#include <map>
+
 #include "PolarimeterSD.hh"
 
 // Geant4
@@ -24,12 +26,11 @@
 
 PolarimeterSD::PolarimeterSD(const G4String& name)
 : G4VSensitiveDetector(name),
-  fDetectorName("Polarimeter")
+  fDetectorName("PolarimeterSimData")
 {
-  // Register this detector's SimData array with SimDataManager
   SimDataManager* simDataManager = SimDataManager::GetSimDataManager();
-  simDataManager->FindSimDataArray("PolarimeterSimData");
-  // The second argument "true" creates the array if it doesn't exist
+  // Use the newly created registration function
+  simDataManager->RegistSimDataArray("PolarimeterSimData", new TClonesArray("TSimData", 100));
 }
 
 PolarimeterSD::~PolarimeterSD()
@@ -37,7 +38,10 @@ PolarimeterSD::~PolarimeterSD()
 
 void PolarimeterSD::Initialize(G4HCofThisEvent*)
 {
-  // Nothing special to initialize per event for TSimData approach
+  // Access the manager and clear the array for the new event
+  SimDataManager* simDataManager = SimDataManager::GetSimDataManager();
+  TClonesArray* simDataArray = simDataManager->FindSimDataArray("PolarimeterSimData");
+  if (simDataArray) simDataArray->Clear("C");
 }
 
 G4bool PolarimeterSD::ProcessHits(G4Step* step, G4TouchableHistory*)

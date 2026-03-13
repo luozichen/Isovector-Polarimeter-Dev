@@ -8,6 +8,7 @@
 #include "G4UImanager.hh"
 #include "G4UIterminal.hh"
 #include "G4UItcsh.hh"
+#include "G4UIExecutive.hh"
 
 #ifdef G4VIS_USE
 #include "G4VisExecutive.hh"
@@ -80,16 +81,11 @@ int main(int argc, char** argv)
     G4String fileName = argv[1];
     UImanager->ApplyCommand(command + fileName);
   } else {
-    // Interactive mode
-#ifdef G4VIS_USE
-    G4UIterminal* ui = new G4UIterminal(new G4UItcsh);
+    // Interactive mode: Detects Qt automatically
+    G4UIExecutive* ui = new G4UIExecutive(argc, argv);
+ 
     ui->SessionStart();
     delete ui;
-#else
-    G4UIterminal* ui = new G4UIterminal(new G4UItcsh);
-    ui->SessionStart();
-    delete ui;
-#endif
   }
 
   // Cleanup

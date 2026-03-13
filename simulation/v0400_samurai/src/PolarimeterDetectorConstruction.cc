@@ -112,6 +112,8 @@ G4VPhysicalVolume* PolarimeterDetectorConstruction::Construct()
   new G4PVPlacement(0, G4ThreeVector(0, 0, 0),
                     logicTarget, "Target", logicWorld, false, 0, true);
 
+  // ---> SANITY TARGET <---
+
   // ===============================================
   // 3. SAMURAI Dipole Magnet (optional)
   // ===============================================
