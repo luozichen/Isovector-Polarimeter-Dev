@@ -38,11 +38,7 @@
 int main(int argc, char** argv)
 {
   // ROOT application (needed for TFile output)
-  // Force ROOT into batch mode (-b) to prevent it from seizing the X11 connection
-  // and deadlocking the Geant4 Qt GUI event loop.
-  int root_argc = 2;
-  char* root_argv[] = {(char*)"app", (char*)"-b"};
-  TApplication app("app", &root_argc, root_argv);
+  TApplication app("app", &argc, argv);
 
   // Construct the run manager
   G4RunManager* runManager = new G4RunManager;

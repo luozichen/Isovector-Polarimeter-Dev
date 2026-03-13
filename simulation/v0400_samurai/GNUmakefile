@@ -13,9 +13,9 @@ G4TARGET := $(name)
 G4EXLIB := true
 
 # Force Qt support
-G4UI_USE_QT = 1
-G4VIS_USE_QT = 1
-G4VIS_BUILD_QT_DRIVER = 1
+#G4UI_USE_QT = 1
+#G4VIS_USE_QT = 1
+#G4VIS_BUILD_QT_DRIVER = 1
 
 # smg4lib include paths
 CPPFLAGS += -I$(G4SMACTIONDIR)/include
