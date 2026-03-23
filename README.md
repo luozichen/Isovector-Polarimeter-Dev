@@ -62,6 +62,23 @@
 ## 📅 Development Log
 
 ### March 2026
+
+* **2026-03-23:**
+    * Data Acquisition. 900V, 2000 events. Det configuration 1342.
+    * Data Acquisition. 900V, 2000 events. Det configuration 2143.
+* **2026-03-22:**
+    * Data Acquisition. 900V, 2000 events. Det configuration 1234.
+    * Data Acquisition. 900V, 2000 events. Det configuration 1243.
+* **2026-03-21:**
+    * Data Acquisition. 900V, 2000 events. Det configuration 3124.
+    * Data Acquisition. 900V, 2000 events. Det configuration 2134.
+* **2026-03-20:**
+    * **Wired the logic circuit again, 4 fold coincidence as auxiliary trigger, with 20mV analogue to digital threshold**
+* **2026-03-19:**
+    * **Crimped 30 receptacles. Soldered 2 PCB boards. Ressambled Detectors 1 and 2. Tests at 900V shows stability**
+* **2026-03-18:**
+    * **Socket housing v5 due to redesigned pcb**
+    * **Crimped 30 receptacles. Soldered 2 PCB boards. Ressambled Detectors 3 and 4. Tests at 900V shows stability**
 * **2026-03-12:**
     * **Continue with smsimilator configuration:** When initially running the Geant4 executable (proton 250MeV), the programme threw a FragSimDataArray is not found warning and immediately suffered fatal segmentation violations. The crash trace showed failures deep inside EventActionBasic::EndOfEventAction and SimDataManager::ConvertSimData because the framework was trying to write hit data to memory arrays that had never been successfully initialized. The manual injection workaround resolved the missing array pointers. After recompiling smg4lib/data and the main executable with the fix, the simulation was able to successfully process all 5,000 events at ~276 events/sec and cleanly write the output to root/run0000.root without crashing.
     * **Data Structure Verification:** Simply averting the crash didn't guarantee the data was actually being recorded correctly into the ROOT file. Ran an inline ROOT command (root -l -q root/run0000.root -e 'tree->Scan("fdc1x:fdc1y:fdc1a", "fdc1x != -9999");') to directly inspect the generated tree, proving that the manual TSimData arrays were properly populated with real hit coordinates rather than just failing silently or recording empty default values. (Not completely fixed yet)
