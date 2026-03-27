@@ -63,6 +63,18 @@
 
 ### March 2026
 
+* **2026-03-27:**
+    * Data Acquisition. 800V, 2000 events. Det configuration 3124.
+    * Data Acquisition. 800V, 2000 events. Det configuration 2134.
+* **2026-03-26:**
+    * Data Acquisition. 850V, 2000 events. Det configuration 1342.
+    * Data Acquisition. 850V, 2000 events. Det configuration 2143.
+* **2026-03-25:**
+    * Data Acquisition. 850V, 2000 events. Det configuration 1234.
+    * Data Acquisition. 850V, 2000 events. Det configuration 1243.
+* **2026-03-24:**
+    * Data Acquisition. 850V, 2000 events. Det configuration 3124.
+    * Data Acquisition. 850V, 2000 events. Det configuration 2134.
 * **2026-03-23:**
     * Data Acquisition. 900V, 2000 events. Det configuration 1342.
     * Data Acquisition. 900V, 2000 events. Det configuration 2143.
