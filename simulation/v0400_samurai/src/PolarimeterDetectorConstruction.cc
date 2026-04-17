@@ -12,6 +12,7 @@
 #include "PolarimeterDetectorConstructionMessenger.hh"
 #include "PolarimeterSD.hh"
 #include "TargetConstruction.hh"
+#include <iostream>
 
 // Geant4
 #include "G4Material.hh"
@@ -27,6 +28,8 @@
 #include "G4Colour.hh"
 
 // smg4lib/construction (optional components)
+using std::ostream;
+using std::istream;
 #include "DipoleConstruction.hh"
 #include "DipoleConstructionMessenger.hh"
 #include "NEBULAConstruction.hh"
