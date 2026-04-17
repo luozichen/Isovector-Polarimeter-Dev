@@ -33,10 +33,6 @@
 #include "NEBULAConstructionMessenger.hh"
 #include "ExitWindowC1Construction.hh"
 
-// smg4lib/data
-#include "SimDataManager.hh"
-#include "TFragSimParameter.hh"
-
 PolarimeterDetectorConstruction::PolarimeterDetectorConstruction()
 : G4VUserDetectorConstruction(),
   fMessenger(nullptr),
