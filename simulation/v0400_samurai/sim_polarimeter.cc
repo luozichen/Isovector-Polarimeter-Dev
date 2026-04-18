@@ -9,12 +9,15 @@
 #include "G4UIterminal.hh"
 #include "G4UItcsh.hh"
 #include "G4UIExecutive.hh"
+#include <iostream>
 
 #ifdef G4VIS_USE
 #include "G4VisExecutive.hh"
 #endif
 
 // smg4lib/action
+using std::ostream;
+using std::istream;
 #include "PrimaryGeneratorActionBasic.hh"
 #include "EventActionBasic.hh"
 #include "RunActionBasic.hh"

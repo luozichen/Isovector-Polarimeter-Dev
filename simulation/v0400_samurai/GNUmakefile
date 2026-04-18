@@ -25,6 +25,13 @@ CPPFLAGS += -I$(G4SMPHYSICSDIR)/include
 
 # smg4lib libraries (all in G4SMLIBDIR/lib)
 EXTRALIBS += -L$(G4SMLIBDIR)/lib $(G4SMLDLIBS)
+# Fallback explicit ordering for static-link environments where
+# transitive deps are not auto-resolved (e.g. libsmaction ->
+# libsmdata symbols such as SimDataManager / TRunSimParameter).
+EXTRALIBS += -lsmaction -lsmconstruction -lsmphysics -lsmdata
+# Legacy Geant4 static builds can miss physics-list symbols unless
+# all granular archives are available to the linker.
+EXTRALIBS += $(wildcard $(G4INSTALL)/lib/$(G4SYSTEM)/libG4*.a)
 
 # ROOT
 CPPFLAGS += $(shell root-config --cflags)
