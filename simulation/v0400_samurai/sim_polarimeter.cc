@@ -75,9 +75,12 @@ int main(int argc, char** argv)
   simDataManager->RegistConverter(new FragSimDataConverter_Basic);
 
 #ifdef G4VIS_USE
-  // Visualization
-  G4VisManager* visManager = new G4VisExecutive;
-  visManager->Initialize();
+  // Visualization is only needed for interactive sessions.
+  G4VisManager* visManager = nullptr;
+  if (!hasMacroArg) {
+    visManager = new G4VisExecutive;
+    visManager->Initialize();
+  }
 #endif
 
   // Get the pointer to the UI manager
