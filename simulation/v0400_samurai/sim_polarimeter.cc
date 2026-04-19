@@ -72,9 +72,10 @@ int main(int argc, char** argv)
   runManager->SetUserAction(new TrackingActionBasic);
 
   // === SimData Converters ===
-  // FragSimDataConverter_Basic handles charged fragment output
+  // FragSimDataConverter_Basic can crash on legacy setups when
+  // FragSimDataArray is not initialized by the framework.
   SimDataManager* simDataManager = SimDataManager::GetSimDataManager();
-  simDataManager->RegistConverter(new FragSimDataConverter_Basic);
+  // simDataManager->RegistConverter(new FragSimDataConverter_Basic);
   // Legacy smg4lib builds may not initialize beam storage automatically,
   // which can leave gBeamSimDataArray null in Pencil generation mode.
   if (!gBeamSimDataArray) {
