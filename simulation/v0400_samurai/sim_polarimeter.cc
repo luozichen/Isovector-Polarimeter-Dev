@@ -10,6 +10,7 @@
 #include "G4UItcsh.hh"
 #include "G4UIExecutive.hh"
 #include <iostream>
+#include <vector>
 
 #ifdef G4VIS_USE
 #include "G4VisExecutive.hh"
@@ -26,6 +27,7 @@ using std::istream;
 // smg4lib/data
 #include "SimDataManager.hh"
 #include "FragSimDataConverter_Basic.hh"
+#include "TBeamSimData.hh"
 
 // smg4lib/physics
 #include "QGSP_BIC_XS.hh"
@@ -73,6 +75,11 @@ int main(int argc, char** argv)
   // FragSimDataConverter_Basic handles charged fragment output
   SimDataManager* simDataManager = SimDataManager::GetSimDataManager();
   simDataManager->RegistConverter(new FragSimDataConverter_Basic);
+  // Legacy smg4lib builds may not initialize beam storage automatically,
+  // which can leave gBeamSimDataArray null in Pencil generation mode.
+  if (!gBeamSimDataArray) {
+    gBeamSimDataArray = new std::vector<TBeamSimData>;
+  }
 
 #ifdef G4VIS_USE
   // Visualization is only needed for interactive sessions.
