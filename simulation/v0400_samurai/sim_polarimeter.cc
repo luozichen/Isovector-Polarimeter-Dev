@@ -9,12 +9,15 @@
 #include "G4UIterminal.hh"
 #include "G4UItcsh.hh"
 #include "G4UIExecutive.hh"
+#include <iostream>
 
 #ifdef G4VIS_USE
 #include "G4VisExecutive.hh"
 #endif
 
 // smg4lib/action
+using std::ostream;
+using std::istream;
 #include "PrimaryGeneratorActionBasic.hh"
 #include "EventActionBasic.hh"
 #include "RunActionBasic.hh"
@@ -37,6 +40,11 @@
 
 int main(int argc, char** argv)
 {
+  // Preserve the Geant4 macro argument before ROOT may rewrite argc/argv.
+  const bool hasMacroArg = (argc > 1);
+  G4String macroFile;
+  if (hasMacroArg) macroFile = argv[1];
+
   // ROOT application (needed for TFile output)
   TApplication app("app", &argc, argv);
 
@@ -67,19 +75,21 @@ int main(int argc, char** argv)
   simDataManager->RegistConverter(new FragSimDataConverter_Basic);
 
 #ifdef G4VIS_USE
-  // Visualization
-  G4VisManager* visManager = new G4VisExecutive;
-  visManager->Initialize();
+  // Visualization is only needed for interactive sessions.
+  G4VisManager* visManager = nullptr;
+  if (!hasMacroArg) {
+    visManager = new G4VisExecutive;
+    visManager->Initialize();
+  }
 #endif
 
   // Get the pointer to the UI manager
   G4UImanager* UImanager = G4UImanager::GetUIpointer();
 
-  if (argc > 1) {
+  if (hasMacroArg) {
     // Batch mode: execute macro file
     G4String command = "/control/execute ";
-    G4String fileName = argv[1];
-    UImanager->ApplyCommand(command + fileName);
+    UImanager->ApplyCommand(command + macroFile);
   } else {
     // Interactive mode: Detects Qt automatically
     G4UIExecutive* ui = new G4UIExecutive(argc, argv);
