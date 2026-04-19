@@ -40,6 +40,11 @@ using std::istream;
 
 int main(int argc, char** argv)
 {
+  // Preserve the Geant4 macro argument before ROOT may rewrite argc/argv.
+  const bool hasMacroArg = (argc > 1);
+  G4String macroFile;
+  if (hasMacroArg) macroFile = argv[1];
+
   // ROOT application (needed for TFile output)
   TApplication app("app", &argc, argv);
 
@@ -78,11 +83,10 @@ int main(int argc, char** argv)
   // Get the pointer to the UI manager
   G4UImanager* UImanager = G4UImanager::GetUIpointer();
 
-  if (argc > 1) {
+  if (hasMacroArg) {
     // Batch mode: execute macro file
     G4String command = "/control/execute ";
-    G4String fileName = argv[1];
-    UImanager->ApplyCommand(command + fileName);
+    UImanager->ApplyCommand(command + macroFile);
   } else {
     // Interactive mode: Detects Qt automatically
     G4UIExecutive* ui = new G4UIExecutive(argc, argv);
