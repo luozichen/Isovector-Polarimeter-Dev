@@ -29,9 +29,9 @@ EXTRALIBS += -L$(G4SMLIBDIR)/lib $(G4SMLDLIBS)
 # transitive deps are not auto-resolved (e.g. libsmaction ->
 # libsmdata symbols such as SimDataManager / TRunSimParameter).
 EXTRALIBS += -lsmaction -lsmconstruction -lsmphysics -lsmdata
-# Legacy Geant4 static builds can miss physics-list symbols unless
-# all granular archives are available to the linker.
-EXTRALIBS += $(wildcard $(G4INSTALL)/lib/$(G4SYSTEM)/libG4*.a)
+# Legacy Geant4 static builds can have circular deps across granular
+# archives; use a linker group so symbols are re-scanned as needed.
+EXTRALIBS += -Wl,--start-group $(wildcard $(G4INSTALL)/lib/$(G4SYSTEM)/libG4*.a) -Wl,--end-group
 
 # ROOT
 CPPFLAGS += $(shell root-config --cflags)
