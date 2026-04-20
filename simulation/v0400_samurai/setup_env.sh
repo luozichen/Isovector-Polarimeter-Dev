@@ -13,11 +13,34 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
   exit 1
 fi
 
-# Preferred explicit override, then conventional install path.
-: "${SMSIMDIR:=/data4/luozc25/files/smsimulator5.5}"
+# Resolve SMSIMDIR robustly. If SMSIMDIR is pre-set in the shell but points
+# to a generic directory (e.g. $HOME), prefer a real smsimulator layout.
+_smsim_candidates=()
+if [[ -n "${SMSIMDIR:-}" ]]; then
+  _smsim_candidates+=("${SMSIMDIR}")
+fi
+_smsim_candidates+=(
+  "/data4/luozc25/files/smsimulator5.5"
+)
 
-if [[ ! -d "${SMSIMDIR}" ]]; then
-  echo "ERROR: SMSIMDIR does not exist: ${SMSIMDIR}" >&2
+SMSIMDIR=""
+for _candidate in "${_smsim_candidates[@]}"; do
+  if [[ -d "${_candidate}/smg4lib/action/include" ]] && \
+     [[ -d "${_candidate}/smg4lib/construction/include" ]] && \
+     [[ -d "${_candidate}/smg4lib/data/sources/include" ]] && \
+     [[ -d "${_candidate}/smg4lib/physics/include" ]]; then
+    SMSIMDIR="${_candidate}"
+    break
+  fi
+done
+
+if [[ -z "${SMSIMDIR}" ]]; then
+  echo "ERROR: Could not find a valid smsimulator5.5 tree (missing smg4lib include dirs)." >&2
+  echo "Tried:" >&2
+  for _candidate in "${_smsim_candidates[@]}"; do
+    echo "  - ${_candidate}" >&2
+  done
+  echo "Set SMSIMDIR to your smsimulator5.5 path and source again." >&2
   return 1
 fi
 
@@ -95,6 +118,7 @@ fi
 
 unset _candidate
 unset _g4_candidates
+unset _smsim_candidates
 
 echo "[setup_env] GEANT4MAKE_SH=${GEANT4MAKE_SH}"
 echo "[setup_env] SMSIMDIR=${SMSIMDIR}"
