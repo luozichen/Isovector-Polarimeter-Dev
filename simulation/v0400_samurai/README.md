@@ -73,6 +73,12 @@ GEANT4MAKE_SH=/data4/luozc25/files/geant4.10.05.p01/share/Geant4-10.5.1/geant4ma
   source simulation/v0400_samurai/setup_env.sh
 ```
 
+If that file does not exist on your host, locate alternatives:
+
+```bash
+find /data4/luozc25/files/geant4.10.05.p01 -name geant4make.sh 2>/dev/null
+```
+
 ## Run
 
 ```bash
