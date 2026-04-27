@@ -85,6 +85,34 @@ export G4SMCONSTRUCTIONDIR="${G4SMLIBDIR}/construction"
 export G4SMDATADIR="${G4SMLIBDIR}/data"
 export G4SMPHYSICSDIR="${G4SMLIBDIR}/physics"
 
+# Resolve ANAROOT (needed by GNUmakefile -lanaroot ... link flags).
+_anaroot_candidates=()
+if [[ -n "${TARTSYS:-}" ]]; then
+  _anaroot_candidates+=("${TARTSYS}")
+fi
+_anaroot_candidates+=(
+  "/data4/luozc25/files/anaroot"
+)
+
+TARTSYS=""
+for _candidate in "${_anaroot_candidates[@]}"; do
+  if [[ -d "${_candidate}/include" ]] && [[ -d "${_candidate}/lib" ]]; then
+    TARTSYS="${_candidate}"
+    break
+  fi
+done
+
+if [[ -z "${TARTSYS}" ]]; then
+  echo "ERROR: Could not find ANAROOT (TARTSYS)." >&2
+  echo "Tried:" >&2
+  for _candidate in "${_anaroot_candidates[@]}"; do
+    echo "  - ${_candidate}" >&2
+  done
+  echo "Set TARTSYS to your ANAROOT path and source again." >&2
+  return 1
+fi
+export TARTSYS
+
 _prepend_path_once() {
   local _var_name="$1"
   local _value="$2"
@@ -109,6 +137,7 @@ _prepend_path_once() {
 _prepend_path_once PATH "${SMSIMDIR}/bin/Linux-g++"
 _prepend_path_once LD_LIBRARY_PATH "${G4SMLIBDIR}/lib"
 _prepend_path_once LD_LIBRARY_PATH "${SMSIMDIR}/lib"
+_prepend_path_once LD_LIBRARY_PATH "${TARTSYS}/lib"
 
 # Root, if present in the known local tree.
 if [[ -x "${SMSIMDIR}/../root-6.30.04/install/bin/thisroot.sh" ]]; then
@@ -117,9 +146,11 @@ if [[ -x "${SMSIMDIR}/../root-6.30.04/install/bin/thisroot.sh" ]]; then
 fi
 
 unset _candidate
+unset _anaroot_candidates
 unset _g4_candidates
 unset _smsim_candidates
 
 echo "[setup_env] GEANT4MAKE_SH=${GEANT4MAKE_SH}"
 echo "[setup_env] SMSIMDIR=${SMSIMDIR}"
 echo "[setup_env] G4SMLIBDIR=${G4SMLIBDIR}"
+echo "[setup_env] TARTSYS=${TARTSYS}"

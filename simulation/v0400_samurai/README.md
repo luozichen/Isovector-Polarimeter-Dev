@@ -47,12 +47,20 @@ fi
 ```
 
 The setup script is idempotent (safe to source multiple times), auto-detects a valid `geant4make.sh`, and exports all `smg4lib` paths required by `GNUmakefile`.
+It also resolves `TARTSYS` (ANAROOT) so link flags such as `-lanaroot` can be satisfied during final link.
 
 If your shell has stale exports from older setup scripts, reset and re-source:
 
 ```bash
 unset SMSIMDIR SMSIMULATOR G4SMLIBDIR G4SMACTIONDIR G4SMCONSTRUCTIONDIR G4SMDATADIR G4SMPHYSICSDIR
 source simulation/v0400_samurai/setup_env.sh
+```
+
+If link fails with `cannot find -lanaroot` (or related `-lana*` libraries), verify:
+
+```bash
+echo "$TARTSYS"
+ls "$TARTSYS/lib" | head
 ```
 
 ## Run
