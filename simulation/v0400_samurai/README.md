@@ -29,10 +29,48 @@ Two rings of 8 plastic scintillator bars each:
 
 ```bash
 # On the remote server (enpg)
-cd /data4/luozc25/files/smsimulator5.5
-source setup.sh
-cd /data4/luozc25/github/Isovector-Polarimeter-Dev/simulation/v0400_samurai
+cd /data4/luozc25/github/Isovector-Polarimeter-Dev
+source simulation/v0400_samurai/setup_env.sh
+cd simulation/v0400_samurai
 make
+```
+
+### Persistent shell setup (recommended)
+
+If you open new terminals frequently, add this once to `~/.bashrc`:
+
+```bash
+# Isovector polarimeter environment (enpg)
+if [ -f /data4/luozc25/github/Isovector-Polarimeter-Dev/simulation/v0400_samurai/setup_env.sh ]; then
+  source /data4/luozc25/github/Isovector-Polarimeter-Dev/simulation/v0400_samurai/setup_env.sh
+fi
+```
+
+The setup script is idempotent (safe to source multiple times), auto-detects a valid `geant4make.sh`, and exports all `smg4lib` paths required by `GNUmakefile`.
+It also resolves `TARTSYS` (ANAROOT) so link flags such as `-lanaroot` can be satisfied during final link.
+
+If your shell has stale exports from older setup scripts, reset and re-source:
+
+```bash
+unset SMSIMDIR SMSIMULATOR G4SMLIBDIR G4SMACTIONDIR G4SMCONSTRUCTIONDIR G4SMDATADIR G4SMPHYSICSDIR
+source simulation/v0400_samurai/setup_env.sh
+```
+
+If link fails with `cannot find -lanaroot` (or related `-lana*` libraries), verify:
+
+```bash
+echo "$TARTSYS"
+ls "$TARTSYS/lib" | head
+```
+
+If link fails with many Geant4 symbols such as `undefined reference to G4cout`,
+that usually means your `smg4lib` was compiled against a different Geant4 major
+version than the one currently sourced. Re-source with an explicit Geant4 make
+script that matches your `smg4lib` build:
+
+```bash
+GEANT4MAKE_SH=/data4/luozc25/files/geant4.10.05.p01/share/Geant4-10.5.1/geant4make/geant4make.sh \
+  source simulation/v0400_samurai/setup_env.sh
 ```
 
 ## Run
