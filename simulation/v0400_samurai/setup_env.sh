@@ -49,6 +49,8 @@ if [[ -n "${GEANT4MAKE_SH:-}" ]]; then
   _g4_candidates=("${GEANT4MAKE_SH}")
 else
   _g4_candidates=(
+    "${SMSIMDIR}/../geant4.10.05.p01/share/Geant4-10.5.1/geant4make/geant4make.sh"
+    "/data4/luozc25/files/geant4.10.05.p01/share/Geant4-10.5.1/geant4make/geant4make.sh"
     "${SMSIMDIR}/../geant4-11.1.2/install/share/Geant4/geant4make/geant4make.sh"
     "/data4/luozc25/files/geant4-11.1.2/install/share/Geant4/geant4make/geant4make.sh"
     "/usr/local/lib64/geant4.10.05.p01/share/Geant4-10.5.1/geant4make/geant4make.sh"

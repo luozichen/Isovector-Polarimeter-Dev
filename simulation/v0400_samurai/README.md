@@ -63,6 +63,16 @@ echo "$TARTSYS"
 ls "$TARTSYS/lib" | head
 ```
 
+If link fails with many Geant4 symbols such as `undefined reference to G4cout`,
+that usually means your `smg4lib` was compiled against a different Geant4 major
+version than the one currently sourced. Re-source with an explicit Geant4 make
+script that matches your `smg4lib` build:
+
+```bash
+GEANT4MAKE_SH=/data4/luozc25/files/geant4.10.05.p01/share/Geant4-10.5.1/geant4make/geant4make.sh \
+  source simulation/v0400_samurai/setup_env.sh
+```
+
 ## Run
 
 ```bash
