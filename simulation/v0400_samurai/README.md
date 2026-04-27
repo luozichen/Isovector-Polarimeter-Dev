@@ -79,6 +79,22 @@ If that file does not exist on your host, locate alternatives:
 find /data4/luozc25/files/geant4.10.05.p01 -name geant4make.sh 2>/dev/null
 ```
 
+For Geant4 source-tree layouts without `geant4make.sh`, export `G4INSTALL`
+before sourcing and `setup_env.sh` will use tree mode directly:
+
+```bash
+export G4INSTALL=/data4/luozc25/files/geant4.10.05.p01
+export G4SYSTEM=Linux-g++
+source simulation/v0400_samurai/setup_env.sh
+```
+
+In that legacy Geant4 10.05 flow, use ROOT 6.18 to avoid C++17 requirement
+errors from ROOT 6.30 headers:
+
+```bash
+source /data4/luozc25/files/root/bin/thisroot.sh
+```
+
 ## Run
 
 ```bash

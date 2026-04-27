@@ -44,45 +44,56 @@ if [[ -z "${SMSIMDIR}" ]]; then
   return 1
 fi
 
-# Find geant4make.sh robustly (legacy and modern layouts).
-if [[ -n "${GEANT4MAKE_SH:-}" ]]; then
-  _g4_candidates=("${GEANT4MAKE_SH}")
+# Geant4 setup:
+# 1) If user already exported a valid G4INSTALL tree (with config/binmake.gmk),
+#    use it directly (legacy source-tree mode, no geant4make.sh required).
+# 2) Otherwise, find and source geant4make.sh.
+_using_g4install_tree=0
+if [[ -n "${G4INSTALL:-}" ]] && [[ -f "${G4INSTALL}/config/binmake.gmk" ]]; then
+  _using_g4install_tree=1
+  : "${G4SYSTEM:=Linux-g++}"
+  GEANT4MAKE_SH=""
 else
-  _g4_candidates=(
-    "${SMSIMDIR}/../geant4.10.05.p01/share/Geant4-10.5.1/geant4make/geant4make.sh"
-    "${SMSIMDIR}/../geant4.10.05.p01/share/Geant4/geant4make/geant4make.sh"
-    "${SMSIMDIR}/../geant4.10.05.p01/install/share/Geant4/geant4make/geant4make.sh"
-    "${SMSIMDIR}/../geant4.10.05.p01/geant4make/geant4make.sh"
-    "/data4/luozc25/files/geant4.10.05.p01/share/Geant4-10.5.1/geant4make/geant4make.sh"
-    "/data4/luozc25/files/geant4.10.05.p01/share/Geant4/geant4make/geant4make.sh"
-    "/data4/luozc25/files/geant4.10.05.p01/install/share/Geant4/geant4make/geant4make.sh"
-    "/data4/luozc25/files/geant4.10.05.p01/geant4make/geant4make.sh"
-    "${SMSIMDIR}/../geant4-11.1.2/install/share/Geant4/geant4make/geant4make.sh"
-    "/data4/luozc25/files/geant4-11.1.2/install/share/Geant4/geant4make/geant4make.sh"
-    "/usr/local/lib64/geant4.10.05.p01/share/Geant4-10.5.1/geant4make/geant4make.sh"
-  )
-fi
-
-GEANT4MAKE_SH=""
-for _candidate in "${_g4_candidates[@]}"; do
-  if [[ -f "${_candidate}" ]]; then
-    GEANT4MAKE_SH="${_candidate}"
-    break
+  # Find geant4make.sh robustly (legacy and modern layouts).
+  if [[ -n "${GEANT4MAKE_SH:-}" ]]; then
+    _g4_candidates=("${GEANT4MAKE_SH}")
+  else
+    _g4_candidates=(
+      "${SMSIMDIR}/../geant4.10.05.p01/share/Geant4-10.5.1/geant4make/geant4make.sh"
+      "${SMSIMDIR}/../geant4.10.05.p01/share/Geant4/geant4make/geant4make.sh"
+      "${SMSIMDIR}/../geant4.10.05.p01/install/share/Geant4/geant4make/geant4make.sh"
+      "${SMSIMDIR}/../geant4.10.05.p01/geant4make/geant4make.sh"
+      "/data4/luozc25/files/geant4.10.05.p01/share/Geant4-10.5.1/geant4make/geant4make.sh"
+      "/data4/luozc25/files/geant4.10.05.p01/share/Geant4/geant4make/geant4make.sh"
+      "/data4/luozc25/files/geant4.10.05.p01/install/share/Geant4/geant4make/geant4make.sh"
+      "/data4/luozc25/files/geant4.10.05.p01/geant4make/geant4make.sh"
+      "${SMSIMDIR}/../geant4-11.1.2/install/share/Geant4/geant4make/geant4make.sh"
+      "/data4/luozc25/files/geant4-11.1.2/install/share/Geant4/geant4make/geant4make.sh"
+      "/usr/local/lib64/geant4.10.05.p01/share/Geant4-10.5.1/geant4make/geant4make.sh"
+    )
   fi
-done
 
-if [[ -z "${GEANT4MAKE_SH}" ]]; then
-  echo "ERROR: geant4make.sh not found." >&2
-  echo "Tried:" >&2
+  GEANT4MAKE_SH=""
   for _candidate in "${_g4_candidates[@]}"; do
-    echo "  - ${_candidate}" >&2
+    if [[ -f "${_candidate}" ]]; then
+      GEANT4MAKE_SH="${_candidate}"
+      break
+    fi
   done
-  echo "Set GEANT4MAKE_SH to your install path and source again." >&2
-  return 1
-fi
 
-# shellcheck disable=SC1090
-source "${GEANT4MAKE_SH}"
+  if [[ -z "${GEANT4MAKE_SH}" ]]; then
+    echo "ERROR: geant4make.sh not found." >&2
+    echo "Tried:" >&2
+    for _candidate in "${_g4_candidates[@]}"; do
+      echo "  - ${_candidate}" >&2
+    done
+    echo "Set GEANT4MAKE_SH or G4INSTALL to your install path and source again." >&2
+    return 1
+  fi
+
+  # shellcheck disable=SC1090
+  source "${GEANT4MAKE_SH}"
+fi
 
 # smsimulator/smg4lib variables expected by GNUmakefiles.
 export SMSIMDIR
@@ -146,6 +157,10 @@ _prepend_path_once PATH "${SMSIMDIR}/bin/Linux-g++"
 _prepend_path_once LD_LIBRARY_PATH "${G4SMLIBDIR}/lib"
 _prepend_path_once LD_LIBRARY_PATH "${SMSIMDIR}/lib"
 _prepend_path_once LD_LIBRARY_PATH "${TARTSYS}/lib"
+if [[ -n "${G4INSTALL:-}" ]] && [[ -n "${G4SYSTEM:-}" ]]; then
+  _prepend_path_once PATH "${G4INSTALL}/bin/${G4SYSTEM}"
+  _prepend_path_once LD_LIBRARY_PATH "${G4INSTALL}/lib/${G4SYSTEM}"
+fi
 
 # Root, if present in the known local tree.
 if [[ -x "${SMSIMDIR}/../root-6.30.04/install/bin/thisroot.sh" ]]; then
@@ -157,8 +172,15 @@ unset _candidate
 unset _anaroot_candidates
 unset _g4_candidates
 unset _smsim_candidates
+unset _using_g4install_tree
 
-echo "[setup_env] GEANT4MAKE_SH=${GEANT4MAKE_SH}"
+if [[ -n "${GEANT4MAKE_SH}" ]]; then
+  echo "[setup_env] GEANT4MAKE_SH=${GEANT4MAKE_SH}"
+else
+  echo "[setup_env] GEANT4MAKE_SH=(using G4INSTALL tree)"
+fi
+echo "[setup_env] G4INSTALL=${G4INSTALL:-}"
+echo "[setup_env] G4SYSTEM=${G4SYSTEM:-}"
 echo "[setup_env] SMSIMDIR=${SMSIMDIR}"
 echo "[setup_env] G4SMLIBDIR=${G4SMLIBDIR}"
 echo "[setup_env] TARTSYS=${TARTSYS}"
