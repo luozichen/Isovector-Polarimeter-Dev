@@ -95,6 +95,15 @@ errors from ROOT 6.30 headers:
 source /data4/luozc25/files/root/bin/thisroot.sh
 ```
 
+If batch is interrupted by `COMMAND NOT FOUND </action/gun/Direction ...>`,
+remove that command from the macro (legacy builds may not expose it). If run
+crashes in `BeamSimDataMessenger::SetNewValue` with null
+`SimDataInitializer::SetDataStore`, comment out:
+
+```bash
+/action/data/Beam/StoreData true
+```
+
 ## Run
 
 ```bash

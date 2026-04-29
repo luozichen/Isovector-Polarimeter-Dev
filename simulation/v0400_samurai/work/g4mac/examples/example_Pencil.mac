@@ -17,10 +17,13 @@
 /action/gun/Z 1
 /action/gun/Energy 380 MeV
 /action/gun/Position 0 0 -100 mm
-/action/gun/Direction 0 0 1
+# Legacy smg4lib builds may not support /action/gun/Direction.
+# Default beam direction (+z) is used.
 
-# Store beam data in ROOT output
-/action/data/Beam/StoreData true
+# Legacy smg4lib builds can crash on /action/data/Beam/StoreData true
+# (null SimDataInitializer in BeamSimDataMessenger::SetNewValue).
+# Keep disabled for broad compatibility.
+# /action/data/Beam/StoreData true
 
 # Output filename
 /action/file/RunName polarimeter_pencil
