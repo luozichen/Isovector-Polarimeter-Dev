@@ -61,8 +61,34 @@
 
 ## 📅 Development Log
 
+### May 2026
+* **2026-05-02:**
+    * Designed the mechanical coupling needed for characterization of cylindrical detectors.
+    * Printed the mechanical coupling needed for characterization of cylindrical detectors. (PETG basic)
+* **2026-05-01:**
+    * The premanufactured detectors are long and thin in shape, roughly 1:4 sized cylinders. Since in the actual experiment, they are placed facing towards the beam (radially), we must measure the jitter and energy calibration through cosmic ray data that passes through similar trajectories.
+    * Stacking multiple detectors (like using 4 fold coincidence again) is very unfeasible. Awkwardly long and thin stack, with poor yield.
+    * The premanufactured detectors are cylindrical in shape, where the signal/hv lines are connected to the PMT, and then connected to the scintillator in one direction.
+    * Observed that the detector's scintillator is a relatively flat disc near the end of the cylinder. The actual scintillator does not account for a lot of the height.
+    * Lots of wasted space if we use an ultra long "four fold telescope". This length is unsuitable for accurate measurements. And the small cross section makes yield very very low.
+    * Decided that instead of using rigious method like my own detector's calibration, we should use a pair of detectors instead. Two detectors facing each other, scintillator side.
+    * From top to bottom: wires (A) -> PMT (A) -> Scintillator (A) -> Scintillator (B) -> PMT (B) -> Wire (B).
+    * We characterise 4 cylindrical detectors. 4-choose-2 to yield 6 detectors pairs, and we do similar analysis as my own detectors, just that this time it's just 2 fold coincidence.
+    * Planning. In order to secure two detectors together during my testing, I would need to print a casing, (tube of hollow diameter 50mm, matching the cylindrical detector's diameter).
+### April 2026
+* **2026-04-02:**
+    * Midterm defense.
+  
 ### March 2026
 
+* **2026-03-30:**
+    * Energy Recalibration and Jitter calculation for different working voltages.
+* **2026-03-29:**
+    * Data Acquisition. 800V, 2000 events. Det configuration 1243.
+    * Data Acquisition. 800V, 2000 events. Det configuration 1342.
+* **2026-03-28:**
+    * Data Acquisition. 800V, 2000 events. Det configuration 2143.
+    * Data Acquisition. 800V, 2000 events. Det configuration 1234.
 * **2026-03-27:**
     * Data Acquisition. 800V, 2000 events. Det configuration 3124.
     * Data Acquisition. 800V, 2000 events. Det configuration 2134.
