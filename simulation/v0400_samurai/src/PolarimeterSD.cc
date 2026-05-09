@@ -6,6 +6,7 @@
 // ============================================================
 
 #include <map>
+#include <iostream>
 
 #include "PolarimeterSD.hh"
 
@@ -19,6 +20,8 @@
 
 // smg4lib/data
 #include "SimDataManager.hh"
+using std::ostream;
+using std::istream;
 #include "TSimData.hh"
 
 // ROOT
@@ -28,9 +31,10 @@ PolarimeterSD::PolarimeterSD(const G4String& name)
 : G4VSensitiveDetector(name),
   fDetectorName("PolarimeterSimData")
 {
-  SimDataManager* simDataManager = SimDataManager::GetSimDataManager();
-  // Use the newly created registration function
-  simDataManager->RegistSimDataArray("PolarimeterSimData", new TClonesArray("TSimData", 100));
+  // NOTE:
+  // Older smsimulator/smg4lib versions do not provide
+  // SimDataManager::RegistSimDataArray(...). Keep constructor minimal
+  // and rely on existing framework-side array registration.
 }
 
 PolarimeterSD::~PolarimeterSD()

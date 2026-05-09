@@ -12,6 +12,7 @@
 #include "PolarimeterDetectorConstructionMessenger.hh"
 #include "PolarimeterSD.hh"
 #include "TargetConstruction.hh"
+#include <iostream>
 
 // Geant4
 #include "G4Material.hh"
@@ -27,15 +28,13 @@
 #include "G4Colour.hh"
 
 // smg4lib/construction (optional components)
+using std::ostream;
+using std::istream;
 #include "DipoleConstruction.hh"
 #include "DipoleConstructionMessenger.hh"
 #include "NEBULAConstruction.hh"
 #include "NEBULAConstructionMessenger.hh"
 #include "ExitWindowC1Construction.hh"
-
-// smg4lib/data
-#include "SimDataManager.hh"
-#include "TFragSimParameter.hh"
 
 PolarimeterDetectorConstruction::PolarimeterDetectorConstruction()
 : G4VUserDetectorConstruction(),
