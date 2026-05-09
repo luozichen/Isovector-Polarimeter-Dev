@@ -1,0 +1,81 @@
+Run Stable Analysis Summary: 850V
+============================================================
+
+Config: 1342 (timestamp: 260323_212814)
+  Events: 2000 (Clean: 858, Clipped: 1049, Noise: 93)
+  MPVs (mV):
+    Det 1: 294.8 mV
+    Det 2: 279.5 mV
+    Det 3: 284.7 mV
+    Det 4: 363.8 mV
+  Jitter (σ, ns):
+    Det 1 [Top]: 0.6663 ns
+    Det 2 [Bot]: 0.7729 ns
+    Det 3 [Mid1]: 0.5430 ns
+    Det 4 [Mid2]: 0.3676 ns
+
+Config: 3142 (timestamp: 260324_200930)
+  Events: 2000 (Clean: 864, Clipped: 1051, Noise: 85)
+  MPVs (mV):
+    Det 1: 296.4 mV
+    Det 2: 279.2 mV
+    Det 3: 280.2 mV
+    Det 4: 364.0 mV
+  Jitter (σ, ns):
+    Det 1 [Mid1]: 0.2053 ns
+    Det 2 [Bot]: 0.7760 ns
+    Det 3 [Top]: 0.9640 ns
+    Det 4 [Mid2]: 0.3638 ns
+
+Config: 3124 (timestamp: 260325_002409)
+  Events: 2000 (Clean: 845, Clipped: 1003, Noise: 152)
+  MPVs (mV):
+    Det 1: 296.4 mV
+    Det 2: 280.8 mV
+    Det 3: 280.7 mV
+    Det 4: 346.7 mV
+  Jitter (σ, ns):
+    Det 1 [Mid1]: 0.3768 ns
+    Det 2 [Mid2]: 0.3909 ns
+    Det 3 [Top]: 0.8812 ns
+    Det 4 [Bot]: 0.7574 ns
+
+Config: 2134 (timestamp: 260325_132143)
+  Events: 2000 (Clean: 810, Clipped: 1091, Noise: 99)
+  MPVs (mV):
+    Det 1: 296.5 mV
+    Det 2: 278.3 mV
+    Det 3: 285.4 mV
+    Det 4: 347.1 mV
+  Jitter (σ, ns):
+    Det 1 [Mid1]: 0.3417 ns
+    Det 2 [Top]: 0.7824 ns
+    Det 3 [Mid2]: 0.5117 ns
+    Det 4 [Bot]: 0.6990 ns
+
+Config: 1234 (timestamp: 260325_172534)
+  Events: 2000 (Clean: 741, Clipped: 1114, Noise: 145)
+  MPVs (mV):
+    Det 1: 295.2 mV
+    Det 2: 281.6 mV
+    Det 3: 285.5 mV
+    Det 4: 347.3 mV
+  Jitter (σ, ns):
+    Det 1 [Top]: 0.6806 ns
+    Det 2 [Mid1]: 0.5189 ns
+    Det 3 [Mid2]: 0.4958 ns
+    Det 4 [Bot]: 0.7466 ns
+
+Config: 1243 (timestamp: 260325_213204)
+  Events: 2000 (Clean: 851, Clipped: 1055, Noise: 94)
+  MPVs (mV):
+    Det 1: 294.2 mV
+    Det 2: 281.0 mV
+    Det 3: 280.9 mV
+    Det 4: 360.7 mV
+  Jitter (σ, ns):
+    Det 1 [Top]: 0.7784 ns
+    Det 2 [Mid1]: 0.4353 ns
+    Det 3 [Bot]: 0.8796 ns
+    Det 4 [Mid2]: 0.2531 ns
+

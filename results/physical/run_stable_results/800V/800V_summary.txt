@@ -1,0 +1,81 @@
+Run Stable Analysis Summary: 800V
+============================================================
+
+Config: 1243 (timestamp: 260327_102258)
+  Events: 2000 (Clean: 802, Clipped: 1107, Noise: 91)
+  MPVs (mV):
+    Det 1: 239.5 mV
+    Det 2: 240.1 mV
+    Det 3: 239.7 mV
+    Det 4: 305.9 mV
+  Jitter (σ, ns):
+    Det 1 [Top]: 0.7226 ns
+    Det 2 [Mid1]: 0.4753 ns
+    Det 3 [Bot]: 0.8334 ns
+    Det 4 [Mid2]: 0.2864 ns
+
+Config: 2143 (timestamp: 260327_142908)
+  Events: 2000 (Clean: 916, Clipped: 1004, Noise: 80)
+  MPVs (mV):
+    Det 1: 242.3 mV
+    Det 2: 236.3 mV
+    Det 3: 238.4 mV
+    Det 4: 305.2 mV
+  Jitter (σ, ns):
+    Det 1 [Mid1]: 0.4368 ns
+    Det 2 [Top]: 0.8214 ns
+    Det 3 [Bot]: 0.7953 ns
+    Det 4 [Mid2]: 0.3622 ns
+
+Config: 1342 (timestamp: 260327_225001)
+  Events: 2000 (Clean: 803, Clipped: 1136, Noise: 61)
+  MPVs (mV):
+    Det 1: 240.5 mV
+    Det 2: 238.0 mV
+    Det 3: 240.8 mV
+    Det 4: 304.7 mV
+  Jitter (σ, ns):
+    Det 1 [Top]: 0.6649 ns
+    Det 2 [Bot]: 0.7271 ns
+    Det 3 [Mid1]: 0.4792 ns
+    Det 4 [Mid2]: 0.3632 ns
+
+Config: 3124 (timestamp: 260329_185605)
+  Events: 2000 (Clean: 771, Clipped: 1067, Noise: 162)
+  MPVs (mV):
+    Det 1: 242.8 mV
+    Det 2: 240.2 mV
+    Det 3: 236.4 mV
+    Det 4: 292.1 mV
+  Jitter (σ, ns):
+    Det 1 [Mid1]: 0.4205 ns
+    Det 2 [Mid2]: 0.3173 ns
+    Det 3 [Top]: 0.7713 ns
+    Det 4 [Bot]: 0.7125 ns
+
+Config: 1234 (timestamp: 260330_130011)
+  Events: 2000 (Clean: 690, Clipped: 1104, Noise: 206)
+  MPVs (mV):
+    Det 1: 240.4 mV
+    Det 2: 239.3 mV
+    Det 3: 241.5 mV
+    Det 4: 291.5 mV
+  Jitter (σ, ns):
+    Det 1 [Top]: 0.6798 ns
+    Det 2 [Mid1]: 0.4651 ns
+    Det 3 [Mid2]: 0.4585 ns
+    Det 4 [Bot]: 0.6749 ns
+
+Config: 2134 (timestamp: 260330_174348)
+  Events: 2000 (Clean: 742, Clipped: 1056, Noise: 202)
+  MPVs (mV):
+    Det 1: 242.8 mV
+    Det 2: 235.8 mV
+    Det 3: 241.8 mV
+    Det 4: 290.6 mV
+  Jitter (σ, ns):
+    Det 1 [Mid1]: 0.4855 ns
+    Det 2 [Top]: 0.7483 ns
+    Det 3 [Mid2]: 0.5873 ns
+    Det 4 [Bot]: 0.6629 ns
+

@@ -29,13 +29,27 @@
 ### Theoretical Derivation & Physics Simulation
 - [x] Polarization Derivation: Starting from quantum scattering theory, derive the analytical relationship between the deuteron-proton (d-p) elastic scattering cross-section and the beam's tensor polarization. [2026-03-07]
 - [ ] Detection Simulation: Write code to simulate the scattering of the polarized deuteron beam on a methlyne target, and obtain the detector response, verifying the derivation and the rationality of the detector layout.
-- [ ] Physics Verification: Using the ImQMD transport model to simulate the entire IVR experiment process, verifying the sensitivity of the experimental results to the beam polarization.
+- [ ] ~~Physics Verification: Using the ImQMD transport model to simulate the entire IVR experiment process, verifying the sensitivity of the experimental results to the beam polarization.~~
+
+---
+
+## Thesis structure.
+
+- [ ] Abstract
+- [ ] Introduction
+- [ ] Theoretical Framework
+- [ ] Simulation I
+- [ ] Hardware Development (Cuboid Detectors)
+- [ ] Prototype Characterization (Cuboid Detectors)
+- [ ] Prototype Characterization (Cylindrical Detectors)
+- [ ] Simulation II. Placement of the detectors, and comparison
+- [ ] Conclusion.
 
 ---
 
 ## 📊 Final Results Summary
 
-### 1. Energy Calibration (800V working voltage)
+### 1. CUBOID DETECTORS Energy Calibration (800V working voltage)
 **Methodology:** Matched experimental MPVs (Combined Analysis, 6000 events) with Geant4 simulation reference energy (1M event Long Run).
 **Reference Energy (Simulation):** 30.01 MeV (Average of middle detectors Scin1/Scin2).
 
@@ -46,7 +60,7 @@
 | **Det 3** | 264.44 | **0.1135** | 8.81 |
 | **Det 4** | 299.42 | **0.1002** | 9.98 |
 
-### 2. Time Resolution (800V working voltage)
+### 2. CUBOID DETECTORS Time Resolution (800V working voltage)
 **Methodology:** Least-squares solution of pairwise variances using 6 "Golden" middle-layer stack configurations.
 
 | Detector | Intrinsic Jitter ($\sigma$) | Resolution (FWHM) |
@@ -62,6 +76,29 @@
 ## 📅 Development Log
 
 ### May 2026
+* **2026-05-09:**
+    * Data Acquisition for cylindrical detector. 800V, 2000 events. Det configuration 53.
+* **2026-05-08:**
+    * Data Acquisition for cylindrical detector. 800V, 2000 events. Det configuration 13.
+    * Data Acquisition for cylindrical detector. 800V, 2000 events. Det configuration 43. (accidental repeat of 34. But we can use this to test for any errors and get an idea of uncertainty and noise.)
+* **2026-05-07:**
+    * Data Acquisition for cylindrical detector. 800V, 2000 events. Det configuration 54.
+* **2026-05-06:**
+    * Data Acquisition for cylindrical detector. 800V, 2000 events. Det configuration 34.
+* **2026-05-05:**
+    * Data Acquisition for cylindrical detector. 800V, 2000 events. Det configuration 14.
+* **2026-05-04:**
+    * Changed channel 2 and channel 3 of the powersource to positive voltage supply. (Power source channels go from Ch0 to Ch3) 
+    * Since Ch0-3 of the power supply is connected to Ch1-4 of the oscilliscope, the channels of the oscilliscope I'm using are Ch3 and Ch4.
+    * Changed the logic for the trigger to be two fold coincidence (AND) of Ch3 and Ch4 signals, with discriminator for each channel set to 10 mV.
+    * Tested the whole structure. The lab has 15 cylindrical detectors available. Tried detectors 1 and 2. Detector 2 is broken.
+    * Test Data Acquisition for cylindrical detector. 800V, 2000 events (or 1000 events? I don't remember). Det configuration 14. (just a test, but data is usable). (Channel 3 is cyl_detector 1, channel 4 is cyl_detector 4).
+* **2026-05-03:**
+    * REMOVED IMQMD GOAL. Data is unavaiable, and is also not directly required for our project, which is to study polarization detectors, not to use them along side the transport model. Wrote a finalized thesis goal/structure.
+    * To test a pair of detectors the bottom detector needs to be upside down so the scinitllators can face each other. Which also means the wires and connections need to be connected from below. This is difficult without a support mechanism, (1. how would I balance the whole setup when wires need to connect from below? 2. I would need to make sure the wires aren't bent at bad angles.)
+    * Printed the mechanical coupling x2 needed for characterization of cylindrical detectors. (PETG basic). They are just cylindrical shells to act as the outer support. Taped all three tubes together.
+    * Designed the mechanical stand needed for characterization of cylindrical detectors: it looks like a cylinder attached to a flat square base, there is a physical obstuction in the middle of the cylinder to make sure that when I place the detector inside the stand, the top (or bottom. the wire part) of the detector is in mid-air instead of directly crushed to the table. Made an opening just above the base of the cylinder for the wires to go out. Base of cylinder is attached to the flat square base to ensure the whole structure doesn't topple.
+    * Set up the experiment. One detector with wire facing down is inserted in stand. the stand is taped to the long hollow clyndrical tube, and I place another detector there. The cylindrical tube aligns the two detectors.
 * **2026-05-02:**
     * Designed the mechanical coupling needed for characterization of cylindrical detectors.
     * Printed the mechanical coupling needed for characterization of cylindrical detectors. (PETG basic)
