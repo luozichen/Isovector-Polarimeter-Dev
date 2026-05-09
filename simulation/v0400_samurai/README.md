@@ -106,9 +106,19 @@ crashes in `BeamSimDataMessenger::SetNewValue` with null
 
 ## Run
 
+For a fast smoke test, use the short macro first:
+
 ```bash
 cd work
-../bin/sim_polarimeter g4mac/examples/example_Pencil.mac
+sim_polarimeter g4mac/examples/example_Pencil_quick.mac
+ls -lh root/polarimeter_pencil_quick0000.root
+```
+
+For the full example run:
+
+```bash
+cd work
+sim_polarimeter g4mac/examples/example_Pencil.mac
 ```
 
 ## Analysis
@@ -116,7 +126,13 @@ cd work
 ```bash
 cd work
 root -l rootlogon.C
-root [0] .x macros/examples/analysis_example.cc("polarimeter_pencil0001.root")
+root [0] .x macros/examples/analysis_example.cc("root/polarimeter_pencil_quick0000.root")
+```
+
+A minimal non-interactive file check is also useful:
+
+```bash
+root -l -q -e 'TFile f("root/polarimeter_pencil_quick0000.root"); f.ls(); TTree* t=(TTree*)f.Get("tree"); if(t) std::cout << "entries=" << t->GetEntries() << std::endl;'
 ```
 
 ## Geant4 Macro Commands

@@ -4,7 +4,7 @@
 //
 // Usage:
 //   root -l rootlogon.C
-//   root [0] .x macros/examples/analysis_example.cc("polarimeter_pencil0001.root")
+//   root [0] .x macros/examples/analysis_example.cc("root/polarimeter_pencil_quick0000.root")
 // ============================================================
 
 #include "TFile.h"
@@ -18,7 +18,7 @@
 #include <iostream>
 #include <cmath>
 
-void analysis_example(const char* filename = "polarimeter_pencil0001.root")
+void analysis_example(const char* filename = "root/polarimeter_pencil_quick0000.root")
 {
   // Open file
   TFile* f = new TFile(filename, "READ");
