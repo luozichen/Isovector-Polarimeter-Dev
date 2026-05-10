@@ -33,17 +33,16 @@
 
 ---
 
-## Thesis structure.
+## Thesis Structure
 
-- [ ] Abstract
-- [ ] Introduction
-- [ ] Theoretical Framework
-- [ ] Simulation I
-- [ ] Hardware Development (Cuboid Detectors)
-- [ ] Prototype Characterization (Cuboid Detectors)
-- [ ] Prototype Characterization (Cylindrical Detectors)
-- [ ] Simulation II. Placement of the detectors, and comparison
-- [ ] Conclusion.
+- [ ] **Abstract**: Summary of the IVR motivation, custom detector development, and the comparative results of the cuboid vs. cylindrical geometries.
+- [ ] **1. Introduction**: Scientific motivation (EoS, Symmetry Energy), the IVR effect as a model-independent probe, and the pivot towards a comparative study of detector architectures.
+- [ ] **2. Theoretical Framework**: Quantum properties of the deuteron ground state, the d-p scattering $M$-matrix derivation, and the resulting azimuthal distribution formula for polarimetry.
+- [ ] **3. Monte Carlo Methodology (Simulation I)**: Implementation of the "Physics Bridge" in Geant4 using rejection sampling. Verification of the polarization reconstruction algorithm using idealized geometries.
+- [ ] **4. Hardware Development (Custom Cuboid Detectors)**: Engineering the large-volume prototype. PCB design (axial to SMD), 3D printing (PLA to PETG), and the "Inner Base" clamping architecture.
+- [ ] **5. Comparative Detector Characterization**: Cosmic ray telescope results for both cuboid and cylindrical units. "Digital Twin" calibration (MeV/mV) and the Least Squares solver for sub-nanosecond intrinsic jitter.
+- [ ] **6. Polarimeter Performance & Geometry Optimization (Simulation II)**: High-fidelity simulation comparing the cuboid and cylindrical arrays. Analysis of solid angle vs. angular uncertainty and final recommendation for the RIKEN experiment.
+- [ ] **7. Conclusion**: Final synthesis of results and the impact on future IVR campaigns.
 
 ---
 
