@@ -27,9 +27,6 @@
 #
 # Draw geometry:
 /vis/drawVolume
-
-# Draw GPS Source
-/vis/scene/add/gps
 #
 # Specify view angle:
 /vis/viewer/set/viewpointVector -1 0 0

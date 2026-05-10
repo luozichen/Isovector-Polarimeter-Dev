@@ -10,9 +10,6 @@
 # Draw geometry
 /vis/drawVolume
 
-# Draw GPS Source (if supported by your Geant4 version)
-/vis/scene/add/gps
-
 # Viewpoint
 /vis/viewer/set/viewpointVector -1 0 0
 /vis/viewer/set/lightsVector -1 0 0
