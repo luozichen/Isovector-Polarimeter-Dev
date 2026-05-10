@@ -12,10 +12,12 @@ void check_v0300() {
     }
 
     // Indices for 30 degree ring: L=8, U=10, R=12, D=14
-    long L_hits = tree->GetEntries("PE_PMT8 > 0");
-    long U_hits = tree->GetEntries("PE_PMT10 > 0");
-    long R_hits = tree->GetEntries("PE_PMT12 > 0");
-    long D_hits = tree->GetEntries("PE_PMT14 > 0");
+    // We apply a realistic "Discriminator Threshold" of 10 MeV deposited energy.
+    // This prevents counting single-photon crosstalk or secondary gammas as a "Deuteron hit"
+    long L_hits = tree->GetEntries("Edep_Scin8 > 10.0");
+    long U_hits = tree->GetEntries("Edep_Scin10 > 10.0");
+    long R_hits = tree->GetEntries("Edep_Scin12 > 10.0");
+    long D_hits = tree->GetEntries("Edep_Scin14 > 10.0");
 
     cout << "\n--- Results for 30-degree Ring (1000 events) ---" << endl;
     cout << "N_L (0 deg)  : " << L_hits << endl;
