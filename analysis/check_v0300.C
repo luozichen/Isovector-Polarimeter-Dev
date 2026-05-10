@@ -1,5 +1,5 @@
 void check_v0300() {
-    TFile *f = TFile::Open("../simulation/v0300_scattering/build/DET01_Scattering_Result.root");
+    TFile *f = TFile::Open("simulation/v0300_scattering/build/DET01_Scattering_Result.root");
     if (!f || f->IsZombie()) {
         cout << "Error opening file" << endl;
         return;
