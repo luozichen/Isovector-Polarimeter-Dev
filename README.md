@@ -75,6 +75,10 @@
 ## 📅 Development Log
 
 ### May 2026
+* **2026-05-11:**
+    * **Physics Simulation (v0300_scattering):** Completed the "Physics Bridge" verification. Implemented rejection sampling in the primary generator to ensure scattered deuterons perfectly follow the theoretical $f(\phi) = A + B \cos\phi + C \cos 2\phi$ azimuthal distribution for polarized beams. Discovered "crosstalk" secondary radiation washing out the asymmetry, and solved it by implementing a 10 MeV threshold CFD logic.
+    * **Physics Simulation (v0500_cuboid_twin):** Began construction of the Cuboid Digital Twin to evaluate optimal geometry and layout. Configured a 4+4 geometry array (4 detectors at 30 degrees, 4 at 45 degrees) to find the "sweet spot" between analyzing power and cross-section.
+    * **Jitter Deconvolution Methodology:** Developed a mathematically rigorous methodology to isolate intrinsic PMT/electronic noise from geometric optical spread. Extracted the true optical jitter (~0.195 ns) from the `v0200` cosmic ray tracking data, subtracted it from the physical measurements (~0.55 ns), and injected the resulting intrinsic electronic noise back into the `v0500` "Digital Twin" to realistically model hardware resolution.
 * **2026-05-09:**
     * Data Acquisition for cylindrical detector. 800V, 2000 events. Det configuration 53.
 * **2026-05-08:**

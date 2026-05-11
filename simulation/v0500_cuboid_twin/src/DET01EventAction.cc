@@ -98,9 +98,9 @@ void DET01EventAction::EndOfEventAction(const G4Event* event)
   // Physical Jitter Injection
   // We apply the exact lab jitter parameters to the 4 azimuthal positions
   G4double total_jitter[4] = {0.4940*ns, 0.5587*ns, 0.6462*ns, 0.4814*ns};
-  // Placeholder: Approximate optical jitter to be subtracted from physical total
-  // To get the true intrinsic PMT noise. We will tune this later.
-  G4double optical_jitter_est = 0.3*ns; 
+  // We mathematically derived the true intrinsic PMT noise by subtracting the 
+  // v0200 optical spread (0.195 ns) from the physical lab measurements.
+  G4double optical_jitter_est = 0.195*ns;  
 
   // Fix time if no hits, otherwise apply jitter
   for (G4int d = 0; d < kNDet; d++) {
