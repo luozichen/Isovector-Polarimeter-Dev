@@ -5,9 +5,9 @@ void extract_v0200_jitter() {
         return;
     }
 
-    TTree *tree = (TTree*)f->Get("CoincidenceData");
+    TTree *tree = (TTree*)f->Get("CosmicData");
     if (!tree) {
-        cout << "Error finding tree CoincidenceData" << endl;
+        cout << "Error finding tree CosmicData" << endl;
         return;
     }
 
