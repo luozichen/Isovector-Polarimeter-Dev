@@ -1,0 +1,6 @@
+# Initialize kernel
+/run/initialize
+
+# Run 1000 events
+/run/beamOn 1000
+
