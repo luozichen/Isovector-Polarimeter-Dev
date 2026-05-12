@@ -33,18 +33,18 @@ DEFAULT_LANDAU_UPPER = 0.4   # Volts
 # Reference Energy (Simulation): 30.01 MeV
 # =============================================================================
 CALIBRATION = {
-    1: {"mpv_mV": 277.16, "mev_per_mV": 0.1083, "mV_per_MeV": 9.24},
-    2: {"mpv_mV": 257.40, "mev_per_mV": 0.1166, "mV_per_MeV": 8.58},
-    3: {"mpv_mV": 264.44, "mev_per_mV": 0.1135, "mV_per_MeV": 8.81},
-    4: {"mpv_mV": 299.42, "mev_per_mV": 0.1002, "mV_per_MeV": 9.98},
+    1: {"mpv_mV": 252.1, "mev_per_mV": 0.1190, "mV_per_MeV": 8.40},
+    2: {"mpv_mV": 247.8, "mev_per_mV": 0.1211, "mV_per_MeV": 8.26},
+    3: {"mpv_mV": 241.2, "mev_per_mV": 0.1244, "mV_per_MeV": 8.04},
+    4: {"mpv_mV": 320.9, "mev_per_mV": 0.0935, "mV_per_MeV": 10.69},
 }
 
 # Intrinsic Jitter (from Golden Pairs analysis, 6 configurations)
 JITTER_SIGMA_NS = {
-    1: 0.505,
-    2: 0.507,
-    3: 0.541,
-    4: 0.531,
+    1: 0.5660,
+    2: 0.5375,
+    3: 0.6555,
+    4: 0.4735,
 }
 
 # =============================================================================
