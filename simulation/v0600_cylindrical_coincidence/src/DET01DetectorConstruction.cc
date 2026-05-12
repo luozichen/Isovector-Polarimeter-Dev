@@ -179,27 +179,27 @@ G4VPhysicalVolume* DET01DetectorConstruction::Construct()
       G4ThreeVector pos(0, 0, posZ);
 
       // Scintillator
-      G4VPhysicalVolume* physScin = new G4PVPlacement(0, pos, logicScin, "Scintillator", logicWorld, false, copyNo, true);
-      new G4LogicalBorderSurface("ScinTeflonWrapper", physScin, physWorld, opTeflon);
+      new G4PVPlacement(0, pos, logicScin, "Scintillator", logicWorld, false, copyNo, true);
 
-      // Attach PMT Assembly with microscopic buffers (1um) to avoid precision overlaps
-      G4double buffer = 0.001*mm; 
-      
+      // Attach PMT Assembly (Perfectly touching)
       // Grease
-      G4double greaseZ = posZ + sign * (scinThick/2.0 + greaseThick/2.0 + buffer);
+      G4double greaseZ = posZ + sign * (scinThick/2.0 + greaseThick/2.0);
       G4ThreeVector greasePos(0, 0, greaseZ);
       new G4PVPlacement(0, greasePos, logicGrease, "Grease", logicWorld, false, copyNo, true);
       
       // Window
-      G4double winZ = greaseZ + sign * (greaseThick/2.0 + winThick/2.0 + buffer);
+      G4double winZ = greaseZ + sign * (greaseThick/2.0 + winThick/2.0);
       G4ThreeVector winPos(0, 0, winZ);
       new G4PVPlacement(0, winPos, logicWindow, "PMTWindow", logicWorld, false, copyNo, true);
       
       // Cathode
-      G4double cathodeZ = winZ + sign * (winThick/2.0 + cathodeThick/2.0 + buffer);
+      G4double cathodeZ = winZ + sign * (winThick/2.0 + cathodeThick/2.0);
       G4ThreeVector cathodePos(0, 0, cathodeZ);
       new G4PVPlacement(0, cathodePos, fPhotocathodeLogical, "Photocathode", logicWorld, false, copyNo, true);
   }
+
+  // Wrapping Surface (Skin Surface is more robust for curved tubes)
+  new G4LogicalSkinSurface("ScinTeflonWrapper", logicScin, opTeflon);
 
   return physWorld;
 }
