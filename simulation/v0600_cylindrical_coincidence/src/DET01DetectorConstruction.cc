@@ -142,7 +142,7 @@ G4VPhysicalVolume* DET01DetectorConstruction::Construct()
   G4Tubs* solidScin = new G4Tubs("Scintillator", 0., scinRad, scinThick/2, 0., 360.*deg);
   G4LogicalVolume* logicScin = new G4LogicalVolume(solidScin, scinMat, "Scintillator");
 
-  G4double pmtDiam = 50.0*mm;
+  G4double pmtDiam = 29.0*mm;
   G4double pmtRad = pmtDiam/2.0;
   G4double greaseThick = 0.1*mm;
   G4Tubs* solidGrease = new G4Tubs("Grease", 0., pmtRad, greaseThick/2, 0., 360.*deg);
