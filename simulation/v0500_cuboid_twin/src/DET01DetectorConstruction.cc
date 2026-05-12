@@ -211,7 +211,7 @@ G4VPhysicalVolume* DET01DetectorConstruction::Construct()
   
   // Scattering angles for each ring
   const G4int nRings = 2;
-  G4double scatteringAngles[nRings] = { 30.0*deg, 45.0*deg };
+  G4double scatteringAngles[nRings] = { 20.0*deg, 30.0*deg };
   
   // The scintillator center is at distanceToTarget + scinX/2 along the
   // radial ray, since scinX (120mm) is the depth dimension (local X)

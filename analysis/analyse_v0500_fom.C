@@ -12,8 +12,8 @@ void analyse_v0500_fom() {
     }
 
     // We will count the number of hits for each detector that pass the 10 MeV threshold
-    // 30 degree ring: 0 (Left), 1 (Up), 2 (Right), 3 (Down)
-    // 45 degree ring: 4 (Left), 5 (Up), 6 (Right), 7 (Down)
+    // 20 degree ring: 0 (Left), 1 (Up), 2 (Right), 3 (Down)
+    // 30 degree ring: 4 (Left), 5 (Up), 6 (Right), 7 (Down)
     
     int counts[8] = {0};
     double edep[8];
@@ -31,7 +31,7 @@ void analyse_v0500_fom() {
         }
     }
     
-    // Ring 0 (30 degrees)
+    // Ring 0 (20 degrees)
     int N_L_30 = counts[0];
     int N_R_30 = counts[2];
     int N_tot_30 = N_L_30 + N_R_30;
@@ -39,7 +39,7 @@ void analyse_v0500_fom() {
     if (N_tot_30 > 0) eps_30 = (double)(N_L_30 - N_R_30) / N_tot_30;
     double fom_30 = N_tot_30 * eps_30 * eps_30;
     
-    // Ring 1 (45 degrees)
+    // Ring 1 (30 degrees)
     int N_L_45 = counts[4];
     int N_R_45 = counts[6];
     int N_tot_45 = N_L_45 + N_R_45;
@@ -51,14 +51,14 @@ void analyse_v0500_fom() {
     cout << "  CUBOID DIGITAL TWIN (v0500) SHOWDOWN RESULTS " << endl;
     cout << "=============================================\n" << endl;
     
-    cout << "RING 0 (30 Degrees):" << endl;
+    cout << "RING 0 (20 Degrees):" << endl;
     cout << "  Left Hits (Det 0)  : " << N_L_30 << endl;
     cout << "  Right Hits (Det 2) : " << N_R_30 << endl;
     cout << "  Total LR Hits (N)  : " << N_tot_30 << endl;
     cout << "  Asymmetry (eps)    : " << eps_30 << endl;
     cout << "  Figure of Merit    : " << fom_30 << "\n" << endl;
     
-    cout << "RING 1 (45 Degrees):" << endl;
+    cout << "RING 1 (30 Degrees):" << endl;
     cout << "  Left Hits (Det 4)  : " << N_L_45 << endl;
     cout << "  Right Hits (Det 6) : " << N_R_45 << endl;
     cout << "  Total LR Hits (N)  : " << N_tot_45 << endl;
@@ -67,9 +67,9 @@ void analyse_v0500_fom() {
     
     cout << "=============================================" << endl;
     if (fom_30 > fom_45) {
-        cout << "  WINNER: 30 Degrees (Higher Statistical Power)" << endl;
+        cout << "  WINNER: 20 Degrees (Higher Statistical Power)" << endl;
     } else {
-        cout << "  WINNER: 45 Degrees (Higher Statistical Power)" << endl;
+        cout << "  WINNER: 30 Degrees (Higher Statistical Power)" << endl;
     }
     cout << "=============================================\n" << endl;
 }

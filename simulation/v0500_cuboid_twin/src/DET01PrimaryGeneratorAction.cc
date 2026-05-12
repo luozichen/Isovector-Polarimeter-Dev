@@ -11,8 +11,8 @@
 DET01PrimaryGeneratorAction::DET01PrimaryGeneratorAction()
  : G4VUserPrimaryGeneratorAction(),
    fParticleGun(0),
-   fPy(0.7),     // Default hardcoded vector polarisation
-   fTzz(0.5),    // Default hardcoded tensor polarisation
+   fPy(-1.0),    // Set to maximum negative vector polarisation
+   fTzz(0.0),    // Zero tensor polarisation for this run
    fAy(0.4),     // Example analysing power
    fAzz(0.3),    // Example tensor analysing power
    fAxx_yy(0.1), // Example off-diagonal power
@@ -73,8 +73,16 @@ void DET01PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   }
 
   // 3. Set Momentum Direction
-  // Theta is fixed at 30 degrees to target the detector ring.
-  G4double theta = 30.0 * deg;
+  // The detectors are at 20 and 30 degrees and span roughly +/- 3 degrees.
+  // To see the true geometric edge effects, we must spray a solid cone of particles.
+  // To get a uniform spray across the solid angle, we uniformly sample cos(theta).
+  G4double theta_min = 15.0 * deg;
+  G4double theta_max = 35.0 * deg;
+  G4double cos_min = std::cos(theta_max); // cos decreases as theta increases
+  G4double cos_max = std::cos(theta_min);
+  
+  G4double cos_theta = cos_min + G4UniformRand() * (cos_max - cos_min);
+  G4double theta = std::acos(cos_theta);
   
   G4double px = std::sin(theta) * std::cos(phi);
   G4double py = std::sin(theta) * std::sin(phi);
