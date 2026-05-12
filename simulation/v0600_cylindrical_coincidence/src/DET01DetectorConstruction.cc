@@ -188,7 +188,11 @@ G4VPhysicalVolume* DET01DetectorConstruction::Construct()
       G4ThreeVector pos(0, 0, posZ);
 
       // Scintillator
-      new G4PVPlacement(0, pos, logicScin, "Scintillator", logicWorld, false, copyNo, true);
+      G4VPhysicalVolume* physScin = new G4PVPlacement(0, pos, logicScin, "Scintillator", logicWorld, false, copyNo, true);
+      
+      // Teflon wrapping: only on the scintillator-to-world boundary.
+      // The PMT face (scintillator-to-grease) remains open for light collection.
+      new G4LogicalBorderSurface("ScinTeflonWrapper", physScin, physWorld, opTeflon);
 
       // Attach PMT Assembly (Perfectly touching)
       // Grease
@@ -206,9 +210,6 @@ G4VPhysicalVolume* DET01DetectorConstruction::Construct()
       G4ThreeVector cathodePos(0, 0, cathodeZ);
       new G4PVPlacement(0, cathodePos, fPhotocathodeLogical, "Photocathode", logicWorld, false, copyNo, true);
   }
-
-  // Wrapping Surface (Skin Surface is more robust for curved tubes)
-  new G4LogicalSkinSurface("ScinTeflonWrapper", logicScin, opTeflon);
 
   return physWorld;
 }
