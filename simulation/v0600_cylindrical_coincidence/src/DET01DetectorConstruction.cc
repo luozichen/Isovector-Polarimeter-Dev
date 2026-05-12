@@ -158,10 +158,19 @@ G4VPhysicalVolume* DET01DetectorConstruction::Construct()
   fPhotocathodeLogical = new G4LogicalVolume(solidCathode, cathodeMat, "Photocathode");
 
   // Wrapping Surface
+  // Use unified model with groundfrontpainted finish for curved G4Tubs surfaces.
+  // (dielectric_LUT + groundteflonair only works on flat G4Box surfaces)
   G4OpticalSurface* opTeflon = new G4OpticalSurface("TeflonSurface");
-  opTeflon->SetType(dielectric_LUT);
+  opTeflon->SetType(dielectric_dielectric);
   opTeflon->SetModel(unified);
-  opTeflon->SetFinish(groundteflonair);
+  opTeflon->SetFinish(groundfrontpainted);
+  // Teflon reflectivity ~95%
+  const G4int numEntries2 = 2;
+  G4double pp2[numEntries2] = { 2.0*eV, 4.0*eV };
+  G4double reflectivity[numEntries2] = { 0.95, 0.95 };
+  G4MaterialPropertiesTable* mptTeflon = new G4MaterialPropertiesTable();
+  mptTeflon->AddProperty("REFLECTIVITY", pp2, reflectivity, numEntries2);
+  opTeflon->SetMaterialPropertiesTable(mptTeflon);
 
   G4int nDetectors = 2;
   G4double gap = 5.0*mm;
