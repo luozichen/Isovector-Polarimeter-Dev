@@ -82,7 +82,7 @@ class WfmReader:
             self.time_offset = read_val(OFFSET_TIME_OFFSET, 'd', 8)
             self.time_size = read_val(OFFSET_TIME_SIZE, 'I', 4)
             
-    def read_data(self) -> tuple[np.ndarray, np.ndarray]:
+    def read_data(self, baseline_restore: bool = True) -> tuple[np.ndarray, np.ndarray]:
         """
         Returns (time_array, volts_matrix)
         volts_matrix shape: (num_frames, time_size)
@@ -127,5 +127,14 @@ class WfmReader:
             
             # Construct Time Array: T = index * scale + offset
             t = np.arange(self.time_size, dtype=np.float64) * self.time_scale + self.time_offset
+            
+            if baseline_restore:
+                # The oscilloscope position knob shifts the DC voltage for the whole run.
+                # We calculate a single "Global Baseline" by averaging the first 50 samples
+                # across ALL frames in the file. This makes the calculation immune to 
+                # stray double-pulses in any single frame.
+                idx_base = min(len(t), 50)
+                global_baseline_val = np.mean(volts[:, :idx_base])
+                volts = volts - global_baseline_val
             
             return t, volts

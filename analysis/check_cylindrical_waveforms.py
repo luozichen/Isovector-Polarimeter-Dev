@@ -61,6 +61,11 @@ def plot_waveforms(data_dir, output_dir, voltage_str):
             volts3_mv = volts3 * 1000
             volts4_mv = volts4 * 1000
             
+            # Convert to ns and mV
+            t_ns = t3 * 1e9
+            volts3_mv = volts3 * 1000
+            volts4_mv = volts4 * 1000
+            
             num_frames_to_plot = min(5, reader3.num_frames)
             
             fig, axs = plt.subplots(num_frames_to_plot, 1, figsize=(10, 2*num_frames_to_plot), sharex=True)

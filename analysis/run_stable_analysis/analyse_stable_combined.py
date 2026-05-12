@@ -35,7 +35,7 @@ from analysis.utils.physics import get_dcfd_time, landau_fit_func, gaussian
 # Configuration
 # =============================================================================
 
-RESULTS_BASE = os.path.join(PROJECT_ROOT, "results", "physical", "run_stable_results")
+RESULTS_BASE = os.path.join(PROJECT_ROOT, "results", "physical", "run_stable_results_corrected")
 
 VOLTAGE_PARAMS = {
     "800V": {"landau_range": (0.01, 0.4), "bins": 50},

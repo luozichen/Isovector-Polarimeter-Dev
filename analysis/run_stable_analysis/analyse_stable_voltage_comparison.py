@@ -27,7 +27,7 @@ from analysis import config
 # Import the combined analysis driver
 from analyse_stable_combined import analyze_combined
 
-RESULTS_BASE = os.path.join(PROJECT_ROOT, "results", "physical", "run_stable_results")
+RESULTS_BASE = os.path.join(PROJECT_ROOT, "results", "physical", "run_stable_results_corrected")
 
 DETECTOR_COLORS = {
     1: '#E57373',
@@ -129,7 +129,7 @@ def main():
     ax2.set_xticks(VOLTAGE_NUMS)
     
     plt.tight_layout(rect=[0, 0.03, 1, 0.94])
-    out_path = os.path.join(RESULTS_BASE, "voltage_comparison.png")
+    out_path = os.path.join(RESULTS_BASE, "voltage_comparison_corrected.png")
     plt.savefig(out_path, dpi=150)
     plt.close()
     print(f"\nSaved comparison plot: {out_path}")
@@ -137,7 +137,7 @@ def main():
     # =========================================================================
     # Summary Table
     # =========================================================================
-    summary_path = os.path.join(RESULTS_BASE, "voltage_comparison_summary.txt")
+    summary_path = os.path.join(RESULTS_BASE, "voltage_comparison_summary_corrected.txt")
     with open(summary_path, "w") as f:
         f.write("Voltage Comparison Summary (New Detectors)\n")
         f.write("=" * 70 + "\n\n")
