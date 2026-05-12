@@ -1,0 +1,15 @@
+# Macro for Testing: 100 Cosmic Muon Events
+# Purpose: Verify geometry and ROOT output with a short run.
+
+# Initialize
+/run/initialize
+
+# Set a different output filename for the test
+/analysis/setFileName DET01_Test_Result
+
+# Load the Z-axis Cosmic Source Configuration
+/control/execute ../setup_cosmic.mac
+
+# Run 100 events
+/run/printProgress 10
+/run/beamOn 100
