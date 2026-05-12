@@ -182,19 +182,23 @@ G4VPhysicalVolume* DET01DetectorConstruction::Construct()
       G4VPhysicalVolume* physScin = new G4PVPlacement(0, pos, logicScin, "Scintillator", logicWorld, false, copyNo, true);
       new G4LogicalBorderSurface("ScinTeflonWrapper", physScin, physWorld, opTeflon);
 
-      // Attach PMT Assembly 
-      // Top detector (i=0): PMT is above it (+Z). Bottom detector (i=1): PMT is below it (-Z).
-      G4double greaseZ = posZ + sign * (scinThick/2.0 + greaseThick/2.0);
+      // Attach PMT Assembly with microscopic buffers (1um) to avoid precision overlaps
+      G4double buffer = 0.001*mm; 
+      
+      // Grease
+      G4double greaseZ = posZ + sign * (scinThick/2.0 + greaseThick/2.0 + buffer);
       G4ThreeVector greasePos(0, 0, greaseZ);
-      new G4PVPlacement(rot, greasePos, logicGrease, "Grease", logicWorld, false, copyNo, true);
+      new G4PVPlacement(0, greasePos, logicGrease, "Grease", logicWorld, false, copyNo, true);
       
-      G4double winZ = posZ + sign * (scinThick/2.0 + greaseThick + winThick/2.0);
+      // Window
+      G4double winZ = greaseZ + sign * (greaseThick/2.0 + winThick/2.0 + buffer);
       G4ThreeVector winPos(0, 0, winZ);
-      new G4PVPlacement(rot, winPos, logicWindow, "PMTWindow", logicWorld, false, copyNo, true);
+      new G4PVPlacement(0, winPos, logicWindow, "PMTWindow", logicWorld, false, copyNo, true);
       
-      G4double cathodeZ = posZ + sign * (scinThick/2.0 + greaseThick + winThick + cathodeThick/2.0);
+      // Cathode
+      G4double cathodeZ = winZ + sign * (winThick/2.0 + cathodeThick/2.0 + buffer);
       G4ThreeVector cathodePos(0, 0, cathodeZ);
-      new G4PVPlacement(rot, cathodePos, fPhotocathodeLogical, "Photocathode", logicWorld, false, copyNo, true);
+      new G4PVPlacement(0, cathodePos, fPhotocathodeLogical, "Photocathode", logicWorld, false, copyNo, true);
   }
 
   return physWorld;
