@@ -75,12 +75,33 @@
 ## 📅 Development Log
 
 ### May 2026
+* **2026-05-13:**
+    * **Data Acquisition:**
+        * Data Acquisition for cylindrical detector. 900V, 2000 events. Det configuration 13.
+* **2026-05-12:**
+    * **Cylindrical detector g4 coincidence testing:** 10M events, obtained jitter and energy MPV values.
+    * **Data Acquisition:**
+        * Data Acquisition for cylindrical detector. 900V, 2000 events. Det configuration 53.
+        * Data Acquisition for cylindrical detector. 900V, 2000 events. Det configuration 54.
+        * Data Acquisition for cylindrical detector. 900V, 2000 events. Det configuration 54.
+        * Data Acquisition for cylindrical detector. 900V, 2000 events. Det configuration 34.
+        * Data Acquisition for cylindrical detector. 900V, 2000 events. Det configuration 14.
+    * **Preliminary analysis of detector data:** Detector 4 became faulty as the experiments ran.
+    * **FIXED BASELINE BUG:** Noticed that different channels in the data had a baseline shifted by a different amount. This was not previous accounted for in the jitter and MPV extraction for cuboid detectors. Bug has been fixed, by calculating the predicted baseline and subtracting it to obtain the corrected waveforms. Recalculated jitter and energy deposition for cuboid detectors. This affects the g4 similation, which was reran with the new jitter values.
 * **2026-05-11:**
     * **Physics Simulation (v0300_scattering):** Completed the "Physics Bridge" verification. Implemented rejection sampling in the primary generator to ensure scattered deuterons perfectly follow the theoretical $f(\phi) = A + B \cos\phi + C \cos 2\phi$ azimuthal distribution for polarized beams. Discovered "crosstalk" secondary radiation washing out the asymmetry, and solved it by implementing a 10 MeV threshold CFD logic.
     * **Physics Simulation (v0500_cuboid_twin):** Began construction of the Cuboid Digital Twin to evaluate optimal geometry and layout. Configured a 4+4 geometry array (4 detectors at 30 degrees, 4 at 45 degrees) to find the "sweet spot" between analyzing power and cross-section.
     * **Jitter Deconvolution Methodology:** Developed a mathematically rigorous methodology to isolate intrinsic PMT/electronic noise from geometric optical spread. Extracted the true optical jitter (~0.195 ns) from the `v0200` cosmic ray tracking data, subtracted it from the physical measurements (~0.55 ns), and injected the resulting intrinsic electronic noise back into the `v0500` "Digital Twin" to realistically model hardware resolution.
+    * **Data Acquisition:**
+        * Data Acquisition for cylindrical detector. 850V, 2000 events. Det configuration 53.
+        * Data Acquisition for cylindrical detector. 850V, 2000 events. Det configuration 54.
+        * Data Acquisition for cylindrical detector. 850V, 2000 events. Det configuration 13.
+        * Data Acquisition for cylindrical detector. 850V, 2000 events. Det configuration 54.
+        * Data Acquisition for cylindrical detector. 850V, 2000 events. Det configuration 34.
+        * Data Acquisition for cylindrical detector. 850V, 2000 events. Det configuration 14.
 * **2026-05-09:**
     * Data Acquisition for cylindrical detector. 800V, 2000 events. Det configuration 53.
+    * Data Acquisition for cylindrical detector. 800V, 2000 events. Det configuration 54.
 * **2026-05-08:**
     * Data Acquisition for cylindrical detector. 800V, 2000 events. Det configuration 13.
     * Data Acquisition for cylindrical detector. 800V, 2000 events. Det configuration 43. (accidental repeat of 34. But we can use this to test for any errors and get an idea of uncertainty and noise.)
