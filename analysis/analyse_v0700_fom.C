@@ -30,7 +30,8 @@ void analyse_v0700_fom() {
     for (int i=0; i<nEvents; i++) {
         tree->GetEntry(i);
         for (int d=0; d<8; d++) {
-            if (edep[d] > 10.0) { // 10 MeV energy threshold to reject crosstalk
+            if (edep[d] > 1.0) { // 1 MeV threshold (lower than cuboid's 10 MeV
+                               // because 10mm disc deposits only ~2-5 MeV per deuteron)
                 counts[d]++;
             }
         }
