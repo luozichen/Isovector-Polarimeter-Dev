@@ -1,0 +1,1686 @@
+Making dependency for file sim_polarimeter.cc ...
+Making dependency for file src/PolarimeterSD.cc ...
+Making dependency for file src/PolarimeterDetectorConstructionMessenger.cc ...
+Making dependency for file src/PolarimeterDetectorConstruction.cc ...
+Making dependency for file src/TargetConstruction.cc ...
+Compiling TargetConstruction.cc ...
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Point3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/HepPolyhedron.h:171,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/G4Polyhedron.hh:111,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/solids/CSG/include/G4Box.hh:61,
+                 from src/TargetConstruction.cc:9:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h: In function ‘HepGeom::BasicVector3D<double> HepGeom::operator+(const HepGeom::BasicVector3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:475:55: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  475 |   operator+(const BasicVector3D<double> & v) { return v; }
+      |                                                       ^
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Point3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/HepPolyhedron.h:171,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/G4Polyhedron.hh:111,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/solids/CSG/include/G4Box.hh:61,
+                 from src/TargetConstruction.cc:9:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h: In copy constructor ‘HepGeom::Point3D<double>::Point3D(const HepGeom::Point3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:143:65: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  143 |     Point3D(const Point3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                 ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Point3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/HepPolyhedron.h:171,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/G4Polyhedron.hh:111,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/solids/CSG/include/G4Box.hh:61,
+                 from src/TargetConstruction.cc:9:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Point3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/HepPolyhedron.h:171,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/G4Polyhedron.hh:111,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/solids/CSG/include/G4Box.hh:61,
+                 from src/TargetConstruction.cc:9:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h: In constructor ‘HepGeom::Point3D<double>::Point3D(const HepGeom::BasicVector3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:151:71: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  151 |     Point3D(const BasicVector3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                       ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Point3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/HepPolyhedron.h:171,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/G4Polyhedron.hh:111,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/solids/CSG/include/G4Box.hh:61,
+                 from src/TargetConstruction.cc:9:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Normal3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/HepPolyhedron.h:172,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/G4Polyhedron.hh:111,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/solids/CSG/include/G4Box.hh:61,
+                 from src/TargetConstruction.cc:9:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Normal3D.h: In copy constructor ‘HepGeom::Normal3D<double>::Normal3D(const HepGeom::Normal3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Normal3D.h:122:67: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  122 |     Normal3D(const Normal3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                   ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Point3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/HepPolyhedron.h:171,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/G4Polyhedron.hh:111,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/solids/CSG/include/G4Box.hh:61,
+                 from src/TargetConstruction.cc:9:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Normal3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/HepPolyhedron.h:172,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/G4Polyhedron.hh:111,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/solids/CSG/include/G4Box.hh:61,
+                 from src/TargetConstruction.cc:9:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Normal3D.h: In constructor ‘HepGeom::Normal3D<double>::Normal3D(const HepGeom::BasicVector3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Normal3D.h:130:72: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  130 |     Normal3D(const BasicVector3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                        ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Point3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/HepPolyhedron.h:171,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/G4Polyhedron.hh:111,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/solids/CSG/include/G4Box.hh:61,
+                 from src/TargetConstruction.cc:9:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:7,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/HepPolyhedron.h:173,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/G4Polyhedron.hh:111,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/solids/CSG/include/G4Box.hh:61,
+                 from src/TargetConstruction.cc:9:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Vector3D.h: In copy constructor ‘HepGeom::Vector3D<double>::Vector3D(const HepGeom::Vector3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Vector3D.h:122:67: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  122 |     Vector3D(const Vector3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                   ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Point3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/HepPolyhedron.h:171,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/G4Polyhedron.hh:111,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/solids/CSG/include/G4Box.hh:61,
+                 from src/TargetConstruction.cc:9:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:7,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/HepPolyhedron.h:173,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/G4Polyhedron.hh:111,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/solids/CSG/include/G4Box.hh:61,
+                 from src/TargetConstruction.cc:9:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Vector3D.h: In constructor ‘HepGeom::Vector3D<double>::Vector3D(const HepGeom::BasicVector3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Vector3D.h:130:72: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  130 |     Vector3D(const BasicVector3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                        ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Point3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/HepPolyhedron.h:171,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/graphics_reps/include/G4Polyhedron.hh:111,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/solids/CSG/include/G4Box.hh:61,
+                 from src/TargetConstruction.cc:9:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+Compiling PolarimeterDetectorConstruction.cc ...
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h: In function ‘HepGeom::BasicVector3D<double> HepGeom::operator+(const HepGeom::BasicVector3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:475:55: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  475 |   operator+(const BasicVector3D<double> & v) { return v; }
+      |                                                       ^
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h: In copy constructor ‘HepGeom::Point3D<double>::Point3D(const HepGeom::Point3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:143:65: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  143 |     Point3D(const Point3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                 ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h: In constructor ‘HepGeom::Point3D<double>::Point3D(const HepGeom::BasicVector3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:151:71: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  151 |     Point3D(const BasicVector3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                       ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:7,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Vector3D.h: In copy constructor ‘HepGeom::Vector3D<double>::Vector3D(const HepGeom::Vector3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Vector3D.h:122:67: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  122 |     Vector3D(const Vector3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                   ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:7,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Vector3D.h: In constructor ‘HepGeom::Vector3D<double>::Vector3D(const HepGeom::BasicVector3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Vector3D.h:130:72: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  130 |     Vector3D(const BasicVector3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                        ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:8,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Normal3D.h: In copy constructor ‘HepGeom::Normal3D<double>::Normal3D(const HepGeom::Normal3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Normal3D.h:122:67: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  122 |     Normal3D(const Normal3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                   ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:8,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Normal3D.h: In constructor ‘HepGeom::Normal3D<double>::Normal3D(const HepGeom::BasicVector3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Normal3D.h:130:72: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  130 |     Normal3D(const BasicVector3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                        ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In copy constructor ‘TSubString::TSubString(const TSubString&)’:
+/data4/luozc25/files/root/include/TString.h:100:6: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  100 |      : fStr(s.fStr), fBegin(s.fBegin), fExtent(s.fExtent) { }
+      |      ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In copy constructor ‘TSubString::TSubString(const TSubString&)’:
+/data4/luozc25/files/root/include/TString.h:100:61: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  100 |      : fStr(s.fStr), fBegin(s.fBegin), fExtent(s.fExtent) { }
+      |                                                             ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In copy constructor ‘TSubString::TSubString(const TSubString&)’:
+/data4/luozc25/files/root/include/TString.h:100:61: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  100 |      : fStr(s.fStr), fBegin(s.fBegin), fExtent(s.fExtent) { }
+      |                                                             ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In static member function ‘static Ssiz_t TString::Align(Ssiz_t)’:
+/data4/luozc25/files/root/include/TString.h:219:35: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  219 |    static Ssiz_t  Align(Ssiz_t s) { return (s + (kAlignment-1)) & ~(kAlignment-1); }
+      |                                   ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In static member function ‘static Ssiz_t TString::Recommend(Ssiz_t)’:
+/data4/luozc25/files/root/include/TString.h:220:39: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  220 |    static Ssiz_t  Recommend(Ssiz_t s) { return (s < kMinCap ? kMinCap : Align(s+1)) - 1; }
+      |                                       ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In member function ‘void TString::SetShortSize(Ssiz_t)’:
+/data4/luozc25/files/root/include/TString.h:226:42: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  226 |    void           SetShortSize(Ssiz_t s) { fRep.fShort.fSize = (unsigned char)(s << 1); }
+      |                                          ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In member function ‘void TString::SetLongSize(Ssiz_t)’:
+/data4/luozc25/files/root/include/TString.h:232:41: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  232 |    void           SetLongSize(Ssiz_t s) { fRep.fLong.fSize = s; }
+      |                                         ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In member function ‘void TString::SetSize(Ssiz_t)’:
+/data4/luozc25/files/root/include/TString.h:234:37: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  234 |    void           SetSize(Ssiz_t s) { IsLong() ? SetLongSize(s) : SetShortSize(s); }
+      |                                     ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In member function ‘void TString::SetLongCap(Ssiz_t)’:
+/data4/luozc25/files/root/include/TString.h:235:40: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  235 |    void           SetLongCap(Ssiz_t s) { fRep.fLong.fCap = kLongMask | s; }
+      |                                        ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In function ‘UInt_t Hash(const TString&)’:
+/data4/luozc25/files/root/include/TString.h:481:36: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  481 | inline UInt_t Hash(const TString &s) { return s.Hash(); }
+      |                                    ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In function ‘UInt_t Hash(const TString*)’:
+/data4/luozc25/files/root/include/TString.h:482:36: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  482 | inline UInt_t Hash(const TString *s) { return s->Hash(); }
+      |                                    ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In function ‘typename std::enable_if<ROOT::TypeTraits::IsSignedNumeral<T>::value, TString>::type operator+(TString, T)’:
+/data4/luozc25/files/root/include/TString.h:516:25: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  516 | operator+(TString s, T i)
+      |                         ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In function ‘typename std::enable_if<ROOT::TypeTraits::IsUnsignedNumeral<T>::value, TString>::type operator+(TString, T)’:
+/data4/luozc25/files/root/include/TString.h:521:25: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  521 | operator+(TString s, T u)
+      |                         ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In function ‘typename std::enable_if<std::is_floating_point<_Tp>::value, TString>::type operator+(TString, T)’:
+/data4/luozc25/files/root/include/TString.h:526:25: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  526 | operator+(TString s, T f)
+      |                         ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In function ‘typename std::enable_if<ROOT::TypeTraits::IsSignedNumeral<T>::value, TString>::type operator+(T, const TString&)’:
+/data4/luozc25/files/root/include/TString.h:531:32: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  531 | operator+(T i, const TString &s)
+      |                                ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In function ‘typename std::enable_if<ROOT::TypeTraits::IsUnsignedNumeral<T>::value, TString>::type operator+(T, const TString&)’:
+/data4/luozc25/files/root/include/TString.h:541:32: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  541 | operator+(T u, const TString &s)
+      |                                ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In function ‘typename std::enable_if<std::is_floating_point<_Tp>::value, TString>::type operator+(T, const TString&)’:
+/data4/luozc25/files/root/include/TString.h:551:32: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  551 | operator+(T f, const TString &s)
+      |                                ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In member function ‘TString& TString::Append(const TString&)’:
+/data4/luozc25/files/root/include/TString.h:565:49: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  565 | inline TString &TString::Append(const TString &s)
+      |                                                 ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In member function ‘TString& TString::Append(const TString&, Ssiz_t)’:
+/data4/luozc25/files/root/include/TString.h:568:59: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  568 | inline TString &TString::Append(const TString &s, Ssiz_t n)
+      |                                                           ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In member function ‘TString& TString::operator+=(const TString&)’:
+/data4/luozc25/files/root/include/TString.h:574:53: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  574 | inline TString &TString::operator+=(const TString &s)
+      |                                                     ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In member function ‘Bool_t TString::BeginsWith(const char*, TString::ECaseCompare) const’:
+/data4/luozc25/files/root/include/TString.h:610:68: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  610 | inline Bool_t TString::BeginsWith(const char *s, ECaseCompare cmp) const
+      |                                                                    ^~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In member function ‘Bool_t TString::Contains(const char*, TString::ECaseCompare) const’:
+/data4/luozc25/files/root/include/TString.h:619:66: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  619 | inline Bool_t TString::Contains(const char *s, ECaseCompare cmp) const
+      |                                                                  ^~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In member function ‘Ssiz_t TString::Index(const char*, Ssiz_t, TString::ECaseCompare) const’:
+/data4/luozc25/files/root/include/TString.h:634:73: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  634 | inline Ssiz_t TString::Index(const char *s, Ssiz_t i, ECaseCompare cmp) const
+      |                                                                         ^~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In member function ‘Ssiz_t TString::Index(const TString&, Ssiz_t, TString::ECaseCompare) const’:
+/data4/luozc25/files/root/include/TString.h:637:76: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  637 | inline Ssiz_t TString::Index(const TString &s, Ssiz_t i, ECaseCompare cmp) const
+      |                                                                            ^~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In member function ‘TString& TString::Insert(Ssiz_t, const TString&)’:
+/data4/luozc25/files/root/include/TString.h:650:61: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  650 | inline TString &TString::Insert(Ssiz_t pos, const TString &s)
+      |                                                             ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In member function ‘TString& TString::Insert(Ssiz_t, const TString&, Ssiz_t)’:
+/data4/luozc25/files/root/include/TString.h:653:71: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  653 | inline TString &TString::Insert(Ssiz_t pos, const TString &s, Ssiz_t n)
+      |                                                                       ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In member function ‘TString& TString::Prepend(const TString&)’:
+/data4/luozc25/files/root/include/TString.h:662:50: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  662 | inline TString &TString::Prepend(const TString &s)
+      |                                                  ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In member function ‘TString& TString::Prepend(const TString&, Ssiz_t)’:
+/data4/luozc25/files/root/include/TString.h:665:60: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  665 | inline TString &TString::Prepend(const TString &s, Ssiz_t n)
+      |                                                            ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In member function ‘TString& TString::Replace(Ssiz_t, Ssiz_t, const TString&)’:
+/data4/luozc25/files/root/include/TString.h:680:72: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  680 | inline TString &TString::Replace(Ssiz_t pos, Ssiz_t n, const TString& s)
+      |                                                                        ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In member function ‘TString& TString::Replace(Ssiz_t, Ssiz_t, const TString&, Ssiz_t)’:
+/data4/luozc25/files/root/include/TString.h:684:43: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  684 |                                  Ssiz_t n2)
+      |                                           ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+In file included from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/MagField.hh:5,
+                 from /data4/luozc25/files/smsimulator5.5/smg4lib/construction/include/DipoleConstruction.hh:6,
+                 from src/PolarimeterDetectorConstruction.cc:33:
+/data4/luozc25/files/root/include/TString.h: In member function ‘TSubString& TSubString::operator=(const TSubString&)’:
+/data4/luozc25/files/root/include/TString.h:747:61: warning: declaration of ‘s’ shadows a global declaration [-Wshadow]
+  747 | inline TSubString &TSubString::operator=(const TSubString &s)
+      |                                                             ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/PhysicalConstants.h:41,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.icc:11,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/RotationX.h:282,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Vector/Rotation.h:28,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/management/include/G4RotationMatrix.hh:40,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4VPhysicalVolume.hh:53,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/track/include/G4Step.hh:67,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:33,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterDetectorConstruction.cc:13:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Units/SystemOfUnits.h:148:28: note: shadowed declaration is here
+  148 |   static constexpr double  s = second;
+      |                            ^
+src/PolarimeterDetectorConstruction.cc: In member function ‘virtual G4VPhysicalVolume* PolarimeterDetectorConstruction::Construct()’:
+src/PolarimeterDetectorConstruction.cc:91:15: warning: unused variable ‘targetMat’ [-Wunused-variable]
+   91 |   G4Material* targetMat = G4Material::GetMaterial("Target_CH2");
+      |               ^~~~~~~~~
+Compiling PolarimeterDetectorConstructionMessenger.cc ...
+Compiling PolarimeterSD.cc ...
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterSD.cc:11:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h: In function ‘HepGeom::BasicVector3D<double> HepGeom::operator+(const HepGeom::BasicVector3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:475:55: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  475 |   operator+(const BasicVector3D<double> & v) { return v; }
+      |                                                       ^
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterSD.cc:11:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h: In copy constructor ‘HepGeom::Point3D<double>::Point3D(const HepGeom::Point3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:143:65: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  143 |     Point3D(const Point3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                 ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterSD.cc:11:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterSD.cc:11:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h: In constructor ‘HepGeom::Point3D<double>::Point3D(const HepGeom::BasicVector3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:151:71: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  151 |     Point3D(const BasicVector3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                       ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterSD.cc:11:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:7,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterSD.cc:11:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Vector3D.h: In copy constructor ‘HepGeom::Vector3D<double>::Vector3D(const HepGeom::Vector3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Vector3D.h:122:67: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  122 |     Vector3D(const Vector3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                   ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterSD.cc:11:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:7,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterSD.cc:11:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Vector3D.h: In constructor ‘HepGeom::Vector3D<double>::Vector3D(const HepGeom::BasicVector3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Vector3D.h:130:72: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  130 |     Vector3D(const BasicVector3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                        ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterSD.cc:11:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:8,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterSD.cc:11:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Normal3D.h: In copy constructor ‘HepGeom::Normal3D<double>::Normal3D(const HepGeom::Normal3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Normal3D.h:122:67: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  122 |     Normal3D(const Normal3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                   ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterSD.cc:11:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:8,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterSD.cc:11:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Normal3D.h: In constructor ‘HepGeom::Normal3D<double>::Normal3D(const HepGeom::BasicVector3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Normal3D.h:130:72: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  130 |     Normal3D(const BasicVector3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                        ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4NavigationHistory.hh:50,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/volumes/include/G4TouchableHistory.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VReadOutGeometry.hh:35,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/digits_hits/detector/include/G4VSensitiveDetector.hh:35,
+                 from include/PolarimeterSD.hh:4,
+                 from src/PolarimeterSD.cc:11:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+Creating/replacing object files in /data4/luozc25/files/geant4.10.05.p01/tmp/Linux-g++/sim_polarimeter/libsim_polarimeter.a ...
+ar: creating /data4/luozc25/files/geant4.10.05.p01/tmp/Linux-g++/sim_polarimeter/libsim_polarimeter.a
+Compiling sim_polarimeter.cc ...
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/navigation/include/G4Navigator.hh:52,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4SteppingManager.hh:63,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4TrackingManager.hh:55,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/event/include/G4EventManager.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManagerKernel.hh:65,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManager.hh:130,
+                 from sim_polarimeter.cc:7:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h: In function ‘HepGeom::BasicVector3D<double> HepGeom::operator+(const HepGeom::BasicVector3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:475:55: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  475 |   operator+(const BasicVector3D<double> & v) { return v; }
+      |                                                       ^
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/navigation/include/G4Navigator.hh:52,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4SteppingManager.hh:63,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4TrackingManager.hh:55,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/event/include/G4EventManager.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManagerKernel.hh:65,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManager.hh:130,
+                 from sim_polarimeter.cc:7:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h: In copy constructor ‘HepGeom::Point3D<double>::Point3D(const HepGeom::Point3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:143:65: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  143 |     Point3D(const Point3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                 ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/navigation/include/G4Navigator.hh:52,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4SteppingManager.hh:63,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4TrackingManager.hh:55,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/event/include/G4EventManager.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManagerKernel.hh:65,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManager.hh:130,
+                 from sim_polarimeter.cc:7:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/navigation/include/G4Navigator.hh:52,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4SteppingManager.hh:63,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4TrackingManager.hh:55,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/event/include/G4EventManager.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManagerKernel.hh:65,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManager.hh:130,
+                 from sim_polarimeter.cc:7:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h: In constructor ‘HepGeom::Point3D<double>::Point3D(const HepGeom::BasicVector3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:151:71: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  151 |     Point3D(const BasicVector3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                       ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/navigation/include/G4Navigator.hh:52,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4SteppingManager.hh:63,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4TrackingManager.hh:55,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/event/include/G4EventManager.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManagerKernel.hh:65,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManager.hh:130,
+                 from sim_polarimeter.cc:7:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:7,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/navigation/include/G4Navigator.hh:52,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4SteppingManager.hh:63,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4TrackingManager.hh:55,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/event/include/G4EventManager.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManagerKernel.hh:65,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManager.hh:130,
+                 from sim_polarimeter.cc:7:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Vector3D.h: In copy constructor ‘HepGeom::Vector3D<double>::Vector3D(const HepGeom::Vector3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Vector3D.h:122:67: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  122 |     Vector3D(const Vector3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                   ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/navigation/include/G4Navigator.hh:52,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4SteppingManager.hh:63,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4TrackingManager.hh:55,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/event/include/G4EventManager.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManagerKernel.hh:65,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManager.hh:130,
+                 from sim_polarimeter.cc:7:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:7,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/navigation/include/G4Navigator.hh:52,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4SteppingManager.hh:63,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4TrackingManager.hh:55,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/event/include/G4EventManager.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManagerKernel.hh:65,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManager.hh:130,
+                 from sim_polarimeter.cc:7:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Vector3D.h: In constructor ‘HepGeom::Vector3D<double>::Vector3D(const HepGeom::BasicVector3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Vector3D.h:130:72: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  130 |     Vector3D(const BasicVector3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                        ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/navigation/include/G4Navigator.hh:52,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4SteppingManager.hh:63,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4TrackingManager.hh:55,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/event/include/G4EventManager.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManagerKernel.hh:65,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManager.hh:130,
+                 from sim_polarimeter.cc:7:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:8,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/navigation/include/G4Navigator.hh:52,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4SteppingManager.hh:63,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4TrackingManager.hh:55,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/event/include/G4EventManager.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManagerKernel.hh:65,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManager.hh:130,
+                 from sim_polarimeter.cc:7:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Normal3D.h: In copy constructor ‘HepGeom::Normal3D<double>::Normal3D(const HepGeom::Normal3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Normal3D.h:122:67: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  122 |     Normal3D(const Normal3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                   ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/navigation/include/G4Navigator.hh:52,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4SteppingManager.hh:63,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4TrackingManager.hh:55,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/event/include/G4EventManager.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManagerKernel.hh:65,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManager.hh:130,
+                 from sim_polarimeter.cc:7:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:8,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/navigation/include/G4Navigator.hh:52,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4SteppingManager.hh:63,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4TrackingManager.hh:55,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/event/include/G4EventManager.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManagerKernel.hh:65,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManager.hh:130,
+                 from sim_polarimeter.cc:7:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Normal3D.h: In constructor ‘HepGeom::Normal3D<double>::Normal3D(const HepGeom::BasicVector3D<double>&)’:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Normal3D.h:130:72: warning: implicitly-declared ‘constexpr HepGeom::BasicVector3D<double>::BasicVector3D(const HepGeom::BasicVector3D<double>&)’ is deprecated [-Wdeprecated-copy]
+  130 |     Normal3D(const BasicVector3D<double> & v) : BasicVector3D<double>(v) {}
+      |                                                                        ^
+In file included from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Point3D.h:18,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.icc:6,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/Transform3D.h:817,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/global/HEPGeometry/include/G4Transform3D.hh:32,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/management/include/G4AffineTransform.hh:71,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/geometry/navigation/include/G4Navigator.hh:52,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4SteppingManager.hh:63,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/tracking/include/G4TrackingManager.hh:55,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/event/include/G4EventManager.hh:44,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManagerKernel.hh:65,
+                 from /data4/luozc25/files/geant4.10.05.p01/source/run/include/G4RunManager.hh:130,
+                 from sim_polarimeter.cc:7:
+/data4/luozc25/files/geant4.10.05.p01/source/externals/clhep/include/CLHEP/Geometry/BasicVector3D.h:92:24: note: because ‘HepGeom::BasicVector3D<double>’ has user-provided ‘HepGeom::BasicVector3D<T>& HepGeom::BasicVector3D<T>::operator=(const HepGeom::BasicVector3D<T>&) [with T = double]’
+   92 |     BasicVector3D<T> & operator= (const BasicVector3D<T> & v) {
+      |                        ^~~~~~~~
+Using granular libraries ...
+Linking sim_polarimeter
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_ions.a(G4IonPhysics.o): In function `G4PhysicsConstructorFactory<G4IonPhysics>::G4PhysicsConstructorFactory(G4String const&)':
+G4IonPhysics.cc:(.text._ZN27G4PhysicsConstructorFactoryI12G4IonPhysicsEC2ERK8G4String[_ZN27G4PhysicsConstructorFactoryI12G4IonPhysicsEC5ERK8G4String]+0x34): undefined reference to `G4PhysicsConstructorRegistry::Instance()'
+G4IonPhysics.cc:(.text._ZN27G4PhysicsConstructorFactoryI12G4IonPhysicsEC2ERK8G4String[_ZN27G4PhysicsConstructorFactoryI12G4IonPhysicsEC5ERK8G4String]+0x8f): undefined reference to `G4PhysicsConstructorRegistry::AddFactory(G4String, G4VBasePhysConstrFactory*)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_binary.a(G4BinaryLightIonReaction.o): In function `G4BinaryLightIonReaction::DeExciteSpectatorNucleus(std::vector<G4ReactionProduct*, std::allocator<G4ReactionProduct*> >*, std::vector<G4ReactionProduct*, std::allocator<G4ReactionProduct*> >*, double, CLHEP::HepLorentzVector&)':
+G4BinaryLightIonReaction.cc:(.text+0x18dc): undefined reference to `G4ExcitationHandler::BreakItUp(G4Fragment const&)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_binary.a(G4BinaryCascade.o): In function `G4BinaryCascade::ModelDescription(std::ostream&) const':
+G4BinaryCascade.cc:(.text+0x4a9): undefined reference to `G4ExcitationHandler::ModelDescription(std::ostream&) const'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_binary.a(G4BinaryCascade.o): In function `G4BinaryCascade::PropagateModelDescription(std::ostream&) const':
+G4BinaryCascade.cc:(.text+0x681): undefined reference to `G4ExcitationHandler::ModelDescription(std::ostream&) const'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_binary.a(G4BinaryCascade.o): In function `G4BinaryCascade::DeExcite()':
+G4BinaryCascade.cc:(.text+0xbc07): undefined reference to `G4ExcitationHandler::BreakItUp(G4Fragment const&)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_decay.a(G4DecayPhysics.o): In function `G4PhysicsConstructorFactory<G4DecayPhysics>::G4PhysicsConstructorFactory(G4String const&)':
+G4DecayPhysics.cc:(.text._ZN27G4PhysicsConstructorFactoryI14G4DecayPhysicsEC2ERK8G4String[_ZN27G4PhysicsConstructorFactoryI14G4DecayPhysicsEC5ERK8G4String]+0x34): undefined reference to `G4PhysicsConstructorRegistry::Instance()'
+G4DecayPhysics.cc:(.text._ZN27G4PhysicsConstructorFactoryI14G4DecayPhysicsEC2ERK8G4String[_ZN27G4PhysicsConstructorFactoryI14G4DecayPhysicsEC5ERK8G4String]+0x8f): undefined reference to `G4PhysicsConstructorRegistry::AddFactory(G4String, G4VBasePhysConstrFactory*)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_helastic.a(G4HadronElasticPhysics.o): In function `G4HadronElasticPhysics::ConstructProcess()':
+G4HadronElasticPhysics.cc:(.text+0x209): undefined reference to `G4AntiNuclElastic::G4AntiNuclElastic()'
+G4HadronElasticPhysics.cc:(.text+0x2b5): undefined reference to `G4HadronElastic::G4HadronElastic(G4String const&)'
+G4HadronElasticPhysics.cc:(.text+0x31a): undefined reference to `G4HadronElastic::G4HadronElastic(G4String const&)'
+G4HadronElasticPhysics.cc:(.text+0x37f): undefined reference to `G4HadronElastic::G4HadronElastic(G4String const&)'
+G4HadronElasticPhysics.cc:(.text+0x41f): undefined reference to `G4ElasticHadrNucleusHE::G4ElasticHadrNucleusHE(G4String const&)'
+G4HadronElasticPhysics.cc:(.text+0x5c0): undefined reference to `G4HadronElasticProcess::G4HadronElasticProcess(G4String const&)'
+G4HadronElasticPhysics.cc:(.text+0x924): undefined reference to `G4HadronElasticProcess::G4HadronElasticProcess(G4String const&)'
+G4HadronElasticPhysics.cc:(.text+0xc20): undefined reference to `G4HadronElasticProcess::G4HadronElasticProcess(G4String const&)'
+G4HadronElasticPhysics.cc:(.text+0xc6c): undefined reference to `G4ChipsElasticModel::G4ChipsElasticModel()'
+G4HadronElasticPhysics.cc:(.text+0xcb8): undefined reference to `G4HadronElasticProcess::G4HadronElasticProcess(G4String const&)'
+G4HadronElasticPhysics.cc:(.text+0xd29): undefined reference to `G4ChipsElasticModel::G4ChipsElasticModel()'
+G4HadronElasticPhysics.cc:(.text+0xd81): undefined reference to `G4HadronElasticProcess::G4HadronElasticProcess(G4String const&)'
+G4HadronElasticPhysics.cc:(.text+0xe0c): undefined reference to `G4HadronElasticProcess::G4HadronElasticProcess(G4String const&)'
+G4HadronElasticPhysics.cc:(.text+0xe9c): undefined reference to `G4HadronElasticProcess::G4HadronElasticProcess(G4String const&)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_helastic.a(G4HadronElasticPhysics.o): In function `_GLOBAL__sub_I__ZGR29G4HadronElasticPhysicsFactory_':
+G4HadronElasticPhysics.cc:(.text.startup+0x137): undefined reference to `G4PhysicsConstructorRegistry::Instance()'
+G4HadronElasticPhysics.cc:(.text.startup+0x1aa): undefined reference to `G4PhysicsConstructorRegistry::AddFactory(G4String, G4VBasePhysConstrFactory*)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_builders.a(G4FTFBuilder.o): In function `G4FTFBuilder::BuildModel()':
+G4FTFBuilder.cc:(.text+0x87): undefined reference to `G4TheoFSGenerator::G4TheoFSGenerator(G4String const&)'
+G4FTFBuilder.cc:(.text+0xc5): undefined reference to `G4FTFModel::G4FTFModel(G4String const&)'
+G4FTFBuilder.cc:(.text+0xec): undefined reference to `G4LundStringFragmentation::G4LundStringFragmentation()'
+G4FTFBuilder.cc:(.text+0x109): undefined reference to `G4ExcitedStringDecay::G4ExcitedStringDecay(G4VLongitudinalStringDecay*)'
+G4FTFBuilder.cc:(.text+0x195): undefined reference to `G4GeneratorPrecompoundInterface::G4GeneratorPrecompoundInterface(G4VPreCompoundModel*)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4had_mod_util.a(G4Fragment.o): In function `operator<<(std::ostream&, G4Fragment const&)':
+G4Fragment.cc:(.text+0x55f): undefined reference to `operator<<(std::ostream&, G4NuclearPolarization const&)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4had_preequ_exciton.a(G4PreCompoundModel.o): In function `G4PreCompoundModel::InitialiseModel()':
+G4PreCompoundModel.cc:(.text+0x26): undefined reference to `G4NuclearLevelData::GetParameters()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4had_preequ_exciton.a(G4PreCompoundModel.o): In function `G4PreCompoundModel::~G4PreCompoundModel()':
+G4PreCompoundModel.cc:(.text+0x17f): undefined reference to `G4ExcitationHandler::~G4ExcitationHandler()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4had_preequ_exciton.a(G4PreCompoundModel.o): In function `G4PreCompoundModel::BuildPhysicsTable(G4ParticleDefinition const&)':
+G4PreCompoundModel.cc:(.text+0x3e6): undefined reference to `G4NuclearLevelData::GetParameters()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4had_preequ_exciton.a(G4PreCompoundModel.o): In function `G4PreCompoundModel::G4PreCompoundModel(G4ExcitationHandler*)':
+G4PreCompoundModel.cc:(.text+0x593): undefined reference to `G4NuclearLevelData::GetInstance()'
+G4PreCompoundModel.cc:(.text+0x5f1): undefined reference to `G4ExcitationHandler::G4ExcitationHandler()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4had_preequ_exciton.a(G4PreCompoundModel.o): In function `G4PreCompoundModel::DeExcite(G4Fragment&)':
+G4PreCompoundModel.cc:(.text+0xe87): undefined reference to `G4NuclearLevelData::GetLevelDensity(int, int, double)'
+G4PreCompoundModel.cc:(.text+0xfc9): undefined reference to `G4ExcitationHandler::BreakItUp(G4Fragment const&)'
+G4PreCompoundModel.cc:(.text+0x106b): undefined reference to `G4ExcitationHandler::BreakItUp(G4Fragment const&)'
+G4PreCompoundModel.cc:(.text+0x1573): undefined reference to `G4ExcitationHandler::BreakItUp(G4Fragment const&)'
+G4PreCompoundModel.cc:(.text+0x19c2): undefined reference to `G4ExcitationHandler::BreakItUp(G4Fragment const&)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4had_preequ_exciton.a(G4PreCompoundModel.o): In function `G4PreCompoundModel::InitialiseModel()':
+G4PreCompoundModel.cc:(.text+0xd6): undefined reference to `G4ExcitationHandler::Initialise()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4had_preequ_exciton.a(G4PreCompoundModel.o): In function `G4PreCompoundModel::BuildPhysicsTable(G4ParticleDefinition const&)':
+G4PreCompoundModel.cc:(.text+0x496): undefined reference to `G4ExcitationHandler::Initialise()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4had_preequ_exciton.a(G4PreCompoundTransitions.o): In function `G4PreCompoundTransitions::CalculateProbability(G4Fragment const&)':
+G4PreCompoundTransitions.cc:(.text+0x95): undefined reference to `G4NuclearLevelData::GetLevelDensity(int, int, double)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4had_preequ_exciton.a(G4PreCompoundTransitions.o): In function `G4PreCompoundTransitions::G4PreCompoundTransitions()':
+G4PreCompoundTransitions.cc:(.text+0xc84): undefined reference to `G4NuclearLevelData::GetInstance()'
+G4PreCompoundTransitions.cc:(.text+0xc90): undefined reference to `G4NuclearLevelData::GetParameters()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4had_preequ_exciton.a(G4GNASHTransitions.o): In function `G4GNASHTransitions::CalculateProbability(G4Fragment const&)':
+G4GNASHTransitions.cc:(.text+0xd0): undefined reference to `G4NuclearLevelData::GetInstance()'
+G4GNASHTransitions.cc:(.text+0xe7): undefined reference to `G4NuclearLevelData::GetLevelDensity(int, int, double)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4had_preequ_exciton.a(G4GNASHTransitions.o): In function `G4GNASHTransitions::G4GNASHTransitions()':
+G4GNASHTransitions.cc:(.text+0x3fb): undefined reference to `G4NuclearLevelData::GetInstance()'
+G4GNASHTransitions.cc:(.text+0x403): undefined reference to `G4NuclearLevelData::GetParameters()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4had_preequ_exciton.a(G4PreCompoundEmission.o): In function `G4PreCompoundEmission::AngularDistribution(G4VPreCompoundFragment*, G4Fragment const&, double)':
+G4PreCompoundEmission.cc:(.text+0x887): undefined reference to `G4NuclearLevelData::GetLevelDensity(int, int, double)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4had_preequ_exciton.a(G4PreCompoundEmission.o): In function `G4PreCompoundEmission::G4PreCompoundEmission()':
+G4PreCompoundEmission.cc:(.text+0x163e): undefined reference to `G4NuclearLevelData::GetInstance()'
+G4PreCompoundEmission.cc:(.text+0x164a): undefined reference to `G4NuclearLevelData::GetParameters()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4had_preequ_exciton.a(G4HETCNeutron.o): In function `G4HETCNeutron::SampleKineticEnergy(G4Fragment const&)':
+G4HETCNeutron.cc:(.text+0x14a): undefined reference to `G4NuclearLevelData::GetLevelDensity(int, int, double)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_stopping.a(G4StoppingPhysics.o): In function `G4StoppingPhysics::ConstructProcess()':
+G4StoppingPhysics.cc:(.text+0x125): undefined reference to `G4HadronicAbsorptionBertini::G4HadronicAbsorptionBertini(G4ParticleDefinition*)'
+G4StoppingPhysics.cc:(.text+0x13c): undefined reference to `G4HadronicAbsorptionFritiof::G4HadronicAbsorptionFritiof(G4ParticleDefinition*)'
+G4StoppingPhysics.cc:(.text+0x233): undefined reference to `G4MuonMinusCapture::G4MuonMinusCapture(G4HadronicInteraction*)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_stopping.a(G4StoppingPhysics.o): In function `G4PhysicsConstructorFactory<G4StoppingPhysics>::G4PhysicsConstructorFactory(G4String const&)':
+G4StoppingPhysics.cc:(.text._ZN27G4PhysicsConstructorFactoryI17G4StoppingPhysicsEC2ERK8G4String[_ZN27G4PhysicsConstructorFactoryI17G4StoppingPhysicsEC5ERK8G4String]+0x34): undefined reference to `G4PhysicsConstructorRegistry::Instance()'
+G4StoppingPhysics.cc:(.text._ZN27G4PhysicsConstructorFactoryI17G4StoppingPhysicsEC2ERK8G4String[_ZN27G4PhysicsConstructorFactoryI17G4StoppingPhysicsEC5ERK8G4String]+0x8f): undefined reference to `G4PhysicsConstructorRegistry::AddFactory(G4String, G4VBasePhysConstrFactory*)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_hinelastic.a(G4HadronPhysicsQGSP_BIC.o): In function `G4HadronPhysicsQGSP_BIC::Neutron()':
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x49a): undefined reference to `G4NeutronBuilder::G4NeutronBuilder(bool)'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x4c1): undefined reference to `G4QGSPNeutronBuilder::G4QGSPNeutronBuilder(bool)'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x4e3): undefined reference to `G4NeutronBuilder::RegisterMe(G4PhysicsBuilderInterface*)'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x4ff): undefined reference to `G4FTFPNeutronBuilder::G4FTFPNeutronBuilder(bool)'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x52a): undefined reference to `G4NeutronBuilder::RegisterMe(G4PhysicsBuilderInterface*)'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x53f): undefined reference to `G4BinaryNeutronBuilder::G4BinaryNeutronBuilder()'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x564): undefined reference to `G4NeutronBuilder::RegisterMe(G4PhysicsBuilderInterface*)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_hinelastic.a(G4HadronPhysicsQGSP_BIC.o): In function `G4HadronPhysicsQGSP_BIC::Proton()':
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x5b8): undefined reference to `G4ProtonBuilder::G4ProtonBuilder()'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x5df): undefined reference to `G4QGSPProtonBuilder::G4QGSPProtonBuilder(bool)'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x601): undefined reference to `G4ProtonBuilder::RegisterMe(G4PhysicsBuilderInterface*)'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x61d): undefined reference to `G4FTFPProtonBuilder::G4FTFPProtonBuilder(bool)'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x648): undefined reference to `G4ProtonBuilder::RegisterMe(G4PhysicsBuilderInterface*)'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x65d): undefined reference to `G4BinaryProtonBuilder::G4BinaryProtonBuilder()'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x682): undefined reference to `G4ProtonBuilder::RegisterMe(G4PhysicsBuilderInterface*)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_hinelastic.a(G4HadronPhysicsQGSP_BIC.o): In function `G4HadronPhysicsQGSP_BIC::Pion()':
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x6d8): undefined reference to `G4PiKBuilder::G4PiKBuilder()'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x6ff): undefined reference to `G4QGSPPiKBuilder::G4QGSPPiKBuilder(bool)'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x721): undefined reference to `G4PiKBuilder::RegisterMe(G4PhysicsBuilderInterface*)'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x73d): undefined reference to `G4FTFPPiKBuilder::G4FTFPPiKBuilder(bool)'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x76b): undefined reference to `G4PiKBuilder::RegisterMe(G4PhysicsBuilderInterface*)'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x780): undefined reference to `G4BertiniPiKBuilder::G4BertiniPiKBuilder()'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x7a5): undefined reference to `G4PiKBuilder::RegisterMe(G4PhysicsBuilderInterface*)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_hinelastic.a(G4HadronPhysicsQGSP_BIC.o): In function `G4HadronPhysicsQGSP_BIC::Others()':
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x7f9): undefined reference to `G4HyperonFTFPBuilder::G4HyperonFTFPBuilder()'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x80c): undefined reference to `G4HyperonFTFPBuilder::Build()'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x821): undefined reference to `G4AntiBarionBuilder::G4AntiBarionBuilder()'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x84a): undefined reference to `G4FTFPAntiBarionBuilder::G4FTFPAntiBarionBuilder(bool)'
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x860): undefined reference to `G4AntiBarionBuilder::RegisterMe(G4PhysicsBuilderInterface*)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_hinelastic.a(G4HadronPhysicsQGSP_BIC.o): In function `G4HadronPhysicsQGSP_BIC::Neutron()':
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x570): undefined reference to `G4NeutronBuilder::Build()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_hinelastic.a(G4HadronPhysicsQGSP_BIC.o): In function `G4HadronPhysicsQGSP_BIC::Proton()':
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x68e): undefined reference to `G4ProtonBuilder::Build()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_hinelastic.a(G4HadronPhysicsQGSP_BIC.o): In function `G4HadronPhysicsQGSP_BIC::Pion()':
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x7b1): undefined reference to `G4PiKBuilder::Build()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_hinelastic.a(G4HadronPhysicsQGSP_BIC.o): In function `G4HadronPhysicsQGSP_BIC::Others()':
+G4HadronPhysicsQGSP_BIC.cc:(.text+0x86d): undefined reference to `G4AntiBarionBuilder::Build()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_hinelastic.a(G4HadronPhysicsQGSP_BIC.o): In function `G4PhysicsConstructorFactory<G4HadronPhysicsQGSP_BIC>::G4PhysicsConstructorFactory(G4String const&)':
+G4HadronPhysicsQGSP_BIC.cc:(.text._ZN27G4PhysicsConstructorFactoryI23G4HadronPhysicsQGSP_BICEC2ERK8G4String[_ZN27G4PhysicsConstructorFactoryI23G4HadronPhysicsQGSP_BICEC5ERK8G4String]+0x34): undefined reference to `G4PhysicsConstructorRegistry::Instance()'
+G4HadronPhysicsQGSP_BIC.cc:(.text._ZN27G4PhysicsConstructorFactoryI23G4HadronPhysicsQGSP_BICEC2ERK8G4String[_ZN27G4PhysicsConstructorFactoryI23G4HadronPhysicsQGSP_BICEC5ERK8G4String]+0x8f): undefined reference to `G4PhysicsConstructorRegistry::AddFactory(G4String, G4VBasePhysConstrFactory*)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_em.a(G4EmStandardPhysics.o): In function `G4EmStandardPhysics::ConstructProcess()':
+G4EmStandardPhysics.cc:(.text+0x2f5): undefined reference to `G4hBremsstrahlung::G4hBremsstrahlung(G4String const&)'
+G4EmStandardPhysics.cc:(.text+0x35a): undefined reference to `G4hPairProduction::G4hPairProduction(G4String const&)'
+G4EmStandardPhysics.cc:(.text+0x3bd): undefined reference to `G4hBremsstrahlung::G4hBremsstrahlung(G4String const&)'
+G4EmStandardPhysics.cc:(.text+0x422): undefined reference to `G4hPairProduction::G4hPairProduction(G4String const&)'
+G4EmStandardPhysics.cc:(.text+0x485): undefined reference to `G4hBremsstrahlung::G4hBremsstrahlung(G4String const&)'
+G4EmStandardPhysics.cc:(.text+0x4ea): undefined reference to `G4hPairProduction::G4hPairProduction(G4String const&)'
+G4EmStandardPhysics.cc:(.text+0xa5e): undefined reference to `G4LivermorePhotoElectricModel::G4LivermorePhotoElectricModel(G4String const&)'
+G4EmStandardPhysics.cc:(.text+0xbad): undefined reference to `G4RayleighScattering::G4RayleighScattering(G4String const&, G4ProcessType)'
+G4EmStandardPhysics.cc:(.text+0xf20): undefined reference to `G4UAtomicDeexcitation::G4UAtomicDeexcitation()'
+G4EmStandardPhysics.cc:(.text+0x13c2): undefined reference to `G4RayleighScattering::G4RayleighScattering(G4String const&, G4ProcessType)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_em.a(G4EmStandardPhysics.o): In function `G4PhysicsConstructorFactory<G4EmStandardPhysics>::G4PhysicsConstructorFactory(G4String const&)':
+G4EmStandardPhysics.cc:(.text._ZN27G4PhysicsConstructorFactoryI19G4EmStandardPhysicsEC2ERK8G4String[_ZN27G4PhysicsConstructorFactoryI19G4EmStandardPhysicsEC5ERK8G4String]+0x34): undefined reference to `G4PhysicsConstructorRegistry::Instance()'
+G4EmStandardPhysics.cc:(.text._ZN27G4PhysicsConstructorFactoryI19G4EmStandardPhysicsEC2ERK8G4String[_ZN27G4PhysicsConstructorFactoryI19G4EmStandardPhysicsEC5ERK8G4String]+0x8f): undefined reference to `G4PhysicsConstructorRegistry::AddFactory(G4String, G4VBasePhysConstrFactory*)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_em.a(G4GammaGeneralProcess.o): In function `G4GammaGeneralProcess::BuildPhysicsTable(G4ParticleDefinition const&)':
+G4GammaGeneralProcess.cc:(.text+0x2b6c): undefined reference to `G4GammaConversionToMuons::ComputeMeanFreePath(double, G4Material const*)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_em.a(G4EmModelActivator.o): In function `G4EmModelActivator::FindOrAddProcess(G4ParticleDefinition const*, G4String const&)':
+G4EmModelActivator.cc:(.text+0x412): undefined reference to `G4RayleighScattering::G4RayleighScattering(G4String const&, G4ProcessType)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_em.a(G4EmModelActivator.o): In function `G4EmModelActivator::ActivateEmOptions()':
+G4EmModelActivator.cc:(.text+0x15f7): undefined reference to `G4LivermoreRayleighModel::G4LivermoreRayleighModel()'
+G4EmModelActivator.cc:(.text+0x175f): undefined reference to `G4LivermorePhotoElectricModel::G4LivermorePhotoElectricModel(G4String const&)'
+G4EmModelActivator.cc:(.text+0x1b18): undefined reference to `G4LivermoreRayleighModel::G4LivermoreRayleighModel()'
+G4EmModelActivator.cc:(.text+0x1d96): undefined reference to `G4LowEPComptonModel::G4LowEPComptonModel(G4ParticleDefinition const*, G4String const&)'
+G4EmModelActivator.cc:(.text+0x23fc): undefined reference to `G4LivermorePhotoElectricModel::G4LivermorePhotoElectricModel(G4String const&)'
+G4EmModelActivator.cc:(.text+0x2551): undefined reference to `G4LivermoreComptonModel::G4LivermoreComptonModel(G4ParticleDefinition const*, G4String const&)'
+G4EmModelActivator.cc:(.text+0x268f): undefined reference to `G4LivermoreGammaConversionModel::G4LivermoreGammaConversionModel(G4ParticleDefinition const*, G4String const&)'
+G4EmModelActivator.cc:(.text+0x2796): undefined reference to `G4LivermoreRayleighModel::G4LivermoreRayleighModel()'
+G4EmModelActivator.cc:(.text+0x2880): undefined reference to `G4LivermoreIonisationModel::G4LivermoreIonisationModel(G4ParticleDefinition const*, G4String const&)'
+G4EmModelActivator.cc:(.text+0x29da): undefined reference to `G4LivermoreBremsstrahlungModel::G4LivermoreBremsstrahlungModel(G4ParticleDefinition const*, G4String const&)'
+G4EmModelActivator.cc:(.text+0x2bf5): undefined reference to `G4PenelopePhotoElectricModel::G4PenelopePhotoElectricModel(G4ParticleDefinition const*, G4String const&)'
+G4EmModelActivator.cc:(.text+0x2d16): undefined reference to `G4PenelopeComptonModel::G4PenelopeComptonModel(G4ParticleDefinition const*, G4String const&)'
+G4EmModelActivator.cc:(.text+0x2e16): undefined reference to `G4PenelopeGammaConversionModel::G4PenelopeGammaConversionModel(G4ParticleDefinition const*, G4String const&)'
+G4EmModelActivator.cc:(.text+0x2f58): undefined reference to `G4PenelopeRayleighModel::G4PenelopeRayleighModel(G4ParticleDefinition const*, G4String const&)'
+G4EmModelActivator.cc:(.text+0x304f): undefined reference to `G4PenelopeIonisationModel::G4PenelopeIonisationModel(G4ParticleDefinition const*, G4String const&)'
+G4EmModelActivator.cc:(.text+0x31ab): undefined reference to `G4PenelopeBremsstrahlungModel::G4PenelopeBremsstrahlungModel(G4ParticleDefinition const*, G4String const&)'
+G4EmModelActivator.cc:(.text+0x32ae): undefined reference to `G4PenelopeIonisationModel::G4PenelopeIonisationModel(G4ParticleDefinition const*, G4String const&)'
+G4EmModelActivator.cc:(.text+0x340e): undefined reference to `G4PenelopeBremsstrahlungModel::G4PenelopeBremsstrahlungModel(G4ParticleDefinition const*, G4String const&)'
+G4EmModelActivator.cc:(.text+0x3507): undefined reference to `G4PenelopeAnnihilationModel::G4PenelopeAnnihilationModel(G4ParticleDefinition const*, G4String const&)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_em.a(G4EmModelActivator.o): In function `G4EmModelActivator::ActivateMicroElec()':
+G4EmModelActivator.cc:(.text+0x4ffb): undefined reference to `G4MicroElecElastic::G4MicroElecElastic(G4String const&, G4ProcessType)'
+G4EmModelActivator.cc:(.text+0x50b0): undefined reference to `G4MicroElecInelastic::G4MicroElecInelastic(G4String const&, G4ProcessType)'
+G4EmModelActivator.cc:(.text+0x5165): undefined reference to `G4MicroElecInelastic::G4MicroElecInelastic(G4String const&, G4ProcessType)'
+G4EmModelActivator.cc:(.text+0x5216): undefined reference to `G4MicroElecInelastic::G4MicroElecInelastic(G4String const&, G4ProcessType)'
+G4EmModelActivator.cc:(.text+0x5275): undefined reference to `G4LowECapture::G4LowECapture(double)'
+G4EmModelActivator.cc:(.text+0x5735): undefined reference to `G4MicroElecElasticModel::G4MicroElecElasticModel(G4ParticleDefinition const*, G4String const&)'
+G4EmModelActivator.cc:(.text+0x5a2e): undefined reference to `G4MicroElecInelasticModel::G4MicroElecInelasticModel(G4ParticleDefinition const*, G4String const&)'
+G4EmModelActivator.cc:(.text+0x5e88): undefined reference to `G4MicroElecInelasticModel::G4MicroElecInelasticModel(G4ParticleDefinition const*, G4String const&)'
+G4EmModelActivator.cc:(.text+0x630c): undefined reference to `G4MicroElecInelasticModel::G4MicroElecInelasticModel(G4ParticleDefinition const*, G4String const&)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_glnuclear.a(G4EmExtraPhysics.o): In function `G4EmExtraPhysics::ConstructProcess()':
+G4EmExtraPhysics.cc:(.text+0x3c0): undefined reference to `G4NeutrinoElectronProcess::G4NeutrinoElectronProcess(G4String, G4String const&)'
+G4EmExtraPhysics.cc:(.text+0x3fd): undefined reference to `G4NeutrinoElectronTotXsc::G4NeutrinoElectronTotXsc()'
+G4EmExtraPhysics.cc:(.text+0x431): undefined reference to `G4NeutrinoElectronProcess::SetBiasingFactor(double)'
+G4EmExtraPhysics.cc:(.text+0x495): undefined reference to `G4NeutrinoElectronCcModel::G4NeutrinoElectronCcModel(G4String const&)'
+G4EmExtraPhysics.cc:(.text+0x4f8): undefined reference to `G4NeutrinoElectronNcModel::G4NeutrinoElectronNcModel(G4String const&)'
+G4EmExtraPhysics.cc:(.text+0x60a): undefined reference to `G4SynchrotronRadiation::G4SynchrotronRadiation(G4String const&, G4ProcessType)'
+G4EmExtraPhysics.cc:(.text+0x795): undefined reference to `G4eeToHadrons::G4eeToHadrons(G4String const&)'
+G4EmExtraPhysics.cc:(.text+0x7c5): undefined reference to `G4eeToHadrons::SetCrossSecFactor(double)'
+G4EmExtraPhysics.cc:(.text+0x84c): undefined reference to `G4AnnihiToMuPair::G4AnnihiToMuPair(G4String const&, G4ProcessType)'
+G4EmExtraPhysics.cc:(.text+0x87c): undefined reference to `G4AnnihiToMuPair::SetCrossSecFactor(double)'
+G4EmExtraPhysics.cc:(.text+0x907): undefined reference to `G4GammaConversionToMuons::G4GammaConversionToMuons(G4String const&, G4ProcessType)'
+G4EmExtraPhysics.cc:(.text+0x937): undefined reference to `G4GammaConversionToMuons::SetCrossSecFactor(double)'
+G4EmExtraPhysics.cc:(.text+0x9cc): undefined reference to `G4MuonNuclearProcess::G4MuonNuclearProcess(G4String const&)'
+G4EmExtraPhysics.cc:(.text+0x9f3): undefined reference to `G4MuonVDNuclearModel::G4MuonVDNuclearModel()'
+G4EmExtraPhysics.cc:(.text+0xa81): undefined reference to `G4NeutrinoElectronProcess::SetBiasingFactors(double, double)'
+G4EmExtraPhysics.cc:(.text+0xa9d): undefined reference to `G4NeutrinoElectronTotXsc::SetBiasingFactors(double, double)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_glnuclear.a(G4EmExtraPhysics.o): In function `_GLOBAL__sub_I__ZGR23G4EmExtraPhysicsFactory_':
+G4EmExtraPhysics.cc:(.text.startup+0x137): undefined reference to `G4PhysicsConstructorRegistry::Instance()'
+G4EmExtraPhysics.cc:(.text.startup+0x1aa): undefined reference to `G4PhysicsConstructorRegistry::AddFactory(G4String, G4VBasePhysConstrFactory*)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_glnuclear.a(G4LENDBertiniGammaElectroNuclearBuilder.o): In function `G4LENDBertiniGammaElectroNuclearBuilder::Build()':
+G4LENDBertiniGammaElectroNuclearBuilder.cc:(.text+0x115): undefined reference to `G4LENDorBERTModel::G4LENDorBERTModel(G4ParticleDefinition*)'
+G4LENDBertiniGammaElectroNuclearBuilder.cc:(.text+0x122): undefined reference to `G4LENDModel::DumpLENDTargetInfo(bool)'
+G4LENDBertiniGammaElectroNuclearBuilder.cc:(.text+0x142): undefined reference to `G4LENDCombinedCrossSection::G4LENDCombinedCrossSection(G4ParticleDefinition*)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_glnuclear.a(G4BertiniElectroNuclearBuilder.o): In function `G4BertiniElectroNuclearBuilder::Build()':
+G4BertiniElectroNuclearBuilder.cc:(.text+0x1b0): undefined reference to `vtable for G4PhotoNuclearProcess'
+G4BertiniElectroNuclearBuilder.cc:(.text+0x248): undefined reference to `G4ElectronNuclearProcess::G4ElectronNuclearProcess(G4String const&)'
+G4BertiniElectroNuclearBuilder.cc:(.text+0x2aa): undefined reference to `G4PositronNuclearProcess::G4PositronNuclearProcess(G4String const&)'
+G4BertiniElectroNuclearBuilder.cc:(.text+0x2d1): undefined reference to `G4ElectroVDNuclearModel::G4ElectroVDNuclearModel()'
+G4BertiniElectroNuclearBuilder.cc:(.text+0x320): undefined reference to `G4CascadeInterface::G4CascadeInterface(G4String const&)'
+G4BertiniElectroNuclearBuilder.cc:(.text+0x382): undefined reference to `G4TheoFSGenerator::G4TheoFSGenerator(G4String const&)'
+G4BertiniElectroNuclearBuilder.cc:(.text+0x3c2): undefined reference to `G4QGSMFragmentation::G4QGSMFragmentation()'
+G4BertiniElectroNuclearBuilder.cc:(.text+0x3de): undefined reference to `G4ExcitedStringDecay::G4ExcitedStringDecay(G4VLongitudinalStringDecay*)'
+G4BertiniElectroNuclearBuilder.cc:(.text+0x401): undefined reference to `G4GeneratorPrecompoundInterface::G4GeneratorPrecompoundInterface(G4VPreCompoundModel*)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_glnuclear.a(G4BertiniElectroNuclearBuilder.o): In function `G4QGSModel<G4GammaParticipants>::Init(G4Nucleus const&, G4DynamicParticle const&)':
+G4BertiniElectroNuclearBuilder.cc:(.text._ZN10G4QGSModelI19G4GammaParticipantsE4InitERK9G4NucleusRK17G4DynamicParticle[_ZN10G4QGSModelI19G4GammaParticipantsE4InitERK9G4NucleusRK17G4DynamicParticle]+0xe6): undefined reference to `G4QGSParticipants::BuildInteractions(G4ReactionProduct const&)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_glnuclear.a(G4BertiniElectroNuclearBuilder.o): In function `G4QGSModel<G4GammaParticipants>::~G4QGSModel()':
+G4BertiniElectroNuclearBuilder.cc:(.text._ZN10G4QGSModelI19G4GammaParticipantsED2Ev[_ZN10G4QGSModelI19G4GammaParticipantsED5Ev]+0x1a): undefined reference to `G4SoftStringBuilder::~G4SoftStringBuilder()'
+G4BertiniElectroNuclearBuilder.cc:(.text._ZN10G4QGSModelI19G4GammaParticipantsED2Ev[_ZN10G4QGSModelI19G4GammaParticipantsED5Ev]+0x26): undefined reference to `G4DiffractiveStringBuilder::~G4DiffractiveStringBuilder()'
+G4BertiniElectroNuclearBuilder.cc:(.text._ZN10G4QGSModelI19G4GammaParticipantsED2Ev[_ZN10G4QGSModelI19G4GammaParticipantsED5Ev]+0x2d): undefined reference to `vtable for G4GammaParticipants'
+G4BertiniElectroNuclearBuilder.cc:(.text._ZN10G4QGSModelI19G4GammaParticipantsED2Ev[_ZN10G4QGSModelI19G4GammaParticipantsED5Ev]+0x3a): undefined reference to `G4QGSParticipants::~G4QGSParticipants()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_glnuclear.a(G4BertiniElectroNuclearBuilder.o): In function `G4QGSModel<G4GammaParticipants>::~G4QGSModel()':
+G4BertiniElectroNuclearBuilder.cc:(.text._ZN10G4QGSModelI19G4GammaParticipantsED0Ev[_ZN10G4QGSModelI19G4GammaParticipantsED5Ev]+0x1a): undefined reference to `G4SoftStringBuilder::~G4SoftStringBuilder()'
+G4BertiniElectroNuclearBuilder.cc:(.text._ZN10G4QGSModelI19G4GammaParticipantsED0Ev[_ZN10G4QGSModelI19G4GammaParticipantsED5Ev]+0x26): undefined reference to `G4DiffractiveStringBuilder::~G4DiffractiveStringBuilder()'
+G4BertiniElectroNuclearBuilder.cc:(.text._ZN10G4QGSModelI19G4GammaParticipantsED0Ev[_ZN10G4QGSModelI19G4GammaParticipantsED5Ev]+0x2d): undefined reference to `vtable for G4GammaParticipants'
+G4BertiniElectroNuclearBuilder.cc:(.text._ZN10G4QGSModelI19G4GammaParticipantsED0Ev[_ZN10G4QGSModelI19G4GammaParticipantsED5Ev]+0x3a): undefined reference to `G4QGSParticipants::~G4QGSParticipants()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_glnuclear.a(G4BertiniElectroNuclearBuilder.o): In function `G4QGSModel<G4GammaParticipants>::G4QGSModel()':
+G4BertiniElectroNuclearBuilder.cc:(.text._ZN10G4QGSModelI19G4GammaParticipantsEC2Ev[_ZN10G4QGSModelI19G4GammaParticipantsEC5Ev]+0xaf): undefined reference to `G4QGSParticipants::G4QGSParticipants()'
+G4BertiniElectroNuclearBuilder.cc:(.text._ZN10G4QGSModelI19G4GammaParticipantsEC2Ev[_ZN10G4QGSModelI19G4GammaParticipantsEC5Ev]+0xb6): undefined reference to `vtable for G4GammaParticipants'
+G4BertiniElectroNuclearBuilder.cc:(.text._ZN10G4QGSModelI19G4GammaParticipantsEC2Ev[_ZN10G4QGSModelI19G4GammaParticipantsEC5Ev]+0xc9): undefined reference to `G4DiffractiveStringBuilder::G4DiffractiveStringBuilder()'
+G4BertiniElectroNuclearBuilder.cc:(.text._ZN10G4QGSModelI19G4GammaParticipantsEC2Ev[_ZN10G4QGSModelI19G4GammaParticipantsEC5Ev]+0xd8): undefined reference to `G4SoftStringBuilder::G4SoftStringBuilder()'
+G4BertiniElectroNuclearBuilder.cc:(.text._ZN10G4QGSModelI19G4GammaParticipantsEC2Ev[_ZN10G4QGSModelI19G4GammaParticipantsEC5Ev]+0x139): undefined reference to `G4SoftStringBuilder::~G4SoftStringBuilder()'
+G4BertiniElectroNuclearBuilder.cc:(.text._ZN10G4QGSModelI19G4GammaParticipantsEC2Ev[_ZN10G4QGSModelI19G4GammaParticipantsEC5Ev]+0x144): undefined reference to `G4DiffractiveStringBuilder::~G4DiffractiveStringBuilder()'
+G4BertiniElectroNuclearBuilder.cc:(.text._ZN10G4QGSModelI19G4GammaParticipantsEC2Ev[_ZN10G4QGSModelI19G4GammaParticipantsEC5Ev]+0x150): undefined reference to `G4QGSParticipants::~G4QGSParticipants()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4phys_ctor_glnuclear.a(G4BertiniElectroNuclearBuilder.o): In function `G4QGSModel<G4GammaParticipants>::GetStrings()':
+G4BertiniElectroNuclearBuilder.cc:(.text._ZN10G4QGSModelI19G4GammaParticipantsE10GetStringsEv[_ZN10G4QGSModelI19G4GammaParticipantsE10GetStringsEv]+0x5f): undefined reference to `G4SoftStringBuilder::BuildString(G4PartonPair*)'
+G4BertiniElectroNuclearBuilder.cc:(.text._ZN10G4QGSModelI19G4GammaParticipantsE10GetStringsEv[_ZN10G4QGSModelI19G4GammaParticipantsE10GetStringsEv]+0x83): undefined reference to `G4PartonPair::~G4PartonPair()'
+G4BertiniElectroNuclearBuilder.cc:(.text._ZN10G4QGSModelI19G4GammaParticipantsE10GetStringsEv[_ZN10G4QGSModelI19G4GammaParticipantsE10GetStringsEv]+0xc4): undefined reference to `G4DiffractiveStringBuilder::BuildString(G4PartonPair*)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4had_string_man.a(G4VPartonStringModel.o): In function `G4VPartonStringModel::Scatter(G4Nucleus const&, G4DynamicParticle const&)':
+G4VPartonStringModel.cc:(.text+0x790): undefined reference to `G4ExcitedString::GetLeftParton() const'
+G4VPartonStringModel.cc:(.text+0x79d): undefined reference to `G4ExcitedString::GetRightParton() const'
+G4VPartonStringModel.cc:(.text+0x975): undefined reference to `G4ExcitedString::~G4ExcitedString()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_mgt.a(G4HadronInelasticProcess.o): In function `G4HadronInelasticProcess::G4HadronInelasticProcess(G4String const&, G4ParticleDefinition*)':
+G4HadronInelasticProcess.cc:(.text+0xda): undefined reference to `G4HadronInelasticDataSet::G4HadronInelasticDataSet(G4String const&)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_mgt.a(G4HadronicProcess.o): In function `G4HadronicProcess::~G4HadronicProcess()':
+G4HadronicProcess.cc:(.text+0x6a): undefined reference to `G4Nucleus::~G4Nucleus()'
+G4HadronicProcess.cc:(.text+0x82): undefined reference to `G4HadProjectile::~G4HadProjectile()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_mgt.a(G4HadronicProcess.o): In function `G4HadronicProcess::G4HadronicProcess(G4String const&, G4ProcessType)':
+G4HadronicProcess.cc:(.text+0x2e6): undefined reference to `G4HadProjectile::G4HadProjectile()'
+G4HadronicProcess.cc:(.text+0x304): undefined reference to `G4Nucleus::G4Nucleus()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_mgt.a(G4HadronicProcess.o): In function `G4HadronicProcess::G4HadronicProcess(G4String const&, G4HadronicProcessType)':
+G4HadronicProcess.cc:(.text+0x39d): undefined reference to `G4HadProjectile::G4HadProjectile()'
+G4HadronicProcess.cc:(.text+0x3bb): undefined reference to `G4Nucleus::G4Nucleus()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_mgt.a(G4HadronicProcess.o): In function `G4HadronicProcess::PostStepDoIt(G4Track const&, G4Step const&)':
+G4HadronicProcess.cc:(.text+0x4d6c): undefined reference to `G4HadProjectile::Initialise(G4Track const&)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_mgt.a(G4HadronicProcess.o): In function `G4HadronicProcess::G4HadronicProcess(G4String const&, G4ProcessType) [clone .cold]':
+G4HadronicProcess.cc:(.text.unlikely+0xdf): undefined reference to `G4Nucleus::~G4Nucleus()'
+G4HadronicProcess.cc:(.text.unlikely+0xf2): undefined reference to `G4HadProjectile::~G4HadProjectile()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_mgt.a(G4HadronicProcess.o): In function `G4HadronicProcess::G4HadronicProcess(G4String const&, G4HadronicProcessType) [clone .cold]':
+G4HadronicProcess.cc:(.text.unlikely+0x11b): undefined reference to `G4Nucleus::~G4Nucleus()'
+G4HadronicProcess.cc:(.text.unlikely+0x12e): undefined reference to `G4HadProjectile::~G4HadProjectile()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4NeutronRadCapture.o): In function `G4NeutronRadCapture::InitialiseModel()':
+G4NeutronRadCapture.cc:(.text+0x1388): undefined reference to `G4NuclearLevelData::GetInstance()'
+G4NeutronRadCapture.cc:(.text+0x1390): undefined reference to `G4NuclearLevelData::GetParameters()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PhotonEvaporation.o): In function `G4PhotonEvaporation::~G4PhotonEvaporation()':
+G4PhotonEvaporation.cc:(.text+0x71): undefined reference to `G4VEvaporationChannel::~G4VEvaporationChannel()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PhotonEvaporation.o): In function `G4PhotonEvaporation::GetUpperLevelEnergy(int, int)':
+G4PhotonEvaporation.cc:(.text+0x301): undefined reference to `G4NuclearLevelData::GetLevelManager(int, int)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PhotonEvaporation.o): In function `G4PhotonEvaporation::GetFinalLevelEnergy(int, int, double)':
+G4PhotonEvaporation.cc:(.text+0x386): undefined reference to `G4NuclearLevelData::GetLevelManager(int, int)'
+G4PhotonEvaporation.cc:(.text+0x3c1): undefined reference to `G4LevelManager::NearestLevelIndex(double, unsigned long) const'
+G4PhotonEvaporation.cc:(.text+0x47e): undefined reference to `G4LevelManager::PrintError(unsigned long, G4String const&) const'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PhotonEvaporation.o): In function `G4PhotonEvaporation::Initialise()':
+G4PhotonEvaporation.cc:(.text+0x4e7): undefined reference to `G4NuclearLevelData::GetParameters()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PhotonEvaporation.o): In function `G4PhotonEvaporation::Initialise() [clone .part.0]':
+G4PhotonEvaporation.cc:(.text+0x5fa): undefined reference to `G4NuclearLevelData::GetParameters()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PhotonEvaporation.o): In function `G4PhotonEvaporation::GetEmissionProbability(G4Fragment*)':
+G4PhotonEvaporation.cc:(.text+0x98f): undefined reference to `G4NuclearLevelData::GetLevelDensity(int, int, double)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PhotonEvaporation.o): In function `G4PhotonEvaporation::G4PhotonEvaporation(G4GammaTransition*)':
+G4PhotonEvaporation.cc:(.text+0x1109): undefined reference to `G4VEvaporationChannel::G4VEvaporationChannel(G4String const&)'
+G4PhotonEvaporation.cc:(.text+0x1177): undefined reference to `G4NuclearLevelData::GetInstance()'
+G4PhotonEvaporation.cc:(.text+0x1180): undefined reference to `G4NuclearPolarizationStore::GetInstance()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PhotonEvaporation.o): In function `G4PhotonEvaporation::GenerateGamma(G4Fragment*)':
+G4PhotonEvaporation.cc:(.text+0x12fc): undefined reference to `G4NuclearLevelData::GetLevelManager(int, int)'
+G4PhotonEvaporation.cc:(.text+0x1931): undefined reference to `G4LevelManager::PrintError(unsigned long, G4String const&) const'
+G4PhotonEvaporation.cc:(.text+0x1a4b): undefined reference to `G4LevelManager::NearestLevelIndex(double, unsigned long) const'
+G4PhotonEvaporation.cc:(.text+0x1b38): undefined reference to `G4LevelManager::NearestLevelIndex(double, unsigned long) const'
+G4PhotonEvaporation.cc:(.text+0x1ea7): undefined reference to `G4LevelManager::PrintError(unsigned long, G4String const&) const'
+G4PhotonEvaporation.cc:(.text+0x1f57): undefined reference to `G4LevelManager::NearestLevelIndex(double, unsigned long) const'
+G4PhotonEvaporation.cc:(.text+0x277c): undefined reference to `G4LevelManager::PrintError(unsigned long, G4String const&) const'
+G4PhotonEvaporation.cc:(.text+0x2819): undefined reference to `G4LevelManager::PrintError(unsigned long, G4String const&) const'
+G4PhotonEvaporation.cc:(.text+0x2874): undefined reference to `G4LevelManager::PrintError(unsigned long, G4String const&) const'
+G4PhotonEvaporation.cc:(.text+0x2902): undefined reference to `G4LevelManager::PrintError(unsigned long, G4String const&) const'
+G4PhotonEvaporation.cc:(.text+0x298e): undefined reference to `G4LevelManager::PrintError(unsigned long, G4String const&) const'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PhotonEvaporation.o):G4PhotonEvaporation.cc:(.text+0x2a07): more undefined references to `G4LevelManager::PrintError(unsigned long, G4String const&) const' follow
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PhotonEvaporation.o): In function `G4PhotonEvaporation::GenerateGamma(G4Fragment*)':
+G4PhotonEvaporation.cc:(.text+0x2f19): undefined reference to `G4NucLevel::PrintError(unsigned long, G4String const&) const'
+G4PhotonEvaporation.cc:(.text+0x2fbf): undefined reference to `G4NucLevel::PrintError(unsigned long, G4String const&) const'
+G4PhotonEvaporation.cc:(.text+0x3063): undefined reference to `G4NucLevel::PrintError(unsigned long, G4String const&) const'
+G4PhotonEvaporation.cc:(.text+0x3125): undefined reference to `G4NucLevel::PrintError(unsigned long, G4String const&) const'
+G4PhotonEvaporation.cc:(.text+0x3376): undefined reference to `G4LevelManager::PrintError(unsigned long, G4String const&) const'
+G4PhotonEvaporation.cc:(.text+0x352b): undefined reference to `G4LevelManager::PrintError(unsigned long, G4String const&) const'
+G4PhotonEvaporation.cc:(.text+0x35cb): undefined reference to `G4NucLevel::PrintError(unsigned long, G4String const&) const'
+G4PhotonEvaporation.cc:(.text+0x3642): undefined reference to `G4LevelManager::PrintError(unsigned long, G4String const&) const'
+G4PhotonEvaporation.cc:(.text+0x36bb): undefined reference to `G4LevelManager::PrintError(unsigned long, G4String const&) const'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PhotonEvaporation.o): In function `G4PhotonEvaporation::EmittedFragment(G4Fragment*)':
+G4PhotonEvaporation.cc:(.text+0x381d): undefined reference to `G4NuclearPolarizationStore::RemoveMe(G4NuclearPolarization*)'
+G4PhotonEvaporation.cc:(.text+0x39ee): undefined reference to `G4NuclearPolarizationStore::RemoveMe(G4NuclearPolarization*)'
+G4PhotonEvaporation.cc:(.text+0x39ff): undefined reference to `G4NuclearPolarization::~G4NuclearPolarization()'
+G4PhotonEvaporation.cc:(.text+0x3a1b): undefined reference to `G4NuclearPolarizationStore::FindOrBuild(int, int, double)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PhotonEvaporation.o): In function `G4PhotonEvaporation::BreakUpChain(std::vector<G4Fragment*, std::allocator<G4Fragment*> >*, G4Fragment*)':
+G4PhotonEvaporation.cc:(.text+0x3e61): undefined reference to `G4NuclearPolarization::~G4NuclearPolarization()'
+G4PhotonEvaporation.cc:(.text+0x40b3): undefined reference to `G4NuclearPolarization::G4NuclearPolarization(int, int, double)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PhotonEvaporation.o): In function `G4PhotonEvaporation::~G4PhotonEvaporation()':
+G4PhotonEvaporation.cc:(.text+0x42): undefined reference to `G4VEvaporationChannel::~G4VEvaporationChannel()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PhotonEvaporation.o): In function `G4PhotonEvaporation::G4PhotonEvaporation(G4GammaTransition*) [clone .cold]':
+G4PhotonEvaporation.cc:(.text.unlikely+0x27): undefined reference to `G4VEvaporationChannel::~G4VEvaporationChannel()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PhotonEvaporation.o):(.data.rel.ro._ZTI19G4PhotonEvaporation[_ZTI19G4PhotonEvaporation]+0x10): undefined reference to `typeinfo for G4VEvaporationChannel'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PhotonEvaporation.o):(.data.rel.ro._ZTV19G4PhotonEvaporation[_ZTV19G4PhotonEvaporation]+0x30): undefined reference to `G4VEvaporationChannel::GetLifeTime(G4Fragment*)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PhotonEvaporation.o):(.data.rel.ro._ZTV19G4PhotonEvaporation[_ZTV19G4PhotonEvaporation]+0x48): undefined reference to `G4VEvaporationChannel::Dump() const'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4GammaTransition.o): In function `G4GammaTransition::SampleDirection(G4Fragment*, double, int, int, int)':
+G4GammaTransition.cc:(.text+0x419): undefined reference to `operator<<(std::ostream&, G4NuclearPolarization const&)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PolarizationTransition.o): In function `G4PolarizationTransition::G4PolarizationTransition()':
+G4PolarizationTransition.cc:(.text+0x3c): undefined reference to `G4PolynomialPDF::G4PolynomialPDF(unsigned long, double const*, double, double)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PolarizationTransition.o): In function `G4PolarizationTransition::GenerateGammaPhi(double&, std::vector<std::vector<std::complex<double>, std::allocator<std::complex<double> > >, std::allocator<std::vector<std::complex<double>, std::allocator<std::complex<double> > > > > const&)':
+G4PolarizationTransition.cc:(.text+0xba2): undefined reference to `G4LegendrePolynomial::EvalAssocLegendrePoly(int, int, double, std::map<int, std::map<int, double, std::less<int>, std::allocator<std::pair<int const, double> > >, std::less<int>, std::allocator<std::pair<int const, std::map<int, double, std::less<int>, std::allocator<std::pair<int const, double> > > > > >*)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PolarizationTransition.o): In function `G4PolarizationTransition::GenerateGammaCosTheta(std::vector<std::vector<std::complex<double>, std::allocator<std::complex<double> > >, std::allocator<std::vector<std::complex<double>, std::allocator<std::complex<double> > > > > const&)':
+G4PolarizationTransition.cc:(.text+0x170a): undefined reference to `G4LegendrePolynomial::GetCoefficient(unsigned long, unsigned long)'
+G4PolarizationTransition.cc:(.text+0x1779): undefined reference to `G4PolynomialPDF::Simplify()'
+G4PolarizationTransition.cc:(.text+0x1781): undefined reference to `G4PolynomialPDF::GetRandomX()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PolarizationTransition.o): In function `G4PolarizationTransition::SampleGammaTransition(G4NuclearPolarization*, int, int, int, int, double, double&, double&)':
+G4PolarizationTransition.cc:(.text+0x2052): undefined reference to `G4LegendrePolynomial::EvalAssocLegendrePoly(int, int, double, std::map<int, std::map<int, double, std::less<int>, std::allocator<std::pair<int const, double> > >, std::less<int>, std::allocator<std::pair<int const, std::map<int, double, std::less<int>, std::allocator<std::pair<int const, double> > > > > >*)'
+G4PolarizationTransition.cc:(.text+0x2616): undefined reference to `G4NuclearPolarization::Clean()'
+G4PolarizationTransition.cc:(.text+0x27fe): undefined reference to `operator<<(std::ostream&, G4NuclearPolarization const&)'
+G4PolarizationTransition.cc:(.text+0x296d): undefined reference to `operator<<(std::ostream&, G4NuclearPolarization const&)'
+G4PolarizationTransition.cc:(.text+0x2a19): undefined reference to `G4NuclearPolarization::Clean()'
+G4PolarizationTransition.cc:(.text+0x2e64): undefined reference to `G4NuclearPolarization::Clean()'
+G4PolarizationTransition.cc:(.text+0x2f7a): undefined reference to `operator<<(std::ostream&, G4NuclearPolarization const&)'
+G4PolarizationTransition.cc:(.text+0x31d5): undefined reference to `G4NuclearPolarization::Clean()'
+G4PolarizationTransition.cc:(.text+0x34c0): undefined reference to `G4NuclearPolarization::Clean()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4hadronic_deex_photon_evaporation.a(G4PolarizationTransition.o): In function `G4PolarizationTransition::~G4PolarizationTransition()':
+G4PolarizationTransition.cc:(.text+0xa9): undefined reference to `G4PolynomialPDF::~G4PolynomialPDF()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4had_preequ_exciton.a(G4PreCompoundIon.o): In function `G4PreCompoundIon::ProbabilityDistributionFunction(double, G4Fragment const&)':
+G4PreCompoundIon.cc:(.text+0x7d): undefined reference to `G4NuclearLevelData::GetLevelDensity(int, int, double)'
+G4PreCompoundIon.cc:(.text+0xa2): undefined reference to `G4NuclearLevelData::GetLevelDensity(int, int, double)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4had_preequ_exciton.a(G4PreCompoundNucleon.o): In function `G4PreCompoundNucleon::ProbabilityDistributionFunction(double, G4Fragment const&)':
+G4PreCompoundNucleon.cc:(.text+0x37): undefined reference to `G4NuclearLevelData::GetLevelDensity(int, int, double)'
+G4PreCompoundNucleon.cc:(.text+0x58): undefined reference to `G4NuclearLevelData::GetLevelDensity(int, int, double)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4had_preequ_exciton.a(G4VPreCompoundFragment.o): In function `G4VPreCompoundFragment::G4VPreCompoundFragment(G4ParticleDefinition const*, G4VCoulombBarrier*)':
+G4VPreCompoundFragment.cc:(.text+0x9d): undefined reference to `G4NuclearLevelData::GetInstance()'
+G4VPreCompoundFragment.cc:(.text+0xa9): undefined reference to `G4NuclearLevelData::GetParameters()'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4had_preequ_exciton.a(G4HETCChargedFragment.o): In function `G4HETCChargedFragment::SampleKineticEnergy(G4Fragment const&)':
+G4HETCChargedFragment.cc:(.text+0x22): undefined reference to `G4NuclearLevelData::GetLevelDensity(int, int, double)'
+/data4/luozc25/files/geant4.10.05.p01/lib/Linux-g++/libG4had_preequ_exciton.a(G4HETCFragment.o): In function `G4HETCFragment::IntegrateEmissionProbability(double&, double&, G4Fragment const&)':
+G4HETCFragment.cc:(.text+0xd1): undefined reference to `G4NuclearLevelData::GetLevelDensity(int, int, double)'
+G4HETCFragment.cc:(.text+0xf7): undefined reference to `G4NuclearLevelData::GetLevelDensity(int, int, double)'
+collect2: error: ld returned 1 exit status
+/data4/luozc25/files/geant4.10.05.p01/config/binmake.gmk:398: recipe for target '/data4/luozc25/files/geant4.10.05.p01/bin/Linux-g++/sim_polarimeter' failed
+make: *** [/data4/luozc25/files/geant4.10.05.p01/bin/Linux-g++/sim_polarimeter] Error 1
