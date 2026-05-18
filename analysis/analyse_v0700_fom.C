@@ -81,18 +81,68 @@ void analyse_v0700_fom() {
     cout << "  Asymmetry (eps)    : " << eps_30 << endl;
     cout << "  Figure of Merit    : " << fom_30 << endl;
     
-    // ===== COMPARISON WITH CUBOID (v0500) =====
+    // ===== DYNAMIC COMPARISON WITH CUBOID (v0500) =====
+    TFile *fCub = TFile::Open("simulation/v0500_cuboid_twin/build/DET01_Scattering_Result.root");
+    double cuboid_fom_20 = 0.0, cuboid_fom_30 = 0.0;
+    double cuboid_eps_20 = 0.0, cuboid_eps_30 = 0.0;
+    int cuboid_N_20 = 0, cuboid_N_30 = 0;
+    int cub_nEvents = 0;
+
+    if (fCub && !fCub->IsZombie()) {
+        TTree *cubTree = (TTree*)fCub->Get("ScatteringData");
+        if (cubTree) {
+            cub_nEvents = cubTree->GetEntries();
+            int cub_counts[8] = {0};
+            double cub_edep[8];
+            for (int i=0; i<8; i++) {
+                cubTree->SetBranchAddress(Form("Edep_Scin%d", i), &cub_edep[i]);
+            }
+            for (int i=0; i<cub_nEvents; i++) {
+                cubTree->GetEntry(i);
+                for (int d=0; d<8; d++) {
+                    if (cub_edep[d] > 10.0) { // 10 MeV threshold for cuboids
+                        cub_counts[d]++;
+                    }
+                }
+            }
+            
+            // Normalize counts to match 1M beam events of cylindrical simulation
+            double normFactor = (double)nEvents / cub_nEvents;
+            
+            // Ring 0 (20 degrees)
+            int raw_N_L_20 = cub_counts[0];
+            int raw_N_R_20 = cub_counts[2];
+            int raw_N_tot_20 = raw_N_L_20 + raw_N_R_20;
+            if (raw_N_tot_20 > 0) cuboid_eps_20 = (double)(raw_N_L_20 - raw_N_R_20) / raw_N_tot_20;
+            cuboid_N_20 = TMath::Nint(raw_N_tot_20 * normFactor);
+            cuboid_fom_20 = cuboid_N_20 * cuboid_eps_20 * cuboid_eps_20;
+            
+            // Ring 1 (30 degrees)
+            int raw_N_L_30 = cub_counts[4];
+            int raw_N_R_30 = cub_counts[6];
+            int raw_N_tot_30 = raw_N_L_30 + raw_N_R_30;
+            if (raw_N_tot_30 > 0) cuboid_eps_30 = (double)(raw_N_L_30 - raw_N_R_30) / raw_N_tot_30;
+            cuboid_N_30 = TMath::Nint(raw_N_tot_30 * normFactor);
+            cuboid_fom_30 = cuboid_N_30 * cuboid_eps_30 * cuboid_eps_30;
+        }
+        fCub->Close();
+    } else {
+        // Fallback to old hardcoded 50k values scaled to 1M if file not found
+        double normFactor = (double)nEvents / 50000.0;
+        cuboid_eps_20 = -0.515924;
+        cuboid_eps_30 = -0.619048;
+        cuboid_N_20 = TMath::Nint(1099 * normFactor);
+        cuboid_N_30 = TMath::Nint(1029 * normFactor);
+        cuboid_fom_20 = cuboid_N_20 * cuboid_eps_20 * cuboid_eps_20;
+        cuboid_fom_30 = cuboid_N_30 * cuboid_eps_30 * cuboid_eps_30;
+        cub_nEvents = 50000;
+    }
+
     cout << "\n=====================================================" << endl;
     cout << "  HEAD-TO-HEAD: CUBOID (v0500) vs CYLINDER (v0700)   " << endl;
+    cout << Form("  Normalized to %d Beam Events", nEvents) << endl;
+    cout << Form("  (Cuboid raw: %d events, Cylinder raw: %d events)", cub_nEvents, nEvents) << endl;
     cout << "=====================================================" << endl;
-    
-    // v0500 results (from previous run, hardcoded for reference)
-    double cuboid_fom_20 = 292.529;
-    double cuboid_fom_30 = 394.333;
-    double cuboid_eps_20 = -0.515924;
-    double cuboid_eps_30 = -0.619048;
-    int cuboid_N_20 = 1099;
-    int cuboid_N_30 = 1029;
     
     cout << "\n           | Cuboid (v0500) | Cylinder (v0700) " << endl;
     cout << "  ---------+----------------+------------------" << endl;
@@ -105,17 +155,10 @@ void analyse_v0700_fom() {
     cout << Form("  30 deg F | %14.1f | %16.1f", cuboid_fom_30, fom_30) << endl;
 
     cout << "\n=====================================================" << endl;
-    if (fom_20 > fom_30 && fom_20 > 0) {
-        cout << "  CYLINDER WINNER: 20 Degrees" << endl;
-    } else if (fom_30 > 0) {
-        cout << "  CYLINDER WINNER: 30 Degrees" << endl;
-    } else {
-        cout << "  WARNING: No hits detected! Need more beam events." << endl;
-    }
     
     double best_cyl = max(fom_20, fom_30);
     double best_cub = max(cuboid_fom_20, cuboid_fom_30);
-    cout << Form("\n  Best Cuboid FOM:    %.1f", best_cub) << endl;
+    cout << Form("  Best Cuboid FOM:    %.1f", best_cub) << endl;
     cout << Form("  Best Cylinder FOM:  %.1f", best_cyl) << endl;
     cout << Form("  Ratio (Cub/Cyl):    %.1f", best_cub / max(best_cyl, 0.001)) << endl;
     cout << "=============================================\n" << endl;
