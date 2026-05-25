@@ -1,0 +1,835 @@
+PHYSICAL REVIEW C 101, 024603 (2020)
+
+New probe to study the symmetry energy at low nuclear density with the deuteron breakup reaction
+Xiao Liang (),1 Li Ou (),1,2,* and Zhigang Xiao ()3,4,†
+1
+
+2
+
+College of Physics and Technology, Guangxi Normal University, Guilin 541004, China
+Guangxi Key Laboratory of Nuclear Physics and Technology, Guangxi Normal University, Guilin 541004, China
+3
+Department of Physics, Tsinghua University, Beijing 100084, China
+4
+Collaborative Innovation Center of Quantum Matter, Beijing 100084, China
+(Received 21 October 2019; accepted 13 January 2020; published 7 February 2020)
+The reactions of nucleons and polarized deuterons scattered off a heavy target nucleus at large impact
+parameter with intermediate energies have been investigated by using the improved quantum molecular dynamics
+model. It is found that, due to the opposite effects of isovector potential on protons and neutrons, there is a
+significant difference between the angle distributions of elastically scattered protons and neutrons. To overcome
+the lack of a monochromatic neutron beam, the reaction of polarized deuterons peripherally scattered off a heavy
+target nucleus is used to replace the reaction of individual protons and neutrons scattered off a heavy target
+nucleus to study the isospin effect. It is found that the distributions of the scattering angle of the proton and the
+neutron originating from the elastic breakup of the deuteron are very similar to the results of the individual
+proton- and neutron-induced reactions. A new probe more effective and more clean, namely the difference
+between the elastic scattering angle of the proton and that of the neutron originating from the breakup of the
+polarized deuteron, is promoted to constrain the symmetry energy at subsaturation density.
+DOI: 10.1103/PhysRevC.101.024603
+
+I. INTRODUCTION
+
+The equation of state (EOS) of isospin asymmetric nuclear
+matter is still a hot topic nowadays. Especially, the symmetry
+energy that characterizes the isospin dependence of the EOS
+has received considerable attention in recent years, because
+of its importance not only to nuclear physics but also to
+many issues in astrophysics [1], such as the properties of
+rare isotopes [2,3]; the stabilities of superheavy nuclei [4];
+the dynamics of rare isotope reactions [2,5,6]; the structures,
+composition, and cooling of neutron stars [7–11]; and the
+mechanism of core-collapse and the explosion of supernovas
+[12–14].
+Unfortunately, because of the well-known difficulties of
+treating accurately quantum many-body problems and our
+poor knowledge about the spin-isospin dependence of manybody forces, theoretical predictions for the density dependence of the symmetry energy [Esym (ρ)] of nuclear matter
+away from the saturation density show large uncertainties
+[1,15]. Many efforts have been devoted to probing and constraining Esym (ρ) by analyses of terrestrial experiments and
+astrophysical observations, such as neutron skin [16–19],
+nuclear mass [20–22], nuclear charge radius [23], the massradius relationship [23], α decay [24], giant dipole resonance and pygmy dipole resonance [25–27], isospin diffusion
+[28–34], isospin drift [35], double neutron to proton ratio
+[36–43], light-charged particle flow [44–49], the π − /π + ratio
+
+*
+†
+
+liou@gxnu.edu.cn
+xiaozg@tsinghua.edu.cn
+
+2469-9985/2020/101(2)/024603(8)
+
+[50–54], the K + /K 0 ratio [55–58], and gravitational waves
+from merging neutron star binaries [59,60].
+Although a general consensus on the constraints of Esym (ρ)
+at saturation and subsaturation densities [61,62] has been
+obtained, there is still a considerable uncertainty. Further
+constraint of Esym (ρ) at subsaturation densities not only is
+necessary for itself but also is significant for the constraint of
+Esym (ρ) at suprasaturation densities. It is known that the socalled hadronic observables sensitive to Esym (ρ) at suprasaturation densities in heavy-ion collisions, the π − /π + ratio
+for example, inevitably suffer from effects of the symmetry
+energy at low densities during the final state of reaction.
+Therefore, it is quite important to verify the probed density
+region of probes. However, one knows these probes are in
+general sensitive to the high-density or low-density behaviors
+of the symmetry energy at certain beam energies and impact
+parameters. Even some established views about the probes
+face challenge with the deepening of research. For example,
+some works show that the π − /π + ratio, which is regarded as
+one of the probes sensitive to Esym (ρ) at suprasaturation densities, however, probes Esym (ρ) around saturation density [63].
+The plight of study of the symmetry energy is attributed
+to two reasons: One is the insufficiency of experimental data,
+and the other is that the extraction of Esym (ρ) from heavy-ion
+collisions (HICs) relies unavoidably on transport model simulations in most cases. Although people have organized five
+international collaborations attempting to find out the origin
+of different predictions for the same experiments by various
+transport models and trying to reduce the model uncertainty
+[64,65], the hope to thoroughly solve the problem is pretty
+slim for the foreseeable future. It is thus necessary to propose
+
+024603-1
+
+©2020 American Physical Society
+
+XIAO LIANG, LI OU, AND ZHIGANG XIAO
+
+PHYSICAL REVIEW C 101, 024603 (2020)
+
+more symmetry-energy-sensitive probes, which are effective
+and free from transport model limitations.
+So far, the existing symmetry-energy-sensitive probes are
+mostly based on HICs. Due to the complexity of HICs, considerable discrepancies in the model outputs lead constraints
+on Esym (ρ) to be still on the qualitative level. However,
+some types of direct reaction, like the elastic or quasielastic
+scattering as well as the direct projectile breakup, involve less
+degrees of freedom in the reaction process and may reduce
+the difficulties in modeling the collision. The probes of these
+kinds of reactions definitely reflect the information of Esym (ρ)
+at subsaturation densities because the system density is almost
+unchanged in the reaction process. By properly selecting the
+range of the impact parameter, one can limit the probed
+density into narrower windows.
+As shown in our previous work, due to the opposite effects
+of the isovector potential on the proton and the neutron, there
+is a significant difference in the angle distributions between
+the proton and the neutron elastically scattered off a heavy
+target at a large impact parameter [66]. The breakup of the
+polarized deuteron induced on heavy ions provides a novel
+and more quantitative constraint to the symmetry energy below half of the saturation density. The correlation angle of the
+proton and the neutron from the breakup of the deuteron can
+be a good candidate for a probe for Esym (ρ) at low densities
+[67]. As a follow-up work, in this article, we promote one
+more symmetry-energy-sensitive probe, namely the difference
+between the elastic scattering angle of the proton and that of
+the neutron originating from the breakup of the deuteron, to
+constrain Esym (ρ) at low densities.
+The article is organized as follows. In Sec. II, we briefly
+introduce the model. In Sec. III, we present the isospin effect
+in nucleon-induced reactions and polarized deuteron breakup
+reactions. Finally a brief summary is given in Sec. IV.
+
+II. MODEL
+
+The improved quantum molecular dynamics (ImQMD)
+model is an extended version of the quantum molecular dynamics (QMD) model for the simulations of HICs at intermediate beam energies [66,68–70]. The QMD model has been
+successfully applied in the study of HICs at intermediate energies and also has been applied in proton-induced collisions
+and provides a consistent description of the experimental data
+if available [71–75].
+In the ImQMD model, each nucleon is described by a
+Gaussian wave packet,
+
+
+1
+(r − ri )2
+i
+r
+·
+p
+exp
+−
++
+ψi (r) = 
+3/4
+i ,
+4σr2
+h̄
+2π σr2
+
+(1)
+
+where ri and pi are the center of the ith wave packet in the
+coordinate space and the momentum space, respectively, and
+σr is the width of wave packet, which satisfies σr · σ p = 2h̄ .
+By making the Wigner transform on the wave function, the
+one-body phase-space distribution function can be obtained,
+
+which reads as
+
+
+
+
+
+1
+(r − ri )2
+(p − pi )2
+exp −
+.
+exp −
+f (r, p) =
+(π h̄)3
+2σr2
+2σ p2
+i=1
+A
+
+
+(2)
+The time evolution of ri and pi for each nucleon is determined by solving the following Hamiltonian equations of
+motion:
+∂H
+,
+∂ri
+
+(3)
+
+H = T + UCoul + Uloc .
+
+(4)
+
+ṙi =
+
+∂H
+,
+∂ pi
+
+ṗi = −
+
+where
+
+p2i
+
+Here, the kinetic energy T = i 2m , UCoul is the Coulomb
+energy, and the nuclear local potential energy Uloc =
+Vloc [ρ(r)]dr, where Vloc is the full Skyrme-type potential energy density functional with just the spin-orbit term omitted,
+which reads
+Vloc =
+
+α ρ2
+β ρ η+1 gsur
+gsur,iso
+(∇ρ)2 +
++
+[∇(ρn −ρ p )]2
+η +
+2 ρ0 η + 1 ρ0
+2ρ0
+ρ0
++ gρτ
+
+ρ 8/3
+ρ05/3
+
++ (Aρ + Bρ γ + Cρ 5/3 )δ 2 ρ,
+
+(5)
+
+where ρ0 , ρ, ρn , and ρ p are the saturation density, the nucleon density, the neutron density, and the proton density,
+respectively, and the isospin asymmetry degree δ = (ρn −
+ρ p )/(ρn + ρ p ). All the parameters in Eq. (5) can be derived
+from the standard Skyrme interaction parameters [66]. To
+mimic the strong variation of Esym (ρ) as well as keep the
+isoscalar part of EOS unchanged, the volume symmetry potential energy term [corresponding to the last term in Eq. (5)]
+C
+is replaced with the form of 2s,p ( ρρ0 )γ ρ, by setting Asym =
+Csym = 0 and Bsym =
+written as
+Esym (ρ) =
+
+Cs,p
+.
+2
+
+Then the symmetry energy is
+
+Cs,k ρ
+2 ρ0
+
+2/3
+
++
+
+Cs,p ρ
+2 ρ0
+
+γ
+
+,
+
+(6)
+
+where Cs,k and Cs,p are the symmetry kinetic and potential energy parameters, respectively. The Skyrme parameter
+set MSL0 [17], one of Skyrme parameter sets which best
+satisfy the current understanding of the physics of nuclear
+matter over a wide range of applications [76], is used in this
+work. By using various γ , one can get MSL0-like Skyrme
+interactions with various Esym (ρ). In Fig. 1, we present the
+density dependence of the symmetry energy given by MSL0like Skyrme interactions with γ = 0.5, 1.0, and 2.0 adopted.
+The boxes in Fig. 1 indicate the probed density windows
+of observables in the reactions with the impact parameters
+b = 6, 7, and 8 fm, which is discussed in the following text.
+The impact parameter b, as shown in Fig. 2, is defined as
+the perpendicular distance between the initial vector velocity
+of a projectile and the center of target that the projectile is
+approaching.
+
+024603-2
+
+NEW PROBE TO STUDY THE SYMMETRY ENERGY AT LOW …
+
+PHYSICAL REVIEW C 101, 024603 (2020)
+
+1.0
+
+FIG. 1. The density dependence of the symmetry energy
+given by MSL0-like Skyrme interactions with γ = 0.5, 1.0, and
+2.0 adopted.
+
+While the initialization of the heavy ion is done as usual
+as described in Ref. [69], the deuteron is semiclassically
+initialized in a simplified scheme as follows. The neutron-toproton direction is taken as the long symmetric axis (LSA).
+The initial distance between the neutron and the proton is
+set to 3 ± r fm, where r is a random value in the range
+of 0–0.25 fm. The spatial coordinates and the momentum
+coordinates perpendicular to the LSA are set to zero. The
+direction of the momentum is initially set to be opposed for
+the neutron and the proton along the LSA, and the initial
+magnitude of the momentum is sampled randomly to obtain
+a stable deuteron until 100 fm/c, namely the root-meansquare radius of the deuteron remains at 2.1 ± 0.5 fm, where
+2.1 fm is the experimental value for the root-mean-square
+radius of the deuteron [77]. By rotating the LSA randomly
+or in a certain direction, one can mimic the unpolarized or
+preoriented deuteron beam as the initial state, respectively.
+For this simplification, the initial distance between the mass
+centers of projectile and the target is set to 25 fm. Then, the
+deuteron will soon enter the target potential field in 30 fm/c
+for reactions with a beam energy of 100 MeV/u.
+
+Fvn x
+nucleon
+Fvp
+
+b
+
+Fs
+y
+
+θ
+
+p
+z
+
+target
+
+FIG. 2. The schematic view of a nucleon peripherally scattered
+off of a heavy target.
+
+FIG. 3. The angular distributions of elastically scattered protons
+and neutrons in nucleon-induced reactions on 124 Sn at E = 100 MeV
+and b = 6, 7, and 8 fm.
+III. RESULTS AND DISCUSSIONS
+
+In this section, we illustrate and discuss the dynamical
+isospin effects in nucleon-induced reactions and deuteroninduced reactions.
+A. Isospin effects in nucleon-induced reactions
+
+When a nucleon peripherally passes by a heavy target
+nucleus, as shown by the illustration in Fig. 2, the nucleon
+experiences the nuclear force and the proton experiences the
+Coulomb force Fc . While the isoscalar nuclear force Fs is attractive to both the proton and the neutron, the isovector force
+Fv is attractive to the proton and repulsive to the neutron in the
+subsaturation density environment. This dynamical isospin
+effect should have the opposite effect on the elastic scattering
+angles of protons and neutrons and leads to the disparity
+between the angular distributions of the elastic scattering of
+protons and neutrons for the same incident energy and initial
+geometry.
+This conjecture has already been verified in our previous
+work; see Ref. [66] for details. The angular distributions of
+the elastic scattering of protons and neutrons in the protonor neutron-induced reaction on 124 Sn at E = 100 MeV and
+b = 6, 7, and 8 fm with the same symmetry energy parameter
+γ = 0.5 adopted in the calculations are shown in Fig. 3. One
+can see clearly that the nucleon-emitting angle decreases as
+b increases because the attraction from the target nucleus becomes weaker. For the cases of b = 7 and 8 fm, the elastically
+scattered protons show a trend to emit into a larger angle
+while the elastically scattered neutrons show a trend to emit
+into a smaller angle. For the case of b = 6 fm, the difference
+fades away due to the strong isoscalar potential dominating
+the scattering and smears the isovector potential effect on the
+proton or the neutron.
+Naturally, Esym (ρ) will affect the elastic scattering angle of
+the incident nucleon. For example, the angular distributions
+of emitted nucleons with two forms of Esym (ρ) (γ = 0.5 and
+2.0) adopted are shown in Fig. 4.
+
+024603-3
+
+XIAO LIANG, LI OU, AND ZHIGANG XIAO
+
+PHYSICAL REVIEW C 101, 024603 (2020)
+
+FIG. 4. The angular distributions of elastically scattered protons
+and neutrons in nucleon-induced reactions on 124 Sn at E = 100 MeV
+and b = 7 fm calculated with γ = 0.5 and 2.0.
+
+With the form of the power function, the symmetry potential with γ = 2.0 is weaker than that with γ = 0.5 at
+subsaturation densities. So the peak of the proton distribution
+with γ = 2.0 shifts to a smaller angle because the attraction
+from the isovector potential on the proton becomes weaker.
+While the peak of the neutron distribution with γ = 2.0 shifts
+to a larger angle because the repulsion from the isovector
+potential on the neutron becomes weaker.
+The angular distributions of emitted nucleons with various
+Esym (ρ) (γ = 0.5–2.0) adopted are shown in Fig. 5. One can
+see that there are regular relations between the angle distributions and the stiffnesses of the symmetry energy, except
+in the case of b = 6 fm. The peak of the proton distribution
+shows a trend to locate at a larger angle with a smaller γ
+value, while the peak of the neutron distribution shows a
+trend to locate at a smaller angle with a smaller γ value. To
+quantify the angle distribution in connection with the stiffness
+of the symmetry energy, the angle distributions are fitted with
+Gaussian distribution functions of θ as
+σ = σ0 +
+
+(θ −θc )2
+A
+e−2 W 2 ,
+√
+W π /2
+
+FIG. 5. The angular distributions of elastically scattered protons
+(left panels) and neutrons (right panels) in corresponding nucleoninduced reactions on 124 Sn at E = 100 MeV and b = 6 fm [panels
+(a) and (d)], b = 7 fm [panels (b) and (e)], and b = 8 fm [panels
+(c) and (f)] with various Esym (ρ ) values adopted in the calculations.
+The curves are the results of fitting the calculations with Gaussian
+functions.
+
+energy becomes stiffer; the effect of the symmetry energy is
+about 12%.
+As the symmetry energy becomes stiffer, the widths of
+distributions for both protons and neutrons become smaller;
+the effects of the symmetry energy are about 38% and 25%,
+
+(7)
+
+which are presented in Fig. 5 by the corresponding curves.
+Then the locations of peaks of distributions θc and the
+widths of distributions W as a function of γ , as shown in
+Fig. 6, can be used to study Esym (ρ). To scale the effect of the
+symmetry energy on the observable, when γ changes from 0.5
+to 2.0, the relative variation of the observable is defined as
+R=
+
+|y(0.5) − y(2.0)|
+100%.
+min[|y(0.5)|, |y(2.0)|]
+
+(8)
+
+One can see that, as the symmetry energy becomes stiffer,
+the locations of peaks of distribution of protons θcp become
+smaller, except in the case of b = 6 fm, which is not sensitive
+to the symmetry energy. In the case of b = 7 fm, the effect
+of the symmetry energy is about 21%. The locations of peaks
+of distribution of neutrons θcn become larger as the symmetry
+
+FIG. 6. The γ dependencies of the locations of peaks of distributions θc (a) and the widths of distributions W (b) for protons
+and neutrons elastically scattered off of 124 Sn at E = 100 MeV and
+b = 7 fm.
+
+024603-4
+
+NEW PROBE TO STUDY THE SYMMETRY ENERGY AT LOW …
+
+PHYSICAL REVIEW C 101, 024603 (2020)
+
+FIG. 9. The angle distributions of protons (a) and neutrons
+(b) from the breakup of deuterons elastically scattered off of 124 Sn
+with 100 MeV/u and b = 7 fm.
+
+FIG. 7. The γ dependencies of the difference between the locations of peaks of distributions of elastically scattered protons and
+neutrons in the corresponding nucleon elastically scattered off of
+124
+Sn at E = 100 MeV and b = 6, 7, and 8 fm.
+
+respectively. The sensitivities of these observables are close
+to those of existing observables with sensitivities of about
+20%. To get a more sensitive observable, the difference between the locations of peaks of distributions of protons and
+neutrons, namely θc = θcp − θcn , can be constructed. The γ
+dependence of θc is presented in Fig. 7. One can see that,
+as the symmetry energy becomes stiffer, θc changes from
+positive to negative, and the sensitivity of θc to γ is about
+370% for b = 7 fm, which is more highly sensitive than the
+existing observables.
+B. Isospin effects in deuteron-induced reactions
+
+Because monochromatic neutron beams with high energy
+are hardly available, conducting experiments for neutroninduced reactions remains a difficult task. Thanks to the availability of polarized deuteron beams at hundreds of MeV/u
+at various running accelerators around the world [78–82], the
+deuteron, with one proton and one neutron bound loosely
+at a large average separation distance, provides an alternative opportunity to execute “proton- and neutron-induced”
+reactions by deuteron-induced reactions. If a deuteron breaks
+without collision when it peripherally passes by a heavy target
+nucleus, it provides a mixed proton-neutron beam to probe
+the isospin effect. As shown by the illustration in Fig. 8,
+Fvn
+
+x
+
+deuteron
+θn
+Fvp
+
+pn
+θp
+
+z
+
+Fs
+y
+
+the two nucleons in the deuteron experience nuclear force
+and Coulomb force Fc , and the latter is repulsive only for
+protons. While the isoscalar nuclear force Fs is attractive to
+both nucleons, the isovector force Fv is attractive to protons
+and repulsive to neutrons.
+Because of the exchange symmetry of the wave function
+with the exchange of n and p, as done in Ref. [67], the
+simulation is done by mimicking a fully tensor- and vectorpolarized deuteron beam with a 50% possibility for r np //k
+and a 50% possibility for −r np //k, where r np is the relative
+vector from neutron to proton and k is the particle wave
+vector. In the following calculations, the LSA of the deuteron
+is preorientated parallel to the beam axis.
+The angle distributions of protons and neutrons from the
+breakup of polarization deuterons elastically scattered off of
+124
+Sn with 100 MeV/u and b = 7 fm are shown in Fig. 9.
+One can see that the behaviors of the angle distributions of elastically scattered protons and neutrons originating
+from the breakup of deuterons are quite similar to those in
+nucleon-induced reactions. The softer symmetry energy gives
+a wider distribution, a larger local angle of the peak for
+proton distribution, and a smaller local angle of the peak for
+neutron distribution. For more clear and direct comparison,
+the corresponding nucleon angular distributions for the free
+nucleon-induced and the deuteron-induced reactions for b = 7
+and 8 fm with γ = 0.5, 1.0, and 2.0 are presented in Fig. 10.
+One can see that the corresponding distributions are similar to
+each other, with only tiny differences.
+Once again, the angle distributions are fitted with Gaussian
+distribution functions, and the γ dependencies of the location
+of peaks θc and widths W of distributions are shown in
+Fig. 11. The locations of peaks θc and widths W of distributions for deuteron-induced reactions are very close to those
+
+target
+
+proton
+neutron
+
+pp
+
+FIG. 8. The schematic view of a deuteron-induced peripheral
+collision on a heavy target nucleus.
+
+FIG. 10. The angle distributions of protons and neutrons from
+the breakup of deuterons elastically scattered off of 124 Sn with
+100 MeV/u and b = 7 and 8 fm, compared with those from corresponding nucleon-induced reactions.
+
+024603-5
+
+XIAO LIANG, LI OU, AND ZHIGANG XIAO
+
+PHYSICAL REVIEW C 101, 024603 (2020)
+
+FIG. 13. The γ dependencies of the locations of peaks (a) and
+widths (b) of distributions of differences between the elastic scattering angles of protons and neutrons originating from the breakup
+of deuterons in deuteron-induced reactions on 124 Sn with E =
+100 MeV/u at b = 6, 7, 8, and 6.5–8.5 fm.
+
+FIG. 11. The γ dependencies of the location of peaks θc and
+widths W of distributions of elastically scattered protons and neutrons, where “d-in.” denotes E = 100 MeV/u deuteron-induced
+reactions and “N-in.” denotes E = 100 MeV proton- or neutroninduced reactions on 124 Sn at b = 7 fm.
+
+for nucleon-induced reactions. This means that the protons
+and neutrons from the breakup of deuterons in polarized
+deuteron-induced reactions indeed play “synchronously” the
+corresponding role of nucleon projectiles in nucleon-induced
+reactions.
+Therefore, one can use the difference between the scattering angle of the proton and the neutron (δθ = θ p − θn ) from
+the breakup of the deuteron in each single event, but not the
+difference between the locations of peaks of distributions of
+protons and neutrons, to study Esym (ρ). By this method, the
+influence from the uncertainty of the isoscalar potential can
+be further reduced, because the proton and the neutron from
+the breakup of the deuteron in the same event undergo nearly
+the same isoscalar potential from the target. In Fig. 12, γ dependencies of δθ distributions in E = 100 MeV/u deuteroninduced reactions on 124 Sn at b = 6, 7, 8, and 6.5–8.5 fm are
+
+FIG. 12. The γ dependencies of the difference between the elastic scattering angles of protons and neutrons originating from the
+breakup of deuterons in deuteron-induced reactions on 124 Sn with
+E = 100 MeV/u at b = 6, 7, 8, and 6.5–8.5 fm.
+
+presented. For the case of b = 6 fm, in which the deuteron
+is very close to the target, the isoscalar potential dominates
+the scattering, the distinctions between the distributions with
+various Esym (ρ) are not obvious, all centers of δθ distributions
+locate around zero degrees, and the widths of the distributions
+are almost the same. As the impact parameter increases, the
+isovector potential effect becomes obvious. The distribution
+with the soft symmetry energy is wider than that with the stiff
+one. The centers of δθ distributions with the soft symmetry
+energy show a trend to locate at positive angles relative to
+those with the stiff one, which show a trend to locate at
+negative angles. From the results of b = 7 and 8 fm, the δθ
+distribution is not too sensitive to the fine division of the
+impact parameter. That is very helpful to eliminate much of
+the hardship in experiments and to improve the accuracy of
+constraint on Esym (ρ). Because the impact parameter is not
+a directly measurable quantity, usually the impact parameter
+range is estimated through various means (see Ref. [83] for
+more details). Here we also give the results of peripheral
+reactions with the parameter range b = 6.5–8.5 fm. Finally
+one can see that the results in peripheral collisions mixed with
+b = 6.8–8.5 fm still exhibit sensitivity to Esym (ρ). One thing
+worth mentioning is that there are two peaks of distribution
+for the rather soft Esym (ρ) (small γ ). That is because the
+tensor- and vector-polarized deuteron beam contains a 50%
+possibility for r np //k and a 50% possibility for −r np //k. The
+stronger isovector force forms a torque acting on the proton
+and the neutron and modifies the orientation of the incident
+deuteron before the breakup [67].
+Fitting all distributions with Gaussian functions, one can
+get the locations of peaks and widths of δθ distributions.
+The γ dependencies of the locations of peaks and widths are
+presented in Fig. 13. From the results, one can find the following: For small impact parameters, i.e., b = 6 fm, δθc is not
+sensitive to γ . For large impact parameters, δθc shows strong
+sensitivity to Esym (ρ), decreasing from positive to negative
+degrees with increasing stiffness of the symmetry energy.
+Moreover, the widths of the distributions W show sensitivity
+to γ for all impact parameters. Again we give the results of
+peripheral reactions with the parameter range b = 6.5–8.5 fm.
+One can see that the effects of the symmetry energy on δθc
+and W are about 415% and 95%, respectively. Although δθc
+and W are not so sensitive in the case of γ > 1.2, this does
+not impede δθc and W from being good candidates to probe
+
+024603-6
+
+NEW PROBE TO STUDY THE SYMMETRY ENERGY AT LOW …
+
+PHYSICAL REVIEW C 101, 024603 (2020)
+IV. SUMMARY
+
+FIG. 14. The local densities experienced by protons and neutrons
+from the breakup of deuterons elastically scattered off of 124 Sn with
+100 MeV/u with various impact parameters as functions of time.
+
+Esym (ρ), because the very stiff symmetry energy with γ > 1.5
+has been ruled out by existing experiments and theories.
+Finally, the probed density of this method should be indicated clearly. In Fig. 14, the local density experienced by
+protons and neutrons from the breakup of deuterons elastically
+scattered off of 124 Sn with 100 MeV/u with various impact
+parameters as functions of time are presented. One can see
+clearly that the elastically scattering protons and neutrons in
+deuteron peripheral reactions pass through the periphery of
+the target nuclei where the density is below half of the saturation density. The Esym (ρ) windows probed by this method are
+shown in Fig. 1 by boxes for various impact parameters. It is
+reasonable to assert that the upper limit of the Esym (ρ) window
+is below 0.3ρ0 , because for the case of b = 6 fm most of the
+collisions (about 94%) are inelastic scattering due to collisions
+with targets.
+
+[1] B. A. Li, L. W. Chen, and C. M. Ko, Phys. Rep. 464, 113 (2008).
+[2] V. Baran, M. Colonna, V. Greco, and M. Di Toro, Phys. Rep.
+410, 335 (2005).
+[3] N. Nikolov, N. Schunck, W. Nazarewicz, M. Bender, and J. Pei,
+Phys. Rev. C 83, 034305 (2011).
+[4] J. Dong, W. Zuo, and W. Scheid, Phys. Rev. Lett. 107, 012501
+(2011).
+[5] A. W. Steiner, M. Prakash, J. Lattimer, and P. J. Ellis, Phys.
+Rep. 411, 325 (2005).
+[6] J. M. Lattimer and M. Prakash, Phys. Rep. 442, 109 (2007).
+[7] J. M. Lattimer and M. Prakash, Phys. Rep. 333, 121 (2000).
+[8] C. J. Horowitz and J. Piekarewicz, Phys. Rev. Lett. 86, 5647
+(2001).
+[9] B. G. Todd-Rutel and J. Piekarewicz, Phys. Rev. Lett. 95,
+122501 (2005).
+[10] B. K. Sharma and S. Pal, Phys. Lett. B 682, 23 (2009).
+[11] M. Prakash, T. L. Ainsworth, and J. M. Lattimer, Phys. Rev.
+Lett. 61, 2518 (1988).
+[12] P. Bonche and D. Vautherin, Nucl. Phys. A 372, 496 (1981).
+[13] G. Watanabe, H. Sonoda, T. Maruyama, K. Sato, K. Yasuoka,
+and T. Ebisuzaki, Phys. Rev. Lett. 103, 121101 (2009).
+
+Within the ImQMD model, proton-induced and neutroninduced reactions on heavy target nuclei with 100-MeV incident energies have been studied. It is found that, due to the
+isovector potential, there is a significant difference between
+the elastic scattering angles of protons and neutrons in peripheral reactions. The difference between the locations of peaks
+of distributions of protons or neutrons elastically scattered off
+of heavy targets is very sensitive to the density dependence of
+the symmetry energy. To overcome the lack of a monochromatic neutron beam, the polarized deuteron peripherally scattered off of a heavy target nucleus has been investigated. It
+is found that the behaviors of angle distribution of elasticscattering protons and neutrons originating from the breakup
+of deuterons are quite similar to those in corresponding
+nucleon-induced reactions. Therefore, the polarized deuteron
+scattered off of a heavy target nucleus can be an alternative to
+the individual proton- and neutron-induced reactions. In terms
+of the sensitivity and the cleanness, a new probe, namely the
+difference between the elastic scattering angle of the proton
+and that of the neutron originating from the breakup of the
+deuteron, is promoted to be a promising candidate to constrain
+the symmetry energy at subsaturation densities.
+ACKNOWLEDGMENTS
+
+This work has been supported by the National Natural
+Science Foundation of China under Grants No. 11965004, No.
+11875174, No. 11890712, No. U1867212, No. 11711540016,
+and No. 11847317; the Natural Science Foundation of
+Guangxi Province under Grants No. 2016GXNSFFA380001
+and No. 2017GXNSFGA198001; the Foundation of Guangxi
+Innovative Team and Distinguished Scholar in Institutions
+of Higher Education, and the Tsinghua University Initiative
+Scientific Research Program.
+
+[14] G. Shen, C. J. Horowitz, and S. Teige, Phys. Rev. C 83, 035802
+(2011).
+[15] B. A. Brown, Phys. Rev. Lett. 85, 5296 (2000).
+[16] M. Warda, X. Vinas, X. Roca-Maza, and M. Centelles, Phys.
+Rev. C 81, 054309 (2010).
+[17] L.-W. Chen, C.-M. Ko, B.-A. Li, and J. Xu, Phys. Rev. C 82,
+024321 (2010).
+[18] M. K. Gaidarov, A. N. Antonov, P. Sarriguren, and E. M. de
+Guerra, Phys. Rev. C 85, 064319 (2012).
+[19] L. Min, L. Zhu-Xia, W. Ning, and Z. Feng-Shou, Chin. Phys. C
+35, 629 (2011).
+[20] N. Wang, L. Ou, and M. Liu, Phys. Rev. C 87, 034327 (2013).
+[21] X. Fan, J. Dong, and W. Zuo, Phys. Rev. C 89, 017305
+(2014).
+[22] P. Danielewicz and J. Lee, Nucl. Phys. A 818, 36 (2009).
+[23] N. Wang and T. Li, Phys. Rev. C 88, 011301(R) (2013).
+[24] J. Dong, W. Zuo, and J. Gu, Phys. Rev. C 87, 014303 (2013).
+[25] A. Carbone, G. Colò, A. Bracco, L.-G. Cao, P. F. Bortignon, F.
+Camera, and O. Wieland, Phys. Rev. C 81, 041301(R) (2010).
+[26] O. Wieland, A. Bracco, F. Camera et al., Phys. Rev. Lett. 102,
+092502 (2009).
+
+024603-7
+
+XIAO LIANG, LI OU, AND ZHIGANG XIAO
+
+PHYSICAL REVIEW C 101, 024603 (2020)
+
+[27] J. Piekarewicz, Phys. Rev. C 83, 034319 (2011).
+[28] M. B. Tsang, W. A. Friedman, C. K. Gelbke, W. G. Lynch, G.
+Verde, and H. S. Xu, Phys. Rev. Lett. 86, 5023 (2001).
+[29] H.-Y Wu, Z.-G Xiao, G.-M Jin et al., Phys. Lett. B 538, 39
+(2002).
+[30] M. B. Tsang, T. X. Liu, L. Shi et al., Phys. Rev. Lett. 92, 062701
+(2004).
+[31] L. W. Chen, C. M. Ko, and B.-A. Li, Phys. Rev. Lett. 94, 032701
+(2005).
+[32] T. X. Liu, W. G. Lynch, M. B. Tsang et al., Phys. Rev. C 76,
+034603 (2007).
+[33] Z. Y. Sun, M. B. Tsang, W. G. Lynch, G. Verde, F. Amorini,
+L. Andronenko, M. Andronenko, G. Cardella, M. Chatterje, P.
+Danielewicz et al., Phys. Rev. C 82, 051603(R) (2010).
+[34] J. Rizzo, M. Colonna, V. Baran, M. Di Toro, H. H. Wolter, and
+M. Zielinska-Pfabe, Nucl. Phys. A 806, 79 (2008).
+[35] Y. Zhang, J. Tian, W. Cheng et al., Phys. Rev. C 95, 041602(R)
+(2017).
+[36] B. A. Li, L. W. Chen, G. C. Yong, and W. Zuo, Phys. Lett. B
+634, 378 (2006).
+[37] M. A. Famiano, T. Liu, W. G. Lynch et al., Phys. Rev. Lett. 97,
+052701 (2006).
+[38] Y. Zhang, P. Danielewicz, M. Famiano, Z. Li, W. G. Lynch, and
+M. B. Tsang, Phys. Lett. B 664, 145 (2008).
+[39] M. B. Tsang, Y. Zhang, P. Danielewicz, M. Famiano, Z. Li,
+W. G. Lynch, and A. W. Steiner, Phys. Rev. Lett. 102, 122701
+(2009).
+[40] S. Kumar, Y. G. Ma, G. Q. Zhang, and C. L. Zhou, Phys. Rev.
+C 84, 044620 (2011).
+[41] Y. Zhang, D. D. S. Coupland, P. Danielewicz, Z. X. Li, H. Liu,
+F. Lu, W. G. Lynch, and M. B. Tsang, Phys. Rev. C 85, 024602
+(2012).
+[42] Y. X. Zhang, M. B. Tsang, Z. X. Li, and H. Liu, Phys. Lett. B
+732, 186 (2014).
+[43] Wen.-J. Xie, Jun. Su, L. Zhu, and F.-S. Zhang, Phys. Rev. C 88,
+061601(R) (2013).
+[44] J. Rizzo, M. Colonna, M. Di Toro, and V. Greco, Nucl. Phys. A
+732, 202 (2004).
+[45] G.-C. Yong, B.-A. Li, L.-W. Chen, and X.-C. Zhang, Phys. Rev.
+C 80, 044608 (2009).
+[46] Z. Kohley, L. W. May, S. Wuenschel et al., Phys. Rev. C 82,
+064601 (2010).
+[47] V. Giordano, M. Colonna, M. Di Toro, V. Greco, and J. Rizzo,
+Phys. Rev. C 81, 044611 (2010).
+[48] M. D. Cozma, Phys. Lett. B 700, 139 (2011).
+[49] Y. Wang, C. Guo, Q. Li, H. Zhang, Y. Leifels, and W.
+Trautmann, Phys. Rev. C 89, 044603 (2014).
+[50] Z. Xiao, B.-A. Li, L.-W. Chen, G.-C. Yong, and M. Zhang,
+Phys. Rev. Lett. 102, 062502 (2009).
+[51] Z.-Q. Feng and G.-M. Jin, Phys. Lett. B 683, 140 (2010).
+[52] Y. Gao, G. C. Yong, Y. Wang, Q. Li, and W. Zuo, Phys. Rev. C
+88, 057601 (2013).
+[53] J. Hong and P. Danielewicz, Phys. Rev. C 90, 024605 (2014).
+
+[54] Z.-G. Xiao, G.-C. Yong, L.-W. Chen et al., Eur. Phys. J. A 50,
+37 (2014).
+[55] X. Lopez, Y. J. Kim et al., Phys. Rev. C 75, 011901(R) (2007).
+[56] Q. Li, Z. Li, S. Soff et al., J. Phys. G: Nucl. Part. Phys. 31, 1359
+(2005).
+[57] G. Ferini, T. Gaitanos, M. Colonna, M. Di Toro, and H. H.
+Wolter, Phys. Rev. Lett. 97, 202301 (2006).
+[58] Z.-Q. Feng, Phys. Rev. C 87, 064605 (2013).
+[59] A. W. Steiner and S. Gandolfi, Phys. Rev. Lett. 108, 081102
+(2012).
+[60] K. Takami, L. Rezzolla, and L. Baiotti, Phys. Rev. Lett. 113,
+091104 (2014).
+[61] M. B. Tsang, J. R. Stone, F. Camera et al., Phys. Rev. C 86,
+015803 (2012).
+[62] J. M. Lattimer and A. W. Steiner, Eur. Phys. J. A 50, 40 (2014).
+[63] G.-C. Yong, Y. Gao, G.-F. Wei, Y.-F. Guo, and W. Zuo, J. Phys.
+G: Nucl. Part. Phys. 46, 105105 (2019).
+[64] Y.-X. Zhang, Y.-J. Wang, M. Colonna et al., Phys. Rev. C 97,
+034625 (2018).
+[65] J. Xu et al., Phys. Rev. C 93, 044609 (2016).
+[66] L. Ou, Z. Li, and X. Wu, Phys. Rev. C 78, 044609 (2008).
+[67] L. Ou, Z. Xiao, H. Yi et al., Phys. Rev. Lett. 115, 212501 (2015).
+[68] J. Aichelin, Phys. Rep. 202, 233 (1991).
+[69] N. Wang, Z. Li, and X. Wu, Phys. Rev. C 65, 064608 (2002).
+[70] Y. Zhang and Z. Li, Phys. Rev. C 71, 024604 (2005).
+[71] K. Niita, S. Chiba, T. Maruyama, T. Maruyama, H. Takada, T.
+Fukahori, Y. Nakahara, and A. Iwamoto, Phys. Rev. C 52, 2620
+(1995).
+[72] S. Chiba, M. B. Chadwick, K. Niita, T. Maruyama, T.
+Maruyama, and A. Iwamoto, Phys. Rev. C 53, 1824 (1996).
+[73] S. Chiba, O. Iwamoto, T. Fukahori, K. Niita, T. Maruyama, T.
+Maruyama, and A. Iwamoto, Phys. Rev. C 54, 285 (1996).
+[74] L. Ou, Y. Zhang, J. Tian, and Z. Li, J. Phys. G: Nucl. Part. Phys.
+34, 827 (2007).
+[75] L. Ou, Z. Li, X. Wu et al., J. Phys. G: Nucl. Part. Phys. 36,
+125104 (2009).
+[76] M. Dutra, O. Lourenço, J. S. Sá Martins, A. Delfino, J. R. Stone,
+and P. D. Stevenson, Phys. Rev. C 85, 035201 (2012).
+[77] I. Sick and D. Trautmann, Phys. Lett. B 375, 16 (1996).
+[78] W. Lakin, Phys. Rev. 98, 139 (1955).
+[79] V. S. Morozov, Z. B. Etienne, M. C. Kandes, A. D. Krisch,
+M. A. Leonova, D. W. Sivers, V. K. Wong, K. Yonehara, V. A.
+Anferov, H. O. Meyer, P. Schwandt, E. J. Stephenson, and B.
+von Przewoski, Phys. Rev. Lett. 91, 214801 (2003).
+[80] V. S. Morozov, A. W. Chao, A. D. Krisch, M. A. Leonova, R. S.
+Raymond, D. W. Sivers, V. K. Wong, and A. M. Kondratenko,
+Phys. Rev. Lett. 103, 144801 (2009).
+[81] K. Hatanaka, K. Takahisa, H. Tamura, M. Sato, and I. Miura,
+Nucl. Instrum. Methods Phys Res., Sect. A 384, 575 (1997).
+[82] H. Okamura, H. Sakai, N. Sakamoto et al., AIP Conf. Proc. 293,
+84 (1993).
+[83] L. Li, Y. Zhang, Z. Li, N. Wang, Y. Cui, and J. Winkelbauer,
+Phys. Rev. C 97, 044606 (2018).
+
+024603-8
+
+

@@ -1,0 +1,779 @@
+PRL 115, 212501 (2015)
+
+PHYSICAL REVIEW LETTERS
+
+week ending
+20 NOVEMBER 2015
+
+Dynamic Isovector Reorientation of Deuteron as a Probe to Nuclear Symmetry Energy
+Li Ou (欧立),1,2,* Zhigang Xiao (肖志刚),3,4,† Han Yi (易晗),3 Ning Wang (王宁),1,2
+Min Liu (刘敏),1 and Junlong Tian (田俊龙)5
+1
+
+College of Physics and Technology, Guangxi Normal University, Guilin 541004, China
+State Key Laboratory of Theoretical Physics, Institute of Theoretical Physics, Chinese Academy of Sciences, Beijing 100190, China
+3
+Department of Physics, Tsinghua University, Beijing 100084, China
+4
+Collaborative Innovation Center of Quantum Matter, Beijing 100084, China
+5
+School of Physics and Electrical Engineering, Anyang Normal University, Anyang 455000, China
+(Received 10 April 2015; revised manuscript received 15 September 2015; published 20 November 2015)
+
+2
+
+We present the calculations on a novel reorientation effect of deuteron attributed to isovector interaction
+in the nuclear field of heavy target nuclei. The correlation angle determined by the relative momentum
+vector of the proton and the neutron originating from the breakup deuteron, which is experimentally
+detectable, exhibits significant dependence on the isovector nuclear potential but is robust against the
+variation of the isoscaler sector. In terms of sensitivity and cleanness, the breakup reactions induced by the
+polarized deuteron beam at about 100 MeV=u provide a more stringent constraint to the symmetry energy
+at subsaturation densities.
+DOI: 10.1103/PhysRevLett.115.212501
+
+PACS numbers: 21.65.Ef, 24.70.+s, 25.45.-z, 24.10.-i
+
+Previously, the study of nuclear symmetry energy has
+drawn intense attention in both nuclear physics and
+astrophysics because it is an essential input in modeling
+the neutron stars as well as in understanding the structural
+properties and the reaction dynamics involving exotic
+nuclei. Quantitative elucidation of the density dependence
+of symmetry energy Esym ðρÞ still remains one of the major
+tasks in nuclear physics although some progress has been
+made in constraining the Esym ðρÞ at subsaturation densities
+using both terrestrial nuclear laboratory data and astrophysical observations [1–12]. For further information
+regarding the symmetry energy issue, see the topical
+collection [13].
+So far, the extraction of the Esym ðρÞ from heavy ion
+collisions relies unavoidably on the transport model simulations in most cases. Looking into the existing probes in
+the violent heavy ion collisions, the symmetry energy takes
+effect via the isospin transport including isospin diffusions
+and isospin drift characterized by the isospin migration due
+to the isospin difference and the density gradient, respectively [5]. In reality, these two mechanisms can not be
+separated and the isospin dependence of in-medium
+nucleon-nucleon collisions comes into play; complexity
+then arises in the description of the whole transport process.
+Model dependent treatment of the collisions as well as the
+nuclear potential may yield considerable discrepancies in
+the model outputs even with identical initial conditions. So
+far, some of the analyses do not contain theoretic uncertainty evaluations. From the experimental point of view,
+the uncertainty of constraints to the Esym ðρÞ, particularly
+far from saturation density, is still large. Further searches
+for clean and effective probes of Esym ðρÞ are ongoing
+[14–17].
+0031-9007=15=115(21)=212501(6)
+
+On the other hand, some types of the direct reaction, like
+the elastic or inelastic scattering as well as the direct
+projectile breakup, involve fewer degrees of freedom in the
+reaction process and may reduce the difficulties in modeling the collision. As shown in our previous work, due to the
+isovector potential, there is a significant difference in the
+scattering angle between proton- and neutron-induced
+scattering off a heavy target at a large impact parameter
+[18]. Since it is hard to get a monochromatic neutron beam
+at around 100 MeV, the experimental test remains a difficult
+task. Thanks to the availability of a polarized deuteron
+beam at hundreds of MeV=u at various running accelerators around the world [19–23], the deuteron, with one
+proton and one neutron bound loosely at large average
+separation distances, provides an alternative opportunity to
+probe the isovector interaction. Superimposing to the
+isoscalar and Coulomb interaction, the isovector force,
+being attractive to the proton and repulsive to the neutron,
+leads to a reorientation effect to the deuteron passing the
+heavy target field, which is detectable in a properly selected
+range of the impact parameter.
+The first evidence of the orientation of a deuteron
+nucleus in the field of a heavy target was reported by
+Oppenheimer and Phillips [24] in deuteron induced transmutations [25]. Because of the Coulomb repulsion on the
+proton, the deuteron is readily polarized in the field, leaving
+the neutron closer to the heavy nucleus and enhancing the
+transmutation cross sections. At a higher beam energy, the
+breakup of the deuteron occurs coupling to the elastic
+scattering, which has been consistently described by
+various theoretic calculations including the folding model
+[26,27], adiabatic approximation [28], and the continuum
+discretization coupled channel (CDCC) model [29].
+
+212501-1
+
+© 2015 American Physical Society
+
+PRL 115, 212501 (2015)
+
+Interestingly, as a sort of final state interaction, the
+Coulomb post acceleration in the breakup of the deuteron
+(11 Li) characterized by the enhanced longitudinal velocity
+of the proton (9 Li core), has been observed and well
+interpreted using the CDCC calculations [30,31]. In the
+analog to the polarization of the deuteron, the exotic
+nucleus 17 F, consisting of a 16 O core and a loosely bound
+proton exhibits a polarization effect when scattering off a
+heavy target, as recently reported in [32]. Because the
+proton and the neutron experience different interactions
+with the target, tensor polarization appears after the
+unpolarized deuteron beam passes through a S ¼ 0 target,
+known as nuclear spin dichroism [33–35].
+In this Letter, using an improved quantum molecular
+dynamics (ImQMD) model, we present the calculation
+results on a new reorientation effect of the deuteron due to
+isovector interaction in the nuclear field of a heavy target.
+Through the correlation angle determined by the relative
+momentum of the proton and the neutron originating from
+the breakup of the deuteron, the reorientation effect and its
+sensitive dependence on Esym ðρÞ below the saturation
+density is demonstrated.
+The ImQMD model is an extended version of the
+quantum molecular dynamics (QMD) model suited for
+the simulations of the heavy ion collisions at intermediate
+beam energies [18,36–38]. The QMD model has also been
+applied in the nucleon-induced reactions and provides
+consistent description to the data if available [39–43]. In
+the ImQMD model, the nuclear potential energy density
+functional including the full Skyrme potential energy
+density with the spin-orbit term omitted is written as
+
+the tensor force and the three-nucleon nuclear force, which
+appear significantly in three body scattering [46,47], are not
+incorporated even though they may affect Esym ðρÞ at high
+densities [48].
+While the initialization of the heavy target nuclei is done
+as usual as that in [37], the deuteron is initialized semiclassically in a simplified scheme. Similarly, the nucleon in
+the deuteron is described as a wave package (WP). The line
+connecting the center of the WP from the neutron to the
+proton is taken as the long symmetric axis (LSA). The
+distance between them is set to 3  Δr fm, where Δr is a
+random value smaller than 0.25 fm. The direction of the
+momentum is set to be opposed for n and p on the LSA and
+the component perpendicular to the LSA is set to zero. The
+initial magnitude of the momentum is sampled randomly to
+keep the deuteron stably bound until 100 fm=c, namely, the
+root mean square radius of the deuteron stays in the range
+2.1  0.5 fm, where 2.1 fm is the experimental value [49].
+By rotating the LSA randomly or onto a certain axis, one
+can mimic the unpolarized or preoriented deuteron beam as
+the initial state, respectively. The initial distance between
+the projectile and the target is 25 fm. For this simplification,
+we limit our calculations at an adequately high beam
+energy of 100 MeV=u to avoid the influence of the internal
+structure of the deuteron.
+When a deuteron passes by peripherally the heavy target
+nuclei, as shown by the cartoon in Fig. 1(a), the two
+nucleons in the deuteron, experience nuclear force and
+Coulomb force Fc , the latter of which is repulsive only for
+(a)
+
+Fv
+
+ηþ1
+
+g
+αρ
+β ρ
+gsur
+þ
+ð∇ρÞ2 þ sur;iso ½∇ðρn − ρp Þ2
+η þ
+2 ρ0 η þ 1 ρ0 2ρ0
+ρ0
+ð1Þ
+
+124
+
+2
+
+where all coefficients are directly related to the standard
+Skyrme interaction parameters [18]. To mimic the strong
+variation of the density dependence of the symmetry
+potential energy, the (volume) symmetry potential energy
+term, i.e., the fifth term in Eq. (1), is replaced by
+ðCs;p =2Þðρ=ρ0 Þγ ρδ2 , then, the symmetry energy is written as
+ 
+ 
+Cs;k ρ 2=3 Cs;p ρ γ
+Esym ðρÞ ¼
+þ
+;
+ð2Þ
+2 ρ0
+2 ρ0
+where Cs;k and Cs;p are the kinetic and potential energy
+parameter, respectively. Unless otherwise indicated, the
+Skyrme parameter set MSL0 [44], one of Skyrme parameter
+sets which best satisfies the current understanding of the
+physics of nuclear matter over a wide range of applications
+[45], is used in the following calculations. By using various γ
+one can get various Esym ðρÞ and MSL0-like Skyrme
+interactions. We note that in the current ImQMD framework,
+
+n
+Fv
+
+Fs
+
+Fv (MeV/fm)
+
+ρ8=3
+þ ðAρ2 þ Bρηþ1 þ Cρ8=3 Þδ2 þ gρτ 5=3 ;
+ρ0
+
+Fc
+
+d
+
+p
+
+Sn
+
+b=6 fm
+
+(b)
+
+n
+
+p
+
+p
+
+7 fm
+
+p
+
+α
+Fc
+
+7.5 fm
+
+0
+
+0.5
+
+γ=0.5 2.0
+n
+p
+
+(c)
+
+ρ/ρ0
+
+V loc ¼
+
+2
+
+week ending
+20 NOVEMBER 2015
+
+PHYSICAL REVIEW LETTERS
+
+0.25
+
+00
+
+50
+
+0
+
+50
+
+50
+
+100
+
+time (fm/c)
+
+FIG. 1 (color online). (a) The schematic view of a deuteron
+induced peripheral collision on a heavy target 124 Sn. The lower
+panels show the isovector forces (b) and the local density
+(c) experienced by n (squares) and p (circles) as a function of
+time at various impact parameters. The Coulomb force on p is
+plotted (dashed lines) in panels (b).
+
+212501-2
+
+the proton and may cause a partial polarization effect
+characterized by the moving of the proton away from the
+target or a post acceleration effect after breakup [30]. While
+the isoscalar nuclear force Fs is attractive to both nucleons
+and does not lead to an extra polarization effect, the
+isovector force Fv , being attractive to the proton and
+repulsive to the neutron, modifies the orientation status
+of the projectile in addition to the Coulomb polarization.
+The panels of Fig. 1(b) present the time evolution of Fv
+acting on the neutron (squares) and the proton (circles)
+originated from the breakup of the deuteron in 100 MeV=u
+d þ 124 Sn at impact parameter b ¼ 6, 7, and 7.5 fm,
+respectively. For comparison, the Coulomb force Fc
+(dashed curve) on the proton is also plotted. It is shown
+that the sign of Fv opposes for proton and neutron, and its
+magnitude varies with γ. For the deuteron with a certain
+orientation traversing the target field, the competition
+between Fv and Fc finally forms a torque which rotates
+the deuteron and manifests itself as a reorientation effect.
+Since the difference of Fv between n and p is at the same
+magnitude of the Fc as shown in the panels of Fig. 1(b), the
+reorientation effect due to isovector interaction shall be
+experimentally detectable and, in turn, be very sensitive to
+the isovector force Fv relevant to Esym ðρÞ at ρ < ρ0 .
+Figure 1(c) shows the local density along the trajectories
+of n and p at corresponding impact parameters. It is clear
+that the local density preferentially covers the range of
+0 ≤ ρ=ρ0 ≤ 0.5 in the peripheral collisions.
+The reorientation effect is detectable if the breakup of the
+deuteron follows. As marked in Fig. 1(a), we define the
+correlation angle α as the angle of the relative momentum
+from n to p with respect to the beam direction by
+cos α ¼
+
+week ending
+20 NOVEMBER 2015
+
+PHYSICAL REVIEW LETTERS
+
+ppz − pnz
+;
+~ nj
+j~
+pp − p
+
+ð3Þ
+
+where the subscript z denotes the beam direction.
+Figure 2(a) presents the ImQMD calculations of the
+distribution of α for 100 MeV=u d~ þ 124 Sn at b ¼ 7 fm.
+Again, results with γ ¼ 0.5 and 2.0 are presented. The
+curves denote the results for the unpolarized deuteron
+induced reaction. Despite the visible difference between
+γ ¼ 0.5 (dashed line) and 2.0 (solid line), the distribution is
+approximately symmetric with respect to α ¼ 90°. The
+effect of Esym ðρÞ is largely smeared by the random initial
+orientation of the incident deuteron. However, if the
+deuteron is preorientated parallel to the beam axis (denoted
+by circle), for instance, the neutron-to-proton vector ~rnp is
+fixed to the beam direction, the distribution of α discriminates, clearly, the two parametrizations of Esym ðρÞ. With
+γ ¼ 2, Fv is much smaller than Fc , the Coulomb force
+dominates the orientation effect. As a result, the α distributions peak at a forward angle, qualitatively consistent
+with the Coulomb post acceleration [30]. While, with a soft
+Esym ðρÞ (γ ¼ 0.5), Fv is large and forms a large isovector
+
+10
+
+dσ/dα (a.u.)
+
+PRL 115, 212501 (2015)
+
+10
+
+10
+
+10
+
+-1
+
+(a)
+
+MSL0
+
+γ = 0.5 2.0
+
+(b)
+
+MSL0
+
+(c)
+
+SkA
+SkT5
+SkM*
+SkT1
+Skz-1
+Skz1
+Skz4
+
+rand.
+orient.
+
+-2
+
+-3
+
+γ=0.5 2.0
+6.0 fm
+7.0
+7.5
+
+-4
+
+0
+
+100
+
+0
+
+100
+
+α (degree)
+
+0
+
+100
+
+200
+
+FIG. 2 (color online). The distribution of the correlation angle α
+in 100 MeV=u d~ þ 124 Sn. (a) Calculations using MSL0-like
+Skyrme interactions with γ ¼ 0.5 and 2.0 for the randomly
+oriented (curves) and pre-oriented (symbols) deuteron beams.
+(b) Calculations using MSL0-like Skyrme interactions at impact
+parameters b ¼ 6.0; 7.0 and 7.5 fm. (c) Calculations using 7 real
+Skyrme interactions. See text for detailed discussion.
+
+torque which counteracts the Coulomb effect, thus, the α
+distribution tends to be symmetric with respect to α ¼ 90°
+or even exhibits enhancement at α > 90°. The significant
+difference between the two γ parameters indicates that α is,
+indeed, a highly sensitive probe to Esym ðρÞ, and the initial
+orientation of the incident deuteron is essentially requested
+for this purpose.
+To be more realistic, the simulations shall be applied to
+actual beam conditions. The deuteron is a spin-1 nucleus.
+The spatial distribution of the deuteron wave function
+depends on the total spin projection mz on the quantization
+axis, which is chosen as the direction of the particle wave
+~ With mz ¼ 1, the squared module for the
+vector k.
+deuteron ground state wave functions possesses a “dummy
+bell” shape with the relative vector from the neutron to the
+proton ~rnp being parallel with the LSA. It is experimentally
+achievable to have a nearly full tensor and vector polarization deuteron beam, for which the longitudinal symmetric axis is on the beam direction, but the wave function is
+symmetric under the exchange of n and p. To predict the
+reorientation effect of the isovector nuclear potential in an
+actual experiment, the simulations is done by mimicking a
+fully tensor and vector polarized deuteron beam with 50%
+~ The
+possibility for ~rnp ‖k~ and 50% possibility for −~rnp ‖k.
+results for b ¼ 7 fm (circles) are shown in Fig. 2(b). It is
+shown, now, that the distribution is much less stiff
+compared with Fig. 2(a). But the discrimination between
+γ ¼ 0.5 (open circles) and 2.0 (solid circles) is equally
+significant in the vicinity of 90°, although the distributions
+at very forward and backward angles are modified. To
+investigate the impact parameter dependence, the results for
+b ¼ 6 (squares) and 7.5 fm (triangles) are also presented in
+Fig. 2(b). As expected, the effect of Esym ðρÞ is reduced with
+decreasing b because the isospin asymmetry in the inner
+region of the target is reduced, and both the isoscalar and
+
+212501-3
+
+PRL 115, 212501 (2015)
+
+PHYSICAL REVIEW LETTERS
+
+the Coulomb potentials become stronger, the effect of
+Esym ðρÞ is, then, diminished.
+It is worth mentioning that the scenario using the ansatz
+(2) with different γ offers an approximate way to survey the
+effect of Esym ðρÞ. A stricter way is to calculate the α
+distribution using the whole parameter set of selected
+standard Skyrme potentials. Figure 2(c) presents the α
+distribution with seven sets of Skyrme forces, i.e., SkA
+[50], SkT5, SkT1 [51], SkM [52], Skz-1, Skz1, and Skz4
+[53]. The first four (later three) sets of parameters yield
+similar isovector (isoscalar) potential but differ in isoscalar
+(isovector) sector. It is evident that the correlation angle
+distribution is clearly discriminated if one counts from Skz1 to Skz1 and Skz4 with increasing the stiffness of Esym ðρÞ,
+but shows insignificant dependence on the variation of
+isoscalar potentials, indicating that the isovector reorientation effect of the polarized deuteron scattering off the heavy
+target field offers a clean probe to isovector potential.
+To quantify the distribution of α in connection with the
+stiffness of Esym ðρÞ in a simplified scheme, we fit the
+logarithmic intensity ln ½dσ=dðcos αÞ with a linear function
+of cos α as
+ln ½dσ=dðcos αÞ ¼ a0 þ a1 cos α;
+
+ð4Þ
+
+near cos α ¼ 0. The coefficient a1 characterizes the
+decreasing rate of the cos α distribution. As an example,
+Fig. 3(a) presents the logarithmic intensity as a function of
+cos α with different γ for the breakup of a tensor- and
+vector-polarized deuteron in d~ þ124 Sn with b ¼ 7 fm at
+100 MeV=u. The linear fit in j cos αj ≤ 0.2 is superimposed. The error bars on the data points are of statistical
+origin. For simplicity at the beginning, the nucleons from
+the projectile breakup were tagged in the analysis. It is
+shown that the slope near cos α ¼ 0 varies dramatically
+with γ. The solid symbols in Fig. 3(b) show the extracted
+L(MeV)
+
+50
+
+(a)
+
+γ =0.5
+γ =0.7
+γ =1
+
+100
+
+125
+
+tagged
+
+cut
+
+coefficient a1 as a function of γ at both b ¼ 7 (triangles)
+and 7.5 fm (squares). The corresponding slope of Esym ðρÞ
+at ρ0 is plotted on the upper axis. It is shown that a1
+increases significantly with γ, manifesting itself as a
+sensitive observable to constrain Esym ðρÞ at low densities.
+Finally, an essential question remains regarding whether
+the nucleons from the deuteron breakup due to the nuclear
+mean field in peripheral reactions can be identified experimentally. To solve this question, we calculate the multiplicity and the kinetic quantities of the emitted nucleons
+from the reaction. Figure 4(a) presents the correlation
+between the outgoing angle θ and the kinetic energy Ek
+of the nucleons in the laboratory reference for 100 MeV=u
+d~ þ124 Sn with b ¼ 7 fm. Two components are evidently
+separated, the one originating from the projectile situates at
+a very forward angle with Ek peaking at beam energy,
+the other, originating from the target, covers a broad
+angular range, but the kinetic energy is much lower.
+Correspondingly, Fig. 4(b1) shows the multiplicity of
+emitted nucleons with (solid histogram) and without (open
+histogram) a kinetic energy cut Ek ≥ 50 MeV. For reference, the multiplicity of protons Mp [Fig. 4(b2)] and
+neutrons Mn [Fig. 4(b3)] are also plotted. It is shown that
+more than 90% of the events are characterized by Mn ¼
+Mp ¼ 1 if the cut on Ek is applied. The two-body collision
+changes the energies of the colliding nucleon significantly,
+so the breakup events due to collision are mostly filtered
+out by this selection criteria. With this cut, the spectrum of
+cos α is reanalyzed using the same fitting procedure, as
+represented in Fig. 3(b) by the open symbols for both b ¼ 7
+and 7.5 fm. The dependence of a1 on γ is not changed.
+Finally, since, experimentally, it is difficult to achieve a fine
+subdivision of b in peripheral collisions, the results at both
+impact parameters are mixed and analyzed using the same
+Ek cut, as shown by the open circles in Fig. 3(b). It is
+evident that, with the Ek cut, the sensitivity of a1 on the
+symmetry energy is maintained. This sensitivity, compared
+with the existing probes of Esym ðρÞ, is significantly
+
+(b)
+4
+
+a1
+
+ln(dσ/d(cosα))
+
+0
+
+75
+
+week ending
+20 NOVEMBER 2015
+
+-1
+
+2
+
+γ =1.4
+γ =1.6
+γ =2
+
+b=7.0
+
+-2
+
+0
+
+b=7.5
+mixed
+
+-1
+
+-0.5
+
+0
+
+cosα
+
+0.5
+
+1
+
+0.5
+
+1
+
+γ
+
+1.5
+
+2
+
+FIG. 3 (color online). (a) The logarithmic spectra of cos α in
+d~ þ124 Sn with b ¼ 7 fm at 100 MeV=u for various γ and
+corresponding fitted quadratic functions, (b) the linear coefficient
+a1 as a function of γ. See text for detailed discussions.
+
+FIG. 4 (color online). (a) The correlation plot of the kinetic
+energy and the outgoing polar angle of the produced nucleons,
+(b) the multiplicity spectra of total nucleons (b1), protons (b2),
+and neutrons (b3) with (solid bars) and without (open bars) the
+kinetic energy cut.
+
+212501-4
+
+PRL 115, 212501 (2015)
+
+PHYSICAL REVIEW LETTERS
+
+enhanced and allows a stringent constraint on Esym ðρÞ at
+subsaturation densities.
+To summarize, using the ImQMD transport model, the
+reorientation effect of the deuteron attributed to isovector
+interaction in the nuclear field of heavy target nuclei has
+been investigated for the first time. The isovector force
+forms a torque acting on the proton and the neutron and
+modifies the orientation of the incident deuteron. It is
+demonstrated that the correlation angle α, newly defined as
+a detectable quantity in the breakup of a polarized deuteron
+projectile, depends sensitively on the isovector potential but
+shows insignificant influence by the variation of the
+isoscalar nuclear potential. In terms of the sensitivity
+and the cleanness, the breakup reactions induced by the
+polarized deuteron at about 100 MeV=u provides a novel
+and more quantitative constraint to Esym ðρÞ at ρ < 0.5ρ0 .
+Calculations with coupled channel models are called for. If
+equipped with experiments being able to measure charged
+particles as well as neutrons at intermediately high energies, the accelerators available for a polarized deuteron
+beam offer feasible opportunities for this study.
+This work has been supported by the National Natural
+Science Foundation of China under Grants No. 11375094,
+No. 11079025, No. 11365004, No. 11005022,
+No. 11365005, No. 11422548, No. 11275052,
+No. 11475262, No. 11475004 and by Tsinghua University
+Initiative Scientific Research Program, the Open Project
+Program of State Key Laboratory of Theoretical Physics,
+Institute of Theoretical Physics, Chinese Academy of
+Sciences, China (No. Y4KF041CJ1). The authors thank
+Professor Bao-An Li, Professor Lie-Wen Chen, and
+Professor Zhan Xu for their careful reading of the manuscript
+and the valuable discussions.
+
+*
+
+liou@gxnu.edu.cn
+xiaozg@tsinghua.edu.cn
+[1] B.-A. Li, L.-W. Chen, and C. M. Ko, Phys. Rep. 464, 113
+(2008).
+[2] M. B. Tsang et al., Phys. Rev. C 86, 015803 (2012).
+[3] L. Trrippa, G. Colò, and E. Vigezzi, Phys. Rev. C 77,
+061304(R) (2008).
+[4] M. Liu, N. Wang, Z.-X. Li, and F.-S. Zhang, Phys. Rev. C
+82, 064306 (2010).
+[5] M. B. Tsang, Y. Zhang, P. Danielewicz, M. Famiano, Z. Li,
+W. G. Lynch, and A. W. Steiner, Phys. Rev. Lett. 102,
+122701 (2009).
+[6] H. Sotani, K. Nakazato, K. Iida, and K. Oyamatsu, Phys.
+Rev. Lett. 108, 201101 (2012).
+[7] P. Möller, W. D. Myers, H. Sagawa, and S. Yoshida, Phys.
+Rev. Lett. 108, 052501 (2012).
+[8] A. W. Steiner, and S. Gandolfi, Phys. Rev. Lett. 108, 081102
+(2012).
+[9] T. Li et al., Phys. Rev. Lett. 99, 162503 (2007).
+[10] T. Li et al., Phys. Rev. C 81, 034309 (2010).
+[11] E. De Filippo et al., Phys. Rev. C 86, 014610 (2012).
+†
+
+week ending
+20 NOVEMBER 2015
+
+[12] X. Roca-maza, M. Brenna, B. K. Agrawal, P. F. Bortignon,
+G. Colò, L.-G. Cao, N. Paar, and D. Vretenar, Phys. Rev. C
+87, 034301 (2013).
+[13] B.-A. Li, À. Ramos, G. Verde, and I. Vidaña, Eur. Phys. J. A
+50, 9 (2014).
+[14] S. Hudan et al., Phys. Rev. C 86, 021603(R) (2012).
+[15] K. Brown, S. Hudan, R. T. deSouza, J. Gauthier, R. Roy,
+D. V. Shetty, G. A. Souliotis, and S. J. Yennello, Phys. Rev.
+C 87, 061601(R) (2013).
+[16] R. S. Wang et al., Phys. Rev. C 89, 064613 (2014).
+[17] Q. Wu, Y. Zhang, Z. Xiao, R. Wang, Y. Zhang, Z. Li, N.
+Wang, and R. H. Showalter, Phys. Rev. C 91, 014617
+(2015).
+[18] L. Ou, Z. Li, and X. Wu, Phys. Rev. C 78, 044609 (2008).
+[19] W. Lakin, Phys. Rev. 98, 139 (1955).
+[20] V. S. Morozov et al., Phys. Rev. Lett. 91, 214801 (2003).
+[21] V. S. Morozov, A. W. Chao, A. D. Krisch, M. A. Leonova,
+R. S. Raymond, D. W. Sivers, V. K. Wong, and A. M.
+Kondratenko, Phys. Rev. Lett. 103, 144801 (2009).
+[22] K. Hatanaka, K. Takahisa, H. Tamura, M. Sato, and I.
+Miura, Nucl. Instrum. Methods Phys. Res., Sect. A 384, 575
+(1997).
+[23] H. Okamura et al., AIP Conf. Proc. 293, 84 (1993).
+[24] J. R. Oppenheimer, and M. Phillips, Phys. Rev. 48, 500 (1935).
+[25] E. O. Lawrence, E. McMillan, and R. L. Thornton, Phys.
+Rev. 48, 493 (1935).
+[26] G. H. Rawitscher and S. N. Mukherjee, Nucl. Phys. A342,
+90 (1980).
+[27] E. J. Stephenson, J. C. Collins, C. C. Foster, D. L. Friesel,
+W. W. Jacobs, W. P. Jones, M. D. Kaitchuck, P. Schwandt,
+and W. W. Daehnick, Phys. Rev. C 28, 134 (1983).
+[28] H. Amakawa, A. Mori, H. Nishioka, K. Yazaki, and S.
+Yamaji, Phys. Rev. C 23, 583 (1981).
+[29] O. A. Rubtsova, V. I. Kukulin, and A. M. Moro, Phys. Rev.
+C 78, 034603 (2008).
+[30] L. F. Canto, R. Donangelo, A. Romanelli, M. S. Hussein, and
+A. F. R. de Toledo Piza, Phys. Rev. C 55, R570(R) (1997).
+[31] L. F. Canto, R. Donangelo, A. Romanelli, and H. Schulz,
+Phys. Lett. B 318, 415 (1993).
+[32] J. F. Liang et al., Phys. Lett. B 681, 22 (2009).
+[33] V. Baryshevsky, Phys. Lett. A 171, 431 (1992).
+[34] V. Baryshevsky, and A. Rouba, Phys. Lett. B 683, 229
+(2010).
+[35] H. Seyfarth et al., Phys. Rev. Lett. 104, 222501 (2010).
+[36] J. Aichelin, Phys. Rep. 202, 233 (1991).
+[37] N. Wang, Z. Li, and X. Wu, Phys. Rev. C 65, 064608
+(2002).
+[38] Y. Zhang, and Z. Li, Phys. Rev. C 71, 024604 (2005).
+[39] K. Niita, S. Chiba, T. Maruyama, T. Maruyama, H. Takada,
+T. Fukahori, Y. Nakahara, and A. Iwamoto, Phys. Rev. C 52,
+2620 (1995).
+[40] S. Chiba, M. B. Chadwick, K. Niita, T. Maruyama, T.
+Maruyama, and A. Iwamoto, Phys. Rev. C 53, 1824 (1996).
+[41] S. Chiba, O. Iwamoto, T. Fukahori, K. Niita, T. Maruyama, T.
+Maruyama, and A. Iwamoto, Phys. Rev. C 54, 285 (1996).
+[42] L. Ou, Y. Zhang, J. Tian, and Z. Li, J. Phys. G 34, 827 (2007).
+[43] L. Ou, Z. Li, X. Wu, J. Tian, and W. Sun, J. Phys. G 36,
+125104 (2009).
+[44] L. W. Chen, C. M. Ko, B.-A. Li, and J. Xu, Phys. Rev. C 82,
+024321 (2010).
+
+212501-5
+
+PRL 115, 212501 (2015)
+
+PHYSICAL REVIEW LETTERS
+
+[45] M. Dutra, O. Lourenço, J. S. Sá Martins, A. Delfino, J. R.
+Stone, and P. D. Stevenson, Phys. Rev. C 85, 035201 (2012).
+[46] K. Sekiguchi et al., Phys. Rev. C 70, 014001 (2004).
+[47] K. Sekiguchi et al., Phys. Rev. C 79, 054008 (2009).
+[48] C. Xu, B.-A. Li, and L.-W. Chen, Phys. Rev. C 82, 054607
+(2010).
+[49] I. Sick and D. Trautmann, Phys. Lett. B 375, 16 (1996).
+
+week ending
+20 NOVEMBER 2015
+
+[50] S. Köhler, Nucl. Phys. A258, 301 (1976).
+[51] F. Tonderur, M. Brack, M. Farine, and J. M. Pearson, Nucl.
+Phys. A420, 297 (1984).
+[52] J. Bartel, P. Quentin, M. Brack, C. Guet, and H.-B.
+Håkansson, Nucl. Phys. A386, 79 (1982).
+[53] J. Margueron, J. Navarro, and N. Van Giai, Phys. Rev. C 66,
+014303 (2002).
+
+212501-6
+
+
