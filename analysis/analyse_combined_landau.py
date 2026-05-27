@@ -110,13 +110,13 @@ def fit_and_plot(ax, data, label, color):
             mpv_val = popt[0] * 1000
             print(f"  - Fit Success: {label} | MPV: {mpv_val:.2f} mV")
             ax.text(0.95, 0.95, f"MPV: {mpv_val:.1f} mV\nN: {len(data)}", 
-                    transform=ax.transAxes, ha='right', va='top', fontsize=9,
+                    transform=ax.transAxes, ha='right', va='top', fontsize=15, fontweight='bold',
                     bbox=dict(boxstyle='round', facecolor='white', alpha=0.7))
             return mpv_val
         except:
             print(f"  - Fit Failed: {label}")
             ax.text(0.95, 0.95, f"Fit Failed\nN: {len(data)}", 
-                    transform=ax.transAxes, ha='right', va='top', fontsize=9, color='red')
+                    transform=ax.transAxes, ha='right', va='top', fontsize=15, fontweight='bold', color='red')
             return None
     return None
 
@@ -141,10 +141,10 @@ def main():
             detector_data[det_id].append((run_id, amps))
 
     # --- Plotting Grid (4 Detectors x 4 Columns) ---
-    fig, axes = plt.subplots(4, 4, figsize=(20, 16), sharex=True, sharey='row')
-    plt.subplots_adjust(hspace=0.3, wspace=0.1)
+    fig, axes = plt.subplots(4, 4, figsize=(22, 17), sharex=True, sharey='row')
+    plt.subplots_adjust(hspace=0.35, wspace=0.12)
     
-    fig.suptitle("Landau Fits: Individual Middle Runs vs Combined (Physical Collimation)", fontsize=16)
+    fig.suptitle("Landau Fits: Individual Middle Runs vs Combined (Physical Collimation)", fontsize=20, fontweight='bold', y=0.96)
     
     colors = ['royalblue', 'orange', 'green', 'crimson']
     
@@ -162,24 +162,41 @@ def main():
             ax = axes[det_idx, col]
             if col < len(runs):
                 run_id, amps = runs[col]
-                ax.set_title(f"Det {det_id} @ {run_id}", fontsize=10)
+                ax.set_title(f"Detector {det_id} @ {run_id}", fontsize=13, fontweight='bold')
                 fit_and_plot(ax, amps, run_id, colors[det_idx])
             else:
                 ax.axis('off') # Hide empty plot if < 3 runs
                 
-            if det_idx == 3: ax.set_xlabel("Amplitude (V)")
-            if col == 0: ax.set_ylabel("Counts")
-            ax.grid(True, alpha=0.3)
+            if det_idx == 3:
+                ax.set_xlabel("Amplitude (V)", fontsize=13, fontweight='bold', labelpad=8)
+            if col == 0:
+                ax.set_ylabel("Counts", fontsize=13, fontweight='bold', labelpad=8)
+            ax.set_xlim(0.225, 0.375)
+            ax.set_xticks([0.25, 0.30, 0.35])
+            ax.tick_params(axis='both', which='major', labelsize=12, width=2.0, length=6)
+            for tick in ax.get_xticklabels() + ax.get_yticklabels():
+                tick.set_fontweight('bold')
+            for spine in ax.spines.values():
+                spine.set_linewidth(2.0)
+            ax.grid(True, which='both', linestyle=':', alpha=0.5)
 
         # Plot Combined (Column 3)
         ax_comb = axes[det_idx, 3]
-        ax_comb.set_title(f"Det {det_id} Combined", fontsize=10, fontweight='bold')
+        ax_comb.set_title(f"Detector {det_id} Combined", fontsize=14, fontweight='bold')
         fit_and_plot(ax_comb, combined_amps, "Combined", 'purple')
-        ax_comb.grid(True, alpha=0.3)
-        if det_idx == 3: ax_comb.set_xlabel("Amplitude (V)")
+        ax_comb.set_xlim(0.225, 0.375)
+        ax_comb.set_xticks([0.25, 0.30, 0.35])
+        ax_comb.tick_params(axis='both', which='major', labelsize=12, width=2.0, length=6)
+        for tick in ax_comb.get_xticklabels() + ax_comb.get_yticklabels():
+            tick.set_fontweight('bold')
+        for spine in ax_comb.spines.values():
+            spine.set_linewidth(2.0)
+        ax_comb.grid(True, which='both', linestyle=':', alpha=0.5)
+        if det_idx == 3:
+            ax_comb.set_xlabel("Amplitude (V)", fontsize=13, fontweight='bold', labelpad=8)
 
     out_path = os.path.join(RESULTS_DIR, "combined_landau_grid.png")
-    plt.savefig(out_path, dpi=150)
+    plt.savefig(out_path, dpi=300, bbox_inches='tight')
     print(f"Saved grid plot to {out_path}")
 
 if __name__ == "__main__":

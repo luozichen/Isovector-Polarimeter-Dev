@@ -64,11 +64,23 @@ def main():
     # Comparison Plots
     # =========================================================================
     
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7))
-    fig.suptitle("New Detectors: Gain & Jitter vs Working Voltage", fontsize=16, fontweight='bold')
+    # 1. Thesis Plotting Properties
+    plt.rcParams.update({
+        'font.size': 14,
+        'font.weight': 'bold',
+        'axes.titlesize': 22,
+        'axes.labelsize': 20,
+        'axes.labelweight': 'bold',
+        'axes.titleweight': 'bold',
+        'xtick.labelsize': 14,
+        'ytick.labelsize': 14,
+        'legend.fontsize': 13,
+    })
+    
+    fig, ax1 = plt.subplots(figsize=(12, 9))
     
     # Left panel: MPV vs Voltage
-    ax1.set_title("Gain (Landau MPV) vs Voltage", fontweight='bold')
+    ax1.set_title("Gain (Landau MPV) vs HV Operating Voltage", pad=20)
     for det in range(1, 5):
         voltages_present = []
         mpvs = []
@@ -79,58 +91,35 @@ def main():
         
         if voltages_present:
             ax1.plot(voltages_present, mpvs, 'o-', color=DETECTOR_COLORS[det],
-                     markersize=8, linewidth=2, label=f"Det {det}")
+                     markersize=12, linewidth=3.5, label=f"Det {det} (New PCB)")
     
     # Overlay old 800V results
     for det in range(1, 5):
         old_mpv = OLD_CALIBRATION[det]["mpv_mV"]
-        ax1.plot(800, old_mpv, 's', color=DETECTOR_COLORS[det], markersize=10,
-                 markeredgecolor='black', markeredgewidth=1.5, alpha=0.6)
+        ax1.plot(800, old_mpv, 's', color=DETECTOR_COLORS[det], markersize=14,
+                 markeredgecolor='black', markeredgewidth=2.0, alpha=0.45)
     
     # Add a single legend entry for old markers
-    ax1.plot([], [], 's', color='gray', markersize=10,
-             markeredgecolor='black', markeredgewidth=1.5, alpha=0.6,
-             label='Old Detectors (800V)')
+    ax1.plot([], [], 's', color='gray', markersize=12,
+             markeredgecolor='black', markeredgewidth=2.0, alpha=0.45,
+             label='Old Baseline (v2.2 @ 800V)')
     
-    ax1.set_xlabel("Working Voltage (V)", fontsize=12)
-    ax1.set_ylabel("MPV (mV)", fontsize=12)
-    ax1.legend(fontsize=10)
-    ax1.grid(True, alpha=0.3)
-    ax1.set_xticks(VOLTAGE_NUMS)
+    ax1.set_xlabel("HV Operating Voltage (V)", labelpad=12)
+    ax1.set_ylabel("Gain (Landau MPV in mV)", labelpad=12)
     
-    # Right panel: Jitter vs Voltage
-    ax2.set_title("Intrinsic Jitter (σ) vs Voltage", fontweight='bold')
-    for det in range(1, 5):
-        voltages_present = []
-        sigs = []
-        for v, v_num in zip(VOLTAGES, VOLTAGE_NUMS):
-            if v in all_results:
-                voltages_present.append(v_num)
-                sigs.append(all_results[v]["sigmas"][det - 1])
+    # Spines/Border Aesthetics
+    for spine in ax1.spines.values():
+        spine.set_linewidth(2.5)
         
-        if voltages_present:
-            ax2.plot(voltages_present, sigs, 'o-', color=DETECTOR_COLORS[det],
-                     markersize=8, linewidth=2, label=f"Det {det}")
+    ax1.grid(True, alpha=0.25, linestyle='-', linewidth=1.5)
+    ax1.set_xticks(VOLTAGE_NUMS)
+    ax1.set_xlim(770, 930) # Padding to match the nice stretch
     
-    # Overlay old 800V jitter
-    for det in range(1, 5):
-        old_sig = OLD_JITTER[det]
-        ax2.plot(800, old_sig, 's', color=DETECTOR_COLORS[det], markersize=10,
-                 markeredgecolor='black', markeredgewidth=1.5, alpha=0.6)
+    ax1.legend(loc='upper left', frameon=True, framealpha=0.95, edgecolor='#BDBDBD')
     
-    ax2.plot([], [], 's', color='gray', markersize=10,
-             markeredgecolor='black', markeredgewidth=1.5, alpha=0.6,
-             label='Old Detectors (800V)')
-    
-    ax2.set_xlabel("Working Voltage (V)", fontsize=12)
-    ax2.set_ylabel("σ (ns)", fontsize=12)
-    ax2.legend(fontsize=10)
-    ax2.grid(True, alpha=0.3)
-    ax2.set_xticks(VOLTAGE_NUMS)
-    
-    plt.tight_layout(rect=[0, 0.03, 1, 0.94])
+    plt.tight_layout()
     out_path = os.path.join(RESULTS_BASE, "voltage_comparison_corrected.png")
-    plt.savefig(out_path, dpi=150)
+    plt.savefig(out_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"\nSaved comparison plot: {out_path}")
     

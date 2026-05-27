@@ -211,12 +211,19 @@ def generate_voltage_plots(voltage_str, data_dir, output_dir):
                      label=f"Landau Fit ({int(fit_range[0])}-{int(fit_range[1])} mV)\nMPV = {mpv:.1f} mV\nWidth = {popt[1]:.1f} mV")
                      
         ax.set_title(f"Detector {d}", fontsize=12, fontweight='bold')
-        ax.set_xlabel("Peak Amplitude (mV)", fontsize=10)
-        ax.set_ylabel("Probability Density", fontsize=10)
+        ax.set_xlabel("Peak Amplitude (mV)", fontsize=11, fontweight='bold', labelpad=8)
+        ax.set_ylabel("Probability Density", fontsize=11, fontweight='bold', labelpad=8)
         ax.grid(True, linestyle='--', color=COLORS["grid"], alpha=0.6)
         ax.legend(loc="upper right", fontsize=9, framealpha=0.9)
         ax.set_facecolor(COLORS["bg"])
         ax.set_xlim([0, 800])
+        
+        # Bold ticks and spines
+        ax.tick_params(axis='both', which='major', labelsize=10, width=1.5, length=5)
+        for tick in ax.get_xticklabels() + ax.get_yticklabels():
+            tick.set_fontweight('bold')
+        for spine in ax.spines.values():
+            spine.set_linewidth(1.5)
         
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
     landau_out = os.path.join(output_dir, f"landau_fits_grid_{voltage_str}.png")
@@ -225,9 +232,9 @@ def generate_voltage_plots(voltage_str, data_dir, output_dir):
     print(f"  Saved Landau Grid: {landau_out}")
     
     # -------------------------------------------------------------------------
-    # 2. GAUSSIAN TIMING JITTER FITS (2x3 Grid)
+    # 2. GAUSSIAN TIMING JITTER FITS (2x3 Grid - Sharey and Centered)
     # -------------------------------------------------------------------------
-    fig_g, axes_g = plt.subplots(2, 3, figsize=(18, 10.5))
+    fig_g, axes_g = plt.subplots(2, 3, figsize=(18, 10.5), sharey=True)
     axes_g = axes_g.flatten()
     fig_g.suptitle(f"Coincidence Timing Resolution Gaussian Fits - Cylindrical Stack ({voltage_str})", 
                    fontsize=16, fontweight='bold', y=0.98)
@@ -247,26 +254,41 @@ def generate_voltage_plots(voltage_str, data_dir, output_dir):
         sigma, popt = fit_gaussian_sigma(dt_centered, bins=50)
         fwhm = sigma * 2.355
         
-        limit_ns = max(4.0, min(8.0, 3.5 * sigma))
+        # Center x-axis strictly around the fitted Gaussian mean mu
+        mu = popt[1] if popt is not None else 0.0
         
-        # Plot data histogram with 50 bins
-        ax.hist(dt_centered, bins=50, range=(-limit_ns, limit_ns), density=True, alpha=0.6,
+        # Plot data histogram with 50 bins centered around mu - 5.0 to mu + 5.0 ns
+        ax.hist(dt_centered, bins=50, range=(mu - 5.0, mu + 5.0), density=True, alpha=0.6,
                 color="#0ea5e9", edgecolor="#0284c7", lw=0.8,
                 label=f"Data ({len(dt_data)} events)")
                 
         # Plot Gaussian fit
         if popt is not None:
-            x_fit = np.linspace(-limit_ns, limit_ns, 300)
+            x_fit = np.linspace(mu - 5.0, mu + 5.0, 300)
             ax.plot(x_fit, gaussian(x_fit, *popt), color=COLORS["fit"], lw=2.5,
                      label=f"Gaussian Fit\n$\\sigma_\\mathrm{{pair}}$ = {sigma:.3f} ns\nFWHM = {fwhm:.3f} ns")
                      
         ax.set_title(f"Pair {pair_key}", fontsize=12, fontweight='bold')
-        ax.set_xlabel("Timing Difference $\\Delta t$ (ns)", fontsize=10)
-        ax.set_ylabel("Probability Density", fontsize=10)
+        ax.set_xlabel("Timing Difference $\\Delta t$ (ns)", fontsize=11, fontweight='bold', labelpad=8)
+        
+        # Share y axis ticks, only show numbers and label on leftmost column (idx % 3 == 0)
+        if idx % 3 == 0:
+            ax.tick_params(labelleft=True)
+            ax.set_ylabel("Probability Density", fontsize=11, fontweight='bold', labelpad=8)
+        else:
+            ax.tick_params(labelleft=False)
+            
         ax.grid(True, linestyle='--', color=COLORS["grid"], alpha=0.6)
         ax.legend(loc="upper right", fontsize=9, framealpha=0.9)
         ax.set_facecolor(COLORS["bg"])
-        ax.set_xlim([-limit_ns, limit_ns])
+        ax.set_xlim([mu - 5.0, mu + 5.0])
+        
+        # Bold ticks and spines
+        ax.tick_params(axis='both', which='major', labelsize=10, width=1.5, length=5)
+        for tick in ax.get_xticklabels() + ax.get_yticklabels():
+            tick.set_fontweight('bold')
+        for spine in ax.spines.values():
+            spine.set_linewidth(1.5)
         
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
     jitter_out = os.path.join(output_dir, f"jitter_fits_grid_{voltage_str}.png")
@@ -292,6 +314,48 @@ def main():
     print("  ALL COMPREHENSIVE THESIS GRID FIGURES GENERATED!")
     print("  Grouped under: results/physical/cylindrical/")
     print("=======================================================")
+    
+    # -------------------------------------------------------------------------
+    # Copy to results/definitive/ directory for user review
+    # -------------------------------------------------------------------------
+    import shutil
+    definitive_dir = os.path.join(base_dir, 'results', 'definitive')
+    os.makedirs(definitive_dir, exist_ok=True)
+    
+    for voltage_str, _ in voltages:
+        # Copy Landau Grid
+        src_landau = os.path.join(output_dir, f"landau_fits_grid_{voltage_str}.png")
+        dest_landau = os.path.join(definitive_dir, f"landau_grid_cylindrical_{voltage_str}.png")
+        if os.path.exists(src_landau):
+            shutil.copy2(src_landau, dest_landau)
+            print(f"Copied: {src_landau} -> {dest_landau}")
+            
+        # Copy Jitter Grid
+        src_jitter = os.path.join(output_dir, f"jitter_fits_grid_{voltage_str}.png")
+        dest_jitter = os.path.join(definitive_dir, f"jitter_pairs_cylindrical_{voltage_str}.png")
+        if os.path.exists(src_jitter):
+            shutil.copy2(src_jitter, dest_jitter)
+            print(f"Copied: {src_jitter} -> {dest_jitter}")
+            
+    # Copy overall gain/jitter comparison curves if they exist
+    src_gain_curve = os.path.join(output_dir, "voltage_comparison_cylindrical.png")
+    dest_gain_curve = os.path.join(definitive_dir, "voltage_comparison_cylindrical.png")
+    if os.path.exists(src_gain_curve):
+        shutil.copy2(src_gain_curve, dest_gain_curve)
+        print(f"Copied: {src_gain_curve} -> {dest_gain_curve}")
+        
+    src_jitter_curve = os.path.join(output_dir, "jitter_comparison_cylindrical.png")
+    dest_jitter_curve = os.path.join(definitive_dir, "jitter_comparison_cylindrical.png")
+    if os.path.exists(src_jitter_curve):
+        shutil.copy2(src_jitter_curve, dest_jitter_curve)
+        print(f"Copied: {src_jitter_curve} -> {dest_jitter_curve}")
+        
+    # Copy cylindrical results text summary
+    src_txt = os.path.join(output_dir, "..", "cylindrical_results.txt")
+    dest_txt = os.path.join(definitive_dir, "cylindrical_results.txt")
+    if os.path.exists(src_txt):
+        shutil.copy2(src_txt, dest_txt)
+        print(f"Copied: {src_txt} -> {dest_txt}")
 
 if __name__ == "__main__":
     main()

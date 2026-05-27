@@ -106,7 +106,7 @@ def get_middle_detectors(config_str: str):
 # Analysis
 # =============================================================================
 
-def analyze_combined(voltage: str):
+def analyze_combined(voltage: str, custom_bins: int = None):
     """Run combined analysis for a voltage setting."""
     voltage_dir = os.path.join(config.DATA_DIR, f"run_stable_{voltage}")
     if not os.path.isdir(voltage_dir):
@@ -115,7 +115,7 @@ def analyze_combined(voltage: str):
     
     params = VOLTAGE_PARAMS.get(voltage, VOLTAGE_PARAMS["800V"])
     landau_range = params["landau_range"]
-    bins_count = params["bins"]
+    bins_count = custom_bins if custom_bins is not None else params["bins"]
     
     output_dir = os.path.join(RESULTS_BASE, voltage)
     os.makedirs(output_dir, exist_ok=True)
@@ -224,25 +224,48 @@ def analyze_combined(voltage: str):
     n = len(plot_data)
     cols = min(3, n)
     rows = (n + cols - 1) // cols
-    fig, axes = plt.subplots(rows, cols, figsize=(5 * cols, 4 * rows))
+    fig, axes = plt.subplots(rows, cols, figsize=(5 * cols, 4 * rows), sharey=True)
     if n == 1:
         axes = [axes]
     else:
         axes = axes.flatten()
-    fig.suptitle(f"Golden Pairs Jitter — {voltage}", fontsize=14, fontweight='bold')
+    fig.suptitle(f"Golden Pairs Jitter — {voltage}", fontsize=15, fontweight='bold', y=0.96)
     
     for i, (cfg, dA, dB, dt, pl_range, sigma, popt) in enumerate(plot_data):
         ax = axes[i]
         c = PAIR_COLORS[i % len(PAIR_COLORS)]
+        
+        # Center at the tip of the bell (mu)
+        mu = popt[1] if popt is not None else np.mean(dt)
+        
         cnt, bins, _ = ax.hist(dt, bins=40, range=pl_range, density=True, alpha=0.6, color=c)
         
         if popt is not None:
             x_fine = np.linspace(bins[0], bins[-1], 100)
             ax.plot(x_fine, gaussian(x_fine, *popt), 'k--', lw=1.5)
         
-        ax.set_title(f"Config {cfg}: Det {dA}-{dB}\nσ = {sigma:.3f} ns", fontweight='bold')
-        ax.set_xlabel("Δt (ns)")
-        ax.grid(True, alpha=0.3)
+        ax.set_title(f"Config {cfg}: Det {dA}-{dB}\nσ = {sigma:.3f} ns", fontsize=12, fontweight='bold')
+        
+        # Bold axis labels
+        ax.set_xlabel("Δt (ns)", fontsize=11, fontweight='bold', labelpad=6)
+        
+        # Share y axis ticks, only show numbers and label on leftmost column
+        if i % cols == 0:
+            ax.tick_params(labelleft=True)
+            ax.set_ylabel("Density", fontsize=11, fontweight='bold', labelpad=6)
+        else:
+            ax.tick_params(labelleft=False)
+            
+        ax.set_xlim(mu - 5.0, mu + 5.0)
+        
+        # Format ticks
+        ax.tick_params(axis='both', which='major', labelsize=10, width=1.5, length=5)
+        for tick in ax.get_xticklabels() + ax.get_yticklabels():
+            tick.set_fontweight('bold')
+        for spine in ax.spines.values():
+            spine.set_linewidth(1.5)
+            
+        ax.grid(True, linestyle=':', alpha=0.5)
     
     for i in range(n, len(axes)):
         axes[i].set_visible(False)
@@ -297,25 +320,25 @@ def analyze_combined(voltage: str):
     # Grid plot: 4 detectors × (up to 3 individual + 1 combined)
     max_individual = 3
     n_cols = max_individual + 1
-    # Remove sharex=True so each detector can dynamically scale
-    fig, axes = plt.subplots(4, n_cols, figsize=(5 * n_cols, 16))
-    plt.subplots_adjust(hspace=0.45, wspace=0.2)
-    fig.suptitle(f"Combined Landau: {voltage} (Middle Position Only)", fontsize=16, fontweight='bold')
+    fig, axes = plt.subplots(n_cols, 4, figsize=(22, 17), sharex='col', sharey='row')
+    plt.subplots_adjust(hspace=0.35, wspace=0.12)
+    fig.suptitle(f"Landau Fits: Individual Middle Runs vs Combined (Physical Collimation) — {voltage}", fontsize=20, fontweight='bold', y=0.96)
+    
+    colors = ['royalblue', 'orange', 'green', 'crimson']
     
     for det_idx in range(4):
         det_id = det_idx + 1
         runs = det_run_data[det_id]
         combined = det_middle_amps[det_id]
-        color = DETECTOR_COLORS[det_id]
         
         # Individual runs (first max_individual)
-        for col in range(max_individual):
-            ax = axes[det_idx, col]
-            if col < len(runs):
-                cfg, amps = runs[col]
+        for row in range(max_individual):
+            ax = axes[row, det_idx]
+            if row < len(runs):
+                cfg, amps = runs[row]
                 amps = np.array(amps)
                 y, x, _ = ax.hist(amps, bins=bins_count, range=landau_range,
-                                  density=False, histtype='stepfilled', alpha=0.4, color=color)
+                                  density=False, histtype='stepfilled', alpha=0.4, color=colors[det_idx])
                 bin_centers = (x[:-1] + x[1:]) / 2
                 
                 if len(amps) > 0 and np.max(y) > 0:
@@ -331,29 +354,73 @@ def analyze_combined(voltage: str):
                                             maxfev=10000)
                         x_fine = np.linspace(landau_range[0], landau_range[1], 200)
                         ax.plot(x_fine, landau_fit_func(x_fine, *popt), 'k--', lw=1.5)
-                        # Zoom in nicely around the fitted MPV
-                        ax.set_xlim(max(0, popt[0] - 0.08), min(landau_range[1], popt[0] + 0.18))
                         
-                        ax.text(0.95, 0.95, f"MPV: {popt[0]*1000:.1f} mV\nN: {len(amps)}",
-                                transform=ax.transAxes, ha='right', va='top', fontsize=9,
+                        mpv_mV = popt[0] * 1000
+                        ax.text(0.95, 0.95, f"MPV: {mpv_mV:.1f} mV\nN: {len(amps)}",
+                                transform=ax.transAxes, ha='right', va='top', fontsize=15, fontweight='bold',
                                 bbox=dict(boxstyle='round', facecolor='white', alpha=0.7))
                     except Exception as e:
                         print(f"    [Warning] Det {det_id} @ {cfg} fit failed: {e}")
                         ax.text(0.95, 0.95, f"Fit Failed\nN: {len(amps)}",
-                                transform=ax.transAxes, ha='right', va='top', fontsize=9, color='red')
+                                transform=ax.transAxes, ha='right', va='top', fontsize=15, fontweight='bold', color='red')
                 
-                ax.set_title(f"Det {det_id} @ {cfg}", fontsize=10)
+                ax.set_title(f"Detector {det_id} @ Config {cfg}", fontsize=13, fontweight='bold')
+                
+                if det_idx == 0:
+                    ax.set_ylabel("Counts", fontsize=13, fontweight='bold', labelpad=8)
+                
+                # X axis limits & ticks by voltage and detector column
+                if voltage == "800V":
+                    if det_idx < 3:
+                        ax.set_xlim(0.225, 0.35)
+                        ax.set_xticks([0.25, 0.30, 0.35])
+                    else:
+                        ax.set_xlim(0.275, 0.40)
+                        ax.set_xticks([0.30, 0.35, 0.40])
+                elif voltage == "850V":
+                    if det_idx < 3:
+                        ax.set_xlim(0.25, 0.375)
+                        ax.set_xticks([0.25, 0.30, 0.35])
+                    else:
+                        ax.set_xlim(0.325, 0.45)
+                        ax.set_xticks([0.35, 0.40, 0.45])
+                elif voltage == "900V":
+                    if det_idx == 0:
+                        ax.set_xlim(0.325, 0.45)
+                        ax.set_xticks([0.35, 0.40, 0.45])
+                    elif det_idx == 1 or det_idx == 2:
+                        ax.set_xlim(0.30, 0.425)
+                        ax.set_xticks([0.30, 0.35, 0.40])
+                    else:  # det_idx == 3
+                        ax.set_xlim(0.40, 0.525)
+                        ax.set_xticks([0.40, 0.45, 0.50])
+                else:
+                    if det_idx < 3:
+                        ax.set_xlim(0.225, 0.35)
+                        ax.set_xticks([0.25, 0.30, 0.35])
+                    else:
+                        ax.set_xlim(0.275, 0.40)
+                        ax.set_xticks([0.30, 0.35, 0.40])
+                    
+                ax.tick_params(axis='both', which='major', labelsize=12, width=2.0, length=6)
+                
+                # Explicitly manage label visibility
+                if det_idx == 0:
+                    ax.tick_params(labelleft=True)
+                else:
+                    ax.tick_params(labelleft=False)
+                ax.tick_params(labelbottom=False)  # Never show x labels on individual runs
+                
+                for tick in ax.get_xticklabels() + ax.get_yticklabels():
+                    tick.set_fontweight('bold')
+                for spine in ax.spines.values():
+                    spine.set_linewidth(2.0)
+                ax.grid(True, which='both', linestyle=':', alpha=0.5)
             else:
                 ax.axis('off')
-            
-            if det_idx == 3:
-                ax.set_xlabel("Amplitude (V)")
-            if col == 0:
-                ax.set_ylabel("Counts")
-            ax.grid(True, alpha=0.3)
         
-        # Combined column
-        ax_comb = axes[det_idx, max_individual]
+        # Combined row (index max_individual = 3)
+        ax_comb = axes[max_individual, det_idx]
         combined_arr = np.array(combined)
         
         y, x, _ = ax_comb.hist(combined_arr, bins=bins_count, range=landau_range,
@@ -373,27 +440,82 @@ def analyze_combined(voltage: str):
                                     maxfev=10000)
                 x_fine = np.linspace(landau_range[0], landau_range[1], 200)
                 ax_comb.plot(x_fine, landau_fit_func(x_fine, *popt), 'k--', lw=1.5)
-                # Zoom in nicely around the fitted MPV
-                ax_comb.set_xlim(max(0, popt[0] - 0.08), min(landau_range[1], popt[0] + 0.18))
                 
                 mpv_mV = popt[0] * 1000
                 combined_mpvs[det_id] = mpv_mV
                 ax_comb.text(0.95, 0.95, f"MPV: {mpv_mV:.1f} mV\nN: {len(combined_arr)}",
-                             transform=ax_comb.transAxes, ha='right', va='top', fontsize=9,
+                             transform=ax_comb.transAxes, ha='right', va='top', fontsize=15, fontweight='bold',
                              bbox=dict(boxstyle='round', facecolor='white', alpha=0.7))
                 print(f"  Det {det_id}: Combined MPV = {mpv_mV:.1f} mV (N = {len(combined_arr)})")
             except Exception as e:
                 print(f"  Det {det_id}: Combined fit failed: {e}")
         
-        ax_comb.set_title(f"Det {det_id} Combined", fontsize=10, fontweight='bold')
-        ax_comb.grid(True, alpha=0.3)
-        if det_idx == 3:
-            ax_comb.set_xlabel("Amplitude (V)")
+        ax_comb.set_title(f"Detector {det_id} Combined", fontsize=14, fontweight='bold')
+        
+        # X axis limits & ticks by voltage and detector column
+        if voltage == "800V":
+            if det_idx < 3:
+                ax_comb.set_xlim(0.225, 0.35)
+                ax_comb.set_xticks([0.25, 0.30, 0.35])
+            else:
+                ax_comb.set_xlim(0.275, 0.40)
+                ax_comb.set_xticks([0.30, 0.35, 0.40])
+        elif voltage == "850V":
+            if det_idx < 3:
+                ax_comb.set_xlim(0.25, 0.375)
+                ax_comb.set_xticks([0.25, 0.30, 0.35])
+            else:
+                ax_comb.set_xlim(0.325, 0.45)
+                ax_comb.set_xticks([0.35, 0.40, 0.45])
+        elif voltage == "900V":
+            if det_idx == 0:
+                ax_comb.set_xlim(0.325, 0.45)
+                ax_comb.set_xticks([0.35, 0.40, 0.45])
+            elif det_idx == 1 or det_idx == 2:
+                ax_comb.set_xlim(0.30, 0.425)
+                ax_comb.set_xticks([0.30, 0.35, 0.40])
+            else:  # det_idx == 3
+                ax_comb.set_xlim(0.40, 0.525)
+                ax_comb.set_xticks([0.40, 0.45, 0.50])
+        else:
+            if det_idx < 3:
+                ax_comb.set_xlim(0.225, 0.35)
+                ax_comb.set_xticks([0.25, 0.30, 0.35])
+            else:
+                ax_comb.set_xlim(0.275, 0.40)
+                ax_comb.set_xticks([0.30, 0.35, 0.40])
+            
+        ax_comb.tick_params(axis='both', which='major', labelsize=12, width=2.0, length=6)
+        
+        # Explicitly manage label visibility for combined row
+        if det_idx == 0:
+            ax_comb.tick_params(labelleft=True)
+            ax_comb.set_ylabel("Counts", fontsize=13, fontweight='bold', labelpad=8)
+        else:
+            ax_comb.tick_params(labelleft=False)
+            
+        ax_comb.tick_params(labelbottom=True)  # Bottom row always shows x-tick numbers
+        ax_comb.set_xlabel("Amplitude (V)", fontsize=13, fontweight='bold', labelpad=8)
+        
+        for tick in ax_comb.get_xticklabels() + ax_comb.get_yticklabels():
+            tick.set_fontweight('bold')
+        for spine in ax_comb.spines.values():
+            spine.set_linewidth(2.0)
+        ax_comb.grid(True, which='both', linestyle=':', alpha=0.5)
     
     landau_plot_path = os.path.join(output_dir, f"{voltage}_combined_landau_grid.png")
-    plt.savefig(landau_plot_path, dpi=config.DEFAULT_DPI)
+    plt.savefig(landau_plot_path, dpi=config.DEFAULT_DPI, bbox_inches='tight')
+    
+    # Save sweep file with specific bin count in filename for easy comparison
+    sweep_plot_path = os.path.join(output_dir, f"{voltage}_combined_landau_grid_{bins_count}bins.png")
+    plt.savefig(sweep_plot_path, dpi=config.DEFAULT_DPI, bbox_inches='tight')
+    
+    if voltage == "800V":
+        dest_path = os.path.join(PROJECT_ROOT, "results", "physical", "combined_landau_grid.png")
+        plt.savefig(dest_path, dpi=config.DEFAULT_DPI, bbox_inches='tight')
     plt.close()
     print(f"\nSaved: {landau_plot_path}")
+    print(f"Saved: {sweep_plot_path}")
     
     # =========================================================================
     # Summary & Comparison with Old Results

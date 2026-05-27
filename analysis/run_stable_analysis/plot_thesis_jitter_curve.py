@@ -22,13 +22,13 @@ DETECTOR_COLORS = {
     4: '#FFB74D', # Orange
 }
 
-# Values extracted from voltage_comparison_summary.txt
+# Values extracted from voltage_comparison_summary_corrected.txt
 VOLTAGES = [800, 850, 900]
 NEW_JITTER = {
-    1: [0.5758, 0.4940, 0.4987],
-    2: [0.5489, 0.5587, 0.4794],
-    3: [0.6544, 0.6462, 0.5825],
-    4: [0.4600, 0.4814, 0.4961]
+    1: [0.5660, 0.4482, 0.4972],
+    2: [0.5375, 0.5448, 0.4952],
+    3: [0.6555, 0.6454, 0.5821],
+    4: [0.4735, 0.5140, 0.4932]
 }
 
 # Previous 800V baseline for context
@@ -39,7 +39,7 @@ OLD_JITTER = {
     4: 0.5310
 }
 
-RESULTS_BASE = os.path.join(PROJECT_ROOT, "results", "physical", "run_stable_results")
+RESULTS_BASE = os.path.join(PROJECT_ROOT, "results", "physical", "run_stable_results_corrected")
 
 def main():
     os.makedirs(RESULTS_BASE, exist_ok=True)

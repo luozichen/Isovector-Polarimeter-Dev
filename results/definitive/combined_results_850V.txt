@@ -1,0 +1,22 @@
+Combined Analysis Results: 850V
+============================================================
+
+Combined Landau MPVs (Middle Position, Physical Collimation):
+  Det 1: 307.1 mV
+  Det 2: 290.2 mV
+  Det 3: 285.2 mV
+  Det 4: 380.9 mV
+
+Golden Pairs Jitter (6 configs):
+  Det 1: σ = 0.4482 ns  (FWHM = 1.0555 ns)
+  Det 2: σ = 0.5448 ns  (FWHM = 1.2830 ns)
+  Det 3: σ = 0.6454 ns  (FWHM = 1.5199 ns)
+  Det 4: σ = 0.5140 ns  (FWHM = 1.2104 ns)
+
+Validation (Measured vs Predicted pair σ):
+  3-4 (1342): measured=0.8328, predicted=0.8250, Δ=+0.0078 ns
+  1-4 (3142): measured=0.6724, predicted=0.6819, Δ=-0.0095 ns
+  1-2 (3124): measured=0.7146, predicted=0.7055, Δ=+0.0091 ns
+  1-3 (2134): measured=0.7857, predicted=0.7857, Δ=-0.0000 ns
+  2-3 (1234): measured=0.8369, predicted=0.8446, Δ=-0.0077 ns
+  2-4 (1243): measured=0.7489, predicted=0.7490, Δ=-0.0000 ns
