@@ -214,7 +214,7 @@ def generate_voltage_plots(voltage_str, data_dir, output_dir):
         ax.set_xlabel("Peak Amplitude (mV)", fontsize=11, fontweight='bold', labelpad=8)
         ax.set_ylabel("Probability Density", fontsize=11, fontweight='bold', labelpad=8)
         ax.grid(True, linestyle='--', color=COLORS["grid"], alpha=0.6)
-        ax.legend(loc="upper right", fontsize=9, framealpha=0.9)
+        ax.legend(loc="upper right", prop={'weight': 'bold', 'size': 11}, framealpha=0.9)
         ax.set_facecolor(COLORS["bg"])
         ax.set_xlim([0, 800])
         
@@ -279,7 +279,7 @@ def generate_voltage_plots(voltage_str, data_dir, output_dir):
             ax.tick_params(labelleft=False)
             
         ax.grid(True, linestyle='--', color=COLORS["grid"], alpha=0.6)
-        ax.legend(loc="upper right", fontsize=9, framealpha=0.9)
+        ax.legend(loc="upper right", prop={'weight': 'bold', 'size': 11}, framealpha=0.9)
         ax.set_facecolor(COLORS["bg"])
         ax.set_xlim([mu - 5.0, mu + 5.0])
         
