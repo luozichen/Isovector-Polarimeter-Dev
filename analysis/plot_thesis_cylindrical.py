@@ -200,30 +200,31 @@ def generate_voltage_plots(voltage_str, data_dir, output_dir):
         
         # Plot data histogram on the full wide range (10 to 800 mV)
         ax.hist(amps, bins=100, range=(10, 800), density=True, alpha=0.55, 
-                color=COLORS[d], edgecolor=COLORS[d], lw=0.8, 
-                label=f"Data ({len(amps)} events)")
+                color=COLORS[d], edgecolor=COLORS[d], lw=0.8)
                 
         # Draw the fit curve plotted over the fitted range
         if popt is not None:
             fit_range = (start_fit, 550.0)
             x_fit = np.linspace(fit_range[0], fit_range[1], 300)
-            ax.plot(x_fit, landau_fit_func(x_fit, *popt), color=COLORS["fit"], lw=2.5,
-                     label=f"Landau Fit ({int(fit_range[0])}-{int(fit_range[1])} mV)\nMPV = {mpv:.1f} mV\nWidth = {popt[1]:.1f} mV")
+            ax.plot(x_fit, landau_fit_func(x_fit, *popt), 'k--', lw=1.5)
+            
+            text_str = f"MPV: {mpv:.1f} mV\nN: {len(amps)}"
+            ax.text(0.95, 0.95, text_str, transform=ax.transAxes, ha='right', va='top', 
+                    fontsize=11, fontweight='bold', 
+                    bbox=dict(boxstyle='round', facecolor='white', alpha=0.7, edgecolor='#BDBDBD'))
                      
         ax.set_title(f"Detector {d}", fontsize=12, fontweight='bold')
         ax.set_xlabel("Peak Amplitude (mV)", fontsize=11, fontweight='bold', labelpad=8)
         ax.set_ylabel("Probability Density", fontsize=11, fontweight='bold', labelpad=8)
-        ax.grid(True, linestyle='--', color=COLORS["grid"], alpha=0.6)
-        ax.legend(loc="upper right", prop={'weight': 'bold', 'size': 11}, framealpha=0.9)
-        ax.set_facecolor(COLORS["bg"])
+        ax.grid(True, linestyle=':', alpha=0.5)
         ax.set_xlim([0, 800])
         
         # Bold ticks and spines
-        ax.tick_params(axis='both', which='major', labelsize=10, width=1.5, length=5)
+        ax.tick_params(axis='both', which='major', labelsize=10, width=2.0, length=6)
         for tick in ax.get_xticklabels() + ax.get_yticklabels():
             tick.set_fontweight('bold')
         for spine in ax.spines.values():
-            spine.set_linewidth(1.5)
+            spine.set_linewidth(2.0)
         
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
     landau_out = os.path.join(output_dir, f"landau_fits_grid_{voltage_str}.png")
@@ -236,9 +237,10 @@ def generate_voltage_plots(voltage_str, data_dir, output_dir):
     # -------------------------------------------------------------------------
     fig_g, axes_g = plt.subplots(2, 3, figsize=(18, 10.5), sharey=True)
     axes_g = axes_g.flatten()
-    fig_g.suptitle(f"Coincidence Timing Resolution Gaussian Fits - Cylindrical Stack ({voltage_str})", 
+    fig_g.suptitle(f"Coincidence Timing Jitter - Cylindrical Stack ({voltage_str})", 
                    fontsize=16, fontweight='bold', y=0.98)
     
+    PAIR_COLORS = ['#5C6BC0', '#26A69A', '#AB47BC', '#EF5350', '#42A5F5', '#66BB6A']
     pairs = ["1-3", "1-5", "1-6", "3-5", "3-6", "5-6"]
     for idx, pair_key in enumerate(pairs):
         ax = axes_g[idx]
@@ -258,29 +260,26 @@ def generate_voltage_plots(voltage_str, data_dir, output_dir):
         mu = popt[1] if popt is not None else 0.0
         
         # Plot data histogram with 50 bins centered around mu - 5.0 to mu + 5.0 ns
+        c = PAIR_COLORS[idx % len(PAIR_COLORS)]
         ax.hist(dt_centered, bins=50, range=(mu - 5.0, mu + 5.0), density=True, alpha=0.6,
-                color="#0ea5e9", edgecolor="#0284c7", lw=0.8,
-                label=f"Data ({len(dt_data)} events)")
+                color=c)
                 
         # Plot Gaussian fit
         if popt is not None:
             x_fit = np.linspace(mu - 5.0, mu + 5.0, 300)
-            ax.plot(x_fit, gaussian(x_fit, *popt), color=COLORS["fit"], lw=2.5,
-                     label=f"Gaussian Fit\n$\\sigma_\\mathrm{{pair}}$ = {sigma:.3f} ns\nFWHM = {fwhm:.3f} ns")
+            ax.plot(x_fit, gaussian(x_fit, *popt), 'k--', lw=1.5)
                      
-        ax.set_title(f"Pair {pair_key}", fontsize=12, fontweight='bold')
+        ax.set_title(f"Pair {pair_key}\n$\\sigma$ = {sigma:.3f} ns", fontsize=12, fontweight='bold')
         ax.set_xlabel("Timing Difference $\\Delta t$ (ns)", fontsize=11, fontweight='bold', labelpad=8)
         
         # Share y axis ticks, only show numbers and label on leftmost column (idx % 3 == 0)
         if idx % 3 == 0:
             ax.tick_params(labelleft=True)
-            ax.set_ylabel("Probability Density", fontsize=11, fontweight='bold', labelpad=8)
+            ax.set_ylabel("Density", fontsize=11, fontweight='bold', labelpad=8)
         else:
             ax.tick_params(labelleft=False)
             
-        ax.grid(True, linestyle='--', color=COLORS["grid"], alpha=0.6)
-        ax.legend(loc="upper right", prop={'weight': 'bold', 'size': 11}, framealpha=0.9)
-        ax.set_facecolor(COLORS["bg"])
+        ax.grid(True, linestyle=':', alpha=0.5)
         ax.set_xlim([mu - 5.0, mu + 5.0])
         
         # Bold ticks and spines
