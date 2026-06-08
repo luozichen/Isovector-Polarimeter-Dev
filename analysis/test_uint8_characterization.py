@@ -18,7 +18,7 @@ from utils.wfm import WfmReader
 from analysis import config
 from analysis.utils.physics import landau_fit_func, get_dcfd_time, gaussian
 
-SIM_REF_MPV_MEV = 1.85
+SIM_REF_MPV_MEV = 1.69
 
 class UnsignedWfmReader(WfmReader):
     """ Override read_data to use uint8 instead of int8. """

@@ -36,7 +36,12 @@ DETECTOR_COLORS = {
     4: '#FFB74D',
 }
 
-OLD_CALIBRATION = config.CALIBRATION
+OLD_CALIBRATION = {
+    1: {"mpv_mV": 277.16},
+    2: {"mpv_mV": 257.40},
+    3: {"mpv_mV": 264.44},
+    4: {"mpv_mV": 299.42},
+}
 OLD_JITTER = config.JITTER_SIGMA_NS
 
 VOLTAGES = ["800V", "850V", "900V"]

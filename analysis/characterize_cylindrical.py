@@ -27,8 +27,8 @@ from utils.wfm import WfmReader
 from analysis import config
 from analysis.utils.physics import landau_fit_func, get_dcfd_time, gaussian
 
-# Reference simulation energy MPV (extracted from v0600 simulation, ~1.85 MeV)
-SIM_REF_MPV_MEV = 1.85
+# Reference simulation energy MPV (extracted from v0600 simulation, ~1.69 MeV)
+SIM_REF_MPV_MEV = 1.69
 
 def fit_gaussian_sigma(data: np.ndarray, bins: int = 50) -> tuple:
     """ Fits a Gaussian to the data and returns (sigma, popt). """

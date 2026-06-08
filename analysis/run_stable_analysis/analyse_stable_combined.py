@@ -52,7 +52,12 @@ DETECTOR_COLORS = {
 PAIR_COLORS = ['#5C6BC0', '#26A69A', '#AB47BC', '#EF5350', '#42A5F5', '#66BB6A']
 
 # Previous results from config.py (old detectors, 800V)
-OLD_CALIBRATION = config.CALIBRATION
+OLD_CALIBRATION = {
+    1: {"mpv_mV": 277.16},
+    2: {"mpv_mV": 257.40},
+    3: {"mpv_mV": 264.44},
+    4: {"mpv_mV": 299.42},
+}
 OLD_JITTER = config.JITTER_SIGMA_NS
 
 
